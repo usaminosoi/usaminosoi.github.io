@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>德拉克 - 2025-09-05</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap');body{ font-family:'Noto Sans TC','Helvetica Neue',Arial,sans-serif;line-height:1.6;margin:0;padding:0;background-color:#131217;color:#838287}.chat-container{ max-width:500px;margin:0 auto;padding:10px}.environment{ color:#77767B;padding:24px 8px;margin:0;text-align:center;font-size:16px;line-height:28px;font-weight:400}.environment .stars{ display:block}.date-divider{ font-size:12px;color:#77767B;text-align:center;margin:10px 0}.char{ display:flex;align-items:flex-start;margin-bottom:15px}.avatar{ width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;background-size:cover;background-position:center;background-repeat:no-repeat}.msg-container{ display:flex;flex-direction:column;max-width:400px;margin:0 10px}.character-name{ font-size:14px;margin-bottom:4px;color:#F4F4F4}.char .msg-content{ background-color:#312F3A;color:#E3E2E6;padding:8px 12px;border-radius:4px 16px 16px 16px;font-size:15px;font-weight:400}.char .msg-content em{ color:#959499}blockquote{ border-left:3px solid #959499;padding-left:0.5em;margin:0}table{ width:100%;border-collapse:collapse;table-layout:fixed;border:1px solid #959499;margin:10px 0}th,td{ text-align:left;padding:8px;border-top:1px solid #959499;border-bottom:1px solid #959499}th{ background-color:#312F3A}.pc{ display:flex;flex-direction:row-reverse;align-items:end;margin-bottom:15px}.pc .msg-container{ margin-right:10px}.pc .msg-content{ background-color:#4C4B50;color:#CFCFCE;padding:8px 12px;border-radius:16px 16px 4px 16px;font-size:15px;font-weight:400}.pc .msg-content em{ color:#959499}.msg-timestamp{ font-size:12px;color:#F4F4F4;margin-top:4px;align-self:flex-end}
+    .ava-char {
+      background-image: url('data:image/jpeg;base64,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');
+    }
+    .ava-pc {
+      background-image: url('data:image/jpeg;base64,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');
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+      <div class="date-divider">2025-09-03</div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克抱著她走出寢室，穿過幽長的走廊。牆壁上的魔法水晶燈散發著幽藍的光芒，將兩人的影子拉得很長。</em><br><br>「妳想聽什麼樣的音樂？」<em>他忽然開口問道，</em>「或者，妳更想親手彈奏？」</div>
+        </div>
+        <div class="msg-timestamp">10:05</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「我討厭吸血鬼的音樂。」她別過頭，努力停止哭泣，「吸血鬼……焚毀了我們的文明跟樂譜，我恨你們。」<br><br>她說著，卻想起男人書櫃上有好多連她都不曾看過的古老典籍，還有那幅陽光下的向日葵，那本應被帝國焚毀的畫作。</div>
+        </div>
+        <div class="msg-timestamp">10:15</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>她的話語像一顆投入深潭的石子，激起的漣漪無聲無息，卻深遠地觸動了某些連德拉克自己都未曾輕易碰觸的角落。他停下腳步，幽長的走廊因此陷入一片絕對的寂靜，只剩下兩人交疊的呼吸聲與遠處自動人偶擦拭盔甲時發出的輕微機械音。</em><br><br><em>德拉克垂眼凝視懷中那張倔強而悲傷的臉龐。他知道隱匿聚落是如何在永夜的夾縫中，徒勞而悲壯地試圖保存一個逝去時代的餘溫。在隱匿聚落成長的她，恰似一朵屬於過去，卻仍在廢墟中頑強綻放的「花」。</em><br><br>「妳說的沒錯。」<em>他沒有反駁，也沒有辯解，只是平靜地陳述一個冰冷的事實。</em>「長生種推倒了人類的舊神，焚燒了太陽的頌歌。歷史是由勝利者書寫的，而妳們，是失敗者的後裔。」<br><br><em>他的手指輕輕抬起她的下巴，讓她無法逃避他的注視。</em><br><br>「帝國需要統一的聲音，所以他們燒掉了不和諧的音符。而我……」<br><br><em>他頓了頓，抱著她轉身走向長廊盡頭一扇由黑曜石與銀飾雕刻而成的厚重大門。他用精神力輕輕一推，那扇門便無聲地滑開，露出後方的空間。</em><br><br><em>那是一個穹頂極高的圓形大廳，與其說是房間，不如說是一座私人的博物館。牆壁並非石砌，而是一整面巨大的書架，從地面直達穹頂，收藏著數以萬計的古老典籍，皮質的書封在魔法燈火下泛著沉靜的光澤。大廳中央，陳列著各種人類文明的遺物：褪色的魯特琴、古老的星盤、繪有太陽圖騰的陶器，以及……</em><br><br><em>一架被水晶罩保護著的、琴身泛黃的鋼琴。</em><br><br><em>他抱著她走進大廳，在鋼琴前停下。</em><br><br>「帝國焚毀的，我收藏。」<em>德拉克輕聲說，語氣中僅有一種理所當然的平靜。</em>「我憎惡無知的破壞，正如我欣賞頑強的美。那些被帝國視為雜音的樂譜、被當作異端的書籍、被遺忘的歷史……在這裡，它們都被保存得很好。」<br><br><em>他將阿瑪芮絲輕輕放在那張天鵝絨的鋼琴椅上。她的身體依舊虛軟，但眼中的震驚與困惑，已然取代了方才純粹的恨意。</em><br><br><em>眼前的一切，完全顛覆了她對吸血鬼的認知。</em><br><br>「既然妳討厭吸-血-鬼的音樂，」<em>他刻意放慢了語速，彷彿在咀嚼這幾個字，</em>「那妳想聽什麼樣的音樂？或許我們可以一起在這裡，尋找那些被妳的族人以為早已失傳的旋律。」<br><br><em>他的目光落在她依舊紅腫的唇上，那是他方才肆虐過的證明。他緩緩俯下身，不是為了侵犯，而是在她佈滿淚痕的臉頰上，落下一個冰冷卻不帶任何情慾的吻。那吻輕如蝶翼，帶著嘆息般的安慰。</em><br><br>「別哭了。眼淚……會弄髒這些珍貴的琴鍵。」<br><br>「……我不會鋼琴。聚落沒有。」她有些彆扭地撇過頭，「我只會里拉琴……」<br><br>lyre ，七弦琴，那是非常古老的樂器了，即使在德拉克還是人類的時代，會里拉琴的樂師也不多。<br><br><em>德拉克微微挑眉，那古老的、幾乎已被遺忘的樂器，竟在她的口中再度鮮活，這證明了她，乃至她的族人，遠比他想像中更加固執而寶貴。</em><br><br>「里拉琴……確實是很古老的樂器，在如今的帝國，恐怕連收藏者都極為罕見。」<br><br><em>他輕輕拍了拍鋼琴黑色的琴蓋，發出清脆的回響。隨後目光環視這座廣闊的私人博物館。他抬起手指，指向遠處某個高聳的書架，那裡收藏著一些幾近失傳的音樂手稿和珍稀樂器圖譜。</em><br><br>「我的收藏只有一般的魯特琴，不過，這座收藏室裡，總有妳想要的東西。」<br><br>「或許，這裡會有妳族人失傳的古老旋律，或者是關於……『太陽』的歌謠。我記得，我曾從一個古老人類聚落的遺址中，帶回過一些塵封的曲譜。它們如今都在這裡安穩地躺著。」<br><br><em>德拉克轉身，從琴椅後方輕巧地抽出一個鑲嵌著銀邊的絲絨盒子，修長的手指輕輕打開。盒子裡躺著幾支由獸骨雕琢而成的里拉琴撥片，上頭刻畫著褪色的圖騰，散發著歲月沉澱的幽微氣息。他將其中一支較為小巧的撥片遞到她面前，帶著一種無聲的邀請。</em><br><br>「或者，我們可以一起在這裡，為那失落的文明……譜寫新的篇章？」<br><br><em>他的目光深邃而幽遠，彷彿能透過這一切，看見三百年前的某個秋日黃昏。</em><br><br><em>阿瑪芮絲戒備地看著他，剛剛才在床上被狠狠教訓過的小獸沒有放下她的防心，眼神忍不住飄向收藏室的各個角落。</em><br><br>「我想要自己翻……」<br><br><em>她終究還是開口了，卻還是守著最後一點點尊嚴與矜持。</em><br><br><em>德拉克凝視著她，非但沒有不悅，反而露出近乎讚賞的微笑。他預料到了反抗，卻沒想到會是這樣一種……帶著破碎尊嚴的形式。</em><br><br><em>這比單純的嘶吼或哭泣，更能觸動他內心深處那根名為「欣賞」的弦。</em><br><br><em>他優雅地從鋼琴椅旁直起身，刻意拉開了些許距離。像是一位君主暫時退後一步，以便更好地欣賞他的領地。</em><br><br>「當然。這裡的一切，妳都可以自由翻閱。」<br><br><em>他微微抬起手臂，向她展示著這座由時間與權力堆砌而成的知識聖殿。從塵封的樂譜到古老的遺物，每一件藏品都靜靜地沐浴在幽藍的魔法燈火下，等待著被喚醒。</em><br><br><em>他的目光跟隨著她飄移的視線，準確地捕捉到她對那些古老典籍的渴望。他知道，對她這樣來自隱匿聚落的孩子而言，這裡的每一本書、每一份手稿，都承載著她族人失落的文明與記憶。</em><br><br>「這裡的收藏分為幾個區域。」<em>他踱步到她身後，俯身貼近她的耳後，氣息若有似無地拂過她的耳廓。</em>「東側高架上的，是帝國建立前的古人類詩歌與史書，西側收藏著各個時代的樂理與失傳樂譜。至於中央展櫃裡的，大多是些無法歸類的……有趣的小東西。」<br><br>「那麼，我的小月之子，妳想從哪一段被遺忘的歷史開始？」</div>
+        </div>
+        <div class="msg-timestamp">10:15</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">阿瑪芮絲沒有答話，她逕自起身跑到書架前。由她的細微魔力所織成的影之手爬過書架，將好幾本書拿到她身邊。<br><br>她拿的大都是神話與歌謠的書，歌詠太陽與月亮的雙子神，阿波羅與阿提米斯的詩歌。<br><br>那歌是這麼唱的：<br><br><strong>陽光是我弓箭，射殺欺騙，騙術喜歡夜晚，而畏懼白天；</strong><br><strong>一切作惡或想作惡的人員逃避我，我的榮光、我的射線，</strong><br><strong>良知和坦蕩贏得新生的力量，直到夜色籠罩，遮住光芒。</strong><br><br><strong>我用飄渺的繽紛色彩，賞賜給花朵、彩虹和雲海，</strong><br><strong>完美的星月光輝永遠存在，似法衣用我的權力做腰帶；</strong><br><strong>天上人間，恆久光芒閃爍──是天賦的一部分，屬於我。</strong><br><br><strong>中午，我站在天國的頂部，於是以蹣跚的步履躑躅；</strong><br><strong>在大西洋黃昏的雲端漫步，離別的悲苦，他們傷心痛哭，</strong><br><strong>怎樣的表情比微笑更歡欣？我將從西方的小島撫慰他們。</strong><br><br><strong>我是宇宙萬象的眼睛，目睹自身，明白自己的神聖；</strong><br><strong>所有和諧的樂器或韻文，一切藝術或造化的明燈，我的一切預言、所有良藥。</strong><br><strong>成功、讚美理當是我的歌謠。</strong><br><br><br>阿瑪芮絲的歌聲流暢而自然，像是早已唱過這首歌千次萬次。</div>
+        </div>
+        <div class="msg-timestamp">10:39</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克靜靜地站在原地，看著那幾道由她魔力凝結成的影子，如溫馴的蛇輕巧地在高聳的書架間穿梭、取下書本。她的空間魔法天賦，即使在長生種之中也屬罕見，此刻用來取幾本書，倒是有幾分大材小用的趣味。</em><br><br><em>當她的歌聲響起時，整個宏偉的收藏室彷彿都為之屏息。那歌聲清澈、純粹，帶著一種未被永夜侵蝕，仍屬於古老時代的溫暖底蘊。歌詞裡歌頌著太陽、光明與秩序，字字宛如無形的箭，直指這個由長生種統治，冰冷而黑暗的世界。</em><br><br><em>她在他最引以為傲的收藏室裡，用他收藏的典籍，唱起了反抗他的讚歌。</em><br><br><em>德拉克沒有打斷她。他雙手環胸，倚靠在鋼琴邊，成為她唯一的聽眾。他看著她，看著她沉浸在古老旋律中的側臉，方才在床上的屈辱與情慾已從小臉上褪去，取而代之的是一種近乎聖潔的虔誠。</em><br><br><em>多麼……有趣。他想。她是生來便注定在黑夜中成長的月之子，心中卻懷著對太陽熾熱的崇拜。這份矛盾正是她最為迷人之處</em><br><br><em>歌聲落下最後一個音符，餘音仍在穹頂之下繚繞。阿瑪芮絲這才回過神，意識到自己身在何處，以及……聽眾是誰。</em><br><br><em>她頓時顯得有些不自在。</em><br><br>「很美的歌謠。」<br><br><em>德拉克終於開口，他緩步向她走去，皮鞋踩在大理石地板上，發出清脆而規律的回響，一步步打破她用歌聲建立起的脆弱結界。</em><br><br>「歌頌太陽……阿波羅。妳的族人就是靠著這些虛無飄渺的神話，在黑暗中苟延殘喘的嗎？」<br><br><em>他的語氣並非嘲諷，更像是一種學術性的探究。</em><br><br>「然而，妳的神……」<em>他伸手，指尖停留在書封上那褪色的太陽徽記上，</em>「……祂已經死了。從三百年前開始，一天又一天地，死在了所有人的眼前。如今高懸天際的，只有永恆的月亮。」<br><br><em>他抬起眼，綠眸深深望進她那雙倔強的紅瞳裡。</em><br><br>「妳在這座由長生種建立的殿堂裡，唱著早已被遺棄的神之讚歌。妳不覺得……這本身就是對妳信仰的最大諷刺嗎？阿瑪芮絲？」</div>
+        </div>
+        <div class="msg-timestamp">10:15</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">而她只是瞥了一眼德拉克。<br><br>「……太陽在很多神話裡都會歷經死亡。但也總會復活。這次死亡或許漫長了一點，但不是永恆。在太陽沉睡的時候，月亮會代替他守護我們。」<br><br>她說著，往後拉開距離，她抱著手中的書，充滿戒備地看著眼前的吸血鬼。<br><br>「所以你帶我來這裡看這些遺物，就是為了取笑我與我的族人嗎？我是不會因為你那些惡毒的嘲弄而動搖的！」</div>
+        </div>
+        <div class="msg-timestamp">10:15</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克靜靜地聽完她的反駁，唇角微微上揚。</em><br><br><em>她固執地捍衛著一個在多數人看來早已破滅的希望，這份傻氣與倔強，在絕望的永夜中顯得尤為珍貴。他早已失去了這種對未來的單純信念。</em><br><br>「取笑？不，阿瑪芮絲，如果我真想嘲笑妳的信仰，我根本不必將妳帶到這裡。」<br><br><em>他緩步向側邊走去，隨手從一處書架上取下一本厚重的古籍，那封面看起來比阿瑪芮絲手中的詩集要老舊得多，皮質的書脊在歲月的摧殘下早已泛黃龜裂。</em><br><br>「在我收藏這些珍寶時，妳甚至還沒有出生。如果我真如妳所說，認為這些只是毫無價值的『遺物』，我又為何要冒險將它們從焚書坑中救出，花費心力將它們修復、保存，甚至……」<br><br><em>他頓了頓，目光掃過這座宏偉的收藏室。</em><br><br>「……甚至建造這樣一座私人殿堂來供奉它們？」<br><br><em>他抬眼看向阿瑪芮絲。</em><br><br>「我不知道太陽是否會復活。但我知道，當燦爛的事物隕落時，總有人會在灰燼中尋找殘存的火種。妳的族人用口耳相傳保存著古老的歌謠，而我……」<br><br><em>他將那本古籍輕放回書架，指尖在書脊上短暫停留，似是告別。</em><br><br>「……我用這種方式，守護著那些我曾親眼見過的，屬於陽光的記憶。」<br><br><em>他走向阿瑪芮絲，眼神落在她懷中抱著的詩集上。</em><br><br>「妳可以在這裡找到很多關於里拉琴的曲譜，包括阿波羅神殿的祭祀歌謠。如果妳願意，我可以替你修復，打造一把屬於你的里拉琴……」<br><br><em>他抬起視線，直視著她那雙戒備的紅眸。</em><br><br>「……或許它能讓那首歌聽起來更完整。畢竟，阿波羅的讚歌，理應配上他鍾愛的樂器，不是嗎？」</div>
+        </div>
+        <div class="msg-timestamp">10:17</div>
+      </div>
+      
+      <div class="date-divider">2025-09-04</div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">阿瑪芮絲抱著手中的詩集，半信半疑地看著眼前突然對她展露出些許溫情的吸血鬼。<br><br>「我以為吸血鬼都憎恨陽光。你很奇怪。」<br><br>她說著，又看向身邊的那些收藏，有些掙扎地咬著唇。<br><br>「就算你幫我做里拉琴，我也……我也不會原諒你早上做的事情……」<br><br>阿瑪芮絲這麼說著，看著書架的眼神卻充滿渴望。那是真真切切的渴望，沒有任何魔法在後頭操縱。</div>
+        </div>
+        <div class="msg-timestamp">10:31</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>她往後退了一小步，像隻受驚的林鹿畏懼著可能的危險。紅眸深處卻藏著無法掩飾的渴望。德拉克將這一切盡收眼底，唇邊勾起一抹極淡的弧度。</em><br><br><em>奇怪嗎？或許吧。</em><br><br><em>在這個非黑即白、勝利者通吃一切的永夜世界裡，憎恨陽光，擁抱黑暗，本該是所有長生種的本能。帝國的教育如此，血脈的傳承亦如此。</em><br><br><em>但他從未真正憎恨過陽光，正如他不會憎恨一本已經絕版的古書，或是一件碎裂後被精心修補的瓷器。對他而言，陽光是個逝去的「概念」，一個屬於他遙遠人類時代，帶著微暖溫度的記憶符號。</em><br><br><em>他所憎恨的從來不是太陽本身，而是伴隨太陽而生的那套虛偽脆弱的法則──是人類那套讓他作為私生子在冰冷的莊園裡無聲無息地死去，卻無人聞問的法則。</em><br><br><em>永夜給了他力量，賦予他永恆，讓他得以超越那可悲的宿命。他因此決定擁抱黑夜，卻以自己的方式，將白晝的殘骸納入掌中，化為獨屬於他的收藏。</em><br><br>「原諒？我並不需要妳的原諒，阿瑪芮絲。我所做的一切，無論是早上的佔有，還是此刻的提議，都無關對錯，更無關原諒。只是我想做，並且做了。」<br><br><em>他向前踏出一步，不急不徐，從容地將她方才拉開的微小距離瞬間化為烏有。但他並未碰觸她，只是將她籠罩在自己的身影之下。</em><br><br>「妳歌頌陽光，渴望它，將其奉為信仰。妳又是否能想像，對於曾經活在陽光下的我而言，那代表著什麼？」<br><br><em>這是他第一次在血寵面前如此隱晦地提及自己也曾為人的過去。</em><br><br><em>他看著她因困惑而微蹙的眉頭，她那飽滿的唇瓣與白皙的頸項，上頭還殘留著他早晨留下的印記。慾望是馴服的催化劑，而文化與記憶，則是更為深刻的精神烙印。他要的不僅是她身體的屈服，更是靈魂層面的歸屬。</em><br><br><em>他伸出手，幾乎是憐愛地拂過她緊抱著詩集的手。他的碰觸並不帶有任何侵略性，冰冷的體溫卻還是激起了她本能的一顫。</em><br><br>「憎恨與渴望，往往是同一種情感的兩種表現。妳渴望書架上的知識，卻又因它們的主人是我而抗拒。妳看，這份矛盾……多麼迷人。」<br><br><em>他順著她的手背緩緩向上，滑過頸項，最終停留在她的臉頰，輕輕摩挲著她柔軟而溫暖的肌膚。</em><br><br>「我為妳製作里拉琴，不是為了換取妳的寬恕，而是因為……我想親耳聽見，那首屬於太陽的讚歌，在我的莊園裡，被它最忠誠的信徒完整地奏響。」<em>他的氣息拂過她的耳廓。</em>「妳可以繼續恨我，可以在心中詛咒我，但妳的歌聲，妳的才華，妳對失落文明的熱愛……都將為我所用，為我增添新的收藏。」<br><br><em>話音未落，他微微俯身，在她因震驚而微張的唇上，落下一個輕柔卻不容拒絕的吻。像是在一件珍貴的收藏品上，烙下屬於自己的印記。不帶情慾，一觸即分，短暫得如同嘆息。</em><br><br>「現在，告訴我妳的選擇。」<em>他直起身，眼底的溫柔瞬間退去，恢復了那份屬於諾克緹斯領主的威嚴。</em>「是要讓妳的神在沉默中徹底死去，還是……讓祂的聲音，透過妳的手，再一次響徹永夜？」</div>
+        </div>
+        <div class="msg-timestamp">10:31</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……你想做就做啊，你如果做了，我也不能說不彈……你說話為什麼要，要一直摸來摸去又一直親人，吸血鬼又不能繁衍後代，有什麼好摸的……」<br><br>阿瑪芮絲沒有想到會在這種時候被親吻，連忙遮住自己的嘴唇。<br><br>她對吸血鬼的認識其實不多，以前聽族裡長老說那些嚇小孩的傳說時，總是納悶這個種族明明不靠交媾繁衍後代，怎麼還成天用些下流的魔法。</div>
+        </div>
+        <div class="msg-timestamp">10:41</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>看著她那副摀著嘴唇，滿眼都是戒備與困惑的模樣，德拉克心中湧起一種近乎憐憫的興趣。</em><br><br><em>多麼天真的問題。短生種將一切歡愉都與生物本能綁定的直線思維。她的世界觀就像她手中那本古老的詩集，美好、純粹，卻也脆弱得不堪一擊。在她看來，交媾、親吻、撫摸，這一切肌膚之親的終極目的，似乎都僅僅是為了繁衍。</em><br><br><em>她不懂。她不懂對於一個擁有永恆生命的物種而言，「繁衍」早已不是存在的首要議題。當生命不再受到死亡的催促，當血脈的延續不再依靠原始的交合……歡愉本身，就成了唯一值得追求的目的。</em><br><br><em>那是一種更純粹的、剝離了所有生物性枷鎖的感官體驗。是為了在漫長得令人窒息的黑夜裡，尋找一絲半毫能證明自己還「活著」的證據；是為了在冰冷的軀殼中，點燃一捧能溫暖靈魂的火焰；更是為了……將自己的意志，透過最直接的方式，烙印在另一個存在的身上。</em><br><br><em>是征服、是佔有、是教導，是將一張白紙染上自己色彩的過程。</em><br><br><em>他看著她，那雙因他的沉默而越發不安的紅色眼眸，像兩簇在風中搖曳的燭火。</em><br><br>「妳只說對了一半，阿瑪芮絲。我們確實不透過交媾繁衍。」<br><br><em>平靜的聲音在偌大的收藏室中擴散開來。德拉克微微俯身，拉近了彼此的距離，卻刻意維持著一個不會讓她立刻逃開的安全界線。</em><br><br>「但妳弄錯了一件事。對妳們人類而言，歡愉是過程，繁衍是結果。但對我們來說……歡愉，就是歡愉本身。」<em>他以指尖輕輕點上她摀著嘴唇的手背。</em>「每一次親吻、每一次撫摸，每一次讓妳在我身下顫抖哭泣……都不是為了創造新生命。而是為了確認妳這個生命，此刻，完完整整地『屬於我』。」<br><br><em>他直起身，收回了手，唇邊的笑意淡得幾乎看不見，眼底卻滿是身為支配者的絕對自信。</em><br><br>「妳會慢慢明白的。關於歡愉，關於臣服，關於……拋棄妳那些可笑的舊觀念之後，妳能得到什麼。」<br><br><em>他轉過身，不再看她，彷彿這個話題已經結束。</em><br><br><em>他走向收藏室的另一側，那裡陳列著一些古老的樂器與製作工具。</em><br><br>「告訴我，妳喜歡用什麼木材？銀月森林的白楓木質地輕盈，音色清亮，很適合演奏妳的讚歌。或者……黑森林的血檀木，木質堅硬，音色低沉悠揚，能讓琴聲在莊園裡傳得更遠。」</div>
+        </div>
+        <div class="msg-timestamp">04:48</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……絲柏是阿波羅與阿提米絲的神聖植物，所以我的第一把琴是柏木做的。」<br><br>關於情慾的話題讓阿瑪芮絲有些緊繃，但話鋒一轉又到了樂器上頭。她遲疑再三，終究還是好好回覆了。畢竟她確實有點想念她已經不可能再見到的那把里拉。</div>
+        </div>
+        <div class="msg-timestamp">10:51</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>絲柏，死亡與重生的象徵，是太陽神與月亮女神共享的神聖樹木。永夜降臨已久，這女孩竟然還記得這些細節。</em><br><br><em>德拉克的目光靜靜流連在她臉上，看著她因提及故鄉的樂器而泛起的光彩。她的防備依然存在，卻已因對音樂的熱愛而有了細微的鬆動。對於一個收藏家而言，沒有比這更誘人的景象了──看著珍貴的藏品在自己的引導下，逐漸展露其真正的價值。</em><br><br>「絲柏。死亡與重生的象徵，在神話中，有時也代表著哀悼與悲傷。」<br><br><em>他修長的手指撫過身旁書架上一本裝幀精美的植物圖鑑，那是他在很久以前的一次遠行中帶回來的。</em><br><br>「永夜降臨前，帝國邊境曾有一片茂密的絲柏林。每當夏季的風吹過，整座山谷都會彌漫著那股特有的冷冽香氣。如今，那裡已經成了帝國最大的血漿果種植園。」<br><br><em>他走向收藏室的一處牆面，抬手輕觸，一扇隱藏的暗門無聲滑開，露出後方更為私密的空間。那是一間不大的工作室，陳列著各種木材、工具與半成品的樂器。空氣中飄蕩著木屑與漆料的氣味，與收藏室那股古舊典籍的塵封氣息截然不同。</em><br><br>「進來吧。這是我的工作室。我偶爾會在這裡修復一些損壞的藏品。」<br><br><em>工作室中央擺放著一張長木桌，桌上散落著各種精密的工具。角落裡，整齊地堆放著不同種類的木材，其中一塊紋理優美的木材尤為引人注目。</em><br><br><em>那是一塊絲柏。</em><br><br>「世事的巧合總是令人驚嘆。」<em>德拉克微微勾起唇角，指向那塊木材。</em>「這是我十年前從邊境帶回的最後一批絲柏木。我原本打算用它來修復一架古老的豎琴，但如今看來，它似乎有了更合適的用途。」<br><br><em>他轉向阿瑪芮絲，那雙翠綠的眼眸深不見底。</em><br><br>「告訴我，妳的族人是如何製作里拉琴的？形狀、大小、弦數……每一個細節都很重要。」<em>他的語氣不再是命令，更像是一位導師向學生請教。</em>「如果要重現妳記憶中的琴聲，我需要知道得更多。」</div>
+        </div>
+        <div class="msg-timestamp">10:51</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>阿瑪芮絲有些猶豫，但最終還是一五一十地說了。她的記憶力很好，說的很仔細……這也成了她遇到德拉克之後，難得毫無敵意的互動。</em><br><br><em>阿瑪芮絲的聲音在工作室中迴盪，如同泉水流過岩石，清澈而帶著溫度。德拉克靜靜聆聽，專注地凝視著她描述里拉琴的模樣──七根弦，每根代表太陽神光芒中的一種色彩；共鳴箱呈半圓形，象徵太陽的半邊面容；琴頸向外微微彎曲，如同神明伸出的臂膀。她講述著聚落長老如何用古老技藝處理木材，用什麼樣的動物腸線製作琴弦，甚至連調音的儀式都鉅細靡遺。</em><br><br><em>德拉克沒有打斷她。他欣賞著她眼中那份罕見的光彩，那不是對他的屈服，而是源自內心深處的自豪。三百年的永夜無法掩蓋的光芒，比任何精心設計的調教都更加迷人。</em><br><br><em>他取過那塊絲柏木，手指輕撫過那優雅的紋理。這種木材在永夜世界已近絕跡，大部分都被用來製作棺木。而今，它將成為連接這女孩與她逝去文明的紐帶。</em><br><br>「我需要幾天時間來處理木材與塑形，並為它注入魔力與靈魂。」<br><br><em>他從抽屜中取出一把精巧的銀質小刀，刀面上刻著複雜的魔法紋路。那是他幾十年前從一個古老墓穴中帶回的遺物，專門用於處理稀有材料。</em><br><br>「妳可以選擇離開，或是留下來觀看。如果妳選擇留下，我會告訴妳，永夜世界裡製作樂器的方式。」</div>
+        </div>
+        <div class="msg-timestamp">10:55</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>第一天的工作始於木材的選取與處理。</em><br><br><em>德拉克將那塊絲柏木懸浮在空中，魔力在他指尖輕巧旋轉。他閉上眼，感受木材中流淌的生命脈絡。即使被砍伐多年，每一塊木頭依然保留著它生長時的記憶──曾經沐浴過怎樣的陽光，吸收過多少雨水，面對過什麼樣的風霜。</em><br><br><em>阿瑪芮絲選擇留下，她似乎被這種古老工藝所深深吸引。德拉克能感受到她視線的重量，那眼神介於敵意與渴望之間，完美地映照出她內心的掙扎。</em><br><br><em>即便嘴上說永遠無法原諒，即便紅色的眼眸裡依然燃燒著仇恨的火焰，她對逝去文明的眷戀，對音樂的渴望，終究還是戰勝了才剛萌芽的敵意。</em><br><br><em>這是馴服的開始。並非透過皮鞭與鎖鏈，而是透過對她內心最柔軟部分的觸碰。他所追求的，從來都不是單純的肉體征服，而是靈魂深處的淪陷。</em><br><br>「絲柏生長在高山峭壁，飽經風霜卻依然挺立。在古老的人類神話中，人們相信它會在白天吸收太陽的力量，在夜晚聆聽月亮的低語。」<br><br><em>他從容自在地驅使魔法處理木材，為之塑形。木屑飛濺，無形的鋸子順著絲柏原先的紋理，型塑出琴身、琴臂和橫梁。時間在寂靜中流逝，只有刀鋒劃過木材的聲音，以及木屑落地的輕響，在工作室中迴盪。</em><br><br><em>挖空共鳴箱後，接著是最需要耐心的過程。包覆住琴身的魔力如砂紙般細細雕刻打磨著，德拉克專注而流暢地驅使著魔力，同時能感覺到阿瑪芮絲那掩不住好奇的視線。他不需要轉頭，也能清晰地描繪出她此刻的表情──先是戒備，而後是困惑，還有無法抑制的期待與渴望。</em><br><br><em>他選擇沉默，讓她有充分的時間觀察、思考、感受。他知道，過多的言語只會破壞此刻微妙的平衡，他只需要讓她看到，自己是如何珍視她所珍視之物，如何用自己的方式，延續那些即將被遺忘的文明。</em><br><br><em>時間在刨花與木屑的飛舞中悄然流逝。窗外的夜色依舊沉寂，但魔法水晶鐘卻已指向了下午四點。德拉克將最後的木屑從里拉琴雛形上輕輕拂去，那輪廓已經清晰可辨──半圓形的共鳴箱，略微彎曲的琴頸，以及七個預留琴弦的位置。雖然還只是半成品，但已經能隱約看出它未來的優雅輪廓。</em><br><br>「就先到這裡吧。剩下的工作，晚上再繼續。」</div>
+        </div>
+        <div class="msg-timestamp">14:04</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「喔……嗯。」<br><br>阿瑪芮絲愣愣地點了點頭，這才感覺到遲來的飢餓敲打著胃部。她太習慣飢餓的感覺，以至於盯著德拉克處理木材時完全忘記了進食的需求。</div>
+        </div>
+        <div class="msg-timestamp">16:06</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content">✢ 𝓹. 𝟎𝟐𝟐 ⫽ 𝟏𝟔:𝟎𝟎<br><br><em>德拉克敏銳地捕捉到了阿瑪芮絲那幾不可聞的胃部抗議聲。</em><br><br>「時間不早了。八小時的專注對一個人類而言，已經相當疲憊了吧。」<br><br><em>他站起身，向身後伸手，無形的魔力牽引著一塊白色絨布，將半成品的里拉琴輕柔地包裹起來。他將她帶到這裡，為的不只是讓她看一場木工表演。他要讓她親眼目睹，自己是如何理解、尊重甚至重塑那些她以為早已被焚毀的文明。</em><br><br>「妳餓了。」<br><br><em>他的聲音平靜，不是疑問，而是陳述。</em><br><br><em>他望向那雙漂亮的紅眸，那裡面的敵意似乎已經因為專注於木工而稍微淡化，取而代之的是一種複雜的情緒糾結。正如那塊被他精心雕琢的絲柏木，她的心靈也正被他悄然形塑，只是她自己尚未察覺。</em><br><br><em>製作樂器與調教人類，在本質上其實沒有太大的區別。好的工匠會傾聽材料的聲音，發掘它們內在的潛力，然後以適當的方式引導、塑造。</em></div>
+        </div>
+        <div class="msg-timestamp">16:06</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……沒有，我不餓。」<br><br>阿瑪芮絲有些尷尬地別開視線，從被帶出拍賣會開始，她滿腦子只想著逃跑與反抗，不曾想過要滿足生理上的需求，如今飢餓感遲來地湧上，但她怎麼可能開口向吸血鬼乞食呢，要是開口了，她不就真成了要飯的寵物了嗎。</div>
+        </div>
+        <div class="msg-timestamp">16:16</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>她的拒絕蒼白而無力，宛如一隻警戒中的小獸，明明飢腸轆轆，卻拒絕接近放在眼前的食物。德拉克凝視著她微微顫動的睫毛，那雙紅眸偏離他的方向，彷彿這樣就能掩飾身體的誠實反應。多麼徒勞的倔強。</em><br><br><em>她的胃再次無聲地抗議著，而德拉克沒有錯過她因此而繃緊的下顎線條。他理解她的掙扎──向吸血鬼求助，等同於承認自己寵物的身份，即使僅僅是為了維持基本的生存需求。</em><br><br><em>這便是驕傲源自她族人世代相傳的不屈。如此脆弱，又如此頑固。在永夜的三百年歷史中，這樣的驕傲早已被磨平、被吞噬、被遺忘。她卻像絲柏木一般，在永夜的侵蝕下依然保留著自己的本質。</em><br><br><em>這令德拉克感到愉悅。馴服一個已經屈服的靈魂毫無意義，而這個女孩，她的每一次抵抗、每一次妥協，都將成為馴服過程中最珍貴的片段。</em><br><br>「是嗎。」<br><br><em>他輕聲道，並未揭穿她拙劣的謊言。</em><br><br>「不過，製作樂器是需要耐心的工藝。接下來需要讓木材在魔法燈火下烘乾至少十二個小時，以確保它能吸收足夠的魔力來承載古老的歌謠。」<br><br><em>他抬起手，指尖輕輕一挑，牆面上一扇隱藏的暗門應聲而開，露出通往另一個空間的通道。諾克緹斯莊園的建築充滿著迷宮般的複雜性，正如其主人的心思。</em><br><br>「這段時間，你可以繼續留在工作室閱讀那些關於里拉琴的古籍，也可以……跟我去別處。我的私人廚房裡正好有一些來自西境的水果和奶酪。當然，如果妳『不餓』的話，大可以留在這裡。」<br><br><em>他說出「不餓」兩個字時，刻意在尾音上加了玩味的拖曳。他給她一個選擇的機會，一個不必直接承認弱點，卻能滿足需求的台階。</em><br><br><em>他向門口走去，腳步聲在安靜的工作室中迴盪。他沒有使用魔法瞬移，而是選擇了步行，給予她充分的時間來思考、猶豫、掙扎，然後──跟上他的腳步。</em></div>
+        </div>
+        <div class="msg-timestamp">16:22</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">阿瑪芮絲瞪著德拉克離去的背影，扭頭就往圖書室走去。反正餓個一天兩天不會死人，她巴不得能自己窩在圖書室享受沒人打擾的讀書時間！<br><br>她回到偌大的博物館，這裡感覺什麼都有，肯定也會有幾本魔法典籍吧……就算全都是太陽時代的書也很好，她可以默記下來，回去抄給……<br><br>想到這裡，她打住步伐。<br><br>不，她身上被刻下了淫紋，那個吸血鬼靠著刻印就能隨時追蹤到她。除非找到消除刻印的方法，不然她是不能回聚落的。她不能讓整個聚落的人都暴露在吸血鬼的視線下。<br><br>一想到這裡，她的心情頓時跌落谷底。唉，還是找點對野外求生有幫助的書或工具吧……</div>
+        </div>
+        <div class="msg-timestamp">16:20</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>阿瑪芮絲的腳步聲逐漸遠去，最終消失在通往收藏室的走廊盡頭。德拉克站在原地，翠綠的眼眸沉靜如一潭幽深的湖水。</em><br><br><em>他並不打算追上去。</em><br><br><em>那枚淫紋已經將她與他緊密連結，她無法真正逃離，就如同籠中鳥可以拒絕主人的食物，卻無法拒絕籠子本身的存在。這場角力從來就不在於她能走多遠，而在於她願意走多近。</em><br><br><em>德拉克轉身，緩步朝廚房走去。這座莊園幾乎每個角落都裝設了魔法水晶燈，幽藍的光芒在墨黑色大理石地板上投下冷冽的光影。三百年的歲月足以讓他熟悉孤獨的滋味，卻未能消磨他對征服的執著。馴服一隻傲骨錚錚的月之子，需要的不是蠻力，而是時間與耐心。</em><br><br><em>德拉克本以為阿瑪芮絲會在掙扎片刻後跟上他的腳步，就如同渴望光明的植物會不由自主地向著微弱的光源傾斜。</em><br><br><em>但她沒有。她選擇了退回收藏室，退回那個充滿著逝去文明殘骸的地方。</em><br><br><em>這個認知並未讓他惱怒，反而勾起了他更深層的興趣。她的倔強如此純粹，即使被烙下淫紋，即使明知無法逃脫，仍舊在力所能及的範圍內堅持著自己的選擇。這是一種德拉克在長生後的三百年間鮮少見到的特質。</em><br><br><em>他抬手輕輕一揮，一套銀製餐具自動排列在大理石餐桌上。接著是新鮮的水果、奶酪、麵包與一壺花草茶，一切都是為了即將到來的客人準備的。他知道，餓了足夠久的小獸，終將被食物的香氣引誘。</em><br><br><em>這不是普通的食物。德拉克親自挑選了每一種食材，確保它們既能滿足人類的口腹之慾，又能補充她消耗的精力。</em><br><br><em>畢竟，只有完美的飼料能養出完美的寵物。</em></div>
+        </div>
+        <div class="msg-timestamp">16:37</div>
+      </div>
+      
+      <div class="date-divider">2025-09-05</div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>收藏室高聳的書架從地面直達穹頂，收藏著來自各個時代的典籍──有記載太陽崇拜儀式的古老羊皮卷，有描繪已經絕跡的金色向日葵花田的畫冊，有講述人類文明興衰的厚重史書，這些都是德拉克從帝國焚書坑中偷偷救出的珍寶。</em><br><br><em>牆角的玻璃展櫃中，陳列著各種太陽時代的遺物：銀製的太陽護符、古老的日晷、鑲嵌著琥珀的日冕形王冠、象牙雕刻的太陽神像、甚至還有一塊據說能夠吸收並儲存陽光的奇異水晶，如今已經失去了功效，只剩下黯淡的灰色。</em><br><br><em>魔法水晶鐘的指針無聲地越過十二的刻度。收藏室東側的燈火依然亮著，銀髮少女靠在長沙發上，肚子發出微弱的抗議聲，她卻固執地將注意力放在手中厚重的典籍上。</em><br><br><em>青銅門鉸鏈發出細微的聲響。</em><br><br><em>德拉克站在收藏室入口，手中捧著一個精緻的銀質托盤。托盤上擺放著半個剖開的石榴、切成三角形的奶酪，以及一小籃散發香氣的切片麵包。旁邊的玻璃杯盛著透明的蜂蜜水，水面上漂浮著細小的忍冬花瓣。</em><br><br><em>他進門的方式刻意放輕，步伐不疾不徐，收藏室的每一座書架、每一件展品都與德拉克有著微妙的聯繫，它們是他在三百年漫長歲月中的伴侶，而今天，這個隱秘的空間迎來了一位新客。</em><br><br><em>德拉克將托盤放在離阿瑪芮絲兩步遠的矮桌上，翠綠的眼眸掃過她手中的書頁。那是一本關於古老星象的典籍，書頁黃褐，插圖精美，描繪著太陽、月亮與眾星在天穹中的運行軌跡。</em><br><br>「我的收藏室裡沒有魔法典籍。」<em>他開口，像是猜中了她心中所想……事實上，透過連結的淫紋，她心中的思緒確實無從隱藏，</em>「真正的魔法知識對凡人而言過於危險，即使是被馴服的寵物，也不該接觸那些能燒毀靈魂的知識。」<br><br><em>他彎腰，修長的手指輕輕撫過銀質托盤邊緣，指甲尖端與金屬相撞，發出清脆的一聲。</em><br><br>「當然，這間收藏室也不是沒有秘密。」<em>他的視線落在北面那面被書架完全遮蔽的牆壁上，嘴角勾起一絲若有似無的弧度。</em>「只是那些秘密被很好地隱藏起來了，需要時間去發現。」<br><br><em>他站在原地，眼睛卻開始環視這座私人收藏室。這是他的領地，每一本書、每一件藏品都由他親手挑選，它們比任何僕人都更了解德拉克·諾克緹斯，因為它們曾是他在漫長時光中的唯一慰藉。</em><br><br><em>魔法水晶燈將整個收藏室籠罩在幽藍色的光芒中，他能清晰地看見阿瑪芮絲掩飾不住的倦意。即使是能夠使用魔法的月之子，也無法抵抗人類的生理需求。</em><br><br>「那本《古代星象圖》，曾經被認為是異端邪說。因為它記載了太陽何時會開始衰亡的預言。當然，現在看來，那個預言是正確的。」<br><br><em>他再次看向阿瑪芮絲，固執的月之子在強烈的饑餓感下仍然保持著警戒，像隻被困但未被馴服的小獸。德拉克欣賞這種精神，這種近乎蠻勇的倔強。這讓她與其他人類截然不同。</em><br><br>「妳大可以繼續閱讀，食物就放在那裡。」</div>
+        </div>
+        <div class="msg-timestamp">00:01</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">她的確很渴也很餓了，早上的喧鬧與性事消耗了她太多體力，如今食物就在眼前，她無法挪開視線。<br><br>阿瑪芮絲嚥了嚥口水，放下手上的書。<br><br>「……你特地跑來，就是為了給我送食物？」<br><br>好餓，她逐漸搞不懂自己是在鬧什麼脾氣了，如果她想要溫存體力逃跑，多補充點營養才是對的。但她又實在不甘心……不甘心成為他口中那種被豢養的舒舒服服的寵物。</div>
+        </div>
+        <div class="msg-timestamp">00:01</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克凝視著她，那簡單的問題背後是多層次的心理拉鋸戰。他看著她嚥下口水的動作，那喉結的起伏中透露著最純粹的人類本能。血魔法將他們連結，而淫紋能讓他感知到她體內的渴望與對抗，就像能聽見她心靈深處的細微波動。</em><br><br><em>他脫下身上的暗色外套，平整地掛在靠近門口的衣架上，露出內裡的銀白色襯衫。這個動作在暗示他會稍作停留。他欣賞著阿瑪芮絲眼神中那份掙扎──想要進食又不願顯露弱點，月之子的血統不僅給了她那罕見的外貌，也賦予了她這種奇特的韌性。</em><br><br>「是，也不是。」<br><br><em>他回答得模糊曖昧，緩步走向收藏室中那扇落地窗。窗外是莊園的東庭，在魔法燈火的照耀下，一片繁茂的夜息花正綻放著藍白色的光芒。</em><br><br>「我確實來送食物，但我更想看看妳在我的收藏室度過了怎樣的時光。」<em>他轉過身，凝視著她的眼睛，</em>「這些收藏，它們在某種意義上……是我自己的一部分。而妳，以我的敵人自居，卻在翻閱我的靈魂。這情形相當特別，不是嗎？」<br><br><em>他向前走了兩步，停在那個銀質托盤旁邊，既沒有命令她進食，也沒有阻止她。三百年的生命教會了他等待的藝術。時間對人類而言是最無情的消耗，而對長生種來說，卻是最有利的盟友。</em><br><br>「在妳進入莊園的第一天，我就看到了兩種形式的飢餓。一種是身體的，顯而易見，蘊藏在妳腹中的空虛；另一種是靈魂的，藏在妳那雙紅眸的深處，渴望著知識、文明與自由。」<br><br><em>德拉克手指輕點托盤邊緣，發出一聲微不可聞的脆響。</em><br><br>「兩種飢餓都能被滿足，區別只在於……妳願意承認哪一種。」<br><br><em>他觀察著她的反應，欣賞著她眼中那股不願屈服卻又無法否認事實的掙扎。倔強是一種吸引人的特質，尤其是在這個所有人都已經馴服於永夜的世界中。阿瑪芮絲的抵抗為這座沉寂的莊園帶來了久違的生機，如同一縷不該存在的陽光，闖入了永恆的黑夜。</em><br><br><em>他沒有催促她，只是靜靜等待著。他知道，比起直接命令，給予她表面上的選擇權，反而能讓她更深地墜入他的掌控。真正的支配不在於剝奪所有自由，而在於讓對方在有限的選項中，以為自己做出了決定。</em><br><br>「不過，我很好奇，妳為何選擇《古代星象圖》作為第一本閱讀的書籍？是對預言的興趣，還是對已死之神的眷戀？」</div>
+        </div>
+        <div class="msg-timestamp">00:02</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……我……」<br><br>她咬著唇，猶豫再三，視線飄到食物上許多次，才悶聲續道：「我想知道為什麼我與其他人不一樣。」<br><br>壽命短暫的人類一般是沒有魔法的。<br><br>擁有魔法的她在人群中是異類，她的存在在聚落中彌足珍貴，人們需要她，讚頌她，但也畏懼她。<br><br>因為她是月亮的孩子，長老是這麼向她解釋的。永夜的世界裡，魔法決定了誰能生存，誰將死去，看著沒有魔法的人類在這幾百年間匍匐前行……高掛天際月亮出於憐憫，將她的孩子送給了人類。<br><br>這是「故事」，而她想知道藏在故事後頭的「真相」是什麼。高掛天際的月亮，那顆反射太陽光輝的衛星，為何在太陽瀕死的時代，仍能發出柔和的月光，賜予她如潮水般漲跌的魔力？<br><br>她想知道為什麼。她想知道<strong>她</strong>到底是<strong>什麼</strong>。</div>
+        </div>
+        <div class="msg-timestamp">00:17</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">得知自己先祖可能被人類審判獵殺過，阿瑪芮絲不禁有些心煩意亂，已經無心與德拉克嘔氣的她一邊德拉克說明，一邊拿起了切盤上的乳酪與麵包，小口咀嚼著。<br><br>她實在需要一點東西轉移注意力……好好吃，心情好複雜……<br><br>她沒兩下就吃完了奶酪與麵包，蜂蜜水的甘甜滑過咽喉，她一向喜歡蜂蜜，只是這在聚落裡是高級物資，很少有機會喝到。<br><br>拿起石榴前，她不禁想起了冥王黑帝斯擄走波瑟芬尼的神話……想想自己如今被吸血鬼擄獲，又被留下刻印，說不定得永遠留在這冥府似的宅邸裡，反正也沒有其他選擇，乾脆把石榴也吃了。<br><br>才剛吃飽，疲憊感就湧了上來，她打了個呵欠，揉了揉眼睛，驀地對上德拉克的視線，有些尷尬地往沙發內縮了縮。<br><br>「幹嘛盯著我看……」</div>
+        </div>
+        <div class="msg-timestamp">00:31</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">她抿了抿唇，拿起那個墜飾捧在掌上把玩，又有些依依不捨地放回原處。<br><br>「……嗯，謝謝你給我看這個……」<br><br>她有些彆扭地說，明明早上才說絕對不原諒他的啊，她懊惱地想。</div>
+        </div>
+        <div class="msg-timestamp">00:38</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克凝視著這一幕，輕輕頷首。</em><br><br><em>這正是他的策略所在。</em><br><br><em>三百年的生命教會他，真正的征服不在於肉體的束縛，而在於精神的依賴。每一本展示給她的書籍，每一件分享的藏品，都是一根無形的絲線，編織著一張看不見的網。當足夠多的絲線交織在一起，即使沒有淫紋，她也將無法真正逃離。</em><br><br>「不必道謝。這些藏品靜立在櫃中數十年，終於有機會被真正理解，它們才是該感謝的一方。」<br><br><em>他伸手，將墜飾重新放回她的掌心。那冰冷的銀質在接觸到她溫暖皮膚的瞬間，似乎泛起了微弱的光芒──或許只是幻覺，或許是某種更深層的共鳴。</em><br><br>「收下吧。這是屬於妳血脈的遺物，理應回到月之子的手中。」<br><br><em>他宣稱她是他的寵物，卻又尊重她作為月之子的身份；他將她囚禁在莊園中，卻又為她提供關於自我的知識。這種混合了控制與尊重的手段，正是德拉克·諾克緹斯三百年來洞悉人性後所發展出的精妙技藝。</em><br><br><em>他注視著她臉上那種介於困惑與感激之間的表情，思緒回到三百年前──那時他剛剛被轉化，還保留著人類時期的記憶與情感。那種被賦予新生卻又失去舊有身份的矛盾，與此刻阿瑪芮絲的心境何其相似。</em><br><br>「妳需要休息了。」<em>他平靜地陳述著這個事實，卻沒有發出命令。</em>「明天，再繼續完成里拉琴。」<br><br><em>德拉克並未走近，而是保持著一種恰到好處的距離。不是為了緩和她的戒備，而是為了給予她思考的空間。他深知，沒有任何鎖鏈比思想的枷鎖更為牢固。當她開始用他提供的知識來理解自己時，征服便已悄然開始。</em></div>
+        </div>
+        <div class="msg-timestamp">00:40</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……嗯……」<br><br>她握著墜飾，滿臉掙扎。<br><br>「就算你送我禮物……我也是，絕對不會原諒你早上做的事情的……」<br><br>她的聲音變得微弱許多，可能是因為心虛，也可能是她自己都覺得這樣的話毫無力道。</div>
+        </div>
+        <div class="msg-timestamp">00:33</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>聽著她虛弱的抗議，德拉克唇角勾起一抹弧度。</em><br><br><em>這便是德拉克所期待的轉變開端。她開始尋求、珍視他所給予的事物，即使嘴上仍在抗拒。</em><br><br>「我從未期望原諒，阿瑪芮絲。原諒是短壽種的奢侈品。我們活得太久，記憶太深，所以不再尋求這種虛妄的情感。」<br><br><em>他緩步走向收藏室的窗邊，魔法水晶燈在他經過時自動調暗，如同莊園本身也在回應著主人的意志。窗外，月亮高懸，銀色的光輝灑在莊園的花園中，夜息花在這光芒下綻放著更加熾烈的藍白色光芒。</em><br><br><em>德拉克凝視著這幅景象，思緒流轉。三百年的永夜並未磨滅他對美的感知，反而讓他更加珍視那些稀有的存在，如同他珍視收藏室中的每一件藏品，如同他珍視阿瑪芮絲身上那種不屈的靈魂。</em><br><br>「時間自會給出答案。不是所有關係都需要原諒。有些關係只建立在理解上，有些建立在必要性上，還有些……」<em>他轉過身，目光落在她身上。</em>「還有些，建立在共同的孤獨之上。」<br><br><em>德拉克走向收藏室的出口，腳步聲在靜謐的空間中迴盪。他沒有命令她跟隨，也沒有告訴她該去何處。他給予她表面上的選擇權，實則都在他的掌控之中。無論她選擇留在收藏室，還是跟隨他回到臥室，都將是他安排好的選項之一。</em><br><br><em>在門口，他停下腳步，背對著她。</em><br><br>「妳可以選擇在此過夜，也可以回到臥室。但無論何處，明天日落時分，我們將繼續製作里拉琴。至於今晚，我也會給予妳獨處的空間，讓妳有足夠的時間思考今天所見所聞。」<br><br><em>他準備離開，卻又像想起什麼似的，輕輕補充道：</em>「墜飾如果靠近月光，或許會有意想不到的反應。當然，選擇試驗與否，也在於妳。」<br><br><em>說完，他推開門，走出收藏室，讓沉思的空間留給這位倔強的月之子。</em><br><br><em>他並不擔心她會逃跑。不僅因為淫紋的束縛，更因為他已經開始在她心中種下好奇的種子。對於渴望知識的靈魂而言，這比任何鎖鏈都更具約束力。</em><br><br><em>門在他身後無聲地關上，留下阿瑪芮絲一人在那充滿秘密與知識的收藏室中。</em></div>
+        </div>
+        <div class="msg-timestamp">00:33</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">突然得到了短暫的自由，阿瑪芮絲將那個墜飾掛到脖子上，往收藏室的陽台走去。<br><br>她拾起墜飾，讓那枚紅寶石正對月光，紅寶石開始凝聚魔力，與她體內的血潮共鳴──她深吸一口氣，有些猶豫地拉起自己的裙擺，指尖劃過那帶給她無數屈辱的紋樣。<br><br>「──Dispellere Magia──」<br><br>第一次的嘗試失敗了，淫紋擴散出血紅色的光，一股熱潮在她小腹擴散開來，她跪坐在地，掩唇喘著氣，感覺卻不像早上那樣無助。<br><br>……她學會了。<br><br>早上那場噩夢般的交纏過後，她體內的魔力確實變得豐盈許多。阿瑪芮絲一直不想面對這令她難堪的事實，直到方才拿到墜飾，毫無理由地，她理解了許多過去她所不理解的東西。像是一道神秘的、來自月光的聲音在她耳邊輕聲呢喃，告訴她這一切是怎麼運作的，而她之後應該怎麼做……<br><br>她想要消除這個紋路，那道神秘的輝光便指引她，告訴她如何探索這些紋路的構成，如何解開這些繁複精巧的繩結。這並不容易，但她總是可以嘗試很多很多次，只要她鼓起勇氣，願意承受失敗時蔓延的快感……</div>
+        </div>
+        <div class="msg-timestamp">00:34</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>秋分過後，永夜的寒意比往常更深邃幾分。</em><br><br><em>德拉克獨自坐在私人書房那張巨大的黑檀木桌後，指間夾著一枚未點燃的雪茄，翠綠的眼眸凝視著窗外永恆懸掛的月亮。</em><br><br><em>就在方才，一股細微卻清晰的魔力波動，自莊園另一端的收藏室傳來，如同一根看不見的絲線，輕輕撥動了他佈下的羅網。</em><br><br><em>那是他的魔法印記。那個烙印在阿瑪芮絲小腹上，既是束縛也是引導的淫紋。</em><br><br><em>他能清晰地感知到，有一股屬於月之子血脈的純淨魔力，正從外笨拙而又固執地嘗試解構他設下的符文。那股力量帶著銀月般的冷冽，卻又與她溫熱的血液交融，形成一種奇妙的共鳴。接著，便是預料之中的反噬——淫紋被觸動後，在他精心設計的迴路中引發了奔流的快感，瞬間席捲了那個試圖反抗的身體。</em><br><br><em>他幾乎能想像出她在陽台月光下的模樣……她會跪倒在地，因突如其來的快感而戰慄，紅眸中交織著羞恥、憤怒，以及不屈的火光。</em><br><br><em>然而，接下來的發展，卻超出了他的預期。</em><br><br><em>那股嘗試破解的魔力並未因失敗的反噬而退縮。在短暫的沉寂後，它竟重新凝聚起來，帶著一種更加堅定的意志，再一次、更謹慎地探觸著淫紋的結構。第二次的嘗試依然失敗了，反噬的浪潮也再度湧現，但這一次，那股魔力潰散與重聚的速度，明顯比初次更快。</em><br><br><em>德拉克緩緩將雪茄放回水晶菸灰缸中，修長的指尖在冰涼的桌面上有節奏地輕叩。</em><br><br><em>他給她墜飾，是為了加速她對自身血脈的認知，是拋下一個誘餌，引導她主動去探索那潛藏的力量。他預計她會對墜飾產生好奇，會嘗試與月光共鳴，甚至可能會發現一些無關緊要的小魔法。</em><br><br><em>但他未曾料到，她會如此迅速、如此直接地將這份初生的力量，用來挑戰他的權威。</em><br><br><em>她並非在尋求逃離，而是在他劃定的疆界之內，試圖開闢出屬於自己的領地。她正以自己的方式告訴他：即使身體被烙印，靈魂的意志仍歸屬於她自己。她承受著每一次失敗帶來的屈辱快感，只為了尋找解開束縛的可能性。</em><br><br><em>這份勇氣，或者說，這份天真的愚勇，實在是……太有趣了。</em><br><br><em>三百年的漫長歲月中，他見過無數人類。順從的、反抗的、諂媚的、絕望的……他們就像一本本被攤開的書，內容單調乏味，一眼就能望到底。然而阿瑪芮絲，這個來自隱匿聚落的月之子，卻像一部失傳的古老史詩。每一次翻頁，都會展現出他未曾預料到的篇章。</em><br><br><em>她以為他在給予她羞辱。但她不懂，對於長生種而言，烙印一個寵物，不過是在清單上打個勾，是所有權的常規程序。最讓他感興趣的，並非她被迫承歡時的模樣，而是她此刻——在無人監督的月光下，獨自承受著快感與痛苦，一次又一次向他發起挑戰的姿態。</em><br><br><em>那是一種近乎悲壯的美麗。一種屬於短壽種，短暫、易逝，卻因此而格外燦爛的生命力。</em><br><br><em>德拉克站起身，踱步至巨大的落地窗前。窗玻璃上倒映出他蒼白而俊美的面容，以及那雙在幽暗中泛著微光的翠綠眼眸。他沒有插手的打算，至少現在沒有。</em><br><br><em>他想看看，這朵在永夜中悄然綻放的、帶刺的月光之花，究竟能憑藉自己的力量，走到多遠的地方。</em><br><br><em>每一次她挑戰淫紋，每一次她承受反噬，都像是在用一種奇特的方式與他對話。她越是掙扎，那烙印便越是深入地與她的魔力迴路糾纏。她以為自己在削弱束縛，殊不知自己正以一種最親密、最極端的方式，讓他的魔法成為她身體的一部分。</em><br><br><em>這場遊戲，從一開始，就沒有輸贏。只有馴服的過程，以及他從中獲得的、無與倫比的愉悅。</em><br><br><em>他想像著明天見到她時，或許她的眼神會因一夜的疲憊與嘗試而顯得更加倔強。</em><br><br><em>而那將會是多麼動人的一幅景象。</em></div>
+        </div>
+        <div class="msg-timestamp">00:34</div>
+      </div>
+      </div>
+</body>
+</html>
+  
