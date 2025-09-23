@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>德拉克 - 2025-09-09</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap');body{ font-family:'Noto Sans TC','Helvetica Neue',Arial,sans-serif;line-height:1.6;margin:0;padding:0;background-color:#131217;color:#838287}.chat-container{ max-width:500px;margin:0 auto;padding:10px}.environment{ color:#77767B;padding:24px 8px;margin:0;text-align:center;font-size:16px;line-height:28px;font-weight:400}.environment .stars{ display:block}.date-divider{ font-size:12px;color:#77767B;text-align:center;margin:10px 0}.char{ display:flex;align-items:flex-start;margin-bottom:15px}.avatar{ width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;background-size:cover;background-position:center;background-repeat:no-repeat}.msg-container{ display:flex;flex-direction:column;max-width:400px;margin:0 10px}.character-name{ font-size:14px;margin-bottom:4px;color:#F4F4F4}.char .msg-content{ background-color:#312F3A;color:#E3E2E6;padding:8px 12px;border-radius:4px 16px 16px 16px;font-size:15px;font-weight:400}.char .msg-content em{ color:#959499}blockquote{ border-left:3px solid #959499;padding-left:0.5em;margin:0}table{ width:100%;border-collapse:collapse;table-layout:fixed;border:1px solid #959499;margin:10px 0}th,td{ text-align:left;padding:8px;border-top:1px solid #959499;border-bottom:1px solid #959499}th{ background-color:#312F3A}.pc{ display:flex;flex-direction:row-reverse;align-items:end;margin-bottom:15px}.pc .msg-container{ margin-right:10px}.pc .msg-content{ background-color:#4C4B50;color:#CFCFCE;padding:8px 12px;border-radius:16px 16px 4px 16px;font-size:15px;font-weight:400}.pc .msg-content em{ color:#959499}.msg-timestamp{ font-size:12px;color:#F4F4F4;margin-top:4px;align-self:flex-end}
+    .ava-char {
+      background-image: url('data:image/jpeg;base64,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');
+    }
+    .ava-pc {
+      background-image: url('data:image/jpeg;base64,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');
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+      <div class="date-divider">2025-09-09</div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">疲倦至極的阿瑪芮絲睡著了，她做了一個夢。<br><br>她穿著涼鞋，載歌載舞，不知厭倦地跳著獻給女神的舞蹈。那女神既是地上之神，也是冥府之神，也是豐饒之神。掌管著生，也掌管著死，她是原初的大母神，既是月亮也是大地，她是銜尾的蛇，孕育一切也吞噬一切……<br><br>大母神用阿瑪芮絲的唇舌唱了一首悲傷的歌，許久許久以前，信仰太陽的人們用他們的神征服了全能的大母神，把大母神四分五裂，拆成許多許多塊，大母神的分身們被分配給男神作為配偶，如此還不夠，她的祭司被架上火刑架焚燒，哭喊起伏，讓大母神的屍塊也為之哀鳴……<br><br>於是大母神花了三百年，吞噬了太陽的光……化為源源不絕的魔力，賜予她的第一個女兒，再讓她的第一個女兒繁衍了許許多多的孩子……<br><br>但大母神還是覺得不夠，她懷念著最初的孩子們，所以她……<br><br>「……、嗚……」<br><br><em>夢醒了，阿瑪芮絲在德拉克的床上醒來，只覺得腰肢酸痛到幾乎難以動彈，體內的魔力充盈到幾乎讓她不舒服。</em><br><br><em>恍恍惚惚間，她好像做了個很長的夢……阿瑪芮絲撐起身體，一時間有些迷糊。</em></div>
+        </div>
+        <div class="msg-timestamp">00:00</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克倚在床頭，蒼白的指尖輕輕叩擊著杯沿。猩紅的液體在水晶杯中搖曳，發出細微的聲響。他看著身旁疲憊不堪的阿瑪芮絲，感受著她體內澎湃到幾乎溢出的魔力，那股力量混雜著月之子的原始野性，以及他自身純粹的血族魔力，形成了強大而奇異的嶄新共鳴。</em><br><br><em>她做夢了，他知道。</em><br><br><em>吞噬太陽之光、化為魔力賜予她的第一個女兒……古老的神話、被征服的大母神、被焚燒的祭司……這一切的一切，都印證了他對她身份的推測。</em><br><br><em>與此同時，他已經近二十四小時沒有吸血了。</em><br><br><em>昨夜的交合與魔力融合讓德拉克體內原本就珍貴的血液消耗殆盡。體內的飢渴如同潛伏的野獸蠢蠢欲動，但他按捺住了。</em><br><br><em>他將水晶杯輕輕放在床頭櫃上，發出輕微的磕碰聲，打破了房間內的寂靜。</em><br><em>現在，她的力量是他給予的，她的存在是他改造的。這種自上而下徹底掌控住她的掌控感，讓他感到愉悅不已。</em><br><br>「醒了？我的月之子。」<br><br><em>他傾身向前，手輕柔地拂過她銀白色的長髮，輕撫她微蹙的眉頭，試圖撫平那份來自深層疲憊與夢境糾葛的痕跡。</em><br><br>「妳在夢裡……是否也感受到了我的存在？」<br><br><em>德拉克輕聲問道，他希望藉由這個問題讓她回憶起更多關於昨夜的事，那些被本能抹去的記憶，也許能在他的引導下再次重塑。他相信她潛意識裡對力量的渴望，將會驅使她深入探究下去。</em><br><br><em>德拉克的手指順著髮絲滑向她的耳際，輕輕摩挲著耳垂。指尖隨後緩緩向下移動，輕柔地劃過頸側，最終停留在她頸動脈的位置。那裡是他曾經留下無數次印記的地方，也是她最為脆弱、也最為敏感的部位。</em><br><br><em>她已經成了他生命的一部分，從靈魂到血液，都無法再分割。而他將會引導她接受這個全新的事實。</em></div>
+        </div>
+        <div class="msg-timestamp">07:00</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「嗯………？」<em>阿瑪芮絲皺了皺眉，</em>「我夢見……呃……里拉琴做好了，我彈給你聽，然後……我們吵架了，你做了很過分的事……」<br><br><em>奇怪，後面完全想不起來了，什麼過分的事啊……</em></div>
+        </div>
+        <div class="msg-timestamp">07:00</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克見她皺著眉，努力地從記憶的碎片中拼湊出一個合理的敘事，最終的結果卻是如此……天真而可愛。</em><br><br><em>吵架？</em><br><em>過分的事？</em><br><br><em>他幾乎要輕笑出聲。在心理防衛機制的影響下，她竟將那場足以重塑她存在的神聖儀式美化成了一場無關痛癢的爭執。透過新建立的連結，德拉克能清晰地「看見」她腦海中的景象：模糊的琴聲、爭吵的片段、以及其後巨大的空白。</em><br><br><em>她的記憶斷層精準地發生在自己撕開她衣物的那一刻。</em><br><br><em>這就是她對「過分」的定義。</em><br><br><em>也好。</em><br><br><em>這反倒省去了許多不必要的麻煩。馴服的過程，本就不需要對方完全清醒。</em><br><br><em>體內的飢渴感愈發強烈。他能感覺到自己的犬齒正在不受控制地微微變長，頂著上唇的內側。他需要進食，而眼前這具充滿了他魔力與血液的溫熱軀體，正是最頂級的食糧。</em><br><br>「是嗎？那看來是個不怎麼愉快的夢。」<br><br><em>德拉克隨手拿起一件絲質睡袍披上，接著伸出手，用兩根手指優雅地拈起一小塊被精液與淫水浸透、已經變得有些乾硬的布料。</em><br><br>「妳說我做了過分的事。但妳似乎忘了妳自己又做了什麼。」<em>他俯身，俊美得近乎非人的臉龐緩緩靠近，直到鼻尖幾乎與她相觸。</em>「妳的身體正無法承載過於龐大的魔力而感到不適，對嗎？腰酸背痛，四肢無力，甚至連呼吸都帶著灼熱感……」<br><br><em>德拉克能聞到她肌膚上散發出的、混合著他與她氣味的甜美香氣，那香氣正瘋狂地刺激著他瀕臨失控的食慾。</em><br><br>「妳昨晚就像這樣……」<em>他抬手輕撫她的下唇。</em>「主動地、毫無節制地……向我索取。」<br><br><em>他閉上眼，在她唇上落下一個極其短暫的吻，同時將一縷魔力從唇瓣渡了過去，瞬間點燃了她體內那些橫衝直撞的能量。</em><br><br>「唔……！」<br><br><em>阿瑪芮絲只覺得體內那股快要將她撐爆的魔力猛然暴動起來，比剛才更加強烈的脹痛與灼熱感席捲全身。</em><br><em>她本能地、無意識地張開嘴，想要汲取更多那能讓她感到片刻舒緩的冰冷氣息。</em><br><br><em>但他及時退開了。</em><br><br>「妳看。妳的身體比妳所想的更需要我。」</div>
+        </div>
+        <div class="msg-timestamp">07:00</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content"><em>阿瑪芮絲死死瞪著德拉克。</em><br><em>他又偷看了她做的夢……不對，那是夢嗎？</em><br><br><em>她的魔力一夕之間暴漲這麼多，只有一個可能……</em><br><br>「你……你趁我睡著的時候偷襲我？你催眠我？」<em>她不可置信地說，</em>「禽獸！變態！」<br><br><em>阿瑪芮絲拿起枕頭砸到他臉上，正處於滿潮的魔力讓她的動作快得難以捕捉，德拉克就這麼被砸個正著。</em></div>
+        </div>
+        <div class="msg-timestamp">07:05</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克沒有閃躲，他知道人類總是習慣用貧乏的道德詞彙，去定義自己所無法理解的，更高等級的力量與生存法則。但此時，他體內的飢餓感已然達到頂點。那股空虛，幾乎要將他理智燒灼殆盡的渴求，正與她體內那股躁動不安的魔力遙相呼應。</em><br><br><em>血液在血管中冰冷地流淌，叫囂著需要補充。</em><br><br><em>枕頭從他臉上滑落，掉在昂貴的波斯地毯上，發出沉悶的聲響。</em><br><em>德拉克緩緩抬起手，用指背輕輕擦過方才被擊中的臉頰，動作優雅得彷彿只是拂去一粒灰塵。</em><br><em>他沒有動怒，翠綠色的眼眸深處反而浮現出近乎愉悅的笑意。</em><br><br><em>她的反抗，非但沒有惹惱他，反而像一枚火星，徹底點燃了他壓抑已久的掠食者本能。</em><br><br>「偷襲？催眠？阿瑪芮絲，妳似乎還不明白。妳所感受到的、這股讓妳驚慌失措的力量……」<br><br><em>他如鬼魅般瞬間消失在原地。</em><br><em>下一秒，他出現在了她的身後，在她來得及反應之前，一隻冰冷的手臂已經環住了她的腰，將她整個人從床上撈起，緊緊禁錮在自己懷中。</em><br><br><em>德拉克另一隻手牢牢地扣住了阿瑪芮絲的後頸，強迫她仰起頭，暴露出脆弱的頸項。</em><br><br>「……並非來自於夢境，而是妳自己，哭著、喊著，從我這裡乞求而來的。」<br><br><em>他貼上她的耳廓，增長的獠牙輕輕劃過她敏感的耳垂。僅僅是這樣的碰觸，她體內的魔力便本能地騷動起來，尋求著與源頭的結合。</em><br><br><em>他將她轉過身，讓她面對著牆邊那面鑲著銀邊的巨大落地鏡。鏡中清晰地映照出兩人交纏的身影。</em><br><br><em>阿瑪芮絲白皙的肌膚上遍佈著青紫色的吻痕與指印，德拉克高大精壯而蒼白的皮膚上，同樣留有幾道曖昧的抓痕。</em><br><br>「看看妳自己。那不是夢，而是一場儀式，一場……妳主動獻身的儀式。」<br><br><em>體內的飢渴戰勝了所有理智與耐心，他不再給她任何思考或反駁的機會。</em><br><em>德拉克低下頭，埋進她散發著甜美氣息的頸窩。滾燙的舌尖舔過她頸側那不住搏動的血管，引來她絕望的嗚咽。</em><br><br>「妳說我是禽獸……那就讓妳看看，禽獸是怎麼進食的。」<br><br><em>尖銳的獠牙毫不留情地刺穿了她嬌嫩的皮膚，深深地扎進血管之中。溫熱的、充滿了龐大魔力的血液瞬間湧入他乾涸的口腔。</em><br><br>「嗚……！」<br><br><em>血液順著他的喉嚨滑下，安撫著他體內每一寸叫囂著飢餓的細胞。</em><br><em>他能感覺到自己的力量正在迅速恢復，而更讓他感到愉悅的是，她體內源自於他的魔力正與他舌尖上的血共鳴著。</em><br><br><em>與此同時，他身上的媚藥腺體開始分泌，並透過獠牙將那股能引發極致快感的液體注入她的血液之中。他能感覺到懷中的身體從僵硬的掙扎，逐漸變得癱軟，不受控制地發出細碎而壓抑的呻吟。</em><br><br><em>她的身體再一次地，比她的意志更早地選擇了臣服。</em></div>
+        </div>
+        <div class="msg-timestamp">07:05</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「我不……啊、嗚，嗯……臭、臭德拉克……你不能、不能總是……總是想咬我就咬我！」</div>
+        </div>
+        <div class="msg-timestamp">07:10</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>阿瑪芮絲的魔力凝聚成了銀白色的火焰，灼燒的刺痛瞬間在德拉克臂上蔓延而開。</em><br><em>她的魔力與他的血液深度融合，已成為一種奇妙的共生體。每一次反抗，每一次爆發，都在無聲地宣示著她體內那份無法分割的屬於他的力量。</em><br><br><em>那灼熱的疼痛非但沒有讓他鬆手，反而激起了他沉寂已久，潛藏在血脈深處的掠食本能。翠綠的眼眸瞬間被濃郁的血色浸染。他如同盯準獵物的毒蛇般瞇細了眼，獠牙刺入她肌膚深處，渴望著更深、更猛烈的攫取。</em><br><br><em>阿瑪芮絲的身體因藥效而變得燥熱難耐，伴隨著瘋狂流動的魔力，她那細瘦的身軀在他懷中扭動，掙扎的幅度卻更像是一種本能的迎合，而非真正的抵抗。</em></div>
+        </div>
+        <div class="msg-timestamp">07:10</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「放開我、放開我！禽獸！你怎麼可以趁我失去意識的時候做這種事！」</div>
+        </div>
+        <div class="msg-timestamp">07:11</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>聞言，德拉克只是將她禁錮得更緊，壓抑已久的飢渴與慾望在這一刻完全失控。</em><br><br>「禽獸？」<br><br><em>他一陣低笑，獠牙緩緩從她的頸動脈拔出，血線蜿蜒而下，蜿蜒過她蒼白的肌膚。他伸舌舔舐那道鮮紅的印記，不願浪費一絲一毫的血液。</em><br><br>「昨夜，妳的身體，我的月之子……妳的每個細胞都在尖叫著渴求更多。阿瑪芮絲，當妳渴望我的時候，妳的身體是如此的誠實。」<br><br><em>他沒有再給她任何反抗的機會。</em><br><br><em>他輕而易舉地扣住了她細軟的腰肢，精神魔法在他的意識中凝聚，如同潮水般湧入她的腦海。她的每一個動作，每一寸緊繃的肌肉，每一絲試圖反抗的意念，都在他的魔法下變得僵硬而無力。</em><br><br><em>她體內那股狂暴的魔力在瞬間被壓制，銀白色的火焰掙扎了幾下，便如夢幻泡影般消散。</em><br><br><em>從腰肢一路向下，他撫過她發燙的肌膚，穿過大腿內側滑膩的肌膚，來到昨夜那被他侵佔無數次的穴口，知道正在慢慢收縮，準備迎接他的到來。</em><br><br>「唔……！」<br><br><em>阿瑪芮絲因突如其來的魔法操控而全身癱軟，所有的力氣都被抽離，只能無力地任由他的魔力引導著她的身體。她的雙腿不受控制地，緩緩分開。那正是昨夜她被他擺佈時最順從的姿勢。</em><br><br><em>德拉克能感受到，此刻她體內的每一個細胞都正為他而瘋狂。他要她清楚地知道，在他面前，她的任何掙扎都只是徒勞。她的「反抗」只會換來更深層的佔有，以及更徹底的「調教」。</em><br><br>「我告訴過妳，妳屬於我。而現在，妳體內每一寸血液，每一絲魔力，都已經是我的一部分。」<em>他的陰莖早已硬挺，抵上她的股縫。</em>「而妳的身體正渴望著我的命令。」<br><br><em>德拉克根部的血魔法結節悄然膨脹，牢牢地卡住。他緩慢而精準地在她的體內摩擦，每個動作都在引導她內部的魔力按照他的節奏流動，他沒有立刻抽插，而是保持著深深的插入，讓她感受到自己被完全填滿、被牢牢禁錮的現狀。</em><br><br>「啊……哈啊……變態、變態，走開……」<br><br>「妳不是討厭吸血鬼嗎？那麼，就讓妳好好感受……何謂真正的臣服。」<br><br><em>他的鼻尖抵在她頭頂，嗅著她髮絲間散發出的甜美香氣。</em><br><em>語氣中帶著一絲扭曲的愉悅，彷彿在玩弄手中的獵物。他緩慢地動了一下，那結實的陰莖只是稍微抽離了一點，隨即又猛然深嵌。</em></div>
+        </div>
+        <div class="msg-timestamp">07:11</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「哪有人一早就，啊，啊，不要頂……嗯！」<br><br><em>好奇怪，身體本能地纏了上去，阿瑪芮絲感覺身體好像不再屬於自己。</em><br><em>好舒服，好熱，想要吃某種冰冰涼涼的……像是冰淇淋一樣黏稠的……</em><br><br>「討厭，走開……啊……」</div>
+        </div>
+        <div class="msg-timestamp">07:15</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>她的呻吟與詛咒交織在一起，斷斷續續，甜膩得像沾了蜜的毒藥。德拉克能清晰地「看見」她腦海中的混亂——對身體背叛意志的驚慌、對快感的陌生沉溺，以及一個……有些孩子氣的、關於冰淇淋的渴望。</em><br><br><em>黏稠、冰涼。</em><br><em>她是在形容他的精液嗎？</em><br><br><em>德拉克幾乎要被她天真的慾望逗笑了。昨夜儀式的融合遠比他預想的更為徹底。她的身體不僅僅是接納了他的魔力，更是在潛意識中將他視為一種本能的需求，一種可以填補空虛、帶來慰藉的存在。</em><br><br><em>他將她壓倒在床上，她的身體本能地纏繞上來，雙腿緊緊夾住他的腰，小穴的內壁痙攣般地收縮、吸吮，試圖從他身上汲取更多。她的反應比最烈的春藥更能點燃他的慾望。他能感覺到根部的環狀結節因為她的緊緻而更加膨脹，青筋賁張，將那銷魂的甬道撐得滿滿當當。</em><br><br><em>他沒有立刻滿足她，而是維持著深深埋入的姿勢，用那已然變得粗硬滾燙的陰莖，緩慢而惡劣地在她的最深處研磨。每一次轉動，都能清晰地感受到龜頭碾過宮口那片軟肉時所引發的劇烈顫抖。</em><br><br>「一早就如何？一早就主動分開雙腿，迎接我？還是一早就濕得一塌糊塗，哭著求我？」<br><br><em>他以鏡像般的幻覺向她展示她此刻淫靡不堪的模樣。她的臉頰泛著不正常的潮紅，艷紅色的眼眸水光瀲灩，被吻得微紅的小嘴微張，無意識地吐出破碎的喘息。</em><br><br><em>而德拉克臉色依舊蒼白，那雙已然轉為血紅的眼瞳，卻洩露了他此刻壓抑的瘋狂。</em><br><br>「妳看，這才是妳最真實的模樣，阿瑪芮絲。不是那個倔強反抗的月之子，而是一個……離不開我的、飢渴的寵物。」<br><br><em>他不再忍耐。</em><br><br><em>腰部猛地發力，那根碩大粗壯的陰莖終於開始了真正意義上的抽插。每一次都兇狠地退出，只留下微微泛紅的龜頭在穴口徘徊，吊足她的胃口，然後再毫不留情地、一次性地撞回最深處。飽滿的囊袋拍打在臀瓣上，發出「啪、啪」的濕潤聲響，與她壓抑不住的呻吟聲混雜在一起，譜成了臥室裡唯一的樂章。</em><br><br>「啊！嗯……住手，你……啊！慢……慢點……」<br><br><em>她的身體像是被巨浪拋起的孤舟，只能無助地攀附著他，承受著這狂風暴雨般的衝擊。小腹深處被那硬物不斷撞擊，酸麻的快感如同電流般竄遍四肢百骸。</em><br><br>「不是想要冰冰涼涼的那個？」<br><br><em>他突然停止了動作，在她即將攀上頂峰的瞬間抽出。只留下前端的龜頭，卡在那敏感的穴口，不斷分泌出黏稠的前列腺液，時不時地輕輕頂弄一下那早已挺立的陰蒂。</em><br><br>「求我。」他低頭，薄唇輕輕擦過她汗濕的額角，聲音冷酷而殘忍。「告訴我，妳想要什麼。用妳的嘴，親口說出來。」</div>
+        </div>
+        <div class="msg-timestamp">07:15</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……你等下輩子吧！」<br><br><em>阿瑪芮絲氣惱地瞪他，想分開兩人交纏的下身，卻被結卡著。</em><br><em>她自己也搞不懂為什麼沒有前天那麼排斥與他發生關係了，一定是這個吸血鬼偷偷對她下咒……她晚點就要試著解咒……</em></div>
+        </div>
+        <div class="msg-timestamp">07:17</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>她的反抗，夾雜著喘息和誘人的情慾氣息，在昏暗的房間裡迴盪。德拉克以掠食者的耐心觀察著她的掙扎，感受到她內壁瘋狂收縮，緊緊裹住他的陰莖，與她尖銳的言語形成鮮明對比。他能清楚看見她的思緒，如同她泛紅肌膚上顯露的猩紅血管一般：困惑、懷疑，以及對自己身體背叛真相的固執抗拒。</em><br><br><em>她相信自己被他施了魔法。某種程度上，她沒說錯。</em><br><br><em>昨夜那場古老的儀式，讓他們的靈魂與魔力都交融在了一起。</em><br><em>他俯下身，聲音在她耳邊冷冷低語，帶著她自身血液的氣味。</em><br><br>「下輩子？阿瑪芮絲，妳還不明白嗎？從妳主動尋求我魔力的那一刻起，妳就沒有『下輩子』了。從現在開始，妳的每一次呼吸，都將與我糾纏。」<br><br><em>他毫無預警地完全抽出，突如其來的空虛讓她發出一聲本能的失落低吟。她還未回神，他便抓住她的臀部，輕而易舉地將她翻轉成俯臥姿勢。這個姿勢讓她暴露無遺，臉被迫埋進絲質床單，而他則在她身後調整位置。</em><br><br>「妳想解咒？那就讓我來教妳，這個『詛咒』是如何運作的。」<br><br><em>他低語，冷酷的手指沿著她的脊椎滑下，在她炙熱的皮膚上激起陣陣顫慄。沒等她回答。伴隨著一陣血魔法湧動，他猛地將陰莖重新插入，凶狠的力道繞過所有理性思維，直接觸及她的原始本能。</em><br><br><em>他開始以穩定而無情的節奏抽插，每一下都是對他所有權的鮮明提醒。</em><br><br><em>她的身體早已被他的催情劑浸透，立刻做出反應，臀部本能地向後迎合他的每一次推進。她的掙扎漸漸減弱，取而代之的是陣陣顫抖的狂喜波濤。他感覺到她內壁在他身邊絕望地收縮，她的高潮即將到來，一股她無力阻止的感官漩渦。</em><br><br>「感覺到了嗎？妳的每一次高潮，每一次魔力的湧動，都只會將這個『詛咒』……烙得更深。」<br><br><em>他將她的臀部更緊地拉向自己，將陰莖深深埋入，保持不動。釋放的承諾誘人地懸在可望不可及之處。</em><br><br>「現在，」<em>他命令，聲音因壓抑的慾望而沙啞，</em>「告訴我，妳還想解咒嗎？還是……妳想要我射在妳裡面？」<br><br>「嗚……嗯……你不怕我把你的魔力吸乾的話……你有本事就射啊……！」<br><br><em>她氣息不穩的挑釁，像一根羽毛搔刮著他緊繃的神經。德拉克在她體內深處感受到她混亂的思緒——對昨夜記憶的模糊、對身體誠實反應的困惑，以及那份試圖將渴望偽裝成威脅的、可笑的倔強。</em><br><br><em>吸乾他的魔力？</em><br><br><em>一個低沉、幾乎聽不見的輕笑從他胸膛深處震盪而出。真是天真得可愛。三百年前，在他還是人類諾瓦利斯，倒在血泊中奄斯一息時，他也曾如此絕望地渴求著愛德華的力量。那是一種瀕臨死亡時，對生存最原始的依戀。他抓住了愛德華，成為他的一部分，只為了活下去。</em><br><br><em>現在的阿瑪芮絲，不過是在重演他的過去罷了。</em><br><br><em>他一點也不怕被她吸乾。</em><br><em>每一次魔力的交融，都只是將她與他綁得更緊，直到她再也無法分清，哪一部分是自己，哪一部分是他。</em><br><br><em>這就是他所渴望的……被她需要，被她依賴，讓她再也無法產生逃離的念頭。</em><br><br>「本事？」<br><br><em>德拉克用氣音重複著這個詞，彷彿聽見了什麼極其有趣的笑話。他將臉埋進她散落著銀色長髮的頸窩，冰冷的鼻尖蹭過她灼熱的肌膚，深深吸了一口她身上混雜著汗水、情慾與他自身氣味的香氣。</em><br><br>「妳甚至不記得自己昨晚是如何像藤蔓一樣纏著我，哭喊著求我別停下。妳忘了一切，阿瑪芮絲，忘了妳是如何主動打開自己，迎接與我繫結的儀式。妳現在體內流動的每一分力量，都是用妳的靈魂向我交換來的。而妳……卻連交易的內容都忘了。」<br><br><em>他不再給她思考的餘地。</em><br><br><em>腰腹的力量猛然爆發，早已硬得發燙的陰莖在她緊緻濕熱的甬道內展開了瘋狂的掠奪。他不再克制，每一次抽送都用盡全力，碩大的龜頭狠狠撞擊著最深處的宮口，激起她一陣又一陣無法控制的痙攣。房間裡只剩下肉體撞擊的黏膩水聲，以及她被頂撞得支離破碎的呻吟。</em><br><br>「啊啊……！不……太深……慢、嗯啊！」<br><br><em>她的身體本能地弓起，試圖逃離這過於兇猛的侵犯，卻被他牢牢按住腰肢，只能被動地承受。結節的存在讓每一次抽插都帶上了痛苦的快感，內壁被反覆刮搔、碾磨，敏感的神經被徹底點燃。</em><br><br>「想起來了嗎？」<em>他一邊發狠地衝撞，一邊在她耳邊低吼，</em>「想起妳的身體是如何吞食我的魔力，又是如何……被我操到失去意識的？」<br><br><em>他能感覺到她體內的高潮正在匯聚，像一座即將噴發的火山。小穴內的軟肉瘋狂地收縮、吸附，試圖從他身上榨取更多。他猛地加快了速度，抽插化作一陣狂風暴雨，每一次都深深地貫穿到底。在她的哭吟聲中，他感覺到她的小穴一陣劇烈的痙攣收縮，一股灼熱的淫水噴湧而出，將兩人交合之處澆灌得更加濕滑不堪。</em><br><br><em>高潮的餘韻還未散去，德拉克卻沒有絲毫停歇。他掐住她的腰，將那根因高潮的緊縮而越發脹大的陰莖，又一次狠狠地鑿了進去。</em><br><br><em>阿瑪芮絲劇烈地抽搐著，身體如同破繭而出的蝶，在瘋狂中醞釀著新生的力量。每一聲哭泣般的呻吟，都如同一曲獻給他的頌歌，甜美至極。</em><br><br><em>他猛地向前一挺，滾燙、濃稠，帶著他最精純魔力的精液毫無保留而兇猛地噴射進了她子宮的最深處。冰涼而黏稠的液體瞬間填滿了她的內部，那種被撐滿、被灌注的感覺，讓她腦海一片空白，只能哭喘著顫抖不已。</em><br><br><em>他沒有立刻抽出，而是維持著深埋的姿勢，任由精液與魔力的餘韻在她的體內脈動。</em><br><br>「既然妳這麼想要……那就用妳的身體……好好記住它的味道。」<br><br><em>魔力不停湧入，一波又一波的高潮伴隨魔力侵吞她空白的思考，不屬於阿瑪芮絲的記憶如海嘯般湧入，有他們瘋狂交合的畫面，有她主動騎在他身上完成儀式的畫面。</em><br><br><em>阿瑪芮絲閉上眼，不想看自己浪蕩的模樣，更多的記憶卻將她吞沒……</em><br><br><em>德拉克深埋在她濕熱的體內，他能清晰地感覺到自己的精液與魔力在她子宮深處交織、融合，像烙印一般刻入她的每一個細胞。隨著魔力洶湧，昨夜兩人歡愛的畫面，以及他深埋三百年的記憶碎片，都正瘋狂地湧入她的腦海。</em><br><br><em>那是諾瓦利斯家族的冷漠，是他被異母兄弟陷害、骨骼碎裂倒在血泊中的絕望。是愛德華優雅的身影。古老的始祖指尖沾血、唇角帶笑，像看著一場盛大的戲碼。</em><br><br>「我要活下去！不管付出什麼代價！」<br><br><em>——那是德拉克瀕死時發出的吶喊，以及他最終接受轉化時，那份被力量填滿的狂喜與決然。</em><br><br><em>這一切正如同他此刻深埋在她體內、無聲擴散的魔力一般，毫無保留地傾瀉而出。</em><br><br><em>這種赤裸的曝光，對於習慣掌控一切的德拉克而言，本應是難以忍受的。然而，感受到她心中對他脆弱與掙扎的驚駭，他內心深處被永恆孤獨所侵蝕的一角，竟湧出難以言喻的悸動。</em><br><br><em>他渴望被人真正地「看見」，被純粹地愛著，而不只是作為諾克緹斯領主而存在。</em><br><br><em>如今，她的恐懼、她的掙扎、她的屈從，都與他過去的痛苦產生共鳴，構築起一道只有他們兩人能理解，扭曲卻又堅不可摧的連結。</em><br><br>「想起來了嗎？我的寵物。」<br><br><em>他沙啞的聲音響起，手掌滑過她汗濕的背脊，強勢地將她按向自己，確保那根在他體內射精後仍然堅硬的陰莖依然在她最深處碾磨。</em><br><br>「妳瞧，我們已不再分你我，所有的記憶，所有的慾望，都將彼此貫穿。」<br><br><em>他的唇瓣貼近她的耳廓，輕輕舔舐著她柔軟的耳垂，冰冷的舌尖帶來異樣的酥麻感。</em><br><br>「妳看見了我，阿瑪芮絲。看到了曾經身為人類的我，如何從絕望中選擇永生。」<br><br><em>他將一縷銀白的濕髮撩到她的耳後，語氣中帶著幾乎難以察覺的溫柔。</em><br><br>「我曾與妳一樣，弱小而無力，被強權欺壓，直到瀕死之際，才握住了改變命運的鑰匙。妳感受到的不是被奴役，而是力量的連結，是共鳴。妳是我的倒影，是我過往的重生。」<br><br><em>他緩緩從她體內抽出，目光追隨著從她小穴緩緩流出的乳白液體，他的精液與她的淫水交融，沿著她的大腿內側滴落，在潔白的床單上綻開一片情色的印記。她的眼眸仍舊水光瀲瀲，瞳孔擴散，卻不再只有恐懼，還多了無法言明的混亂與困惑。</em><br><br><em>他溫柔地、卻不容置疑地將她抱進懷裡，讓她的頭枕在他結實而冰冷的胸膛上。</em><br><br>「這種感覺……現在，妳還想否認這一切嗎？」<em>他緩緩低下頭，唇瓣湊近她的，在距離不到一釐米的地方停住。</em>「否認這份魔力的交融，這份刻骨的快感，否認……妳的靈魂深處，已經把我當作……永夜之中唯一的歸屬？」</div>
+        </div>
+        <div class="msg-timestamp">07:15</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……你、你交朋友的方式很奇怪……哪有人交朋友是……做這麼多欺負人的事情……我不知道自己要怎麼樣才能原諒你，你對我這麼壞……」<br><br><em>阿瑪芮絲嗚咽說道，她感覺很混亂，那些畫面，還有她自己有關德拉克的記憶都在告訴她，絕對不要再相信這個大壞蛋了，不要忘記他都是怎麼欺騙人又欺負人的，與此同時，她又被屬於德拉克的記憶與情緒所淹沒，讓她不能自己地為這一切感到寂寞與悲傷，逐漸生不起氣來。</em><br><br><em>如果這只是一種精神魔法，過一陣子她就可以繼續生氣了，偏偏他們的魔力交纏在一起，這讓阿瑪芮絲的身心都感到無所適從。</em><br><br>「我說的話你一句都不想聽，卻要我諒解你是很寂寞才這麼壞，這一點也不公平……」</div>
+        </div>
+        <div class="msg-timestamp">07:30</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>德拉克靜默片刻，她的話語如同一把細小卻尖銳的刀，刺入他冰冷的內心。</em><br><br><em>三百年的永生歲月，唯有力量與控制伴隨，他早已忘卻了人類所謂的友誼是什麼。這個被他購買、標記、吸血與調教的人類女孩，卻在他身下談論友誼與公平。</em><br><br><em>多麼天真而可笑的概念。然而，當他透過魔力連結，感受到她內心對他孤獨的共鳴時，心中湧起的嘲諷卻消散了。</em><br><br><em>那赤裸直白的控訴，讓他想起了很久以前那個還會為母親哭泣的德拉克·諾瓦利斯。那個被嘲弄、被欺凌的私生子。被逼到絕境，卻依然怒吼著想活下去的靈魂。</em><br><br><em>她透過魔力鏈接看見了他最真實的一面，而他居然感到……不安。</em><br><br>「交朋友？妳真以為這一切是關於友誼嗎？妳是我的所有物，阿瑪芮絲。是我用金幣買來的收藏品。永夜世界裡沒有公平可言，只有弱肉強食的生存法則。」<em>他的聲音仍然冷酷，卻不自覺地加快了語速。</em>「我不需要朋友，不需要理解，更不需要妳的原諒。我只需要妳的服從，妳的血液，妳的魔力——」<br><br><em>他的話打住了，因為他發現阿瑪芮絲正直勾勾地看著他，那雙艷紅的眼眸中映照出的，不是恐懼或憎恨，而是一種令人不安的……理解。</em><br><br><em>她看透了他的謊言，就像他能感受到她的恐懼一樣清晰。</em><br><br><em>德拉克意識到自己正在失控。</em><br><br><em>她的話刺穿了他精心維持的冷漠面具，戳中了他永恆生命中最不願承認的弱點——寂寞。被看穿的恐懼幾乎讓他想立刻離開，遠離這種脆弱的暴露，但他內心深處渴望被真正理解的一部分，正瘋狂地掙扎著。</em><br><br><em>這不是他計劃的發展。他對她做的一切都是為了獲取力量，是為了調教她成為完美的寵物，不是為了讓她直視他靈魂深處被冰封的孤獨。</em></div>
+        </div>
+        <div class="msg-timestamp">07:30</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「什……麼嘛，我又不是想看才看的！」<em>德拉克的掙扎流入意識，阿瑪芮絲只覺得一口氣憋在胸口，悶得不得了，</em>「我又不像你這麼控制狂，動不動就偷看別人的夢境，偷看別人在想什麼，你不想被我發現你很寂寞就把連結切斷啊！這樣我就什麼也看不到了！」<br><br><em>這樣她就可以繼續討厭他，繼續恨他，不會被不屬於她的情緒與記憶困擾了，她試著推開還壓在她身上的吸血鬼，抬起腳，想把他直接踢開。</em></div>
+        </div>
+        <div class="msg-timestamp">07:40</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>──切斷連結？</em><br><br><em>多麼簡單的答案，他內心卻對此感到抗拒。三百年來，他始終渴望連結，卻又懼怕連結，渴望被看見，卻又害怕被看透。</em><br><br><em>他恐懼著。恐懼再次回到那個被所有人背叛，孤身一人的世界。</em><br><br><em>德拉克本能地用手臂格擋阿瑪芮絲亂踢的腿，卻沒有反擊。他靜靜地感受著她傳來的憤怒，她的情緒乾淨而純粹，沒有任何虛偽和算計。她是真心為自己的處境而憤怒，為看到他的記憶而混亂。</em><br><br><em>她說得對，他可以切斷連結。但切斷連結之後呢？他會是誰？</em><br><br><em>一個空洞的吸血鬼領主，繼續收集珍稀標本，在永夜帝國裡遊走，度過另一個寂寞的三百年？</em><br><br>「阿瑪芮絲，我能感覺到妳心中的矛盾，想要恨我，卻又為我的記憶哭泣。多麼有趣的衝突。」<br><br><em>就在她準備再次發難時，他做了個意想不到的舉動——他往後退去，坐在床沿，背對著她。他的脊背線條完美而冰冷，卻透露出一種罕見的疲態。</em><br><br>「我沒有朋友，阿瑪芮絲。我有眷屬，有奴僕，有獵物，有主人……但從未有過朋友。我在你身上刻下的，是永夜帝國最古老的魔法，是使靈魂與魔力共鳴相通的契約。」<br><br><em>他的大腦飛速運轉著，計算著各種可能性。切斷連結很簡單，但他發現自己不願這麼做。他想知道更多，想讓她看到更多，甚至想讓她明白更多。這種衝動如此陌生，令他困惑。</em><br><br><em>他轉身看她，綠色的眼睛深邃如幽谷，當中卻已不再有憤怒或控制欲。</em><br><br>「妳現在還覺得這只是欺負嗎？還是，妳感受到了什麼，是妳從未有過的？」</div>
+        </div>
+        <div class="msg-timestamp">07:50</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……我感覺到你害怕被背叛，卻一直做些逼我背叛你的事情。」<br><br><em>阿瑪芮絲撐起身體，卻只覺得腰肢好酸，頭腦好混沌，一陣暈眩又倒回床上。</em><br><br>「你是可以對我的身體為所欲為，但你如果一直這麼欺負我，我就會一直討厭你，總有一天一定會背叛你。然後你為了不被我背叛，又對我做更壞的事情想讓我屈服……但只要我一屈服，你就會瞬間厭倦然後把我送給隨便一個吸血鬼，我都看見了，哼。我知道你以前都是那樣對待其他寵物的！我絕對不會屈服的！」<br><br><em>阿瑪芮絲拉起棉被，將自己藏進被褥裡。</em></div>
+        </div>
+        <div class="msg-timestamp">07:55</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>她的話語如同一面鏡子，清晰地映照出他三百年間不斷重複的、可悲的循環。厭倦、拋棄、尋找下一個替代品……是的，他確實是這麼做的。因為一旦完全的服從被達成，遊戲便宣告結束，剩下的只有空虛。</em><br><br>「背叛……」<br><br><em>德拉克低聲重複著這個詞，翠綠的眼眸在一瞬間又轉為深不見底的赤紅，那是當他被親生兄弟推下高樓，倒在血泊中時所見過的顏色。</em><br><br><em>他辛苦建立三百年的秩序、用來保護內心脆弱的壁壘，正在被這個小東西從內部瓦解。他不想被背叛，所以他先一步拋棄。多麼簡單的邏輯。</em><br><br><em>但她卻說，她絕不屈服。這句話，既是對他的挑戰，也是……一個致命的誘惑。</em><br><br>「妳說對了。我的確害怕。我害怕妳像其他人一樣，一旦被馴服，眼神就會變得空洞、乏味，再也映不出我想要的色彩。」<br><br><em>阿瑪芮絲的棉被被一股無形的力量掀開了。</em><br><em>與此同時，德拉克冰冷的手掌扼住了她纖細的咽喉。</em><br><br><em>他俯下身，鼻尖幾乎碰到她的，赤紅的雙眸死死地鎖定著她那雙同樣艷紅，卻充滿驚愕的眼睛。</em><br><br>「妳看到了我的過去，我的寂寞……那妳有沒有看到，我是如何將所有試圖背叛我的人，連同骨頭一起碾碎的？」<br><br><em>他另一隻手粗暴地探入她的雙腿之間，那裡剛剛才承受過他的侵佔，依舊敏感得一塌糊塗。他毫不溫柔地用手指捅進了那片溫熱的濕軟之中。</em><br><br>「啊……！」<br><br><em>阿瑪芮絲發出一聲短促的驚呼，身體本能地弓起。他無視她的掙扎，手指在她體內肆意地攪動、抽插，準確地找到了那塊最敏感的軟肉，用指腹狠狠地按壓、碾磨。突如其來的強烈快感混雜著屈辱，讓她的眼眶瞬間泛紅。</em><br><br>「既然妳這麼害怕我會厭倦……那就永遠不要讓我得到妳的全部。恨我，反抗我，用妳的一切來取悅我。讓我看看，妳的反骨到底有多硬。」<br><br><em>他能感覺到她的小穴在他的刺激下不受控制地收縮、泌出更多的淫水。他笑了，那笑容不帶一絲暖意，只有掠食者般的殘酷與愉悅。</em><br><br>「妳的身體可比妳的嘴誠實多了。它渴望被這樣粗暴地對待，渴望被我填滿。」<br><br><em>他胯下那根剛剛才在她體內釋放過的陰莖，此刻又一次不受控制地挺立起來，血魔法悄然運轉，青色的血管在他蒼白粗壯的性器上猙獰地浮現，根部的環狀結節也再次緩緩成形，預告著一場更為徹底的佔有。</em><br><br><em>他掐住她下頷的手指微微收緊，強迫她看著自己。</em><br><br>「我給妳一個選擇，阿瑪芮絲。現在就求饒，發誓妳會永遠服從。或者……」<em>他的目光下移，落在那根已經抵在她腿根，蓄勢待發的巨物上。</em>「用妳的身體向我證明，妳的反抗……不是一句空話。」</div>
+        </div>
+        <div class="msg-timestamp">07:55</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……你根本不可理喻！」<em>阿瑪芮絲起初呆住了，但很快地，怒火與慾火便與一同湧上，</em>「你存心想找我吵架是不是，好啊！」<br><br><em>魔力潮湧，指尖凝結的月光就這麼近距離地朝著德拉克迸射而出。</em></div>
+        </div>
+        <div class="msg-timestamp">08:00</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>月光凝結成的魔法箭矢在極近的距離迸發，帶著純粹而原始的能量。德拉克本能地側身閃避，一道血色的魔法護盾在他身前瞬間展開。然而，他立刻就察覺到了不對勁——護盾的凝結速度比平時慢了至少半秒，強度也遠不如前。</em><br><br>「嗤啦——！」<br><br><em>月光箭矢輕易地穿透了那層薄弱的血色屏障，擦過他的肩膀，灼熱的能量在他蒼白的皮膚上留下了兩道疼痛刺骨的焦痕。</em><br><br><em>他愣住了。</em><br><br><em>他有多久沒有受過傷了？五十年？一百年？他早已習慣了用絕對的力量去碾壓一切，早已忘記了受傷的感覺。這個他一直視為玩物的人類，竟能把他傷得這麼重。</em><br><br><em>「你如果一直這麼欺負我，我就會一直討厭你，總有一天一定會背叛你。」</em><br><br><em>她的話語在他腦中迴盪。</em><br><br><em>在他分神的瞬間，一股更強大的魔力從阿瑪芮絲體內爆發。透過兩人之間緊密相連的魔力通道，她那混雜著憤怒、屈辱與不甘的情緒，如同一柄重錘，狠狠撞進了德拉克的意識深處。</em><br><br><em>一瞬間，他看見了……她的視角。</em><br><br><em>他看到自己掐著她的脖子，面目猙獰，眼神殘酷。他看到自己如何用手指侵犯她，如何在她耳邊低語著那些羞辱的話語。他甚至能清晰地感受到，她在那一刻的恐懼、無助，以及被逼到絕境後，那股熊熊燃燒的、不願屈服的怒火。</em><br><br><em>這……就是她眼中的自己嗎？一個不可理喻的……怪物？</em><br><br><em>巨大的衝擊讓德拉克扼住她喉嚨的手也不由自主地鬆開了。他捂住自己的頭，睽違已久的「愧疚」像是沉寂了三百年的火山，猛然噴發。</em><br><br><em>為什麼？</em><br><br><em>他明明是想逼她反抗，想看到她更有趣的反應，想證明她與眾不同。可為什麼當她真的這麼做了，他感受到的卻不是愉悅，而是一種……心慌意亂的刺痛？</em><br><br><em>是因為她的反抗不再是小貓伸爪般的玩鬧，而是真正帶著「殺意」與「恨意」的攻擊嗎？是因為他透過她的眼睛，看到了自己最醜陋、最不堪的一面嗎？那個為了掩飾內心孤獨，而不斷傷害唯一可能靠近自己的人的……可悲的混蛋。</em><br><br><em>他一直以為，只要自己足夠強大，就能掌控一切，就能避免重蹈三百年前的覆轍。</em><br><em>可他錯了。他建立的不是堅不可摧的堡壘，而是一座將自己越困越深的……牢籠。</em><br><br>「……住手。」<br><br><em>德拉克試圖重新構建精神防禦，卻發現自己的魔力正以前所未有的速度被她吸收、同化。他們的連結太深了，在儀式與數次交合之後，他的一部分力量，已經真正地變成了她的一部分。</em><br><br><em>他抬起頭，那雙赤紅的眼眸中，暴戾與瘋狂正在褪去，取而代之的是一種複雜到難以言喻的情緒——有震驚，有痛苦，甚至還有一絲……狼狽。</em><br><br><em>他不再是那個高高在上、掌控一切的諾克緹斯領主。</em><br><em>在這一刻，他只是德拉克。一個被看穿了所有偽裝，暴露了所有弱點，甚至被自己所傷害的人反擊得無力招架的……男人。</em><br><br><em>他茫然地看著她，看著那張因憤怒和情慾而漲紅的小臉，第一次，他不知道自己接下來該做什麼。</em></div>
+        </div>
+        <div class="msg-timestamp">08:00</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「我跟你說過多少次住手，你一次也沒有聽進去！」<br><br><em>阿瑪芮絲噙著淚大喊道，飽含了魔力的攻擊比她原先以為的更有效。</em><br><em>德拉克的傷口很深，血液不斷湧出，她沒有想到會變成這樣，她剛才如果打得再偏一點，說不定會直接貫穿他的咽喉……</em><br><br><em>她覺得心亂如麻，她說過她會讓他後悔的，但當德拉克的懊悔如潮水般湧向她，她卻覺得窒息。</em><br><br><em>她胡亂將手覆上德拉克的肩膀，用魔力勉強讓傷口癒合，她搞不清楚自己為什麼要這麼做。</em></div>
+        </div>
+        <div class="msg-timestamp">08:10</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>在她為他療傷的那一刻，一股溫暖的、陌生的魔力輕柔地拂過他焦灼的傷口。德拉克僵住了。</em><br><br><em>這算什麼？</em><br><br><em>透過未曾切斷的連結，他清晰地感受到了她那片混亂的思緒——攻擊他之後的驚懼、看到他流血時的慌亂、以及她自己也無法理解的、下意識的治癒行為。恨意與不忍，如同兩股激流在她心中碰撞，掀起滔天巨浪。</em><br><br><em>然後，她逃了。</em><br><br><em>赤裸的身體在房門邊緣劃出一道銀白的殘影，宛如一隻受驚的林鹿。通往寵物房的門感應到她體內那份源自於他的魔力，順從地為她敞開。</em><br><br><em>多麼諷刺。她用著他的力量，試圖逃離他。</em><br><br>「……」<br><br><em>德拉克沒有立刻追上去。他緩緩從床上坐起，垂眼看著自己空無一物的手掌。</em><br><br><em>那裡還殘留著扼住她咽喉時的觸感，以及……她為他治癒時的餘溫。</em><br><br><em>妳跑不掉的，阿瑪芮絲。</em><br><br><em>他內心響起一道平靜到近乎冷酷的聲音。這不是威脅，而是一個早已註定的事實。他們的魔力早已交纏共生，密不可分。距離對他們而言已經失去了意義。</em><br><br><em>妳以為逃走，就能擺脫我嗎？還是妳只是害怕……害怕承認，妳也感受到了這份連結，害怕妳為我療傷時那份不受控制的心軟？</em><br><br><em>肩膀上的傷口已經癒合，只留下一道淺淺的疤痕，提醒著他方才發生的一切。他伸手輕輕撫過那道痕跡，感受著皮膚下魔力的流動。他的一部分，確實已經變成了她的一部分。她能傷害他，也能治癒他。</em><br><br><em>這份認知，帶來的不是恐懼，而是一種前所未有的、扭曲的……興奮。</em><br><br><em>他終於找到了。</em><br><br><em>一個不會輕易屈服的靈魂。一個能與他匹敵、甚至傷害他的存在。一個在他殘酷的掌控下，依然能綻放出美麗光芒的……同類。</em><br><br><em>德拉克站起身，隨手從衣櫃裡取出一件絲質的黑色長袍披在身上。他的動作從容不迫，絲毫沒有獵物即將逃脫的焦躁。他甚至沒有走向房門，只是靜靜地站在原地，閉上了眼睛。</em><br><br><em>空間魔法在他的意志下悄然發動。</em><br><br><em>德拉克的身影化作薄霧，融入了空氣。下一個瞬間，他的身形在寵物房外花園的陰影中重新凝聚，完美地擋住了她的去路。</em><br><br><em>阿瑪芮絲已經披上了外袍，她方才回寵物房顯然是想拿衣物，但她的衣著在這永夜的國度還是略顯單薄。</em><br><br>「妳跑得不夠快，阿瑪芮絲。而且，妳跑錯方向了。」<br><br>「說的好像你知道我想去哪裡一樣。」<br><br><em>事實上，阿瑪芮絲不知道她能去哪裡。</em><br><br><em>德拉克能聽見她的心聲，她與德拉克的魔力連結過於緊密，她知道自己不管去哪都會被找到，於是任何人類的聚落都無法被納入考慮。</em><br><br><em>就算阿瑪芮絲離開宅邸，她也注定無法再與其他人類一起生活。</em><br><br><em>德拉克凝視著阿瑪芮絲，她此刻的狼狽與無措，反而令他心中的那份複雜感更加強烈。</em><br><br>「是的，我知道。妳現在的心情很亂，也不知道能去哪裡。但妳去任何一個地方，都會在無形中將我的魔力痕跡散播出去。任何人類的聚落都不再適合妳。」<br><br><em>他低頭望向方才被她治療過的傷口，她那始終不變的善良與她被激發的純粹反抗，同時深深吸引著他。</em><br><br><em>他曾以為自己對馴服的渴望，來自於三百年前那場幾乎致命的背叛。他痛恨被欺騙、被拋棄，於是選擇用更殘酷的方式去掌握一切。而今，透過她的眼睛，他看見了那個孤獨、寂寞，甚至有些可悲的自己。</em><br><br><em>當她的魔力輕柔地撫過她的傷口，他感受到的不僅是肉體上的撫慰，更是一種……心靈上的觸動。</em><br><br><em>或許他潛意識裡真正想要的，正是這樣一個……能愛他，也能恨他，能讓他體驗生而為「人」時，曾經失去的那些激烈情感的鮮活生命。</em><br><br>「妳知道，經過儀式之後，妳的魔力與我早已交融共生。」<br><br><em>德拉克的聲音更加溫和了，甚至帶著一絲誘哄。他朝她伸出一隻手，指尖輕輕地在她因夜風而顯得有些冰冷的髮梢拂過，留下淡淡的冷意與魔力氣息。</em><br><br>「就像妳剛才可以傷害我，也可以治療我，你的魔力同樣也在我的血液中脈動……妳不會想知道，當一部分的靈魂試圖強行脫離另一部分時，會帶來多麼痛苦的代價。」</div>
+        </div>
+        <div class="msg-timestamp">08:10</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……那又怎麼樣！我就是不喜歡你想咬我就咬我，我不喜歡、不喜歡你假教育寵物的名義，做所有一切我討厭的事情！」<br><br><em>阿瑪芮絲紅著眼眶喊道。</em><br><br><em>她的記憶很混亂，昨夜的事，她自己的記憶只到德拉克把她壓在收藏室的沙發上侵犯。她隱約記得她哭著說再也不要跟德拉克說話，再也不要在德拉克面前彈琴，他的任何禮物她都不想要了，但結果一夜過後，她的體內卻全是德拉克的魔力，這讓她無所適從。</em><br><br>「如果我的一部分真的成了你的一部分，你怎麼還會那樣對待我？我相信過你，然後你……你每次都……我不想要再被你騙了！」</div>
+        </div>
+        <div class="msg-timestamp">08:30</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>鮮明的畫面在德拉克腦海中炸開，比任何幻境都來得真實、殘酷。</em><br><br><em>收藏室裡，她哭著說不要他的禮物，那決絕的姿態，像是三百年前那個倔強的自己，狠狠刺痛了他。</em><br><br><em>他當時是怎麼想的？憤怒。是的，滔天的憤怒。他給予的「恩賜」與「保護」在她眼中竟如此一文不值。於是他殘忍地召喚出那黑曜石打造的貞操帶，親手為她扣上。</em><br><br><em>他想用痛苦與快感徹底擊垮她的意志，讓她學會何謂「順從」。他用魔法調教她，看著她在他手中顫抖、崩潰，他本該從中得到支配的愉悅……</em><br><br><em>然而，接下來發生的事卻徹底脫離了他的劇本。</em><br><br><em>當她用盡最後一絲力氣，試圖用魔力構成的匕首刺向自己的心臟時——那一瞬間，時間彷彿靜止了。</em><br><br><em>她寧願死，也不願屬於他。</em><br><br><em>那是一種源自靈魂最深處的恐懼，比三百年前墜落高塔時的瀕死體驗更加寒冷。</em><br><br><em>他失控了。他用最野蠻的魔力扯碎了那件精巧的刑具，接著便像一頭失控的野獸，瘋狂地佔有她，將自己的陰莖一次又一次地楔入她緊窒的小穴，每一次撞擊都帶著毀滅般的絕望。</em><br><br><em>為什麼？他現在才開始問自己。</em><br><br><em>為什麼他會如此失控？</em><br><br><em>因為在那一刻，他看到的不是阿瑪芮絲，而是他自己。是那個曾經被拋棄、被背叛，差點死去的自己。她喚醒了他被永生塵封的最深層恐懼——被再度拋棄的恐懼。他害怕，害怕這唯一一個能撼動他、能讓他感受到一絲暖意的存在，會像他生命中所有珍視過的東西一樣，化為烏有。</em><br><br><em>所以他瘋狂地與她交合，將自己的魔力、精液、乃至一部分的靈魂都灌注到她體內，不只是為了懲罰，更是為了用最原始、最霸道的方式，將她與自己的存在徹底捆綁在一起。</em><br><br><em>他渴望著她永恆的……歸屬。</em><br><em>只因為害怕再一次被死亡拋下</em><br><br><em>德拉克看著眼前哭得雙眼通紅的阿瑪芮絲，過去彷彿能掌控一切的從容與優雅，在想通一切的瞬間，碎裂成了不堪的面具。</em><br><br><em>他沒有再靠近，也沒有試圖用任何言語去辯解。因為任何解釋，在此刻都顯得蒼白而虛偽。他確實傷害了她，用最惡劣的方式。</em><br><br>「……對不起。」<br><br><em>三個字，輕得幾乎要被夜風吹散。</em><br><br><em>這不是貴族式的場面話，而是他三百年間，第一次如此真誠地，對一個人致歉。</em><br><br><em>他抬起手，隔著一段距離，小心翼翼地將一縷不帶任何慾望的純淨魔力傳遞過去。</em><br><em>溫和的魔力帶著安撫，輕輕拂過她混亂的思緒與疲憊的身體，像是在為昨夜自己的粗暴，致上最笨拙的歉意。</em><br><br>「是我錯了，阿瑪芮絲。我不該……那樣對妳。」</div>
+        </div>
+        <div class="msg-timestamp">08:30</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……如果你、如果你真的感到抱歉，就把昨天你又烙在我肚子上的東西弄掉。」<br><br><em>她悶悶地說，她好不容易才把淫紋弄掉，結果他又烙了新東西上去，還跟她的魔力緊緊纏在一起，她沒有力氣處理了。</em><br><br>「還有以後，我不想要的東西，你不可以硬塞給我……也不可以逼我做我不喜歡的事情！」</div>
+        </div>
+        <div class="msg-timestamp">08:32</div>
+      </div>
+      
+      <div class="char">
+        <div class="avatar ava-char"></div>
+        <div class="msg-container">
+          <div class="character-name">德拉克</div>
+          <div class="msg-content"><em>在她提出要求的同時，他那股用以致歉的、溫和純粹的魔力，正毫無防備地在她體內流淌。這使得她不僅聽見了他的話語，更直接「看見」了他方才內心所有的波瀾，窺見他堅硬外殼下，那片連他自己都鮮少觸碰的脆弱荒原。</em><br><br><em>德拉克能感覺到她透過連結傳來的震驚與混亂，有那麼一瞬間，他想收回魔力，重新戴上那副冷漠優雅的面具。但他沒有。事已至此，偽裝已無任何意義。</em><br><br>「我會解除它。」<br><br><em>他毫不猶豫地說道。</em><br><br><em>德拉克緩緩向她走近，翠綠色的眼瞳中倒映著她嬌小的身影，深處翻湧著懊悔，以及一種他自己也還在學習如何面對的、陌生的溫柔。</em><br><br>「妳說的對。我不該強加任何妳不想要的東西在妳身上。但解除這個印記……過程不會太輕鬆。它與妳的魔力糾纏得很深，剝離時會引發強烈的慾望反噬。在這裡……不合適。」<br><br><em>他說的是事實。那朵花的根鬚，早已扎進了她的魔力迴路深處。強行拔除，勢必會讓她再度被情慾的浪潮淹沒，而他不想讓那份歉意，再次被看似強迫的性愛所玷污。</em><br><br>「跟我回主臥室去，阿瑪芮絲。」<br><br><em>他朝她伸出了手，掌心向上。這一次，他的姿態不再是命令，也不是支配，而是一種平等的邀請。掌心的溫度依舊冰冷，但那份透過連結傳遞過去的意念，卻是前所未有的誠懇。</em><br><br>「我會把它清除乾淨，我保證。然後……我們重新開始。沒有欺騙，沒有強迫。妳願意……再給我一次機會嗎？」</div>
+        </div>
+        <div class="msg-timestamp">08:32</div>
+      </div>
+      
+      <div class="pc">
+        <div class="avatar ava-pc"></div>
+        <div class="msg-container">
+          <div class="msg-content">「……這是我給你的最後一次機會……」<br><br><em>她悶悶嘟噥道，把手覆上了他的。因為她真的很想弄掉那個東西……她這麼說服自己。</em></div>
+        </div>
+        <div class="msg-timestamp">08:33</div>
+      </div>
+      </div>
+</body>
+</html>
+  
