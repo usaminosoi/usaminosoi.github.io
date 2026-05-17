@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETZ CHAIM — 塔羅抽牌</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8cc7a;
+    --gold-dim: #7a6030;
+    --ink: #0a0804;
+    --parchment: #f5ead8;
+    --parchment-dark: #e8d5b5;
+    --crimson: #8b1a1a;
+    --deep-teal: #1a3a3a;
+    --silver: #c0bdb0;
+    --glow: rgba(201,168,76,0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #080604;
+    color: var(--parchment);
+    font-family: 'Noto Serif TC', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield background */
+  .starfield {
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(26,58,58,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(80,40,10,0.3) 0%, transparent 50%),
+      #080604;
+    z-index: 0;
+  }
+  .starfield::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(201,168,76,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 10%, rgba(201,168,76,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 25%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 50%, rgba(201,168,76,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 80%, rgba(201,168,76,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 90%, rgba(201,168,76,0.5) 0%, transparent 100%);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .sigil {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+    opacity: 0.9;
+    animation: rotate-slow 30s linear infinite;
+  }
+
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 30px var(--glow), 0 0 60px rgba(201,168,76,0.2);
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--silver);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .divider {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 20px auto;
+    opacity: 0.5;
+  }
+
+  /* Mode selector */
+  .mode-selector {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mode-btn {
+    position: relative;
+    padding: 18px 36px;
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--silver);
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+
+  .mode-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .mode-btn:hover, .mode-btn.active {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    text-shadow: 0 0 20px var(--glow);
+    box-shadow: 0 0 20px rgba(201,168,76,0.15), inset 0 0 20px rgba(201,168,76,0.05);
+  }
+
+  .mode-btn:hover::before, .mode-btn.active::before {
+    opacity: 1;
+  }
+
+  .mode-btn.active {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+
+  .mode-icon {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+
+  /* Draw area */
+  .draw-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .mode-description {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--silver);
+    opacity: 0.7;
+    letter-spacing: 0.1em;
+    font-family: 'Cinzel', serif;
+    max-width: 400px;
+  }
+
+  /* Draw button */
+  .draw-btn {
+    position: relative;
+    padding: 20px 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    transition: all 0.3s ease;
+    overflow: visible;
+  }
+
+  .draw-btn::before, .draw-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--gold);
+    transition: all 0.4s ease;
+  }
+  .draw-btn::before {
+    clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+    background: rgba(201,168,76,0.06);
+  }
+  .draw-btn::after {
+    clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+    border: 1px solid transparent;
+    box-shadow: 0 0 0 0 var(--glow);
+  }
+
+  .draw-btn:hover::before {
+    background: rgba(201,168,76,0.14);
+    box-shadow: 0 0 40px rgba(201,168,76,0.25);
+  }
+
+  .draw-btn:hover {
+    text-shadow: 0 0 20px var(--glow);
+    transform: translateY(-2px);
+  }
+
+  .draw-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Result display */
+  .result-area {
+    width: 100%;
+    max-width: 680px;
+    display: none;
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-display {
+    position: relative;
+    background: linear-gradient(135deg, #120e08, #1a1408, #0e0c06);
+    border: 1px solid var(--gold-dim);
+    padding: 40px 40px 36px;
+    text-align: center;
+  }
+
+  .card-display::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(201,168,76,0.15);
+    pointer-events: none;
+  }
+
+  .card-display::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .card-number-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .card-name-zh {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--gold-light);
+    text-shadow: 0 0 30px var(--glow);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .card-name-en {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.25em;
+    margin-bottom: 20px;
+  }
+
+  .card-symbol {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    display: block;
+    filter: drop-shadow(0 0 12px var(--glow));
+  }
+
+  .card-suit-badge {
+    display: inline-block;
+    padding: 4px 16px;
+    border: 1px solid var(--gold-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    color: var(--silver);
+    letter-spacing: 0.3em;
+    margin-bottom: 24px;
+    background: rgba(201,168,76,0.04);
+  }
+
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .divider-ornament .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim));
+  }
+  .divider-ornament .line.right {
+    background: linear-gradient(to left, transparent, var(--gold-dim));
+  }
+  .divider-ornament .diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold-dim);
+    transform: rotate(45deg);
+  }
+
+  .card-essence-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .card-essence {
+    font-size: 1rem;
+    color: var(--parchment);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .card-meaning {
+    font-size: 0.88rem;
+    color: var(--silver);
+    line-height: 1.85;
+    font-weight: 300;
+    text-align: left;
+    opacity: 0.85;
+    border-left: 2px solid var(--gold-dim);
+    padding-left: 16px;
+    margin-top: 4px;
+  }
+
+  .astro-tag {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px 14px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.25em;
+  }
+
+  .negative-section {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(139,26,26,0.08);
+    border: 1px solid rgba(139,26,26,0.25);
+    border-left: 3px solid var(--crimson);
+  }
+  .negative-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    color: #c07070;
+    letter-spacing: 0.3em;
+    margin-bottom: 6px;
+  }
+  .negative-text {
+    font-size: 0.82rem;
+    color: #d0a0a0;
+    line-height: 1.6;
+  }
+
+  .kabbalah-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 12px;
+    background: rgba(26,58,58,0.3);
+    border: 1px solid rgba(100,160,160,0.2);
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    color: #90c0c0;
+    letter-spacing: 0.2em;
+  }
+
+  /* Corner ornaments */
+  .corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--gold-dim);
+    border-style: solid;
+    border-width: 0;
+  }
+  .corner.tl { top: 10px; left: 10px; border-top-width: 1px; border-left-width: 1px; }
+  .corner.tr { top: 10px; right: 10px; border-top-width: 1px; border-right-width: 1px; }
+  .corner.bl { bottom: 10px; left: 10px; border-bottom-width: 1px; border-left-width: 1px; }
+  .corner.br { bottom: 10px; right: 10px; border-bottom-width: 1px; border-right-width: 1px; }
+
+  /* History */
+  .history-section {
+    width: 100%;
+    max-width: 680px;
+    margin-top: 20px;
+  }
+
+  .history-header {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.4em;
+    text-align: center;
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  .history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .history-chip {
+    padding: 4px 12px;
+    border: 1px solid rgba(201,168,76,0.2);
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.15em;
+    background: rgba(201,168,76,0.04);
+  }
+
+  .again-btn {
+    margin-top: 24px;
+    padding: 12px 32px;
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .again-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+
+  /* Shuffle animation */
+  @keyframes cardFlip {
+    0% { transform: perspective(600px) rotateY(0deg) scale(1); opacity: 1; }
+    50% { transform: perspective(600px) rotateY(90deg) scale(0.9); opacity: 0.5; }
+    100% { transform: perspective(600px) rotateY(0deg) scale(1); opacity: 1; }
+  }
+
+  .card-display.flipping {
+    animation: cardFlip 0.6s ease;
+  }
+</style>
+</head>
+<body>
+
+<div class="starfield"></div>
+
+<div class="container">
+  <div class="header">
+    <svg class="sigil" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="#c9a84c" stroke-width="0.4" opacity="0.3"/>
+      <!-- Star of David -->
+      <polygon points="50,8 62,30 38,30" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.7"/>
+      <polygon points="50,92 62,70 38,70" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.7"/>
+      <polygon points="8,50 30,38 30,62" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.7"/>
+      <polygon points="92,50 70,38 70,62" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="50" cy="50" r="6" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.8"/>
+      <!-- Tree of life nodes suggestion -->
+      <circle cx="50" cy="20" r="2.5" fill="#c9a84c" opacity="0.6"/>
+      <circle cx="50" cy="80" r="2.5" fill="#c9a84c" opacity="0.6"/>
+      <circle cx="25" cy="38" r="2" fill="#c9a84c" opacity="0.5"/>
+      <circle cx="75" cy="38" r="2" fill="#c9a84c" opacity="0.5"/>
+      <circle cx="25" cy="62" r="2" fill="#c9a84c" opacity="0.5"/>
+      <circle cx="75" cy="62" r="2" fill="#c9a84c" opacity="0.5"/>
+      <circle cx="50" cy="50" r="2" fill="#c9a84c" opacity="0.8"/>
+    </svg>
+
+    <h1 class="title">ETZ CHAIM</h1>
+    <p class="subtitle">生命之樹　塔羅抽牌系統</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Mode selection -->
+  <div class="mode-selector">
+    <button class="mode-btn active" onclick="setMode('major')" id="btn-major">
+      <span class="mode-icon">☽</span>
+      大秘儀
+    </button>
+    <button class="mode-btn" onclick="setMode('minor')" id="btn-minor">
+      <span class="mode-icon">✦</span>
+      小秘儀
+    </button>
+  </div>
+
+  <div class="draw-area">
+    <p class="mode-description" id="mode-desc">22張大秘儀牌，揭示靈魂深處的原型力量與命運法則</p>
+
+    <button class="draw-btn" onclick="drawCard()">
+      抽　牌
+    </button>
+
+    <div class="result-area" id="result-area">
+      <div class="card-display" id="card-display">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <div id="card-content"></div>
+      </div>
+      <button class="again-btn" onclick="drawCard()">▸ 再抽一張</button>
+    </div>
+
+    <div class="history-section" id="history-section" style="display:none">
+      <p class="history-header">⟡ 本次已抽牌記錄 ⟡</p>
+      <div class="history-list" id="history-list"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========================
+// MAJOR ARCANA DATA
+// ========================
+const majorArcana = [
+  { num: "0", zh: "愚者", en: "The Fool", symbol: "🌬", essence: "純粹的起點，無畏的躍入未知，天真的出發。", meaning: "象徵靈魂在物質世界的出發點。無條件的信任，在懸崖邊縱身一躍——並非無知，而是全然的信任存在。", kabbalah: "Aleph — 風" },
+  { num: "I", zh: "魔法師", en: "The Magician", symbol: "☿", essence: "意志的彰顯，將高處之物帶入低處。", meaning: "四種元素俱備，意志集中於一點。「天上如此，地下亦然」——橋接神聖意志與物質行動的施作者。", kabbalah: "Beth — 水星" },
+  { num: "II", zh: "女祭司", en: "The High Priestess", symbol: "☽", essence: "隱藏的知識，月亮的神秘，未顯化的潛能。", meaning: "她守護著薄紗後方的奧秘。直覺、潛意識、週期性的智慧。不說話，只存在——那便是她的力量。", kabbalah: "Gimel — 月亮" },
+  { num: "III", zh: "女皇", en: "The Empress", symbol: "♀", essence: "豐盛的創造力，生命力，感官的歡愉。", meaning: "大地母親，所有有形之物的賦形者。她的懷孕既是字面的也是比喻的——一切美麗與豐饒皆源自她。", kabbalah: "Daleth — 金星" },
+  { num: "IV", zh: "皇帝", en: "The Emperor", symbol: "♈", essence: "秩序、結構、父性權威。", meaning: "建立法律與界限的人。他的力量來自於清晰的意志與鐵一般的原則。混亂的對立面，也是創造的基礎。", kabbalah: "Heh — 白羊座" },
+  { num: "V", zh: "教皇", en: "The Hierophant", symbol: "♉", essence: "傳統、制度、靈性導師。", meaning: "橋接神聖與世俗的中介者。他持有鑰匙，知道儀式的意義。也可能是束縛於教條的囚徒。", kabbalah: "Vau — 金牛座" },
+  { num: "VI", zh: "戀人", en: "The Lovers", symbol: "♊", essence: "選擇、結合、對立的和諧。", meaning: "不僅是愛情——是所有二元對立的融合時刻。每一次真正的選擇都是一次靈魂的表態。", kabbalah: "Zain — 雙子座" },
+  { num: "VII", zh: "戰車", en: "The Chariot", symbol: "♋", essence: "勝利的掌控，以意志駕馭矛盾的力量。", meaning: "兩匹馬拉向不同方向，但車手以純粹意志前進。不是壓制，而是整合——帶著張力向前。", kabbalah: "Cheth — 巨蟹座" },
+  { num: "VIII", zh: "力量", en: "Adjustment (Lust)", symbol: "♌", essence: "靈魂的力量，非肌肉之力；駕馭本能。", meaning: "她以溫柔開合獅子之口。真正的力量是內在的寧靜，不是征服，而是與野性共舞。", kabbalah: "Teth — 獅子座" },
+  { num: "IX", zh: "隱士", en: "The Hermit", symbol: "♍", essence: "孤獨的智慧，內在光明的尋求。", meaning: "他帶著燈籠走在黑暗山路上——既是尋道者，也是為後來者照路的人。轉向內在，才能找到真光。", kabbalah: "Yod — 處女座" },
+  { num: "X", zh: "命運之輪", en: "Wheel of Fortune", symbol: "♃", essence: "循環、命運、機運的轉動。", meaning: "無常是宇宙的本質。輪子轉動，沒有人永遠在頂端或底部。了解循環，便能與命運共舞而非對抗。", kabbalah: "Kaph — 木星" },
+  { num: "XI", zh: "正義", en: "Justice", symbol: "♎", essence: "平衡、因果、客觀的裁量。", meaning: "她的劍切斷幻象，天平不偏不倚。宇宙的法則自動運作，無需辯護——業力即是最後的正義。", kabbalah: "Lamed — 天秤座" },
+  { num: "XII", zh: "吊人", en: "The Hanged Man", symbol: "🌊", essence: "自願的犧牲，不同的視角，靜止中的領悟。", meaning: "他倒掛而臉有光。這是主動選擇的讓渡——暫停行動，允許新的理解通過靜止而降臨。", kabbalah: "Mem — 水" },
+  { num: "XIII", zh: "死神", en: "Death", symbol: "♏", essence: "轉化、結束與開始的同一性，脫皮更新。", meaning: "死神從不「消滅」——他收割舊的以讓新的生長。每個重大結束都是偽裝的誕生。", kabbalah: "Nun — 天蠍座" },
+  { num: "XIV", zh: "節制", en: "Art (Temperance)", symbol: "♐", essence: "煉金術式的整合，對立的融合創造新事物。", meaning: "她將火與水在同一個杯中混合。矛盾不是問題——是原料。真正的藝術誕生於衝突的整合。", kabbalah: "Samekh — 射手座" },
+  { num: "XV", zh: "惡魔", en: "The Devil", symbol: "♑", essence: "執著、物質的束縛、陰影的力量。", meaning: "鍊子是鬆的，但他們不知道。惡魔是我們為自己戴上的枷鎖——對物質、慾望、恐懼的執著。覺知即解脫。", kabbalah: "Ayin — 魔羯座" },
+  { num: "XVI", zh: "塔", en: "The Tower", symbol: "♂", essence: "突然的顛覆、啟示、虛假結構的崩塌。", meaning: "閃電擊中驕傲建造的塔。痛苦是真實的——但倒下的是需要倒下的。廢墟上才能建立真正的基礎。", kabbalah: "Pe — 火星" },
+  { num: "XVII", zh: "星星", en: "The Star", symbol: "♒", essence: "希望、更新、與宇宙的連結、療癒。", meaning: "風暴之後，她裸身傾倒星水於地。一切美好的可能仍然存在。希望不是幻覺——是宇宙的應許。", kabbalah: "Tzaddi — 水瓶座" },
+  { num: "XVIII", zh: "月亮", en: "The Moon", symbol: "♓", essence: "幻象、潛意識、穿越黑暗的旅程。", meaning: "月光下萬物都有影子和另一張臉。潛意識的深水湧現，你必須學會辨別什麼是真實的恐懼，什麼是投影。", kabbalah: "Qoph — 雙魚座" },
+  { num: "XIX", zh: "太陽", en: "The Sun", symbol: "☀", essence: "喜悅、成功、活力、意識的光明。", meaning: "孩子在太陽下奔跑，沒有陰影可躲。這是純粹的存在喜悅——不因任何原因，只因活著本身便是祝福。", kabbalah: "Resh — 太陽" },
+  { num: "XX", zh: "審判", en: "The Aeon", symbol: "🔥", essence: "覺醒、召喚、靈魂的重新定位。", meaning: "號角響起，死去的一切站起。這不是懲罰——是召喚。更大的自我在呼喚你超越舊有的身分認同。", kabbalah: "Shin — 火" },
+  { num: "XXI", zh: "世界", en: "The Universe", symbol: "♄", essence: "圓滿完成、整合、在世界的舞動。", meaning: "她在月桂花環中舞蹈，四獸環繞，一切歸於一。這是一個循環的完成——也是下一個循環的入口。", kabbalah: "Tau — 土星" },
+];
+
+// ========================
+// MINOR ARCANA DATA
+// ========================
+const minorArcana = [
+  // WANDS (權杖)
+  { zh: "權杖騎士", en: "Knight of Wands", suit: "🔥 權杖", symbol: "🔥", essence: "走向特定外在方向的動態活動；集中且外向的能量運用。", meaning: "騎士身穿蛇皮盔甲，向前衝刺，代表成熟陽性意志的使用。蛇皮象徵蛻皮更新、拋棄舊物的能力。", negative: "強迫性行動、靜不下來。" },
+  { zh: "權杖皇后", en: "Queen of Wands", suit: "🔥 權杖", symbol: "🔥", essence: "接受或導向內在的能量；以陰性方式吸收與覺知能量。", meaning: "靜坐於火焰寶座，閉眼內觀，手輕放花豹上，顯示與自然能量的愛心連結。與騎士的外向行動相對，皇后選擇吸收、靜觀。", negative: "被動、缺乏意志與行動力。" },
+  { zh: "權杖王子", en: "Prince of Wands", suit: "🔥 權杖", symbol: "🔥", essence: "熱情且尖銳的能量；帶有強度與緊迫性的新鮮做法。", meaning: "赤裸駕車，心敞開，由獅子拉行，鳳凰權杖代表新鮮能量。比騎士更不成熟，熱情如青少年，尚未學會謹慎。", negative: "過於衝動或強烈。" },
+  { zh: "權杖公主", en: "Princess of Wands", suit: "🔥 權杖", symbol: "🔥", essence: "隨著能量流動；對任何發生的事說「是」；漂浮。", meaning: "赤裸無懼，放鬆於咆哮火焰中，已抓住老虎（恐懼的象徵），老虎跟隨其後卻無力。獸角頭飾代表以實際方式融入環境。", negative: "意志薄弱、隨波逐流，缺乏站在自身能量上的能力。" },
+  { zh: "權杖一", en: "Ace of Wands", suit: "🔥 權杖", symbol: "🔥", essence: "純粹、原始且強烈的能量；創造性的生命力或意志。", meaning: "大火把以生命樹形狀呈現，象徵能量向四面八方爆發。此為未被精煉、尚未賦予形式的純粹創造衝動。" },
+  { zh: "權杖二", en: "Two of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "火星在白羊座", essence: "新的方向；從內在力量出發的動態路線。", meaning: "兩支紅色西藏杵代表神聖的個人力量，須在極度平衡且歸於中心時才能產生。杖頂的馬頭魔鬼面具象徵破壞舊有；另端的蛇象徵再生更新。", kabbalah: "主權 Dominion" },
+  { zh: "權杖三", en: "Three of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "太陽在白羊座", essence: "正直、真實、自然、平凡。", meaning: "三根類似的權杖代表身體、頭腦、心的和諧統一，三者連接處湧出蓮花，象徵內在誠實的開花。橘色代表樸拙的新鮮活力。", negative: "樸拙。", kabbalah: "美德 Virtue" },
+  { zh: "權杖四", en: "Four of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "金星在白羊座", essence: "完成、解決、結果。", meaning: "四根權杖連結成圓圈，無鬆開的一端。杖端的鴿子（陰性）與羊頭（陽性新開始）象徵相反兩極的溶解，使舊的完成、新的得以開始。", kabbalah: "完成 Completion" },
+  { zh: "權杖五", en: "Five of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "土星在獅子座", essence: "難題、衝突、困難、受阻的能量、被陷住了。", meaning: "中間主要權杖帶有翼日（古埃及王權象徵）壓制背後較弱的權杖，兩側蓮花呈灰色且死氣沉沉。背景鮮黃色表示能量想被表達卻遭阻礙。", kabbalah: "爭吵 Strife" },
+  { zh: "權杖六", en: "Six of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "木星在獅子座", essence: "正向、好的、不復雜、沒有問題。", meaning: "前一張的困難已過，權杖回歸和諧互相支持，太陽不再被阻礙，洞見重現。鳳凰頭互相面對，蓮花以金黃色生動呈現。", negative: "表面狀態，迴避深層問題。", kabbalah: "勝利 Victory" },
+  { zh: "權杖七", en: "Seven of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "火星在獅子座", essence: "勇氣、力量、努力。", meaning: "中間新的主權杖形如粗糙棒子，帶有生活刻痕，象徵需信任所知、不走安逸之路。背景加深為男性火星能量。", negative: "違反自然流動的強迫行動。", kabbalah: "英勇 Valor" },
+  { zh: "權杖八", en: "Eight of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "水星在射手座", essence: "改變意識形態；新的觀點；找到訣竅。", meaning: "方形（受阻能量）稍微轉動即成水晶鑽石，釋放如腦波的紅色閃電。上方彩虹代表轉換後夢想得以實現。象徵找到訣竅後的「啊哈！」時刻。", kabbalah: "茅塞頓開 Swiftness" },
+  { zh: "權杖九", en: "Nine of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "太陽在射手座", essence: "內在統一；自給自足的力量。", meaning: "中間粗壯權杖連結月亮（無意識）與太陽（意識）。兩側各四支箭代表心理、身體、感情、心靈四個面向的和諧統一，力量主要來自內在空間。", negative: "護衛脆弱的獨立狀態，或反對依賴的獨立。", kabbalah: "內在的力量 Strength" },
+  { zh: "權杖十", en: "Ten of Wands", suit: "🔥 權杖", symbol: "🔥", astro: "土星在射手座", essence: "被壓抑的能量；覺得被壓制；限制；沮喪。", meaning: "前方兩支西藏杵此處堅硬如金屬，壓制背後八支薄弱的權杖。能量無法進入任一層面，轉而壓抑，可能變酸或導致自我破壞。", kabbalah: "壓抑 Oppression" },
+
+  // CUPS (聖杯)
+  { zh: "聖杯騎士", en: "Knight of Cups", suit: "💧 聖杯", symbol: "💧", essence: "給予、表達或分享感情；將心投放在某件事上面。", meaning: "騎著帶翅膀的白馬，手持杯子向前伸，巨蟹座螃蟹象徵分享時的安全感。他是唯一不戴鋼盔的騎士，顯示願意顯露自己的感受。", negative: "給予出於安全感需要，或以被認為具愛心而感到驕傲。" },
+  { zh: "聖杯皇后", en: "Queen of Cups", suit: "💧 聖杯", symbol: "💧", essence: "心的敞開；接受性；容易受傷；依賴。", meaning: "外形纖弱如霧，靜止水面映像幾乎完美，象徵可讓外在人或物反映出來的接受品質。白色蓮花為愛的象徵，鸛鳥代表母愛與開放。", negative: "被淹沒在感情裡、被動、依賴、成為受害者。" },
+  { zh: "聖杯王子", en: "Prince of Cups", suit: "💧 聖杯", symbol: "💧", essence: "感情的欲望；願望；希望；夢想；幻想。", meaning: "坐貝殼馬車，由老鷹拉著在水面行走——並未真正進入感情（水），而被推往頭腦成為欲望。手中蓮花往下垂（愛被忽視），目光集中在杯中的蛇（透過欲望尋求蛻變）。" },
+  { zh: "聖杯公主", en: "Princess of Cups", suit: "💧 聖杯", symbol: "💧", essence: "感情的自由；不執著；友善；帶著自由的愛。", meaning: "穿貝殼禮服輕盈舞動，蓮花離身體遠（與感情保持距離），另手托著裝在貝殼裡的烏龜。頭頂天鵝象徵感情上的自由獨立，海豚代表感情深度與清晰表達力。", negative: "不認真看待感情。" },
+  { zh: "聖杯一", en: "Ace of Cups", suit: "💧 聖杯", symbol: "💧", essence: "純粹的愛的能量；愛自己；榮耀自己的感覺。", meaning: "張開的杯子放在白色蓮花（純粹的愛）上，充滿從上方射入的光，象徵神聖能量穿透人心抵達地面。牌的上下設計相同（心靈領域映照於感情領域）。" },
+  { zh: "聖杯二", en: "Two of Cups", suit: "💧 聖杯", symbol: "💧", astro: "金星在巨蟹座", essence: "處於愛之中；浪漫的愛；早年形成的愛與感情制約模式。", meaning: "感情的水從大蓮花流下充滿兩杯；兩條魚纏繞蓮花，描繪愛的纏繞與絆住。常代表墜入情網的短暫幻像，以及七歲前由環境烙印的制約模式。", kabbalah: "愛 Love" },
+  { zh: "聖杯三", en: "Three of Cups", suit: "💧 聖杯", symbol: "💧", essence: "遊戲的心情；不嚴肅；洋溢的富足；慶祝；輕浮。", meaning: "黃色蓮花傾倒淡金色能量流入紅色石榴杯，感覺洋溢富足且輕盈遊戲，如年輕族群對一切都不嚴肅的狀態。", negative: "膚淺的輕舉妄動，用人格掩蓋真實。", kabbalah: "富足 Abundance" },
+  { zh: "聖杯四", en: "Four of Cups", suit: "💧 聖杯", symbol: "💧", essence: "感情的安全問題；為使事情保持舒適與安全而有所妥協。", meaning: "四個杯子被粉紅蓮花充滿，有舒適滿足感，但不再洋溢（僅一個能量來源）。天空開始變暗，水面有微波。以感情穩定與安全為優先時，已無法按真實感覺行動。", kabbalah: "奢華 Luxury" },
+  { zh: "聖杯五", en: "Five of Cups", suit: "💧 聖杯", symbol: "💧", essence: "失望；不滿足；心的渴望。", meaning: "杯子由脆弱玻璃製成，蓮花枯萎，空杯無物流入，水墨綠晦暗且停滯。蓮花根結成蝴蝶形，暗示可能的蛻變。覺知到欲求無法使自己真正滿足，常是心靈追求的起點。", kabbalah: "失望 Disappointment" },
+  { zh: "聖杯六", en: "Six of Cups", suit: "💧 聖杯", symbol: "💧", astro: "太陽在天蠍座", essence: "享受；只因喜歡就去做的權利。", meaning: "六朵橘黃色蓮花將能量倒入銅色杯，充滿但未溢出（歡樂有其限度，並非深刻感情）。象徵純粹歡樂的品質，允許自己只為享受而行動。", negative: "追求歡樂以逃避人生更深的層面。", kabbalah: "歡樂 Pleasure" },
+  { zh: "聖杯七", en: "Seven of Cups", suit: "💧 聖杯", symbol: "💧", essence: "放縱；過度沉溺；感情過度。", meaning: "感情的水已變成綠色黏滑（如死水），蓮花變成下垂的萱草，帶有有毒的厚重能量。象徵沉溺於負面情緒或以各種過度放縱迴避當下真正的感覺。", kabbalah: "放縱 Debauch" },
+  { zh: "聖杯八", en: "Eight of Cups", suit: "💧 聖杯", symbol: "💧", essence: "感情上被榨乾；精疲力竭；懶惰或昏沉無力。", meaning: "兩朵花倒出的愛仍不夠充滿那些有缺口、破裂的淺杯；水如爛泥，天空暗褐，幾近死亡。可能是過度放縱或過度給予後的自然結果。", kabbalah: "怠情 Indolence" },
+  { zh: "聖杯九", en: "Nine of Cups", suit: "💧 聖杯", symbol: "💧", astro: "木星在雙魚座", essence: "隨欲望滿足而來的感情幸福；希望；期望。", meaning: "九個對稱的杯，每個都被精美蓮花充滿甚至溢出，一切和諧流動。代表「擁有所想要的一切」的短暫幸福感。此快樂依賴外在，有別於內在愛的泉源。", negative: "對別人或外界的期望過強，無法對真正發生的事敞開。", kabbalah: "快樂 Happiness" },
+  { zh: "聖杯十", en: "Ten of Cups", suit: "💧 聖杯", symbol: "💧", astro: "火星在雙魚座", essence: "夠了；飽足；無聊；厭倦。", meaning: "十只杯排列成卡巴拉生命樹，大蓮花不再是直接能量泉源，杯子充滿但未溢出，背景紅色代表成熟。象徵已得到所需、學到所需學習，再更多反而無聊。", kabbalah: "飽足 Satiety" },
+
+  // SWORDS (寶劍)
+  { zh: "寶劍騎士", en: "Knight of Swords", suit: "🌬 寶劍", symbol: "🌬", essence: "專注；集中思考；決心；指向單一目標。", meaning: "以最快速度穿越空氣，具強度且清楚方向。三隻並行燕子代表身體、頭腦、心的統一，鋼盔上四個螺旋象徵思想不受時空限制。", negative: "鑽牛角尖、過度積極。" },
+  { zh: "寶劍皇后", en: "Queen of Swords", suit: "🌬 寶劍", symbol: "🌬", essence: "敞開的頭腦；清晰客觀的思考；揭開假面具的人。", meaning: "坐於雲端寶座，一手持劍、一手拿假面具（已脫下自己的面具）。大水晶皇冠代表清晰與洞見，能以諮商師般的姿態客觀看穿偽裝。", negative: "過於尖銳或挑剔。" },
+  { zh: "寶劍王子", en: "Prince of Swords", suit: "🌬 寶劍", symbol: "🌬", essence: "切穿限制思考的舊有模式；不耐受限制的創造力。", meaning: "強烈揮劍，攻擊三個拉著馬車的人（代表限制自由思考的舊有模式）。馬車前的水晶象徵日益增加的清晰覺知，身上的綠色象徵創造可能性。", negative: "缺乏耐心的批判頭腦，不能容忍他人意見或任何限制。" },
+  { zh: "寶劍公主", en: "Princess of Swords", suit: "🌬 寶劍", symbol: "🌬", essence: "清除籠罩實際思想的烏雲；清理心理的擋風玻璃。", meaning: "倚身於穩固基座（著根於實際），用劍掃除周遭雜亂的雨和烏雲。如雨刷的功能，刷去粘在擋風玻璃上的水霧，使視野清晰。", negative: "不穩定、不安或焦慮的頭腦。" },
+  { zh: "寶劍一", en: "Ace of Swords", suit: "🌬 寶劍", symbol: "🌬", essence: "作決定；清晰的頭腦；洞見的閃現。", meaning: "意識的太陽從海面升起，燒掉所有懷疑。劍柄兩個半弦月（無意識）結合太陽（有意識），纏繞的蛇代表意識蛻變。常代表決定前後的清晰覺知時刻。" },
+  { zh: "寶劍二", en: "Two of Swords", suit: "🌬 寶劍", symbol: "🌬", essence: "頭腦的和平；讓命運發生。", meaning: "兩支劍透過藍白色玫瑰（智慧與愛）合在一起，頭腦休息在心上。劍柄上祈禱的天使代表決定出自個人頭腦，卻交由命運的手。四個優雅形狀象徵身體、頭腦、心、心靈的和諧統一。", negative: "需要注意的事卻被頭腦忽視或迴避。", kabbalah: "和平 Peace" },
+  { zh: "寶劍三", en: "Three of Swords", suit: "🌬 寶劍", symbol: "🌬", astro: "土星在天秤座", essence: "痛苦；挫折；憤怒；負向狀態。", meaning: "三支劍刺穿玫瑰的心，使花瓣掉落，兩支較小的劍是彎曲的（不和諧）。黑色陰鬱的背景與尖銳螺旋圖形加深沉重感。憤怒是活躍外向的痛苦；悲苦是無力轉為內在的憤怒。", kabbalah: "憂傷 Sorrow" },
+  { zh: "寶劍四", en: "Four of Swords", suit: "🌬 寶劍", symbol: "🌬", astro: "木星在天秤座", essence: "按照事物本然的樣子接受它；接納事實；如是。", meaning: "四支等大的劍會合於圓形花飾（正式認可的符號）。傾斜的聖安德魯十字架（綠色代表接受後的創造力）。象徵雙方協議的休戰，非解決，而是心理上的「如是」。", negative: "忍讓，或為了不想做某事而接受。", kabbalah: "休戰 Truce" },
+  { zh: "寶劍五", en: "Five of Swords", suit: "🌬 寶劍", symbol: "🌬", astro: "金星在水瓶座", essence: "挫敗；失敗；沒有希望。", meaning: "五支彎曲有缺口的劍完全摧毀中間的粉紅玫瑰，花瓣散落成倒五角形（不穩定、負面思想）。同時有光從牌中心照射，象徵頭腦放棄舊觀念後騰出的空間。", kabbalah: "挫敗 Defeat" },
+  { zh: "寶劍六", en: "Six of Swords", suit: "🌬 寶劍", symbol: "🌬", astro: "水星在水瓶座", essence: "客觀的清晰；分析；科學探討；非關個人的思考。", meaning: "六支劍畫得精細、對稱、平衡，會合於心的玫瑰。冷灰色背景布滿精細圖形，代表此心理狀態的細密精確。象徵將客觀思考帶入任何事物的能力。", kabbalah: "科學 Science" },
+  { zh: "寶劍七", en: "Seven of Swords", suit: "🌬 寶劍", symbol: "🌬", astro: "月亮在水瓶座", essence: "徒勞無功；沒有意義；浪費時間。", meaning: "中間代表清晰的劍受到其他六支劍的攻擊，各有不同柄上符號，代表各種消弱動機的無意識詭計（「我運氣不好」、「太難了」等）。有時確實是在浪費時間，這種了解可導引能量至更有價值之處。", kabbalah: "徒勞無益 Futility" },
+  { zh: "寶劍八", en: "Eight of Swords", suit: "🌬 寶劍", symbol: "🌬", astro: "木星在雙子座", essence: "混亂；不知道；猶豫不決；互相衝突的觀念。", meaning: "中間兩把劍為二分性頭腦的兩極，背後六支不同大小的劍代表六種不同想法輪流支持與反對兩個選項。越分析越混亂，唯有允許「不知道」的狀態，才能創造空間讓清晰洞見或直覺浮現。", kabbalah: "干擾 Interference" },
+  { zh: "寶劍九", en: "Nine of Swords", suit: "🌬 寶劍", symbol: "🌬", astro: "火星在雙子座", essence: "自我懷疑；自我批判；罪惡感；心理上的不安全感。", meaning: "九支有缺口且生鏽的劍往下垂，血液與眼淚向下流，代表頭腦以批判反對自己所造成的創傷。根植於孩提時代內化他人批判的習慣。", negative: "有時也代表需要自我懷疑、質疑既有信念。", kabbalah: "殘酷 Cruelty" },
+  { zh: "寶劍十", en: "Ten of Swords", suit: "🌬 寶劍", symbol: "🌬", astro: "太陽在雙子座", essence: "放掉；到了放棄的點；切除執著。", meaning: "九支劍的尖端全部指向中央第十支劍，完全摧毀它。如同死亡牌，但此為放掉頭腦的執著，而非實際事件的終結。放掉執著後，事件本身可以繼續。", kabbalah: "毀滅 Ruin" },
+
+  // DISKS (金幣)
+  { zh: "金幣騎士", en: "Knight of Disks", suit: "🌱 金幣", symbol: "🌱", essence: "實際；自信；已準備好的內在力量。", meaning: "唯一沒有在行動的騎士，放鬆地坐在強壯棕馬上，已種植作物並等待收成，手持打穀棒卻不急。矮壯身形與黑色厚盔甲加深扎根土元素的感覺。", negative: "被限定在土元素中，厚重或過於物質。" },
+  { zh: "金幣皇后", en: "Queen of Disks", suit: "🌱 金幣", symbol: "🌱", essence: "心神的「在」；放鬆和接受的狀態；在自己的存在裡休息。", meaning: "坐於巨大鳳梨寶座（放鬆在自己的果實上），被動地看著前面河流使沙漠變肥沃——知道不需要做什麼使這一切發生。蛇皮長袍與鹿角頭飾顯示與動物世界及直覺本性的連結。", negative: "無趣或俗氣。" },
+  { zh: "金幣王子", en: "Prince of Disks", suit: "🌱 金幣", symbol: "🌱", essence: "有決心地走向特定方向；深入未來的能量。", meaning: "坐在兩輪車上由凶猛公牛拉著，金屬車代表堅強決心，公牛代表力量。赤裸壯碩的身體表示信任自身力量，身後的大石頭代表為達目標所經歷的障礙。", negative: "過於顧慮目的地而失去與當下的連結。" },
+  { zh: "金幣公主", en: "Princess of Disks", suit: "🌱 金幣", symbol: "🌱", essence: "耐心；等待；孕育；懷孕。", meaning: "懷孕的年輕女人，披著巨大貂皮披肩（豐富的動物本性）。手中圓盤包含陰陽符號（內在平衡與宇宙創造力）；另手權杖向下指向地面，尖端的鑽石代表將光與覺知著根於事實。" },
+  { zh: "金幣一", en: "Ace of Disks", suit: "🌱 金幣", symbol: "🌱", essence: "純粹的本質存在；歸於中心；著根於事實；從此狀態所產生的豐富。", meaning: "單一金色圓盤被木頭、葉子、松球的複雜圖樣圍繞，有翅膀的設計象徵在扎根狀態下提升意識是可能的（樹根越深，高度越高）。" },
+  { zh: "金幣二", en: "Two of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "木星在魔羯座", essence: "改變；轉移。", meaning: "大蛇咬住自己的尾巴形成∞（無限符號），意指永遠在改變的狀態。兩個陰陽圓盤反向轉動代表內在與外在的改變。改變是正向的力量，雖然發生當下我們也許不喜歡。", kabbalah: "改變 Change" },
+  { zh: "金幣三", en: "Three of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "火星在魔羯座", essence: "具有創造性的行動；使某件事發生。", meaning: "三個紅色輪子代表空氣（頭腦）、水（心）、火（能量）三個面向的統一，三者和諧結合後，背景的陰暗與混亂被清晰的水晶形式擊潰。創造性並非關於「做什麼」，而是「如何做」。", negative: "來自不安全感的強迫性行動。", kabbalah: "工作 Works" },
+  { zh: "金幣四", en: "Four of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "太陽在魔羯座", essence: "執著；限度；控制；創造出界線。", meaning: "四個大方形圓盤成城堡四角的塔，被壕溝圍繞，四個元素的煉金術符號各在塔頂。象徵從嚴格設限與控制所產生的力量，代價是荒蕪（沙漠般的整體感覺）。", negative: "執著狀態、控制抓住；也可以是必要的限制或界線。", kabbalah: "控制的力量 Power" },
+  { zh: "金幣五", en: "Five of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "水星在金牛座", essence: "擔憂；焦慮；憂思；過度考慮。", meaning: "五個沉重暗色圓盤交織成舊式機器齒輪，由倒五角形皮帶連結（失去平衡），阻隔了背後代表意識之光的黃色。一個擔憂的念頭帶動另一個，若持續下去將以焦慮收場。", kabbalah: "擔憂 Worry" },
+  { zh: "金幣六", en: "Six of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "月亮在金牛座", essence: "成功；勝利；想要成功的作為或存在模式。", meaning: "六個圓盤和諧排列成六角形，圍繞中間純粹的太陽光，每個圓盤含有不同星座符號（代表成功所需的各種元素）。常代表想要勝利而非已然成功的狀態。", kabbalah: "成功 Success" },
+  { zh: "金幣七", en: "Seven of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "土星在金牛座", essence: "恐懼。", meaning: "七個圓盤互相分開，被厚重不自然顏色的碟子阻隔。恐懼是隔離的，將人與現實、心與信任切離。迴避恐懼使其推入潛意識；接受並允許恐懼，它便具有冒險的品質。", kabbalah: "失敗 Failure" },
+  { zh: "金幣八", en: "Eight of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "太陽在處女座", essence: "謹慎；小心；保護。", meaning: "強壯的樹牢牢扎根於肥沃泥土，長出八朵完美的花，每朵花都有大卷葉保護著。剛長出的事物是脆弱的，需要尊重與照顧。這是退隱或謹慎的時候，力量來自「無為」或「拉回來」。", kabbalah: "謹慎 Prudence" },
+  { zh: "金幣九", en: "Nine of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "金星在處女座", essence: "獲得；正向；祝福；有益的；任何發生都是對的。", meaning: "九個圓盤排成三組，中間三個代表智慧（藍）、創造力（綠）、愛（粉紅）的統一。象徵不管喜不喜歡，發生的事就某個層面來說是對的——從中皆有可獲益之處。", kabbalah: "獲得 Gain" },
+  { zh: "金幣十", en: "Ten of Disks", suit: "🌱 金幣", symbol: "🌱", astro: "水星在處女座", essence: "活在當下；讓事情一步一步開展；一個片刻接著一個片刻地生活。", meaning: "十個圓盤排列成卡巴拉生命樹，背後有無數硬幣，僅這十個以金黃色強調。不去看其餘那堆硬幣，就是不迷失在「可能會有什麼」的概念裡。具有禪宗「挑水劈柴」般的平凡與單純。", kabbalah: "財富 Wealth" },
+];
+
+// ========================
+// STATE
+// ========================
+let currentMode = 'major';
+let drawnHistory = [];
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-major').classList.toggle('active', mode === 'major');
+  document.getElementById('btn-minor').classList.toggle('active', mode === 'minor');
+  document.getElementById('mode-desc').textContent = mode === 'major'
+    ? '22張大秘儀牌，揭示靈魂深處的原型力量與命運法則'
+    : '56張小秘儀牌，反映日常生活的細微經驗與内在狀態';
+  // Reset history if mode changes
+  drawnHistory = [];
+  document.getElementById('result-area').style.display = 'none';
+  document.getElementById('history-section').style.display = 'none';
+}
+
+function drawCard() {
+  const deck = currentMode === 'major' ? majorArcana : minorArcana;
+  const card = deck[Math.floor(Math.random() * deck.length)];
+
+  // Add to history
+  drawnHistory.unshift(card.zh);
+  if (drawnHistory.length > 10) drawnHistory.pop();
+
+  renderCard(card);
+  renderHistory();
+}
+
+function renderCard(card) {
+  const resultArea = document.getElementById('result-area');
+  const cardDisplay = document.getElementById('card-display');
+  const content = document.getElementById('card-content');
+
+  let html = '';
+
+  if (currentMode === 'major') {
+    html = `
+      <div class="card-number-label">大秘儀 · ${card.num}</div>
+      <div class="card-name-zh">${card.zh}</div>
+      <div class="card-name-en">${card.en}</div>
+      <span class="card-symbol">${card.symbol}</span>
+      <div class="divider-ornament"><div class="line"></div><div class="diamond"></div><div class="line right"></div></div>
+      <div class="card-essence-title">⟡ 核心本質</div>
+      <div class="card-essence">${card.essence}</div>
+      <div class="card-meaning">${card.meaning}</div>
+      ${card.kabbalah ? `<div><span class="kabbalah-tag">🌳 ${card.kabbalah}</span></div>` : ''}
+    `;
+  } else {
+    html = `
+      <span class="card-suit-badge">${card.suit}</span>
+      <div class="card-name-zh">${card.zh}</div>
+      <div class="card-name-en">${card.en}</div>
+      ${card.astro ? `<div class="card-number-label">${card.astro}</div>` : ''}
+      <div class="divider-ornament"><div class="line"></div><div class="diamond"></div><div class="line right"></div></div>
+      <div class="card-essence-title">⟡ 核心本質</div>
+      <div class="card-essence">${card.essence}</div>
+      <div class="card-meaning">${card.meaning}</div>
+      ${card.kabbalah ? `<div><span class="kabbalah-tag">🌳 ${card.kabbalah}</span></div>` : ''}
+      ${card.negative ? `
+        <div class="negative-section">
+          <div class="negative-label">▸ 負面意涵</div>
+          <div class="negative-text">${card.negative}</div>
+        </div>
+      ` : ''}
+    `;
+  }
+
+  content.innerHTML = html;
+  resultArea.style.display = 'block';
+
+  // Trigger flip animation
+  cardDisplay.classList.remove('flipping');
+  void cardDisplay.offsetWidth; // reflow
+  cardDisplay.classList.add('flipping');
+  setTimeout(() => cardDisplay.classList.remove('flipping'), 700);
+
+  resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function renderHistory() {
+  const section = document.getElementById('history-section');
+  const list = document.getElementById('history-list');
+
+  if (drawnHistory.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+
+  section.style.display = 'block';
+  list.innerHTML = drawnHistory.map((name, i) =>
+    `<span class="history-chip">${i === 0 ? '▸ ' : ''}${name}</span>`
+  ).join('');
+}
+</script>
+</body>
+</html>

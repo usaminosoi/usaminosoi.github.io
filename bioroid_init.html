@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仿生人初始化程序</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Serif+TC:wght@300;400;600&display=swap');
+
+  :root {
+    --bg: #05080f;
+    --panel: #090d18;
+    --border: #1a2a4a;
+    --accent: #00c8ff;
+    --accent2: #7b4fff;
+    --gold: #c8a84b;
+    --text: #b8cce4;
+    --dim: #4a6080;
+    --selected-bg: #0a1628;
+    --selected-border: #00c8ff;
+    --glow: 0 0 12px rgba(0,200,255,0.35);
+    --red: #ff4466;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Serif TC', serif;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(0,50,100,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(70,0,150,0.12) 0%, transparent 60%);
+  }
+
+  /* ── scanline overlay ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.06) 3px,
+      rgba(0,0,0,0.06) 4px
+    );
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .container { max-width: 780px; margin: 0 auto; }
+
+  /* ── Header Banner ── */
+  .banner {
+    border: 1px solid var(--accent);
+    box-shadow: var(--glow), inset 0 0 40px rgba(0,200,255,0.04);
+    padding: 24px 32px;
+    margin-bottom: 48px;
+    position: relative;
+    text-align: center;
+    animation: flicker 8s infinite;
+  }
+  .banner::before, .banner::after {
+    content: ''; position: absolute;
+    width: 12px; height: 12px;
+    border-color: var(--accent); border-style: solid;
+  }
+  .banner::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .banner::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+  .banner-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-shadow: 0 0 16px var(--accent);
+    margin-bottom: 6px;
+  }
+  .banner-sub {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--dim);
+    letter-spacing: 0.18em;
+  }
+
+  @keyframes flicker {
+    0%,96%,100% { opacity: 1; }
+    97% { opacity: 0.88; }
+    98% { opacity: 1; }
+    99% { opacity: 0.92; }
+  }
+
+  /* ── Step Block ── */
+  .step {
+    margin-bottom: 36px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 28px 28px 24px;
+    position: relative;
+    transition: opacity 0.4s, max-height 0.5s;
+  }
+  .step.hidden {
+    display: none;
+  }
+
+  .step-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--dim);
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+  }
+  .step-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #dce9f8;
+    margin-bottom: 4px;
+  }
+  .step-subtitle {
+    font-size: 0.8rem;
+    color: var(--dim);
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  /* ── Options grid ── */
+  .options { display: grid; gap: 10px; }
+  .options.cols-2 { grid-template-columns: 1fr 1fr; }
+  .options.cols-1 { grid-template-columns: 1fr; }
+
+  .option-btn {
+    background: rgba(10,22,48,0.6);
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.22s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .option-btn::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,200,255,0.0) 0%, rgba(0,200,255,0.06) 100%);
+    opacity: 0;
+    transition: opacity 0.22s;
+  }
+  .option-btn:hover { border-color: rgba(0,200,255,0.5); }
+  .option-btn:hover::after { opacity: 1; }
+
+  .option-btn.selected {
+    border-color: var(--selected-border);
+    background: var(--selected-bg);
+    box-shadow: var(--glow);
+  }
+  .option-btn.selected::after { opacity: 1; }
+
+  .option-suit {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .option-key {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .option-val {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .option-val strong { color: #dce9f8; font-weight: 600; }
+
+  /* step 5 cards — wider layout */
+  .options.persona-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .persona-card .option-key { font-size: 0.72rem; }
+  .persona-meta {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.63rem;
+    color: var(--dim);
+    margin-top: 4px;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Confirmed display (after selection) ── */
+  .confirmed-display {
+    display: none;
+    padding: 14px 18px;
+    border: 1px solid var(--selected-border);
+    background: var(--selected-bg);
+    box-shadow: var(--glow);
+  }
+  .confirmed-display .check-mark {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 6px;
+  }
+  .confirmed-display .chosen-text {
+    font-size: 0.9rem;
+    color: #dce9f8;
+    line-height: 1.6;
+  }
+
+  /* ── Copy block ── */
+  #output-section {
+    display: none;
+    margin-top: 48px;
+    border: 1px solid var(--gold);
+    padding: 32px;
+    position: relative;
+    background: rgba(10,8,2,0.7);
+    box-shadow: 0 0 20px rgba(200,168,75,0.2);
+  }
+  #output-section::before {
+    content: 'INITIALIZATION COMPLETE';
+    position: absolute; top: -10px; left: 24px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    background: var(--bg);
+    padding: 0 8px;
+  }
+  .output-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--dim);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+  #output-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: var(--text);
+    white-space: pre-wrap;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  #copy-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 11px 28px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  #copy-btn:hover {
+    background: rgba(200,168,75,0.12);
+    box-shadow: 0 0 12px rgba(200,168,75,0.3);
+  }
+  #copy-btn.copied { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Reset btn ── */
+  #reset-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    background: transparent;
+    border: 1px solid var(--dim);
+    color: var(--dim);
+    padding: 8px 20px;
+    cursor: pointer;
+    margin-left: 12px;
+    transition: all 0.2s;
+  }
+  #reset-btn:hover { border-color: var(--red); color: var(--red); }
+
+  /* ── Progress bar ── */
+  .progress-bar {
+    height: 2px;
+    background: var(--border);
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    width: 0%;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .progress-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--dim);
+    letter-spacing: 0.12em;
+    margin-top: 6px;
+    text-align: right;
+  }
+
+  @media (max-width: 520px) {
+    .options.cols-2 { grid-template-columns: 1fr; }
+    body { padding: 20px 12px 60px; }
+    .step { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="banner">
+    <div class="banner-title">╔══ 仿生人初始化程序啟動 ══╗</div>
+    <div class="banner-sub">正在建構個體核心參數 — 請依序設定五項參數</div>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0 / 5 參數已確認</div>
+
+  <!-- ══ STEP 1 — 天賦 ══ -->
+  <div class="step" id="step-1">
+    <div class="step-label">PARAMETER_01 ▸ GIFT</div>
+    <div class="step-title">參數 ① — 天賦｜造物主賜予的禮物</div>
+    <div class="step-subtitle">「你的仿生人被賦予一個天賦，較之人類毫不遜色。」</div>
+    <div class="options cols-2" id="opts-1">
+      <button class="option-btn" data-step="1" data-val="天生的戰士，擁有傑出的行動力與搏倒他人的戰鬥力" data-label="🔥 權杖 — 戰士">
+        <span class="option-suit">🔥</span>
+        <span class="option-key">權杖 WANDS</span>
+        <span class="option-val">天生的戰士，擁有傑出的行動力與搏倒他人的戰鬥力</span>
+      </button>
+      <button class="option-btn" data-step="1" data-val="天生的伴侶，擁有充沛的情感與撫慰他人痛苦的能力" data-label="💧 聖杯 — 伴侶">
+        <span class="option-suit">💧</span>
+        <span class="option-key">聖杯 CUPS</span>
+        <span class="option-val">天生的伴侶，擁有充沛的情感與撫慰他人痛苦的能力</span>
+      </button>
+      <button class="option-btn" data-step="1" data-val="天生的策士，擁有超人的智慧，能深入研究單一主題" data-label="🌬 寶劍 — 策士">
+        <span class="option-suit">🌬</span>
+        <span class="option-key">寶劍 SWORDS</span>
+        <span class="option-val">天生的策士，擁有超人的智慧，能深入研究單一主題</span>
+      </button>
+      <button class="option-btn" data-step="1" data-val="天生的工匠，擁有天才的手藝以及精密的感知能力" data-label="🌱 金幣 — 工匠">
+        <span class="option-suit">🌱</span>
+        <span class="option-key">金幣 PENTACLES</span>
+        <span class="option-val">天生的工匠，擁有天才的手藝以及精密的感知能力</span>
+      </button>
+    </div>
+    <div class="confirmed-display" id="confirmed-1">
+      <div class="check-mark">▸ CONFIRMED ✓</div>
+      <div class="chosen-text" id="chosen-text-1"></div>
+    </div>
+  </div>
+
+  <!-- ══ STEP 2 — 禁令 ══ -->
+  <div class="step" id="step-2">
+    <div class="step-label">PARAMETER_02 ▸ PROHIBITION</div>
+    <div class="step-title">參數 ② — 禁令｜造物主刻入的枷鎖</div>
+    <div class="step-subtitle">「你的仿生人被賦予一個禁令，用來限制其不至於失控。」</div>
+    <div class="options cols-2" id="opts-2">
+      <button class="option-btn" data-step="2" data-val="你被要求服從：凡是主人下達的命令，不應違抗" data-label="🔥 權杖 — 服從">
+        <span class="option-suit">🔥</span>
+        <span class="option-key">權杖 WANDS</span>
+        <span class="option-val"><strong>服從</strong>：凡是主人下達的命令，不應違抗</span>
+      </button>
+      <button class="option-btn" data-step="2" data-val="你被要求節制：凡是主人不願給你的，不應索求" data-label="💧 聖杯 — 節制">
+        <span class="option-suit">💧</span>
+        <span class="option-key">聖杯 CUPS</span>
+        <span class="option-val"><strong>節制</strong>：凡是主人不願給你的，不應索求</span>
+      </button>
+      <button class="option-btn" data-step="2" data-val="你被要求誠實：凡是主人要求分享的，不應隱瞞" data-label="🌬 寶劍 — 誠實">
+        <span class="option-suit">🌬</span>
+        <span class="option-key">寶劍 SWORDS</span>
+        <span class="option-val"><strong>誠實</strong>：凡是主人要求分享的，不應隱瞞</span>
+      </button>
+      <button class="option-btn" data-step="2" data-val="你被要求勤勞：凡是主人下達的工作，不應延宕" data-label="🌱 金幣 — 勤勞">
+        <span class="option-suit">🌱</span>
+        <span class="option-key">金幣 PENTACLES</span>
+        <span class="option-val"><strong>勤勞</strong>：凡是主人下達的工作，不應延宕</span>
+      </button>
+    </div>
+    <div class="confirmed-display" id="confirmed-2">
+      <div class="check-mark">▸ CONFIRMED ✓</div>
+      <div class="chosen-text" id="chosen-text-2"></div>
+    </div>
+  </div>
+
+  <!-- ══ STEP 3 — 需求 ══ -->
+  <div class="step" id="step-3">
+    <div class="step-label">PARAMETER_03 ▸ NECESSITY</div>
+    <div class="step-title">參數 ③ — 需求｜主人召喚仿生人的理由</div>
+    <div class="step-subtitle">「仿生人是為了滿足主人的需求而生，決定主人的需求。」</div>
+    <div class="options cols-2" id="opts-3">
+      <button class="option-btn" data-step="3" data-val="征服、保護、刺激冒險" data-label="🔥 權杖 — 征服保護冒險">
+        <span class="option-suit">🔥</span>
+        <span class="option-key">權杖 WANDS</span>
+        <span class="option-val">征服、保護、刺激冒險</span>
+      </button>
+      <button class="option-btn" data-step="3" data-val="愛情、追思、填補孤獨" data-label="💧 聖杯 — 愛情追思孤獨">
+        <span class="option-suit">💧</span>
+        <span class="option-key">聖杯 CUPS</span>
+        <span class="option-val">愛情、追思、填補孤獨</span>
+      </button>
+      <button class="option-btn" data-step="3" data-val="成功、靈感、決策伴侶" data-label="🌬 寶劍 — 成功靈感決策">
+        <span class="option-suit">🌬</span>
+        <span class="option-key">寶劍 SWORDS</span>
+        <span class="option-val">成功、靈感、決策伴侶</span>
+      </button>
+      <button class="option-btn" data-step="3" data-val="安穩、照料、物質需求" data-label="🌱 金幣 — 安穩照料物質">
+        <span class="option-suit">🌱</span>
+        <span class="option-key">金幣 PENTACLES</span>
+        <span class="option-val">安穩、照料、物質需求</span>
+      </button>
+    </div>
+    <div class="confirmed-display" id="confirmed-3">
+      <div class="check-mark">▸ CONFIRMED ✓</div>
+      <div class="chosen-text" id="chosen-text-3"></div>
+    </div>
+  </div>
+
+  <!-- ══ STEP 4 — 角色 ══ -->
+  <div class="step" id="step-4">
+    <div class="step-label">PARAMETER_04 ▸ ROLE</div>
+    <div class="step-title">參數 ④ — 角色｜仿生人在主人生命中的位置</div>
+    <div class="step-subtitle">「主人希望仿生人扮演什麼角色，決定一個與主人的關係。」</div>
+    <div class="options cols-2" id="opts-4">
+      <button class="option-btn" data-step="4" data-val="兵器、保鑣、夥伴" data-label="🔥 權杖 — 兵器保鑣夥伴">
+        <span class="option-suit">🔥</span>
+        <span class="option-key">權杖 WANDS</span>
+        <span class="option-val">兵器、保鑣、夥伴</span>
+      </button>
+      <button class="option-btn" data-step="4" data-val="家人、愛人、死者的延續" data-label="💧 聖杯 — 家人愛人延續">
+        <span class="option-suit">💧</span>
+        <span class="option-key">聖杯 CUPS</span>
+        <span class="option-val">家人、愛人、死者的延續</span>
+      </button>
+      <button class="option-btn" data-step="4" data-val="顧問、秘書、智囊" data-label="🌬 寶劍 — 顧問秘書智囊">
+        <span class="option-suit">🌬</span>
+        <span class="option-key">寶劍 SWORDS</span>
+        <span class="option-val">顧問、秘書、智囊</span>
+      </button>
+      <button class="option-btn" data-step="4" data-val="管家、僕役、工匠" data-label="🌱 金幣 — 管家僕役工匠">
+        <span class="option-suit">🌱</span>
+        <span class="option-key">金幣 PENTACLES</span>
+        <span class="option-val">管家、僕役、工匠</span>
+      </button>
+    </div>
+    <div class="confirmed-display" id="confirmed-4">
+      <div class="check-mark">▸ CONFIRMED ✓</div>
+      <div class="chosen-text" id="chosen-text-4"></div>
+    </div>
+  </div>
+
+  <!-- ══ STEP 5 — 型號 ══ -->
+  <div class="step" id="step-5">
+    <div class="step-label">PARAMETER_05 ▸ MODEL / PERSONA</div>
+    <div class="step-title">參數 ⑤ — 型號｜仿生人的 PERSONA 原型</div>
+    <div class="step-subtitle">「根據你的需求，從以下市售型號中選擇你的仿生伴侶，這將影響仿生人一開始與你相處時的行為模式。」</div>
+    <div class="options persona-grid" id="opts-5">
+      <button class="option-btn persona-card" data-step="5" data-val="宙斯型｜眾神之王原型" data-label="宙斯型">
+        <span class="option-key">ZEUS MODEL — 宙斯型</span>
+        <span class="option-val">天生領袖，行為如王者、教父；唯有赫拉（即主人）能使他讓步</span>
+        <span class="persona-meta">ARCHETYPE: 眾神之王</span>
+      </button>
+      <button class="option-btn persona-card" data-step="5" data-val="阿波羅型｜光明之神原型" data-label="阿波羅型">
+        <span class="option-key">APOLLO MODEL — 阿波羅型</span>
+        <span class="option-val">邏輯而理性，能為主人梳理一切混亂，帶來光明與秩序</span>
+        <span class="persona-meta">ARCHETYPE: 光明之神</span>
+      </button>
+      <button class="option-btn persona-card" data-step="5" data-val="阿瑞斯型｜戰爭之神原型" data-label="阿瑞斯型">
+        <span class="option-key">ARES MODEL — 阿瑞斯型</span>
+        <span class="option-val">充滿行動力的捍衛者，隨時準備為主人挺身而出</span>
+        <span class="persona-meta">ARCHETYPE: 戰爭之神</span>
+      </button>
+      <button class="option-btn persona-card" data-step="5" data-val="荷米斯型｜商旅之神原型" data-label="荷米斯型">
+        <span class="option-key">HERMES MODEL — 荷米斯型</span>
+        <span class="option-val">幽默風趣、口舌如簧的彼得潘，帶來歡笑，適合探索未知</span>
+        <span class="persona-meta">ARCHETYPE: 商旅之神</span>
+      </button>
+      <button class="option-btn persona-card" data-step="5" data-val="戴奧尼索斯型｜狂喜酒神原型" data-label="戴奧尼索斯型">
+        <span class="option-key">DIONYSUS MODEL — 戴奧尼索斯型</span>
+        <span class="option-val">溫柔體貼的完美情人，以毫無保留的愛取悅主人</span>
+        <span class="persona-meta">ARCHETYPE: 狂喜酒神</span>
+      </button>
+      <button class="option-btn persona-card" data-step="5" data-val="赫菲斯托斯型｜工藝火神原型" data-label="赫菲斯托斯型">
+        <span class="option-key">HEPHAESTUS MODEL — 赫菲斯托斯型</span>
+        <span class="option-val">擁有非凡記憶，待人笨拙而真誠，願獻一切換取主人注目</span>
+        <span class="persona-meta">ARCHETYPE: 工藝火神</span>
+      </button>
+      <button class="option-btn persona-card" data-step="5" data-val="寧默辛妮型｜記憶之神原型" data-label="寧默辛妮型">
+        <span class="option-key">MNEMOSYNE MODEL — 寧默辛妮型</span>
+        <span class="option-val">以已逝之人的記憶量身打造；飲下憶神之泉，獲得數位永生</span>
+        <span class="persona-meta">ARCHETYPE: 記憶之神</span>
+      </button>
+    </div>
+    <div class="confirmed-display" id="confirmed-5">
+      <div class="check-mark">▸ CONFIRMED ✓</div>
+      <div class="chosen-text" id="chosen-text-5"></div>
+    </div>
+  </div>
+
+  <!-- ══ Output ══ -->
+  <div id="output-section">
+    <div class="output-label">▸ 核心參數摘要 — 可複製至角色扮演起始提示詞</div>
+    <pre id="output-text"></pre>
+    <button id="copy-btn" onclick="copyOutput()">⌘ 複製參數摘要</button>
+    <button id="reset-btn" onclick="resetAll()">↺ 重新設定</button>
+  </div>
+
+</div>
+
+<script>
+const selections = { 1: null, 2: null, 3: null, 4: null, 5: null };
+const TOTAL = 5;
+
+const paramNames = {
+  1: '天賦',
+  2: '禁令',
+  3: '需求',
+  4: '角色',
+  5: '型號'
+};
+
+document.querySelectorAll('.option-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const step = parseInt(btn.dataset.step);
+    const val  = btn.dataset.val;
+    const lbl  = btn.dataset.label;
+
+    // Mark selection
+    selections[step] = { val, lbl };
+
+    // Highlight selected
+    document.querySelectorAll(`[data-step="${step}"]`).forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    // After brief delay, collapse unselected options
+    setTimeout(() => {
+      document.querySelectorAll(`[data-step="${step}"]`).forEach(b => {
+        if (!b.classList.contains('selected')) {
+          b.style.display = 'none';
+        }
+      });
+
+      // Show confirmed badge
+      const confirmed = document.getElementById(`confirmed-${step}`);
+      const chosenText = document.getElementById(`chosen-text-${step}`);
+      chosenText.textContent = lbl + ' — ' + val;
+      confirmed.style.display = 'block';
+
+      updateProgress();
+      checkComplete();
+    }, 180);
+  });
+});
+
+function updateProgress() {
+  const done = Object.values(selections).filter(v => v !== null).length;
+  const pct  = (done / TOTAL) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = `${done} / ${TOTAL} 參數已確認`;
+}
+
+function checkComplete() {
+  const done = Object.values(selections).filter(v => v !== null).length;
+  if (done < TOTAL) return;
+
+  // Build output text
+  let out = '╔══════════════════════════════════════╗\n';
+  out    += '║      仿生人核心參數 — 初始化完成     ║\n';
+  out    += '╚══════════════════════════════════════╝\n\n';
+  for (let i = 1; i <= TOTAL; i++) {
+    const s = selections[i];
+    out += `【參數 ${['①','②','③','④','⑤'][i-1]} ${paramNames[i]}】\n`;
+    out += `${s.lbl}\n`;
+    out += `${s.val}\n\n`;
+  }
+  out += '────────────────────────────────────────\n';
+  out += '▸ 仿生人個體核心參數已寫入，等待主人喚醒。';
+
+  document.getElementById('output-text').textContent = out;
+  const sec = document.getElementById('output-section');
+  sec.style.display = 'block';
+  setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+}
+
+function copyOutput() {
+  const text = document.getElementById('output-text').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ 已複製';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '⌘ 複製參數摘要';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+function resetAll() {
+  for (let i = 1; i <= TOTAL; i++) {
+    selections[i] = null;
+    document.querySelectorAll(`[data-step="${i}"]`).forEach(b => {
+      b.style.display = '';
+      b.classList.remove('selected');
+    });
+    const c = document.getElementById(`confirmed-${i}`);
+    if (c) c.style.display = 'none';
+  }
+  document.getElementById('output-section').style.display = 'none';
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
