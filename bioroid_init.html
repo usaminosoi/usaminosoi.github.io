@@ -213,6 +213,39 @@
     line-height: 1.6;
   }
 
+  /* ── Custom input row ── */
+  .custom-input-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .custom-input-row input {
+    flex: 1;
+    background: rgba(10,22,48,0.6);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.82rem;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .custom-input-row input::placeholder { color: var(--dim); }
+  .custom-input-row input:focus { border-color: rgba(0,200,255,0.5); }
+  .custom-input-row button {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    background: transparent;
+    border: 1px solid var(--dim);
+    color: var(--dim);
+    padding: 10px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .custom-input-row button:hover { border-color: var(--accent); color: var(--accent); }
+
   /* ── Copy block ── */
   #output-section {
     display: none;
@@ -233,12 +266,14 @@
     background: var(--bg);
     padding: 0 8px;
   }
-  .output-label {
+  .output-banner {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--dim);
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0,200,255,0.4);
+    margin-bottom: 12px;
+    white-space: pre;
   }
   #output-text {
     font-family: 'Share Tech Mono', monospace;
@@ -354,6 +389,10 @@
         <span class="option-val">天生的工匠，擁有天才的手藝以及精密的感知能力</span>
       </button>
     </div>
+    <div class="custom-input-row" id="custom-row-1">
+      <input type="text" id="custom-input-1" placeholder="其他：自行輸入天賦…">
+      <button onclick="confirmCustom(1)">確認</button>
+    </div>
     <div class="confirmed-display" id="confirmed-1">
       <div class="check-mark">▸ CONFIRMED ✓</div>
       <div class="chosen-text" id="chosen-text-1"></div>
@@ -386,6 +425,10 @@
         <span class="option-key">金幣 PENTACLES</span>
         <span class="option-val"><strong>勤勞</strong>：凡是主人下達的工作，不應延宕</span>
       </button>
+    </div>
+    <div class="custom-input-row" id="custom-row-2">
+      <input type="text" id="custom-input-2" placeholder="其他：自行輸入禁令…">
+      <button onclick="confirmCustom(2)">確認</button>
     </div>
     <div class="confirmed-display" id="confirmed-2">
       <div class="check-mark">▸ CONFIRMED ✓</div>
@@ -420,6 +463,10 @@
         <span class="option-val">安穩、照料、物質需求</span>
       </button>
     </div>
+    <div class="custom-input-row" id="custom-row-3">
+      <input type="text" id="custom-input-3" placeholder="其他：自行輸入需求…">
+      <button onclick="confirmCustom(3)">確認</button>
+    </div>
     <div class="confirmed-display" id="confirmed-3">
       <div class="check-mark">▸ CONFIRMED ✓</div>
       <div class="chosen-text" id="chosen-text-3"></div>
@@ -452,6 +499,10 @@
         <span class="option-key">金幣 PENTACLES</span>
         <span class="option-val">管家、僕役、工匠</span>
       </button>
+    </div>
+    <div class="custom-input-row" id="custom-row-4">
+      <input type="text" id="custom-input-4" placeholder="其他：自行輸入角色…">
+      <button onclick="confirmCustom(4)">確認</button>
     </div>
     <div class="confirmed-display" id="confirmed-4">
       <div class="check-mark">▸ CONFIRMED ✓</div>
@@ -501,6 +552,10 @@
         <span class="persona-meta">ARCHETYPE: 記憶之神</span>
       </button>
     </div>
+    <div class="custom-input-row" id="custom-row-5">
+      <input type="text" id="custom-input-5" placeholder="其他：自行輸入型號或原型…">
+      <button onclick="confirmCustom(5)">確認</button>
+    </div>
     <div class="confirmed-display" id="confirmed-5">
       <div class="check-mark">▸ CONFIRMED ✓</div>
       <div class="chosen-text" id="chosen-text-5"></div>
@@ -509,6 +564,9 @@
 
   <!-- ══ Output ══ -->
   <div id="output-section">
+    <div class="output-banner">╔══════════════════════════════════════╗
+║      仿生人核心參數 — 初始化完成     ║
+╚══════════════════════════════════════╝</div>
     <pre id="output-text"></pre>
     <button id="copy-btn" onclick="copyOutput()">⌘ 複製參數摘要</button>
     <button id="reset-btn" onclick="resetAll()">↺ 重新設定</button>
@@ -574,26 +632,19 @@ function checkComplete() {
   const done = Object.values(selections).filter(v => v !== null).length;
   if (done < TOTAL) return;
 
-  // Build output text
-  let out = '╔══════════════════════════════════════╗\n';
-  out    += '║      仿生人核心參數 — 初始化完成     ║\n';
-  out    += '╚══════════════════════════════════════╝\n\n';
-
+  // Build output text — no banner here, banner is display-only above
+  let out = '';
   for (let i = 1; i <= TOTAL; i++) {
     const s = selections[i];
     out += `【參數 ${['①','②','③','④','⑤'][i-1]} ${paramNames[i]}】\n`;
     if (s.inline) {
-      // Steps 3 & 4: label already contains the value merged in, single line
       out += `${s.lbl}\n\n`;
     } else if (s.desc) {
-      // Step 5: val line (型號名) + desc line (行為描述)
       out += `${s.val}\n${s.desc}\n\n`;
     } else {
-      // Steps 1 & 2: label line + val (description) line
       out += `${s.lbl}\n${s.val}\n\n`;
     }
   }
-
   out += '────────────────────────────────────────\n';
   out += '▸ 仿生人個體核心參數已寫入，等待主人喚醒。';
 
@@ -601,6 +652,35 @@ function checkComplete() {
   const sec = document.getElementById('output-section');
   sec.style.display = 'block';
   setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+}
+
+function confirmCustom(step) {
+  const input = document.getElementById(`custom-input-${step}`);
+  const text  = input.value.trim();
+  if (!text) { input.focus(); return; }
+
+  // Treat as inline (single label line) for all custom entries
+  selections[step] = { val: text, lbl: `其他 — ${text}`, desc: '', inline: true };
+
+  // Hide all option buttons for this step
+  document.querySelectorAll(`[data-step="${step}"]`).forEach(b => b.style.display = 'none');
+  // Hide the input row itself
+  document.getElementById(`custom-row-${step}`).style.display = 'none';
+
+  // Show confirmed badge
+  const confirmed = document.getElementById(`confirmed-${step}`);
+  const chosenText = document.getElementById(`chosen-text-${step}`);
+  chosenText.textContent = `其他 — ${text}`;
+  confirmed.style.display = 'block';
+
+  updateProgress();
+  checkComplete();
+}
+
+// Enter key support for custom inputs
+for (let i = 1; i <= TOTAL; i++) {
+  const inp = document.getElementById(`custom-input-${i}`);
+  if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') confirmCustom(i); });
 }
 
 function copyOutput() {
@@ -625,6 +705,10 @@ function resetAll() {
     });
     const c = document.getElementById(`confirmed-${i}`);
     if (c) c.style.display = 'none';
+    const row = document.getElementById(`custom-row-${i}`);
+    if (row) row.style.display = '';
+    const inp = document.getElementById(`custom-input-${i}`);
+    if (inp) inp.value = '';
   }
   document.getElementById('output-section').style.display = 'none';
   updateProgress();
