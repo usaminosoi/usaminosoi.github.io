@@ -7,26 +7,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #080806;
-  --panel: #0f0e0a;
-  --panel-border: #2e2510;
-  --gold: #c8a84b;
-  --gold-light: #f0d480;
-  --gold-dim: #7a6328;
-  --gold-glow: rgba(200,168,75,0.4);
-  --teal: #c8a84b;
-  --teal-dim: #7a6328;
-  --teal-glow: rgba(200,168,75,0.3);
-  --crimson: #9b7a23;
-  --silver: #d4bc78;
-  --text: #e8ddb8;
-  --text-dim: #8a7a50;
-  --fire: #c8a84b; --fire-dim: #5a4518; --fire-glow: rgba(200,168,75,0.3);
-  --water: #b89a3a; --water-dim: #4a3a14; --water-glow: rgba(184,154,58,0.3);
-  --wind: #d4bc78; --wind-dim: #5a4a20; --wind-glow: rgba(212,188,120,0.25);
-  --earth: #a08830; --earth-dim: #3a2e10; --earth-glow: rgba(160,136,48,0.3);
-  --deep-blue: #c8a84b;
-  --deep-blue-dim: #5a4518;
+  --bg: #050810;
+  --panel: #090e18;
+  --panel-border: #162238;
+  /* Primary accent — bright cyan-blue (replaces gold) */
+  --gold: #58c8e8;
+  --gold-light: #a8e8f8;
+  --gold-dim: #2a7898;
+  --gold-glow: rgba(88,200,232,0.32);
+  /* Secondary accent — deeper blue (replaces teal) */
+  --teal: #3a9ec8;
+  --teal-dim: #183858;
+  --teal-glow: rgba(58,158,200,0.28);
+  /* Kept for compat but not used visually */
+  --crimson: #5888c8;
+  /* Text — cold blue-white hierarchy */
+  --silver: #c8e4f4;
+  --text: #d8edf8;
+  --text-dim: #6888a8;
+  /* Element colours — unified into blue family, each with distinct hue shift */
+  --fire: #e07840;     --fire-dim: #3a2018;  --fire-glow: rgba(224,120,64,0.28);
+  --water: #38b8e0;    --water-dim: #0e3050; --water-glow: rgba(56,184,224,0.30);
+  --wind: #78c8d8;     --wind-dim: #183848; --wind-glow: rgba(120,200,216,0.28);
+  --earth: #5898c8;    --earth-dim: #183048; --earth-glow: rgba(88,152,200,0.28);
+  --deep-blue: #4878c8;
+  --deep-blue-dim: #182850;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,9 +46,9 @@ body {
 .bg-layer {
   position: fixed; inset: 0; z-index: 0;
   background:
-    radial-gradient(ellipse 60% 40% at 15% 20%, rgba(200,168,75,0.05) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 35% at 85% 80%, rgba(200,168,75,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 50% at 50% 50%, rgba(120,90,20,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 15% 20%, rgba(58,158,200,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 85% 80%, rgba(88,200,232,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 50% 50%, rgba(18,40,80,0.10) 0%, transparent 70%),
     var(--bg);
 }
 .bg-layer::after {
@@ -63,40 +68,40 @@ body {
 .header { text-align: center; margin-bottom: 48px; }
 .boot-text {
   font-family: 'Cinzel', serif;
-  font-size: 0.92rem; color: var(--gold-dim);
+  font-size: 0.88rem; color: var(--teal);
   letter-spacing: 0.5em; text-transform: uppercase;
-  margin-bottom: 20px; opacity: 0.9;
+  margin-bottom: 20px;
   animation: blink-in 0.5s ease;
 }
 @keyframes blink-in { 0%,50%{opacity:0}100%{opacity:0.8} }
 .terminal-box {
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--teal-dim);
   padding: 20px 32px;
   display: inline-block;
   position: relative;
-  background: rgba(200,168,75,0.04);
+  background: rgba(58,158,200,0.04);
   margin-bottom: 28px;
 }
 .terminal-box::before {
   content: ''; position: absolute; inset: 3px;
-  border: 1px solid rgba(200,168,75,0.12); pointer-events: none;
+  border: 1px solid rgba(58,158,200,0.10); pointer-events: none;
 }
 .terminal-box-title {
   font-family: 'Cinzel', serif; font-size: 1.05rem;
-  color: var(--gold); letter-spacing: 0.35em; line-height: 2;
+  color: var(--silver); letter-spacing: 0.35em; line-height: 2;
 }
 .main-title {
   font-family: 'Cinzel Decorative', serif;
   font-size: clamp(2.2rem, 5vw, 3.4rem);
-  color: var(--gold); letter-spacing: 0.12em;
-  text-shadow: 0 0 40px var(--gold-glow), 0 0 80px rgba(200,168,75,0.1);
+  color: var(--gold-light); letter-spacing: 0.12em;
+  text-shadow: 0 0 40px var(--gold-glow), 0 0 80px rgba(88,200,232,0.12);
   margin-bottom: 8px;
   animation: glitch 8s ease infinite;
 }
 .sub-title {
-  font-family: 'Cinzel', serif; font-size: 1.05rem;
-  color: var(--gold-dim); letter-spacing: 0.4em;
-  opacity: 0.7; margin-bottom: 32px;
+  font-family: 'Cinzel', serif; font-size: 1rem;
+  color: var(--teal); letter-spacing: 0.35em;
+  margin-bottom: 32px;
 }
 
 /* ── PROGRESS ── */
@@ -115,7 +120,7 @@ body {
   transition: background 0.5s;
   margin-bottom: 22px;
 }
-.progress-connector.done { background: var(--gold-dim); }
+.progress-connector.done { background: var(--teal-dim); }
 .step-node {
   width: 32px; height: 32px;
   border: 1px solid var(--panel-border);
@@ -125,15 +130,15 @@ body {
   color: var(--text-dim); transition: all 0.4s;
   background: var(--panel); position: relative;
 }
-.step-node.active { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 16px var(--gold-glow); background: rgba(200,168,75,0.08); }
+.step-node.active { border-color: var(--teal); color: var(--teal); box-shadow: 0 0 14px var(--teal-glow); background: rgba(90,184,200,0.08); }
 .step-node.done { border-color: var(--gold-dim); background: rgba(200,168,75,0.05); color: var(--gold-dim); }
 .step-node.done::after { content: '✓'; position: absolute; font-size: 0.6rem; color: var(--gold); }
 .step-label {
-  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  font-family: 'Cinzel', serif; font-size: 0.76rem;
   color: var(--text-dim); letter-spacing: 0.12em;
   transition: color 0.4s; white-space: nowrap;
 }
-.progress-step.active .step-label { color: var(--gold); }
+.progress-step.active .step-label { color: var(--gold-light); }
 .progress-step.done .step-label { color: var(--gold-dim); }
 
 /* ── STEP PANEL ── */
@@ -143,12 +148,12 @@ body {
 
 .step-header { margin-bottom: 28px; }
 .step-num {
-  font-family: 'Cinzel', serif; font-size: 0.92rem;
-  color: var(--gold-dim); letter-spacing: 0.5em; text-transform: uppercase;
+  font-family: 'Cinzel', serif; font-size: 0.84rem;
+  color: var(--teal); letter-spacing: 0.5em; text-transform: uppercase;
   margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
 }
-.step-num::before,.step-num::after { content:''; flex:1; height:1px; background: linear-gradient(to right, transparent, var(--gold-dim)); }
-.step-num::after { background: linear-gradient(to left, transparent, var(--gold-dim)); }
+.step-num::before,.step-num::after { content:''; flex:1; height:1px; background: linear-gradient(to right, transparent, var(--teal-dim)); }
+.step-num::after { background: linear-gradient(to left, transparent, var(--teal-dim)); }
 .step-title {
   font-family: 'Cinzel Decorative', serif;
   font-size: clamp(1.9rem, 4vw, 2.6rem);
@@ -156,9 +161,9 @@ body {
   text-shadow: 0 0 30px var(--gold-glow); margin-bottom: 12px;
 }
 .step-subtitle {
-  text-align: center; font-size: 1.08rem;
-  color: var(--silver); opacity: 0.8;
-  font-style: italic; line-height: 1.8;
+  text-align: center; font-size: 1.05rem;
+  color: var(--silver);
+  font-style: italic; line-height: 1.9;
 }
 
 /* ── OPTION CARDS ── */
@@ -191,10 +196,10 @@ body {
 .card-check { position:absolute; top:10px; right:14px; font-size:0.86rem; color:var(--el,var(--gold)); opacity:0; transform:scale(0); transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); }
 .card-icon { font-size:2.1rem; margin-bottom:8px; display:block; filter:drop-shadow(0 0 8px var(--el-glow,var(--gold-glow))); transition:filter 0.35s; }
 .option-card:hover .card-icon, .option-card.selected .card-icon { filter:drop-shadow(0 0 14px var(--el-glow,var(--gold-glow))); }
-.card-label { font-family:'Cinzel',serif; font-size:1.12rem; color:var(--gold-light); letter-spacing:0.15em; margin-bottom:6px; transition:color 0.35s; }
+.card-label { font-family:'Cinzel',serif; font-size:1.08rem; color:var(--silver); letter-spacing:0.15em; margin-bottom:6px; transition:color 0.35s; }
 .option-card.selected .card-label { color:#fff; text-shadow:0 0 12px var(--el-glow,var(--gold-glow)); }
-.card-keyword { font-size:0.94rem; color:var(--silver); opacity:0.75; font-family:'Cinzel',serif; letter-spacing:0.2em; margin-bottom:10px; }
-.card-desc { font-size:1.04rem; color:var(--text-dim); line-height:1.8; transition:color 0.35s; }
+.card-keyword { font-size:0.82rem; color:var(--teal); opacity:0.85; font-family:'Cinzel',serif; letter-spacing:0.18em; margin-bottom:10px; }
+.card-desc { font-size:1.0rem; color:var(--text-dim); line-height:1.9; transition:color 0.35s; }
 .option-card:hover .card-desc, .option-card.selected .card-desc { color:var(--silver); }
 
 /* ── PERSONA CARDS ── */
@@ -208,15 +213,15 @@ body {
 .persona-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:linear-gradient(to right,transparent,var(--gold-dim),transparent); transition:background 0.35s; }
 .persona-card:hover { border-color:var(--gold-dim); transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.5),0 0 20px var(--gold-glow); }
 .persona-card:hover::before { background:linear-gradient(to right,transparent,var(--gold),transparent); }
-.persona-card.selected { border-color:var(--gold); background:linear-gradient(160deg,rgba(200,168,75,0.1),rgba(0,0,0,0.3)); box-shadow:0 0 40px var(--gold-glow),inset 0 0 30px rgba(0,0,0,0.2); }
+.persona-card.selected { border-color:var(--gold); background:linear-gradient(160deg,rgba(88,200,232,0.08),rgba(0,0,0,0.3)); box-shadow:0 0 40px var(--gold-glow),inset 0 0 30px rgba(0,0,0,0.2); }
 .persona-card.selected::before { background:linear-gradient(to right,transparent,var(--gold-light),transparent); }
 .persona-card.selected .persona-check { opacity:1; transform:scale(1); }
 .persona-check { position:absolute; top:12px;right:14px; font-size:0.86rem; color:var(--gold); opacity:0; transform:scale(0); transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); }
 .persona-symbol { font-size:2.6rem; margin-bottom:10px; display:block; filter:drop-shadow(0 0 6px var(--gold-glow)); }
-.persona-model { font-family:'Cinzel',serif; font-size:0.96rem; color:var(--gold-dim); letter-spacing:0.35em; margin-bottom:4px; text-transform:uppercase; }
-.persona-name { font-family:'Cinzel Decorative',serif; font-size:1.32rem; color:var(--gold-light); margin-bottom:6px; letter-spacing:0.1em; }
-.persona-origin { font-size:0.94rem; color:var(--gold-dim); font-family:'Cinzel',serif; letter-spacing:0.2em; margin-bottom:10px; }
-.persona-desc { font-size:1.02rem; color:var(--text-dim); line-height:1.8; }
+.persona-model { font-family:'Cinzel',serif; font-size:0.82rem; color:var(--teal); letter-spacing:0.35em; margin-bottom:4px; text-transform:uppercase; }
+.persona-name { font-family:'Cinzel Decorative',serif; font-size:1.28rem; color:var(--silver); margin-bottom:6px; letter-spacing:0.1em; }
+.persona-origin { font-size:0.9rem; color:var(--text-dim); font-family:'Cinzel',serif; letter-spacing:0.2em; margin-bottom:10px; }
+.persona-desc { font-size:0.98rem; color:var(--text-dim); line-height:1.9; }
 .persona-card:hover .persona-desc, .persona-card.selected .persona-desc { color:var(--silver); }
 
 /* ── CUSTOM INPUT ── */
@@ -232,8 +237,8 @@ body {
   position: absolute; top: -1px; left: 16px;
   transform: translateY(-50%);
   background: var(--bg); padding: 0 6px;
-  font-family: 'Cinzel', serif; font-size: 0.74rem;
-  color: var(--text-dim); letter-spacing: 0.25em;
+  font-family: 'Cinzel', serif; font-size: 0.72rem;
+  color: var(--teal); letter-spacing: 0.25em;
 }
 .custom-input-row {
   display: flex; gap: 10px; align-items: stretch;
@@ -256,19 +261,19 @@ body {
   margin-bottom: 10px;
 }
 .custom-input-row input::placeholder, .custom-textarea::placeholder { color: var(--text-dim); opacity: 0.6; }
-.custom-input-row input:focus, .custom-textarea:focus { border-color: var(--gold-dim); }
+.custom-input-row input:focus, .custom-textarea:focus { border-color: var(--teal-dim); }
 .custom-confirm-btn {
   padding: 10px 20px;
   background: transparent;
-  border: 1px solid var(--gold-dim);
-  color: var(--gold-dim);
+  border: 1px solid var(--teal-dim);
+  color: var(--teal);
   font-family: 'Cinzel', serif;
   font-size: 0.84rem; letter-spacing: 0.2em;
   cursor: pointer; white-space: nowrap;
   transition: all 0.25s;
   clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
 }
-.custom-confirm-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,168,75,0.08); }
+.custom-confirm-btn:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(88,200,232,0.08); }
 .custom-confirm-btn.full-width {
   display: block; width: 100%;
   clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
@@ -284,8 +289,8 @@ body {
   position: relative;
 }
 .free-field-label {
-  font-family: 'Cinzel', serif; font-size: 0.96rem;
-  color: var(--gold); letter-spacing: 0.3em;
+  font-family: 'Cinzel', serif; font-size: 0.92rem;
+  color: var(--teal); letter-spacing: 0.28em;
   margin-bottom: 12px; display: block;
 }
 .free-field input, .free-field textarea {
@@ -301,15 +306,15 @@ body {
 }
 .free-field textarea { resize: vertical; min-height: 160px; line-height: 1.8; }
 .free-field input::placeholder, .free-field textarea::placeholder { color: var(--text-dim); opacity: 0.6; }
-.free-field input:focus, .free-field textarea:focus { border-color: var(--gold-dim); }
+.free-field input:focus, .free-field textarea:focus { border-color: var(--teal-dim); }
 .hint-sub {
-  font-size:0.96rem; color: var(--text-dim);
+  font-size:0.94rem; color: var(--text-dim);
   line-height: 1.9; margin-top: 10px;
-  border-left: 1px solid var(--gold-dim);
-  padding-left: 12px; opacity: 0.8;
+  border-left: 2px solid var(--teal-dim);
+  padding-left: 14px;
 }
 .hint-sub li { list-style: none; padding-left: 8px; }
-.hint-sub li::before { content: '·  '; color: var(--gold); }
+.hint-sub li::before { content: '·  '; color: var(--teal); }
 
 /* ── NAV BUTTONS ── */
 .nav-row { display:flex; justify-content:space-between; align-items:center; margin-top:36px; gap:16px; }
@@ -322,47 +327,46 @@ body {
 }
 .nav-btn:hover { border-color:var(--silver); color:var(--silver); }
 .nav-btn:disabled { opacity:0.2; cursor:not-allowed; }
-.next-btn { border-color:var(--gold-dim); color:var(--gold-dim); background:rgba(200,168,75,0.04); }
-.next-btn:hover:not(:disabled) { border-color:var(--gold); color:var(--gold); background:rgba(200,168,75,0.1); box-shadow:0 0 20px var(--gold-glow); transform:translateY(-1px); }
+.next-btn { border-color:var(--teal-dim); color:var(--teal); background:rgba(58,158,200,0.04); }
+.next-btn:hover:not(:disabled) { border-color:var(--gold); color:var(--gold-light); background:rgba(88,200,232,0.10); box-shadow:0 0 20px var(--gold-glow); transform:translateY(-1px); }
 .next-btn:disabled { border-color:var(--panel-border); color:var(--text-dim); opacity:0.4; box-shadow:none; transform:none; }
 
 /* ── SUMMARY ── */
 .summary-panel { display:none; animation:panel-in 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
 .summary-panel.active { display:block; }
 .summary-header { text-align:center; margin-bottom:36px; }
-.summary-title { font-family:'Cinzel Decorative',serif; font-size:clamp(1.7rem,3.5vw,2.4rem); color:var(--gold); text-shadow:0 0 40px var(--gold-glow); margin-bottom:8px; }
-.summary-subtitle { font-family:'Cinzel',serif; font-size:0.96rem; letter-spacing:0.4em; color:var(--gold-dim); opacity:0.9; }
-.summary-grid { display:grid; gap:2px; border:1px solid var(--gold-dim); overflow:hidden; margin-bottom:28px; }
+.summary-title { font-family:'Cinzel Decorative',serif; font-size:clamp(1.7rem,3.5vw,2.4rem); color:var(--gold-light); text-shadow:0 0 40px var(--gold-glow); margin-bottom:8px; }
+.summary-subtitle { font-family:'Cinzel',serif; font-size:0.9rem; letter-spacing:0.4em; color:var(--teal); }
+.summary-grid { display:grid; gap:2px; border:1px solid var(--panel-border); overflow:hidden; margin-bottom:28px; }
 .summary-row { display:grid; grid-template-columns:180px 1fr; background:var(--panel); transition:background 0.3s; }
-.summary-row:hover { background:rgba(200,168,75,0.04); }
-.summary-key { padding:16px 20px; font-family:'Cinzel',serif; font-size:0.94rem; color:var(--gold-dim); letter-spacing:0.25em; border-right:1px solid var(--gold-dim); display:flex; align-items:center; gap:10px; }
-.summary-val { padding:16px 20px; font-size:1.1rem; color:var(--text); line-height:1.6; }
-.summary-val strong { color:var(--gold-light); font-family:'Cinzel',serif; font-weight:600; font-size:1.16rem; }
+.summary-row:hover { background:rgba(90,184,200,0.04); }
+.summary-key { padding:16px 20px; font-family:'Cinzel',serif; font-size:0.9rem; color:var(--teal); letter-spacing:0.2em; border-right:1px solid var(--panel-border); display:flex; align-items:center; gap:10px; }
+.summary-val { padding:16px 20px; font-size:1.05rem; color:var(--text); line-height:1.7; }
+.summary-val strong { color:var(--gold-light); font-family:'Cinzel',serif; font-weight:600; font-size:1.12rem; }
 .summary-section-label {
-  font-family: 'Cinzel', serif; font-size: 0.88rem;
-  color: var(--gold); letter-spacing: 0.4em;
+  font-family: 'Cinzel', serif; font-size: 0.82rem;
+  color: var(--teal); letter-spacing: 0.4em;
   padding: 10px 20px 6px;
-  background: rgba(200,168,75,0.05);
-  border-bottom: 1px solid var(--gold-dim);
-  opacity: 0.9;
+  background: rgba(90,184,200,0.05);
+  border-bottom: 1px solid var(--panel-border);
 }
 
-.output-section { background:rgba(0,0,0,0.4); border:1px solid var(--gold-dim); padding:24px 28px; position:relative; margin-bottom: 0; }
-.output-section::before { content:'// PROMPT OUTPUT'; position:absolute; top:-1px;left:20px; transform:translateY(-50%); background:var(--bg); padding:0 8px; font-family:'Cinzel',serif; font-size:0.82rem; color:var(--gold); letter-spacing:0.3em; }
-.output-text { font-family:'Noto Serif TC',serif; font-size:1.04rem; color:var(--silver); line-height:2.1; white-space:pre-wrap; }
-.copy-btn { margin-top:16px; padding:10px 28px; background:transparent; border:1px solid var(--gold-dim); color:var(--gold-dim); font-family:'Cinzel',serif; font-size:0.94rem; letter-spacing:0.3em; cursor:pointer; transition:all 0.3s; display:block; margin-left:auto; }
-.copy-btn:hover { border-color:var(--gold); background:rgba(200,168,75,0.08); box-shadow:0 0 16px var(--gold-glow); color:var(--gold); }
-.copy-btn.copied { border-color:var(--gold); color:var(--gold); background:rgba(200,168,75,0.1); }
-.restart-btn { display:block; margin:20px auto 0; padding:14px 48px; background:transparent; border:1px solid var(--gold-dim); color:var(--gold-dim); font-family:'Cinzel',serif; font-size:0.96rem; letter-spacing:0.3em; cursor:pointer; clip-path:polygon(16px 0%,100% 0%,calc(100% - 16px) 100%,0% 100%); transition:all 0.3s; }
-.restart-btn:hover { border-color:var(--gold); color:var(--gold); background:rgba(200,168,75,0.07); }
+.output-section { background:rgba(0,0,0,0.4); border:1px solid var(--panel-border); padding:24px 28px; position:relative; margin-bottom: 0; }
+.output-section::before { content:'// PROMPT OUTPUT'; position:absolute; top:-1px;left:20px; transform:translateY(-50%); background:var(--bg); padding:0 8px; font-family:'Cinzel',serif; font-size:0.78rem; color:var(--teal); letter-spacing:0.3em; }
+.output-text { font-family:'Noto Serif TC',serif; font-size:1.0rem; color:var(--silver); line-height:2.1; white-space:pre-wrap; }
+.copy-btn { margin-top:16px; padding:10px 28px; background:transparent; border:1px solid var(--teal-dim); color:var(--teal); font-family:'Cinzel',serif; font-size:0.9rem; letter-spacing:0.3em; cursor:pointer; transition:all 0.3s; display:block; margin-left:auto; }
+.copy-btn:hover { border-color:var(--teal); background:rgba(90,184,200,0.08); box-shadow:0 0 16px var(--teal-glow); color:var(--teal); }
+.copy-btn.copied { border-color:var(--teal); color:var(--teal); background:rgba(90,184,200,0.1); }
+.restart-btn { display:block; margin:20px auto 0; padding:14px 48px; background:transparent; border:1px solid var(--teal-dim); color:var(--teal); font-family:'Cinzel',serif; font-size:0.92rem; letter-spacing:0.3em; cursor:pointer; clip-path:polygon(16px 0%,100% 0%,calc(100% - 16px) 100%,0% 100%); transition:all 0.3s; }
+.restart-btn:hover { border-color:var(--gold); color:var(--gold-light); background:rgba(88,200,232,0.07); }
 
 /* ── MISC ── */
 .divider-line { height:1px; background:linear-gradient(to right,transparent,var(--panel-border),transparent); margin:8px 0; }
-.hint-text { text-align:center; font-size:0.96rem; color:var(--text-dim); font-family:'Cinzel',serif; letter-spacing:0.15em; margin-top:16px; opacity:0.7; }
+.hint-text { text-align:center; font-size:0.9rem; color:var(--text-dim); font-family:'Cinzel',serif; letter-spacing:0.15em; margin-top:16px; }
 @keyframes glitch {
-  0%,95%,100%{text-shadow:0 0 40px var(--gold-glow),0 0 80px rgba(200,168,75,0.1)}
-  96%{text-shadow:-2px 0 var(--gold-dim),2px 2px rgba(200,168,75,0.5),0 0 40px var(--gold-glow)}
-  98%{text-shadow:1px 0 var(--gold-light),-1px -1px var(--gold-dim),0 0 40px var(--gold-glow)}
+  0%,95%,100%{text-shadow:0 0 40px var(--gold-glow),0 0 80px rgba(88,200,232,0.12)}
+  96%{text-shadow:-2px 0 var(--teal-dim),2px 2px rgba(88,200,232,0.5),0 0 40px var(--gold-glow)}
+  98%{text-shadow:1px 0 var(--gold-light),-1px -1px var(--teal),0 0 40px var(--gold-glow)}
 }
 </style>
 </head>
@@ -376,7 +380,7 @@ body {
     <div class="boot-text">▸ SYSTEM BOOT · ETZ CHAIM v0.1</div>
     <div class="terminal-box">
       <div class="terminal-box-title">仿生人初始化程序啟動</div>
-      <div class="terminal-box-title" style="font-size:0.92rem;color:var(--gold-dim);opacity:0.8">正在建構個體核心參數...</div>
+      <div class="terminal-box-title" style="font-size:0.92rem;color:var(--teal);opacity:0.8">正在建構個體核心參數...</div>
     </div>
     <h1 class="main-title">創角初始化</h1>
     <p class="sub-title">ANDROID COMPANION · INITIALIZATION PROTOCOL</p>
