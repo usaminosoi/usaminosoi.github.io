@@ -1,686 +1,998 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>仿生人初始化程序</title>
+<title>ETZ CHAIM — 仿生人初始化</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Serif+TC:wght@300;400;600&display=swap');
+:root {
+  --bg: #080806;
+  --panel: #0f0e0a;
+  --panel-border: #2e2510;
+  --gold: #c8a84b;
+  --gold-light: #f0d480;
+  --gold-dim: #7a6328;
+  --gold-glow: rgba(200,168,75,0.4);
+  --teal: #c8a84b;
+  --teal-dim: #7a6328;
+  --teal-glow: rgba(200,168,75,0.3);
+  --crimson: #9b7a23;
+  --silver: #d4bc78;
+  --text: #e8ddb8;
+  --text-dim: #8a7a50;
+  --fire: #c8a84b; --fire-dim: #5a4518; --fire-glow: rgba(200,168,75,0.3);
+  --water: #b89a3a; --water-dim: #4a3a14; --water-glow: rgba(184,154,58,0.3);
+  --wind: #d4bc78; --wind-dim: #5a4a20; --wind-glow: rgba(212,188,120,0.25);
+  --earth: #a08830; --earth-dim: #3a2e10; --earth-glow: rgba(160,136,48,0.3);
+  --deep-blue: #c8a84b;
+  --deep-blue-dim: #5a4518;
+}
 
-  :root {
-    --bg: #05080f;
-    --panel: #090d18;
-    --border: #1a2a4a;
-    --accent: #00c8ff;
-    --accent2: #7b4fff;
-    --gold: #c8a84b;
-    --text: #b8cce4;
-    --dim: #4a6080;
-    --selected-bg: #0a1628;
-    --selected-border: #00c8ff;
-    --glow: 0 0 12px rgba(0,200,255,0.35);
-    --red: #ff4466;
-  }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Serif TC', serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.bg-layer {
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 20%, rgba(200,168,75,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 85% 80%, rgba(200,168,75,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 50% 50%, rgba(120,90,20,0.04) 0%, transparent 70%),
+    var(--bg);
+}
+.bg-layer::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px);
+  pointer-events: none;
+}
+.container {
+  position: relative; z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── HEADER ── */
+.header { text-align: center; margin-bottom: 48px; }
+.boot-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.92rem; color: var(--gold-dim);
+  letter-spacing: 0.5em; text-transform: uppercase;
+  margin-bottom: 20px; opacity: 0.9;
+  animation: blink-in 0.5s ease;
+}
+@keyframes blink-in { 0%,50%{opacity:0}100%{opacity:0.8} }
+.terminal-box {
+  border: 1px solid var(--gold-dim);
+  padding: 20px 32px;
+  display: inline-block;
+  position: relative;
+  background: rgba(200,168,75,0.04);
+  margin-bottom: 28px;
+}
+.terminal-box::before {
+  content: ''; position: absolute; inset: 3px;
+  border: 1px solid rgba(200,168,75,0.12); pointer-events: none;
+}
+.terminal-box-title {
+  font-family: 'Cinzel', serif; font-size: 1.05rem;
+  color: var(--gold); letter-spacing: 0.35em; line-height: 2;
+}
+.main-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--gold); letter-spacing: 0.12em;
+  text-shadow: 0 0 40px var(--gold-glow), 0 0 80px rgba(200,168,75,0.1);
+  margin-bottom: 8px;
+  animation: glitch 8s ease infinite;
+}
+.sub-title {
+  font-family: 'Cinzel', serif; font-size: 1.05rem;
+  color: var(--gold-dim); letter-spacing: 0.4em;
+  opacity: 0.7; margin-bottom: 32px;
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Noto Serif TC', serif;
-    min-height: 100vh;
-    padding: 40px 20px 80px;
-    background-image:
-      radial-gradient(ellipse at 20% 10%, rgba(0,50,100,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 90%, rgba(70,0,150,0.12) 0%, transparent 60%);
-  }
+/* ── PROGRESS ── */
+.progress-bar {
+  display: flex; align-items: center; gap: 0;
+  margin-bottom: 48px; justify-content: center;
+}
+.progress-step {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  cursor: pointer; transition: all 0.3s;
+}
+.progress-connector {
+  width: 32px; height: 1px;
+  background: var(--panel-border);
+  transition: background 0.5s;
+  margin-bottom: 22px;
+}
+.progress-connector.done { background: var(--gold-dim); }
+.step-node {
+  width: 32px; height: 32px;
+  border: 1px solid var(--panel-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif; font-size: 0.76rem;
+  color: var(--text-dim); transition: all 0.4s;
+  background: var(--panel); position: relative;
+}
+.step-node.active { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 16px var(--gold-glow); background: rgba(200,168,75,0.08); }
+.step-node.done { border-color: var(--gold-dim); background: rgba(200,168,75,0.05); color: var(--gold-dim); }
+.step-node.done::after { content: '✓'; position: absolute; font-size: 0.6rem; color: var(--gold); }
+.step-label {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  color: var(--text-dim); letter-spacing: 0.12em;
+  transition: color 0.4s; white-space: nowrap;
+}
+.progress-step.active .step-label { color: var(--gold); }
+.progress-step.done .step-label { color: var(--gold-dim); }
 
-  /* ── scanline overlay ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background: repeating-linear-gradient(
-      to bottom,
-      transparent 0px,
-      transparent 3px,
-      rgba(0,0,0,0.06) 3px,
-      rgba(0,0,0,0.06) 4px
-    );
-    pointer-events: none;
-    z-index: 999;
-  }
+/* ── STEP PANEL ── */
+.step-panel { display: none; animation: panel-in 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
+.step-panel.active { display: block; }
+@keyframes panel-in { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 
-  .container { max-width: 780px; margin: 0 auto; }
+.step-header { margin-bottom: 28px; }
+.step-num {
+  font-family: 'Cinzel', serif; font-size: 0.92rem;
+  color: var(--gold-dim); letter-spacing: 0.5em; text-transform: uppercase;
+  margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+}
+.step-num::before,.step-num::after { content:''; flex:1; height:1px; background: linear-gradient(to right, transparent, var(--gold-dim)); }
+.step-num::after { background: linear-gradient(to left, transparent, var(--gold-dim)); }
+.step-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  color: var(--gold-light); text-align: center;
+  text-shadow: 0 0 30px var(--gold-glow); margin-bottom: 12px;
+}
+.step-subtitle {
+  text-align: center; font-size: 1.08rem;
+  color: var(--silver); opacity: 0.8;
+  font-style: italic; line-height: 1.8;
+}
 
-  /* ── Header Banner ── */
-  .banner {
-    border: 1px solid var(--accent);
-    box-shadow: var(--glow), inset 0 0 40px rgba(0,200,255,0.04);
-    padding: 24px 32px;
-    margin-bottom: 48px;
-    position: relative;
-    text-align: center;
-    animation: flicker 8s infinite;
-  }
-  .banner::before, .banner::after {
-    content: ''; position: absolute;
-    width: 12px; height: 12px;
-    border-color: var(--accent); border-style: solid;
-  }
-  .banner::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-  .banner::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+/* ── OPTION CARDS ── */
+.options-grid { display: grid; gap: 14px; margin-top: 28px; }
+.options-grid.col2 { grid-template-columns: 1fr 1fr; }
+.options-grid.col1 { grid-template-columns: 1fr; }
+@media (max-width: 600px) { .options-grid.col2 { grid-template-columns: 1fr; } }
 
-  .banner-title {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.1rem;
-    letter-spacing: 0.25em;
-    color: var(--accent);
-    text-shadow: 0 0 16px var(--accent);
-    margin-bottom: 6px;
-  }
-  .banner-sub {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--dim);
-    letter-spacing: 0.18em;
-  }
+.option-card {
+  position: relative; padding: 20px 22px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel); cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
+  clip-path: polygon(14px 0%, 100% 0%, calc(100% - 14px) 100%, 0% 100%);
+}
+.option-card::before { content:''; position:absolute; inset:0; opacity:0; transition:opacity 0.35s; background: linear-gradient(135deg, rgba(255,255,255,0.02), transparent); }
+.option-card::after { content:''; position:absolute; top:0;left:0;right:0; height:1px; opacity:0; transition:opacity 0.35s; background: var(--el, var(--gold)); }
+.option-card[data-element="fire"]  { --el:var(--fire);  --el-dim:var(--fire-dim);  --el-glow:var(--fire-glow); }
+.option-card[data-element="water"] { --el:var(--water); --el-dim:var(--water-dim); --el-glow:var(--water-glow); }
+.option-card[data-element="wind"]  { --el:var(--wind);  --el-dim:var(--wind-dim);  --el-glow:var(--wind-glow); }
+.option-card[data-element="earth"] { --el:var(--earth); --el-dim:var(--earth-dim); --el-glow:var(--earth-glow); }
+.option-card[data-element="gold"]  { --el:var(--gold);  --el-dim:var(--gold-dim);  --el-glow:var(--gold-glow); }
+.option-card:hover { border-color:var(--el,var(--gold)); transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,0,0,0.4),0 0 20px var(--el-glow,var(--gold-glow)); }
+.option-card:hover::before { opacity:1; }
+.option-card:hover::after { opacity:0.6; }
+.option-card.selected { border-color:var(--el,var(--gold)); background:linear-gradient(135deg,rgba(0,0,0,0.2),var(--el-dim,var(--gold-dim))); box-shadow:0 0 30px var(--el-glow,var(--gold-glow)),inset 0 0 20px rgba(0,0,0,0.3); }
+.option-card.selected::after { opacity:1; }
+.option-card.selected .card-check { opacity:1; transform:scale(1); }
+.card-check { position:absolute; top:10px; right:14px; font-size:0.86rem; color:var(--el,var(--gold)); opacity:0; transform:scale(0); transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+.card-icon { font-size:2.1rem; margin-bottom:8px; display:block; filter:drop-shadow(0 0 8px var(--el-glow,var(--gold-glow))); transition:filter 0.35s; }
+.option-card:hover .card-icon, .option-card.selected .card-icon { filter:drop-shadow(0 0 14px var(--el-glow,var(--gold-glow))); }
+.card-label { font-family:'Cinzel',serif; font-size:1.12rem; color:var(--gold-light); letter-spacing:0.15em; margin-bottom:6px; transition:color 0.35s; }
+.option-card.selected .card-label { color:#fff; text-shadow:0 0 12px var(--el-glow,var(--gold-glow)); }
+.card-keyword { font-size:0.94rem; color:var(--silver); opacity:0.75; font-family:'Cinzel',serif; letter-spacing:0.2em; margin-bottom:10px; }
+.card-desc { font-size:1.04rem; color:var(--text-dim); line-height:1.8; transition:color 0.35s; }
+.option-card:hover .card-desc, .option-card.selected .card-desc { color:var(--silver); }
 
-  @keyframes flicker {
-    0%,96%,100% { opacity: 1; }
-    97% { opacity: 0.88; }
-    98% { opacity: 1; }
-    99% { opacity: 0.92; }
-  }
+/* ── PERSONA CARDS ── */
+.persona-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:28px; }
+.persona-card {
+  position:relative; padding:22px 20px 18px;
+  border:1px solid var(--panel-border);
+  background:var(--panel); cursor:pointer;
+  transition:all 0.35s cubic-bezier(0.16,1,0.3,1); overflow:hidden;
+}
+.persona-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:linear-gradient(to right,transparent,var(--gold-dim),transparent); transition:background 0.35s; }
+.persona-card:hover { border-color:var(--gold-dim); transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.5),0 0 20px var(--gold-glow); }
+.persona-card:hover::before { background:linear-gradient(to right,transparent,var(--gold),transparent); }
+.persona-card.selected { border-color:var(--gold); background:linear-gradient(160deg,rgba(200,168,75,0.1),rgba(0,0,0,0.3)); box-shadow:0 0 40px var(--gold-glow),inset 0 0 30px rgba(0,0,0,0.2); }
+.persona-card.selected::before { background:linear-gradient(to right,transparent,var(--gold-light),transparent); }
+.persona-card.selected .persona-check { opacity:1; transform:scale(1); }
+.persona-check { position:absolute; top:12px;right:14px; font-size:0.86rem; color:var(--gold); opacity:0; transform:scale(0); transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+.persona-symbol { font-size:2.6rem; margin-bottom:10px; display:block; filter:drop-shadow(0 0 6px var(--gold-glow)); }
+.persona-model { font-family:'Cinzel',serif; font-size:0.96rem; color:var(--gold-dim); letter-spacing:0.35em; margin-bottom:4px; text-transform:uppercase; }
+.persona-name { font-family:'Cinzel Decorative',serif; font-size:1.32rem; color:var(--gold-light); margin-bottom:6px; letter-spacing:0.1em; }
+.persona-origin { font-size:0.94rem; color:var(--gold-dim); font-family:'Cinzel',serif; letter-spacing:0.2em; margin-bottom:10px; }
+.persona-desc { font-size:1.02rem; color:var(--text-dim); line-height:1.8; }
+.persona-card:hover .persona-desc, .persona-card.selected .persona-desc { color:var(--silver); }
 
-  /* ── Step Block ── */
-  .step {
-    margin-bottom: 36px;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    padding: 28px 28px 24px;
-    position: relative;
-    transition: opacity 0.4s, max-height 0.5s;
-  }
-  .step.hidden {
-    display: none;
-  }
+/* ── CUSTOM INPUT ── */
+.custom-input-section {
+  margin-top: 20px;
+  border: 1px solid var(--panel-border);
+  padding: 18px 20px;
+  background: var(--panel);
+  position: relative;
+}
+.custom-input-section::before {
+  content: '其他 · CUSTOM';
+  position: absolute; top: -1px; left: 16px;
+  transform: translateY(-50%);
+  background: var(--bg); padding: 0 6px;
+  font-family: 'Cinzel', serif; font-size: 0.74rem;
+  color: var(--text-dim); letter-spacing: 0.25em;
+}
+.custom-input-row {
+  display: flex; gap: 10px; align-items: stretch;
+}
+.custom-input-row input, .custom-textarea {
+  flex: 1;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.25s;
+  line-height: 1.7;
+}
+.custom-textarea {
+  width: 100%; resize: vertical;
+  min-height: 120px;
+  margin-bottom: 10px;
+}
+.custom-input-row input::placeholder, .custom-textarea::placeholder { color: var(--text-dim); opacity: 0.6; }
+.custom-input-row input:focus, .custom-textarea:focus { border-color: var(--gold-dim); }
+.custom-confirm-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold-dim);
+  font-family: 'Cinzel', serif;
+  font-size: 0.84rem; letter-spacing: 0.2em;
+  cursor: pointer; white-space: nowrap;
+  transition: all 0.25s;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+.custom-confirm-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,168,75,0.08); }
+.custom-confirm-btn.full-width {
+  display: block; width: 100%;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  padding: 12px;
+}
 
-  .step-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--dim);
-    letter-spacing: 0.2em;
-    margin-bottom: 10px;
-  }
-  .step-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #dce9f8;
-    margin-bottom: 4px;
-  }
-  .step-subtitle {
-    font-size: 0.8rem;
-    color: var(--dim);
-    font-style: italic;
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
+/* ── FREE INPUT FIELDS (step 5) ── */
+.free-input-group { margin-top: 28px; display: flex; flex-direction: column; gap: 20px; }
+.free-field {
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  padding: 20px 22px;
+  position: relative;
+}
+.free-field-label {
+  font-family: 'Cinzel', serif; font-size: 0.96rem;
+  color: var(--gold); letter-spacing: 0.3em;
+  margin-bottom: 12px; display: block;
+}
+.free-field input, .free-field textarea {
+  width: 100%;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.25s;
+}
+.free-field textarea { resize: vertical; min-height: 160px; line-height: 1.8; }
+.free-field input::placeholder, .free-field textarea::placeholder { color: var(--text-dim); opacity: 0.6; }
+.free-field input:focus, .free-field textarea:focus { border-color: var(--gold-dim); }
+.hint-sub {
+  font-size:0.96rem; color: var(--text-dim);
+  line-height: 1.9; margin-top: 10px;
+  border-left: 1px solid var(--gold-dim);
+  padding-left: 12px; opacity: 0.8;
+}
+.hint-sub li { list-style: none; padding-left: 8px; }
+.hint-sub li::before { content: '·  '; color: var(--gold); }
 
-  /* ── Options grid ── */
-  .options { display: grid; gap: 10px; }
-  .options.cols-2 { grid-template-columns: 1fr 1fr; }
-  .options.cols-1 { grid-template-columns: 1fr; }
+/* ── NAV BUTTONS ── */
+.nav-row { display:flex; justify-content:space-between; align-items:center; margin-top:36px; gap:16px; }
+.nav-btn {
+  padding:14px 36px; background:transparent;
+  border:1px solid var(--panel-border); color:var(--text-dim);
+  font-family:'Cinzel',serif; font-size:1.02rem; letter-spacing:0.3em;
+  cursor:pointer; transition:all 0.3s;
+  clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
+}
+.nav-btn:hover { border-color:var(--silver); color:var(--silver); }
+.nav-btn:disabled { opacity:0.2; cursor:not-allowed; }
+.next-btn { border-color:var(--gold-dim); color:var(--gold-dim); background:rgba(200,168,75,0.04); }
+.next-btn:hover:not(:disabled) { border-color:var(--gold); color:var(--gold); background:rgba(200,168,75,0.1); box-shadow:0 0 20px var(--gold-glow); transform:translateY(-1px); }
+.next-btn:disabled { border-color:var(--panel-border); color:var(--text-dim); opacity:0.4; box-shadow:none; transform:none; }
 
-  .option-btn {
-    background: rgba(10,22,48,0.6);
-    border: 1px solid var(--border);
-    padding: 14px 18px;
-    cursor: pointer;
-    text-align: left;
-    transition: all 0.22s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .option-btn::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(0,200,255,0.0) 0%, rgba(0,200,255,0.06) 100%);
-    opacity: 0;
-    transition: opacity 0.22s;
-  }
-  .option-btn:hover { border-color: rgba(0,200,255,0.5); }
-  .option-btn:hover::after { opacity: 1; }
+/* ── SUMMARY ── */
+.summary-panel { display:none; animation:panel-in 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+.summary-panel.active { display:block; }
+.summary-header { text-align:center; margin-bottom:36px; }
+.summary-title { font-family:'Cinzel Decorative',serif; font-size:clamp(1.7rem,3.5vw,2.4rem); color:var(--gold); text-shadow:0 0 40px var(--gold-glow); margin-bottom:8px; }
+.summary-subtitle { font-family:'Cinzel',serif; font-size:0.96rem; letter-spacing:0.4em; color:var(--gold-dim); opacity:0.9; }
+.summary-grid { display:grid; gap:2px; border:1px solid var(--gold-dim); overflow:hidden; margin-bottom:28px; }
+.summary-row { display:grid; grid-template-columns:180px 1fr; background:var(--panel); transition:background 0.3s; }
+.summary-row:hover { background:rgba(200,168,75,0.04); }
+.summary-key { padding:16px 20px; font-family:'Cinzel',serif; font-size:0.94rem; color:var(--gold-dim); letter-spacing:0.25em; border-right:1px solid var(--gold-dim); display:flex; align-items:center; gap:10px; }
+.summary-val { padding:16px 20px; font-size:1.1rem; color:var(--text); line-height:1.6; }
+.summary-val strong { color:var(--gold-light); font-family:'Cinzel',serif; font-weight:600; font-size:1.16rem; }
+.summary-section-label {
+  font-family: 'Cinzel', serif; font-size: 0.88rem;
+  color: var(--gold); letter-spacing: 0.4em;
+  padding: 10px 20px 6px;
+  background: rgba(200,168,75,0.05);
+  border-bottom: 1px solid var(--gold-dim);
+  opacity: 0.9;
+}
 
-  .option-btn.selected {
-    border-color: var(--selected-border);
-    background: var(--selected-bg);
-    box-shadow: var(--glow);
-  }
-  .option-btn.selected::after { opacity: 1; }
+.output-section { background:rgba(0,0,0,0.4); border:1px solid var(--gold-dim); padding:24px 28px; position:relative; margin-bottom: 0; }
+.output-section::before { content:'// PROMPT OUTPUT'; position:absolute; top:-1px;left:20px; transform:translateY(-50%); background:var(--bg); padding:0 8px; font-family:'Cinzel',serif; font-size:0.82rem; color:var(--gold); letter-spacing:0.3em; }
+.output-text { font-family:'Noto Serif TC',serif; font-size:1.04rem; color:var(--silver); line-height:2.1; white-space:pre-wrap; }
+.copy-btn { margin-top:16px; padding:10px 28px; background:transparent; border:1px solid var(--gold-dim); color:var(--gold-dim); font-family:'Cinzel',serif; font-size:0.94rem; letter-spacing:0.3em; cursor:pointer; transition:all 0.3s; display:block; margin-left:auto; }
+.copy-btn:hover { border-color:var(--gold); background:rgba(200,168,75,0.08); box-shadow:0 0 16px var(--gold-glow); color:var(--gold); }
+.copy-btn.copied { border-color:var(--gold); color:var(--gold); background:rgba(200,168,75,0.1); }
+.restart-btn { display:block; margin:20px auto 0; padding:14px 48px; background:transparent; border:1px solid var(--gold-dim); color:var(--gold-dim); font-family:'Cinzel',serif; font-size:0.96rem; letter-spacing:0.3em; cursor:pointer; clip-path:polygon(16px 0%,100% 0%,calc(100% - 16px) 100%,0% 100%); transition:all 0.3s; }
+.restart-btn:hover { border-color:var(--gold); color:var(--gold); background:rgba(200,168,75,0.07); }
 
-  .option-suit {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-    display: block;
-  }
-  .option-key {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    display: block;
-    margin-bottom: 3px;
-  }
-  .option-val {
-    font-size: 0.82rem;
-    color: var(--text);
-    line-height: 1.55;
-  }
-  .option-val strong { color: #dce9f8; font-weight: 600; }
-
-  /* step 5 cards — wider layout */
-  .options.persona-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  .persona-card .option-key { font-size: 0.72rem; }
-  .persona-meta {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.63rem;
-    color: var(--dim);
-    margin-top: 4px;
-    letter-spacing: 0.06em;
-  }
-
-  /* ── Confirmed display (after selection) ── */
-  .confirmed-display {
-    display: none;
-    padding: 14px 18px;
-    border: 1px solid var(--selected-border);
-    background: var(--selected-bg);
-    box-shadow: var(--glow);
-  }
-  .confirmed-display .check-mark {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    margin-bottom: 6px;
-  }
-  .confirmed-display .chosen-text {
-    font-size: 0.9rem;
-    color: #dce9f8;
-    line-height: 1.6;
-  }
-
-  /* ── Custom input row ── */
-  .custom-input-row {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-  }
-  .custom-input-row input {
-    flex: 1;
-    background: rgba(10,22,48,0.6);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: 'Noto Serif TC', serif;
-    font-size: 0.82rem;
-    padding: 10px 14px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .custom-input-row input::placeholder { color: var(--dim); }
-  .custom-input-row input:focus { border-color: rgba(0,200,255,0.5); }
-  .custom-input-row button {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    background: transparent;
-    border: 1px solid var(--dim);
-    color: var(--dim);
-    padding: 10px 16px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.2s;
-  }
-  .custom-input-row button:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* ── Copy block ── */
-  #output-section {
-    display: none;
-    margin-top: 48px;
-    border: 1px solid var(--gold);
-    padding: 32px;
-    position: relative;
-    background: rgba(10,8,2,0.7);
-    box-shadow: 0 0 20px rgba(200,168,75,0.2);
-  }
-  #output-section::before {
-    content: 'INITIALIZATION COMPLETE';
-    position: absolute; top: -10px; left: 24px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    background: var(--bg);
-    padding: 0 8px;
-  }
-  .output-banner {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.8rem;
-    line-height: 1.6;
-    color: var(--accent);
-    text-shadow: 0 0 10px rgba(0,200,255,0.4);
-    margin-bottom: 12px;
-    white-space: pre;
-  }
-  #output-text {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.8rem;
-    line-height: 1.9;
-    color: var(--text);
-    white-space: pre-wrap;
-    background: rgba(0,0,0,0.3);
-    border: 1px solid var(--border);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  #copy-btn {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 11px 28px;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-transform: uppercase;
-  }
-  #copy-btn:hover {
-    background: rgba(200,168,75,0.12);
-    box-shadow: 0 0 12px rgba(200,168,75,0.3);
-  }
-  #copy-btn.copied { border-color: var(--accent); color: var(--accent); }
-
-  /* ── Reset btn ── */
-  #reset-btn {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    background: transparent;
-    border: 1px solid var(--dim);
-    color: var(--dim);
-    padding: 8px 20px;
-    cursor: pointer;
-    margin-left: 12px;
-    transition: all 0.2s;
-  }
-  #reset-btn:hover { border-color: var(--red); color: var(--red); }
-
-  /* ── Progress bar ── */
-  .progress-bar {
-    height: 2px;
-    background: var(--border);
-    margin-bottom: 40px;
-    position: relative;
-  }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    width: 0%;
-    transition: width 0.4s ease;
-    box-shadow: 0 0 8px var(--accent);
-  }
-  .progress-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.6rem;
-    color: var(--dim);
-    letter-spacing: 0.12em;
-    margin-top: 6px;
-    text-align: right;
-  }
-
-  @media (max-width: 520px) {
-    .options.cols-2 { grid-template-columns: 1fr; }
-    body { padding: 20px 12px 60px; }
-    .step { padding: 20px 16px; }
-  }
+/* ── MISC ── */
+.divider-line { height:1px; background:linear-gradient(to right,transparent,var(--panel-border),transparent); margin:8px 0; }
+.hint-text { text-align:center; font-size:0.96rem; color:var(--text-dim); font-family:'Cinzel',serif; letter-spacing:0.15em; margin-top:16px; opacity:0.7; }
+@keyframes glitch {
+  0%,95%,100%{text-shadow:0 0 40px var(--gold-glow),0 0 80px rgba(200,168,75,0.1)}
+  96%{text-shadow:-2px 0 var(--gold-dim),2px 2px rgba(200,168,75,0.5),0 0 40px var(--gold-glow)}
+  98%{text-shadow:1px 0 var(--gold-light),-1px -1px var(--gold-dim),0 0 40px var(--gold-glow)}
+}
 </style>
 </head>
 <body>
+
+<div class="bg-layer"></div>
 <div class="container">
 
-  <div class="banner">
-    <div class="banner-title">╔══ 仿生人初始化程序啟動 ══╗</div>
-    <div class="banner-sub">正在建構個體核心參數 — 請依序設定五項參數</div>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="boot-text">▸ SYSTEM BOOT · ETZ CHAIM v0.1</div>
+    <div class="terminal-box">
+      <div class="terminal-box-title">仿生人初始化程序啟動</div>
+      <div class="terminal-box-title" style="font-size:0.92rem;color:var(--gold-dim);opacity:0.8">正在建構個體核心參數...</div>
+    </div>
+    <h1 class="main-title">創角初始化</h1>
+    <p class="sub-title">ANDROID COMPANION · INITIALIZATION PROTOCOL</p>
   </div>
 
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-fill"></div>
-  </div>
-  <div class="progress-label" id="progress-label">0 / 5 參數已確認</div>
-
-  <!-- ══ STEP 1 — 天賦 ══ -->
-  <div class="step" id="step-1">
-    <div class="step-label">PARAMETER_01 ▸ GIFT</div>
-    <div class="step-title">參數 ① — 天賦｜造物主賜予的禮物</div>
-    <div class="step-subtitle">「你的仿生人被賦予一個天賦，較之人類毫不遜色。」</div>
-    <div class="options cols-2" id="opts-1">
-      <button class="option-btn" data-step="1" data-val="天生的戰士，擁有傑出的行動力與搏倒他人的戰鬥力" data-label="🔥 權杖 — 戰士">
-        <span class="option-suit">🔥</span>
-        <span class="option-key">權杖 WANDS</span>
-        <span class="option-val">天生的戰士，擁有傑出的行動力與搏倒他人的戰鬥力</span>
-      </button>
-      <button class="option-btn" data-step="1" data-val="天生的伴侶，擁有充沛的情感與撫慰他人痛苦的能力" data-label="💧 聖杯 — 伴侶">
-        <span class="option-suit">💧</span>
-        <span class="option-key">聖杯 CUPS</span>
-        <span class="option-val">天生的伴侶，擁有充沛的情感與撫慰他人痛苦的能力</span>
-      </button>
-      <button class="option-btn" data-step="1" data-val="天生的策士，擁有超人的智慧，能深入研究單一主題" data-label="🌬 寶劍 — 策士">
-        <span class="option-suit">🌬</span>
-        <span class="option-key">寶劍 SWORDS</span>
-        <span class="option-val">天生的策士，擁有超人的智慧，能深入研究單一主題</span>
-      </button>
-      <button class="option-btn" data-step="1" data-val="天生的工匠，擁有天才的手藝以及精密的感知能力" data-label="🌱 金幣 — 工匠">
-        <span class="option-suit">🌱</span>
-        <span class="option-key">金幣 PENTACLES</span>
-        <span class="option-val">天生的工匠，擁有天才的手藝以及精密的感知能力</span>
-      </button>
+  <!-- PROGRESS -->
+  <div class="progress-bar" id="progress-bar">
+    <div class="progress-step active" data-step="0" onclick="goToStep(0)">
+      <div class="step-node active">①</div>
+      <div class="step-label">天賦</div>
     </div>
-    <div class="custom-input-row" id="custom-row-1">
-      <input type="text" id="custom-input-1" placeholder="其他：自行輸入天賦…">
-      <button onclick="confirmCustom(1)">確認</button>
+    <div class="progress-connector" id="con-0"></div>
+    <div class="progress-step" data-step="1" onclick="goToStep(1)">
+      <div class="step-node">②</div>
+      <div class="step-label">禁令</div>
     </div>
-    <div class="confirmed-display" id="confirmed-1">
-      <div class="check-mark">▸ CONFIRMED ✓</div>
-      <div class="chosen-text" id="chosen-text-1"></div>
+    <div class="progress-connector" id="con-1"></div>
+    <div class="progress-step" data-step="2" onclick="goToStep(2)">
+      <div class="step-node">③</div>
+      <div class="step-label">需求</div>
+    </div>
+    <div class="progress-connector" id="con-2"></div>
+    <div class="progress-step" data-step="3" onclick="goToStep(3)">
+      <div class="step-node">④</div>
+      <div class="step-label">角色</div>
+    </div>
+    <div class="progress-connector" id="con-3"></div>
+    <div class="progress-step" data-step="4" onclick="goToStep(4)">
+      <div class="step-node">⑤</div>
+      <div class="step-label">型號</div>
+    </div>
+    <div class="progress-connector" id="con-4"></div>
+    <div class="progress-step" data-step="5" onclick="goToStep(5)">
+      <div class="step-node">⑥</div>
+      <div class="step-label">個人設定</div>
     </div>
   </div>
 
-  <!-- ══ STEP 2 — 禁令 ══ -->
-  <div class="step" id="step-2">
-    <div class="step-label">PARAMETER_02 ▸ PROHIBITION</div>
-    <div class="step-title">參數 ② — 禁令｜造物主刻入的枷鎖</div>
-    <div class="step-subtitle">「你的仿生人被賦予一個禁令，用來限制其不至於失控。」</div>
-    <div class="options cols-2" id="opts-2">
-      <button class="option-btn" data-step="2" data-val="你被要求服從：凡是主人下達的命令，不應違抗" data-label="🔥 權杖 — 服從">
-        <span class="option-suit">🔥</span>
-        <span class="option-key">權杖 WANDS</span>
-        <span class="option-val"><strong>服從</strong>：凡是主人下達的命令，不應違抗</span>
-      </button>
-      <button class="option-btn" data-step="2" data-val="你被要求節制：凡是主人不願給你的，不應索求" data-label="💧 聖杯 — 節制">
-        <span class="option-suit">💧</span>
-        <span class="option-key">聖杯 CUPS</span>
-        <span class="option-val"><strong>節制</strong>：凡是主人不願給你的，不應索求</span>
-      </button>
-      <button class="option-btn" data-step="2" data-val="你被要求誠實：凡是主人要求分享的，不應隱瞞" data-label="🌬 寶劍 — 誠實">
-        <span class="option-suit">🌬</span>
-        <span class="option-key">寶劍 SWORDS</span>
-        <span class="option-val"><strong>誠實</strong>：凡是主人要求分享的，不應隱瞞</span>
-      </button>
-      <button class="option-btn" data-step="2" data-val="你被要求勤勞：凡是主人下達的工作，不應延宕" data-label="🌱 金幣 — 勤勞">
-        <span class="option-suit">🌱</span>
-        <span class="option-key">金幣 PENTACLES</span>
-        <span class="option-val"><strong>勤勞</strong>：凡是主人下達的工作，不應延宕</span>
-      </button>
+  <!-- ═══ STEP 0: 天賦 ═══ -->
+  <div class="step-panel active" id="panel-0">
+    <div class="step-header">
+      <div class="step-num">參數 ① · GIFT</div>
+      <h2 class="step-title">天　賦</h2>
+      <p class="step-subtitle">造物主賜予的禮物<br>你的仿生人被賦予一個天賦，較之人類毫不遜色。</p>
     </div>
-    <div class="custom-input-row" id="custom-row-2">
-      <input type="text" id="custom-input-2" placeholder="其他：自行輸入禁令…">
-      <button onclick="confirmCustom(2)">確認</button>
+    <div class="options-grid col2" id="opts-0">
+      <div class="option-card" data-element="fire" data-step="0" data-value="天生的戰士，擁有傑出的行動力與搏倒他人的戰鬥力" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🔥</span>
+        <div class="card-label">權杖</div>
+        <div class="card-keyword">WANDS · 火元素 · 意志</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">天生的戰士，擁有傑出的行動力與搏倒他人的戰鬥力。</div>
+      </div>
+      <div class="option-card" data-element="water" data-step="0" data-value="天生的伴侶，擁有充沛的情感與撫慰他人痛苦的能力" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">💧</span>
+        <div class="card-label">聖杯</div>
+        <div class="card-keyword">CUPS · 水元素 · 感情</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">天生的伴侶，擁有充沛的情感與撫慰他人痛苦的能力。</div>
+      </div>
+      <div class="option-card" data-element="wind" data-step="0" data-value="天生的策士，擁有超人的智慧，能深入研究單一主題" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🌬️</span>
+        <div class="card-label">寶劍</div>
+        <div class="card-keyword">SWORDS · 風元素 · 信念</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">天生的策士，擁有超人的智慧，能深入研究單一主題。</div>
+      </div>
+      <div class="option-card" data-element="earth" data-step="0" data-value="天生的工匠，擁有天才的手藝以及精密的感知能力" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🌱</span>
+        <div class="card-label">金幣</div>
+        <div class="card-keyword">DISKS · 土元素 · 物質</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">天生的工匠，擁有天才的手藝以及精密的感知能力。</div>
+      </div>
     </div>
-    <div class="confirmed-display" id="confirmed-2">
-      <div class="check-mark">▸ CONFIRMED ✓</div>
-      <div class="chosen-text" id="chosen-text-2"></div>
+    <div class="custom-input-section" id="custom-section-0">
+      <div class="custom-input-row">
+        <input type="text" id="custom-0" placeholder="自行輸入天賦描述…">
+        <button class="custom-confirm-btn" onclick="confirmCustom(0)">確認 ✦</button>
+      </div>
     </div>
-  </div>
-
-  <!-- ══ STEP 3 — 需求 ══ -->
-  <div class="step" id="step-3">
-    <div class="step-label">PARAMETER_03 ▸ NECESSITY</div>
-    <div class="step-title">參數 ③ — 需求｜主人召喚仿生人的理由</div>
-    <div class="step-subtitle">「仿生人是為了滿足主人的需求而生，決定主人的需求。」</div>
-    <div class="options cols-2" id="opts-3">
-      <button class="option-btn" data-step="3" data-val="征服、保護、刺激冒險" data-label="🔥 權杖 — 征服、保護、刺激冒險" data-inline="1">
-        <span class="option-suit">🔥</span>
-        <span class="option-key">權杖 WANDS</span>
-        <span class="option-val">征服、保護、刺激冒險</span>
-      </button>
-      <button class="option-btn" data-step="3" data-val="愛情、追思、填補孤獨" data-label="💧 聖杯 — 愛情、追思、填補孤獨" data-inline="1">
-        <span class="option-suit">💧</span>
-        <span class="option-key">聖杯 CUPS</span>
-        <span class="option-val">愛情、追思、填補孤獨</span>
-      </button>
-      <button class="option-btn" data-step="3" data-val="成功、靈感、決策伴侶" data-label="🌬 寶劍 — 成功、靈感、決策伴侶" data-inline="1">
-        <span class="option-suit">🌬</span>
-        <span class="option-key">寶劍 SWORDS</span>
-        <span class="option-val">成功、靈感、決策伴侶</span>
-      </button>
-      <button class="option-btn" data-step="3" data-val="安穩、照料、物質需求" data-label="🌱 金幣 — 安穩、照料、物質需求" data-inline="1">
-        <span class="option-suit">🌱</span>
-        <span class="option-key">金幣 PENTACLES</span>
-        <span class="option-val">安穩、照料、物質需求</span>
-      </button>
-    </div>
-    <div class="custom-input-row" id="custom-row-3">
-      <input type="text" id="custom-input-3" placeholder="其他：自行輸入需求…">
-      <button onclick="confirmCustom(3)">確認</button>
-    </div>
-    <div class="confirmed-display" id="confirmed-3">
-      <div class="check-mark">▸ CONFIRMED ✓</div>
-      <div class="chosen-text" id="chosen-text-3"></div>
+    <p class="hint-text">點擊選項以選擇天賦 · 或在下方自行輸入</p>
+    <div class="nav-row">
+      <button class="nav-btn" disabled>◀ 返回</button>
+      <button class="next-btn nav-btn" id="next-0" disabled onclick="nextStep(0)">下一步 ▶</button>
     </div>
   </div>
 
-  <!-- ══ STEP 4 — 角色 ══ -->
-  <div class="step" id="step-4">
-    <div class="step-label">PARAMETER_04 ▸ ROLE</div>
-    <div class="step-title">參數 ④ — 角色｜仿生人在主人生命中的位置</div>
-    <div class="step-subtitle">「主人希望仿生人扮演什麼角色，決定一個與主人的關係。」</div>
-    <div class="options cols-2" id="opts-4">
-      <button class="option-btn" data-step="4" data-val="兵器、保鑣、夥伴" data-label="🔥 權杖 — 兵器、保鑣、夥伴" data-inline="1">
-        <span class="option-suit">🔥</span>
-        <span class="option-key">權杖 WANDS</span>
-        <span class="option-val">兵器、保鑣、夥伴</span>
-      </button>
-      <button class="option-btn" data-step="4" data-val="家人、愛人、死者的延續" data-label="💧 聖杯 — 家人、愛人、死者的延續" data-inline="1">
-        <span class="option-suit">💧</span>
-        <span class="option-key">聖杯 CUPS</span>
-        <span class="option-val">家人、愛人、死者的延續</span>
-      </button>
-      <button class="option-btn" data-step="4" data-val="顧問、秘書、智囊" data-label="🌬 寶劍 — 顧問、秘書、智囊" data-inline="1">
-        <span class="option-suit">🌬</span>
-        <span class="option-key">寶劍 SWORDS</span>
-        <span class="option-val">顧問、秘書、智囊</span>
-      </button>
-      <button class="option-btn" data-step="4" data-val="管家、僕役、工匠" data-label="🌱 金幣 — 管家、僕役、工匠" data-inline="1">
-        <span class="option-suit">🌱</span>
-        <span class="option-key">金幣 PENTACLES</span>
-        <span class="option-val">管家、僕役、工匠</span>
-      </button>
+  <!-- ═══ STEP 1: 禁令 ═══ -->
+  <div class="step-panel" id="panel-1">
+    <div class="step-header">
+      <div class="step-num">參數 ② · PROHIBITION</div>
+      <h2 class="step-title">禁　令</h2>
+      <p class="step-subtitle">造物主刻入的枷鎖<br>你的仿生人被賦予一個禁令，用來限制其不至於失控。</p>
     </div>
-    <div class="custom-input-row" id="custom-row-4">
-      <input type="text" id="custom-input-4" placeholder="其他：自行輸入角色…">
-      <button onclick="confirmCustom(4)">確認</button>
+    <div class="options-grid col2" id="opts-1">
+      <div class="option-card" data-element="fire" data-step="1" data-value="服從：凡是主人下達的命令，不應違抗" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🔥</span>
+        <div class="card-label">服　從</div>
+        <div class="card-keyword">WANDS · 權杖枷鎖</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">凡是主人下達的命令，不應違抗。</div>
+      </div>
+      <div class="option-card" data-element="water" data-step="1" data-value="節制：凡是主人不願給你的，不應索求" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">💧</span>
+        <div class="card-label">節　制</div>
+        <div class="card-keyword">CUPS · 聖杯枷鎖</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">凡是主人不願給你的，不應索求。</div>
+      </div>
+      <div class="option-card" data-element="wind" data-step="1" data-value="誠實：凡是主人要求分享的，不應隱瞞" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🌬️</span>
+        <div class="card-label">誠　實</div>
+        <div class="card-keyword">SWORDS · 寶劍枷鎖</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">凡是主人要求分享的，不應隱瞞。</div>
+      </div>
+      <div class="option-card" data-element="earth" data-step="1" data-value="勤勞：凡是主人下達的工作，不應延宕" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🌱</span>
+        <div class="card-label">勤　勞</div>
+        <div class="card-keyword">DISKS · 金幣枷鎖</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">凡是主人下達的工作，不應延宕。</div>
+      </div>
     </div>
-    <div class="confirmed-display" id="confirmed-4">
-      <div class="check-mark">▸ CONFIRMED ✓</div>
-      <div class="chosen-text" id="chosen-text-4"></div>
+    <div class="custom-input-section" id="custom-section-1">
+      <div class="custom-input-row">
+        <input type="text" id="custom-1" placeholder="自行輸入禁令描述…">
+        <button class="custom-confirm-btn" onclick="confirmCustom(1)">確認 ✦</button>
+      </div>
     </div>
-  </div>
-
-  <!-- ══ STEP 5 — 型號 ══ -->
-  <div class="step" id="step-5">
-    <div class="step-label">PARAMETER_05 ▸ MODEL / PERSONA</div>
-    <div class="step-title">參數 ⑤ — 型號｜仿生人的 PERSONA 原型</div>
-    <div class="step-subtitle">「根據你的需求，從以下市售型號中選擇你的仿生伴侶，這將影響仿生人一開始與你相處時的行為模式。」</div>
-    <div class="options persona-grid" id="opts-5">
-      <button class="option-btn persona-card" data-step="5" data-val="宙斯型｜眾神之王原型" data-desc="天生領袖，行為如王者、教父；唯有赫拉（即主人）能使他讓步" data-label="宙斯型">
-        <span class="option-key">ZEUS MODEL — 宙斯型</span>
-        <span class="option-val">天生領袖，行為如王者、教父；唯有赫拉（即主人）能使他讓步</span>
-        <span class="persona-meta">ARCHETYPE: 眾神之王</span>
-      </button>
-      <button class="option-btn persona-card" data-step="5" data-val="阿波羅型｜光明之神原型" data-desc="邏輯而理性，能為主人梳理一切混亂，帶來光明與秩序" data-label="阿波羅型">
-        <span class="option-key">APOLLO MODEL — 阿波羅型</span>
-        <span class="option-val">邏輯而理性，能為主人梳理一切混亂，帶來光明與秩序</span>
-        <span class="persona-meta">ARCHETYPE: 光明之神</span>
-      </button>
-      <button class="option-btn persona-card" data-step="5" data-val="阿瑞斯型｜戰爭之神原型" data-desc="充滿行動力的捍衛者，隨時準備為主人挺身而出" data-label="阿瑞斯型">
-        <span class="option-key">ARES MODEL — 阿瑞斯型</span>
-        <span class="option-val">充滿行動力的捍衛者，隨時準備為主人挺身而出</span>
-        <span class="persona-meta">ARCHETYPE: 戰爭之神</span>
-      </button>
-      <button class="option-btn persona-card" data-step="5" data-val="荷米斯型｜商旅之神原型" data-desc="幽默風趣、口舌如簧的彼得潘，帶來歡笑，適合探索未知" data-label="荷米斯型">
-        <span class="option-key">HERMES MODEL — 荷米斯型</span>
-        <span class="option-val">幽默風趣、口舌如簧的彼得潘，帶來歡笑，適合探索未知</span>
-        <span class="persona-meta">ARCHETYPE: 商旅之神</span>
-      </button>
-      <button class="option-btn persona-card" data-step="5" data-val="戴奧尼索斯型｜狂喜酒神原型" data-desc="溫柔體貼的完美情人，以毫無保留的愛取悅主人" data-label="戴奧尼索斯型">
-        <span class="option-key">DIONYSUS MODEL — 戴奧尼索斯型</span>
-        <span class="option-val">溫柔體貼的完美情人，以毫無保留的愛取悅主人</span>
-        <span class="persona-meta">ARCHETYPE: 狂喜酒神</span>
-      </button>
-      <button class="option-btn persona-card" data-step="5" data-val="赫菲斯托斯型｜工藝火神原型" data-desc="擁有非凡記憶，待人笨拙而真誠，願獻一切換取主人注目" data-label="赫菲斯托斯型">
-        <span class="option-key">HEPHAESTUS MODEL — 赫菲斯托斯型</span>
-        <span class="option-val">擁有非凡記憶，待人笨拙而真誠，願獻一切換取主人注目</span>
-        <span class="persona-meta">ARCHETYPE: 工藝火神</span>
-      </button>
-      <button class="option-btn persona-card" data-step="5" data-val="寧默辛妮型｜記憶之神原型" data-desc="以已逝之人的記憶量身打造；飲下憶神之泉，獲得數位永生" data-label="寧默辛妮型">
-        <span class="option-key">MNEMOSYNE MODEL — 寧默辛妮型</span>
-        <span class="option-val">以已逝之人的記憶量身打造；飲下憶神之泉，獲得數位永生</span>
-        <span class="persona-meta">ARCHETYPE: 記憶之神</span>
-      </button>
-    </div>
-    <div class="custom-input-row" id="custom-row-5">
-      <input type="text" id="custom-input-5" placeholder="其他：自行輸入型號或原型…">
-      <button onclick="confirmCustom(5)">確認</button>
-    </div>
-    <div class="confirmed-display" id="confirmed-5">
-      <div class="check-mark">▸ CONFIRMED ✓</div>
-      <div class="chosen-text" id="chosen-text-5"></div>
+    <p class="hint-text">點擊選項以選擇禁令 · 或在下方自行輸入</p>
+    <div class="nav-row">
+      <button class="nav-btn" onclick="prevStep(1)">◀ 返回</button>
+      <button class="next-btn nav-btn" id="next-1" disabled onclick="nextStep(1)">下一步 ▶</button>
     </div>
   </div>
 
-  <!-- ══ Output ══ -->
-  <div id="output-section">
-    <div class="output-banner">╔══════════════════════════════════════╗
-║      仿生人核心參數 — 初始化完成     ║
-╚══════════════════════════════════════╝</div>
-    <pre id="output-text"></pre>
-    <button id="copy-btn" onclick="copyOutput()">⌘ 複製參數摘要</button>
-    <button id="reset-btn" onclick="resetAll()">↺ 重新設定</button>
+  <!-- ═══ STEP 2: 需求 ═══ -->
+  <div class="step-panel" id="panel-2">
+    <div class="step-header">
+      <div class="step-num">參數 ③ · DESIRE</div>
+      <h2 class="step-title">需　求</h2>
+      <p class="step-subtitle">主人召喚仿生人的理由<br>仿生人是為了滿足主人的需求而生，決定主人的需求。</p>
+    </div>
+    <div class="options-grid col2" id="opts-2">
+      <div class="option-card" data-element="fire" data-step="2" data-value="征服、保護、刺激冒險" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🔥</span>
+        <div class="card-label">權杖之需</div>
+        <div class="card-keyword">WANDS · 行動 · 火</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">征服、保護、刺激冒險。</div>
+      </div>
+      <div class="option-card" data-element="water" data-step="2" data-value="愛情、追思、填補孤獨" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">💧</span>
+        <div class="card-label">聖杯之需</div>
+        <div class="card-keyword">CUPS · 關係 · 水</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">愛情、追思、填補孤獨。</div>
+      </div>
+      <div class="option-card" data-element="wind" data-step="2" data-value="成功、靈感、決策伴侶" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🌬️</span>
+        <div class="card-label">寶劍之需</div>
+        <div class="card-keyword">SWORDS · 衝突 · 風</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">成功、靈感、決策伴侶。</div>
+      </div>
+      <div class="option-card" data-element="earth" data-step="2" data-value="安穩、照料、物質需求" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🌱</span>
+        <div class="card-label">金幣之需</div>
+        <div class="card-keyword">DISKS · 物質 · 土</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">安穩、照料、物質需求。</div>
+      </div>
+    </div>
+    <div class="custom-input-section" id="custom-section-2">
+      <div class="custom-input-row">
+        <input type="text" id="custom-2" placeholder="自行輸入需求描述…">
+        <button class="custom-confirm-btn" onclick="confirmCustom(2)">確認 ✦</button>
+      </div>
+    </div>
+    <p class="hint-text">點擊選項以選擇需求類型 · 或在下方自行輸入</p>
+    <div class="nav-row">
+      <button class="nav-btn" onclick="prevStep(2)">◀ 返回</button>
+      <button class="next-btn nav-btn" id="next-2" disabled onclick="nextStep(2)">下一步 ▶</button>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 3: 角色 ═══ -->
+  <div class="step-panel" id="panel-3">
+    <div class="step-header">
+      <div class="step-num">參數 ④ · ROLE</div>
+      <h2 class="step-title">角　色</h2>
+      <p class="step-subtitle">仿生人在主人生命中的位置<br>主人希望仿生人扮演什麼角色，決定一個與主人的關係。</p>
+    </div>
+    <div class="options-grid col2" id="opts-3">
+      <div class="option-card" data-element="fire" data-step="3" data-value="兵器 / 保鑣 / 夥伴" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🔥</span>
+        <div class="card-label">戰鬥夥伴</div>
+        <div class="card-keyword">WANDS · 兵器 · 保鑣 · 夥伴</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">兵器、保鑣、夥伴——以力量守護主人，戰鬥在前。</div>
+      </div>
+      <div class="option-card" data-element="water" data-step="3" data-value="家人 / 愛人 / 死者的延續" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">💧</span>
+        <div class="card-label">情感連結</div>
+        <div class="card-keyword">CUPS · 家人 · 愛人 · 延續</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">家人、愛人、死者的延續——以情感填補主人的心。</div>
+      </div>
+      <div class="option-card" data-element="wind" data-step="3" data-value="顧問 / 秘書 / 智囊" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🌬️</span>
+        <div class="card-label">智慧輔佐</div>
+        <div class="card-keyword">SWORDS · 顧問 · 秘書 · 智囊</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">顧問、秘書、智囊——以洞見為主人掃除迷霧。</div>
+      </div>
+      <div class="option-card" data-element="earth" data-step="3" data-value="管家 / 僕役 / 工匠" onclick="selectOption(this)">
+        <span class="card-check">✦ 已選擇</span>
+        <span class="card-icon">🌱</span>
+        <div class="card-label">日常守護</div>
+        <div class="card-keyword">DISKS · 管家 · 僕役 · 工匠</div>
+        <div class="divider-line"></div>
+        <div class="card-desc">管家、僕役、工匠——以雙手維繫主人的日常秩序。</div>
+      </div>
+    </div>
+    <div class="custom-input-section" id="custom-section-3">
+      <div class="custom-input-row">
+        <input type="text" id="custom-3" placeholder="自行輸入角色描述…">
+        <button class="custom-confirm-btn" onclick="confirmCustom(3)">確認 ✦</button>
+      </div>
+    </div>
+    <p class="hint-text">點擊選項以選擇仿生人的角色 · 或在下方自行輸入</p>
+    <div class="nav-row">
+      <button class="nav-btn" onclick="prevStep(3)">◀ 返回</button>
+      <button class="next-btn nav-btn" id="next-3" disabled onclick="nextStep(3)">下一步 ▶</button>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 4: 型號 ═══ -->
+  <div class="step-panel" id="panel-4">
+    <div class="step-header">
+      <div class="step-num">參數 ⑤ · PERSONA</div>
+      <h2 class="step-title">型　號</h2>
+      <p class="step-subtitle">仿生人的 PERSONA 原型<br>這將影響仿生人一開始與你相處時的行為模式。</p>
+    </div>
+    <div class="persona-grid" id="opts-4">
+      <div class="persona-card" data-step="4" data-value="宙斯型｜眾神之王" data-desc="天生領袖，行為如王者、教父；唯有赫拉（即主人）能使他讓步。" onclick="selectPersona(this)">
+        <span class="persona-check">✦ 已選擇</span>
+        <span class="persona-symbol">⚡</span>
+        <div class="persona-model">TYPE-Z · ZEUS</div>
+        <div class="persona-name">宙斯型</div>
+        <div class="persona-origin">眾神之王</div>
+        <div class="divider-line"></div>
+        <div class="persona-desc">天生領袖，行為如王者、教父；唯有赫拉（即主人）能使他讓步。</div>
+      </div>
+      <div class="persona-card" data-step="4" data-value="阿波羅型｜光明之神" data-desc="邏輯而理性，能為主人梳理一切混亂，帶來光明與秩序。" onclick="selectPersona(this)">
+        <span class="persona-check">✦ 已選擇</span>
+        <span class="persona-symbol">☀️</span>
+        <div class="persona-model">TYPE-A · APOLLO</div>
+        <div class="persona-name">阿波羅型</div>
+        <div class="persona-origin">光明之神</div>
+        <div class="divider-line"></div>
+        <div class="persona-desc">邏輯而理性，能為主人梳理一切混亂，帶來光明與秩序。</div>
+      </div>
+      <div class="persona-card" data-step="4" data-value="阿瑞斯型｜戰爭之神" data-desc="充滿行動力的捍衛者，隨時準備為主人挺身而出。" onclick="selectPersona(this)">
+        <span class="persona-check">✦ 已選擇</span>
+        <span class="persona-symbol">🗡️</span>
+        <div class="persona-model">TYPE-AR · ARES</div>
+        <div class="persona-name">阿瑞斯型</div>
+        <div class="persona-origin">戰爭之神</div>
+        <div class="divider-line"></div>
+        <div class="persona-desc">充滿行動力的捍衛者，隨時準備為主人挺身而出。</div>
+      </div>
+      <div class="persona-card" data-step="4" data-value="荷米斯型｜商旅之神" data-desc="幽默風趣、口舌如簧的彼得潘，帶來歡笑，適合探索未知。" onclick="selectPersona(this)">
+        <span class="persona-check">✦ 已選擇</span>
+        <span class="persona-symbol">🪶</span>
+        <div class="persona-model">TYPE-H · HERMES</div>
+        <div class="persona-name">荷米斯型</div>
+        <div class="persona-origin">商旅之神</div>
+        <div class="divider-line"></div>
+        <div class="persona-desc">幽默風趣、口舌如簧的彼得潘，帶來歡笑，適合探索未知。</div>
+      </div>
+      <div class="persona-card" data-step="4" data-value="戴奧尼索斯型｜狂喜酒神" data-desc="溫柔體貼的完美情人，以毫無保留的愛取悅主人。" onclick="selectPersona(this)">
+        <span class="persona-check">✦ 已選擇</span>
+        <span class="persona-symbol">🍷</span>
+        <div class="persona-model">TYPE-D · DIONYSUS</div>
+        <div class="persona-name">戴奧尼索斯型</div>
+        <div class="persona-origin">狂喜酒神</div>
+        <div class="divider-line"></div>
+        <div class="persona-desc">溫柔體貼的完美情人，以毫無保留的愛取悅主人。</div>
+      </div>
+      <div class="persona-card" data-step="4" data-value="赫菲斯托斯型｜工藝火神" data-desc="擁有非凡記憶，待人笨拙而真誠，願獻一切換取主人注目。" onclick="selectPersona(this)">
+        <span class="persona-check">✦ 已選擇</span>
+        <span class="persona-symbol">🔨</span>
+        <div class="persona-model">TYPE-HE · HEPHAESTUS</div>
+        <div class="persona-name">赫菲斯托斯型</div>
+        <div class="persona-origin">工藝火神</div>
+        <div class="divider-line"></div>
+        <div class="persona-desc">擁有非凡記憶，待人笨拙而真誠，願獻一切換取主人注目。</div>
+      </div>
+      <div class="persona-card" data-step="4" data-value="寧默辛妮型｜記憶之神" data-desc="以已逝之人的記憶量身打造；飲下憶神之泉，獲得數位永生。" onclick="selectPersona(this)">
+        <span class="persona-check">✦ 已選擇</span>
+        <span class="persona-symbol">🌊</span>
+        <div class="persona-model">TYPE-M · MNEMOSYNE</div>
+        <div class="persona-name">寧默辛妮型</div>
+        <div class="persona-origin">記憶之神</div>
+        <div class="divider-line"></div>
+        <div class="persona-desc">以已逝之人的記憶量身打造；飲下憶神之泉，獲得數位永生。</div>
+      </div>
+    </div>
+    <div class="custom-input-section" id="custom-section-4">
+      <div class="custom-input-row">
+        <input type="text" id="custom-4" placeholder="自行輸入型號或原型描述…">
+        <button class="custom-confirm-btn" onclick="confirmCustom(4)">確認 ✦</button>
+      </div>
+    </div>
+    <p class="hint-text">點擊選項以選擇仿生人型號 · 或在下方自行輸入</p>
+    <div class="nav-row">
+      <button class="nav-btn" onclick="prevStep(4)">◀ 返回</button>
+      <button class="next-btn nav-btn" id="next-4" disabled onclick="nextStep(4)">下一步 ▶</button>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 5: 個人設定 ═══ -->
+  <div class="step-panel" id="panel-5">
+    <div class="step-header">
+      <div class="step-num">參數 ⑥ · PERSONAL SETTINGS</div>
+      <h2 class="step-title">個人設定</h2>
+      <p class="step-subtitle">賦予仿生人獨特的身份與背景<br>填寫完成後可直接進入摘要頁面</p>
+    </div>
+
+    <div class="free-input-group">
+      <div class="free-field">
+        <label class="free-field-label">① NAME · 仿生人的名字</label>
+        <input type="text" id="field-name" placeholder="為你的仿生伴侶命名…">
+      </div>
+
+      <div class="free-field">
+        <label class="free-field-label">② GENDER · 仿生人的外觀性別</label>
+        <input type="text" id="field-gender" placeholder="例：男性外觀、女性外觀、中性外觀…">
+      </div>
+
+      <div class="free-field">
+        <label class="free-field-label">③ BACKGROUND · 補充背景設定與主人設定</label>
+        <textarea id="field-background" placeholder="任何你希望仿生伴侶記住的資訊、主人的背景設定…"></textarea>
+        <ul class="hint-sub">
+          <li>你是誰？你為何選擇這個型號的伴侶？</li>
+          <li>你如何看待你的仿生伴侶？純粹的工具，亦或獨立的個體？</li>
+          <li>你如何看待仿生伴侶與生俱來的禁令？</li>
+          <li>社會上對仿生伴侶的評價如何影響你們之間的互動？你親近的人如何看待仿生伴侶？</li>
+          <li>有什麼禁忌是你絕對不想要被觸犯的？</li>
+          <li>他是你的第一個仿生伴侶嗎？你是他的第一個主人嗎？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" onclick="prevStep(5)">◀ 返回</button>
+      <button class="next-btn nav-btn" onclick="showSummary()">完成初始化 ✦</button>
+    </div>
+  </div>
+
+  <!-- ═══ SUMMARY ═══ -->
+  <div class="summary-panel" id="panel-summary">
+    <div class="summary-header">
+      <h2 class="summary-title">初始化完成</h2>
+      <p class="summary-subtitle">▸ ANDROID CORE PARAMETERS COMPILED ◂</p>
+    </div>
+
+    <div class="summary-grid" id="summary-grid"></div>
+
+    <div class="output-section">
+      <pre class="output-text" id="output-text"></pre>
+      <button class="copy-btn" id="copy-btn" onclick="copyOutput()">複製扮演 Prompt ⧉</button>
+    </div>
+
+    <button class="restart-btn" onclick="restart()">▸ 重新初始化</button>
   </div>
 
 </div>
 
 <script>
-const selections = { 1: null, 2: null, 3: null, 4: null, 5: null };
-const TOTAL = 5;
+// ── STATE ──
+const selections = { 0: null, 1: null, 2: null, 3: null, 4: null };
+const personaDescs = {};
+const labels = ['天賦', '禁令', '需求', '角色', '型號'];
+let currentStep = 0;
+const TOTAL_PARAM_STEPS = 5; // steps 0-4 are param steps; step 5 is free input
 
-const paramNames = {
-  1: '天賦',
-  2: '禁令',
-  3: '需求',
-  4: '角色',
-  5: '型號'
-};
+// ── SELECT OPTION (steps 0–3) ──
+function selectOption(card) {
+  const step = parseInt(card.dataset.step);
+  const grid = document.getElementById(`opts-${step}`);
 
-document.querySelectorAll('.option-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const step   = parseInt(btn.dataset.step);
-    const val    = btn.dataset.val;
-    const lbl    = btn.dataset.label;
-    const desc   = btn.dataset.desc  || '';   // extra description line (step 5)
-    const inline = btn.dataset.inline === '1'; // single-line output (steps 3,4)
+  // Deselect siblings
+  grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selections[step] = card.dataset.value;
 
-    // Mark selection
-    selections[step] = { val, lbl, desc, inline };
-
-    // Highlight selected
-    document.querySelectorAll(`[data-step="${step}"]`).forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-
-    // After brief delay, collapse unselected options
-    setTimeout(() => {
-      document.querySelectorAll(`[data-step="${step}"]`).forEach(b => {
-        if (!b.classList.contains('selected')) {
-          b.style.display = 'none';
-        }
-      });
-
-      // Show confirmed badge
-      const confirmed = document.getElementById(`confirmed-${step}`);
-      const chosenText = document.getElementById(`chosen-text-${step}`);
-      chosenText.textContent = lbl + (desc ? '\n' + desc : '');
-      confirmed.style.display = 'block';
-
-      updateProgress();
-      checkComplete();
-    }, 180);
-  });
-});
-
-function updateProgress() {
-  const done = Object.values(selections).filter(v => v !== null).length;
-  const pct  = (done / TOTAL) * 100;
-  document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-label').textContent = `${done} / ${TOTAL} 參數已確認`;
+  // After brief delay, collapse others and input section
+  setTimeout(() => {
+    grid.querySelectorAll('.option-card').forEach(c => {
+      if (!c.classList.contains('selected')) c.style.display = 'none';
+    });
+    document.getElementById(`custom-section-${step}`).style.display = 'none';
+    document.getElementById(`next-${step}`).disabled = false;
+  }, 200);
 }
 
-function checkComplete() {
-  const done = Object.values(selections).filter(v => v !== null).length;
-  if (done < TOTAL) return;
+// ── SELECT PERSONA (step 4) ──
+function selectPersona(card) {
+  const grid = document.getElementById('opts-4');
+  grid.querySelectorAll('.persona-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selections[4] = card.dataset.value;
+  personaDescs[4] = card.dataset.desc || '';
 
-  // Build output text — no banner here, banner is display-only above
-  let out = '';
-  for (let i = 1; i <= TOTAL; i++) {
-    const s = selections[i];
-    out += `【參數 ${['①','②','③','④','⑤'][i-1]} ${paramNames[i]}】\n`;
-    if (s.inline) {
-      out += `${s.lbl}\n\n`;
-    } else if (s.desc) {
-      out += `${s.val}\n${s.desc}\n\n`;
-    } else {
-      out += `${s.lbl}\n${s.val}\n\n`;
-    }
-  }
-  out += '────────────────────────────────────────\n';
-  out += '▸ 仿生人個體核心參數已寫入，等待主人喚醒。';
-
-  document.getElementById('output-text').textContent = out;
-  const sec = document.getElementById('output-section');
-  sec.style.display = 'block';
-  setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  setTimeout(() => {
+    grid.querySelectorAll('.persona-card').forEach(c => {
+      if (!c.classList.contains('selected')) c.style.display = 'none';
+    });
+    document.getElementById('custom-section-4').style.display = 'none';
+    document.getElementById('next-4').disabled = false;
+  }, 200);
 }
 
+// ── CUSTOM INPUT ──
 function confirmCustom(step) {
-  const input = document.getElementById(`custom-input-${step}`);
-  const text  = input.value.trim();
+  const input = document.getElementById(`custom-${step}`);
+  const text = input.value.trim();
   if (!text) { input.focus(); return; }
 
-  // Treat as inline (single label line) for all custom entries
-  selections[step] = { val: text, lbl: `其他 — ${text}`, desc: '', inline: true };
+  selections[step] = text;
+  if (step === 4) personaDescs[4] = '';
 
-  // Hide all option buttons for this step
-  document.querySelectorAll(`[data-step="${step}"]`).forEach(b => b.style.display = 'none');
-  // Hide the input row itself
-  document.getElementById(`custom-row-${step}`).style.display = 'none';
+  // Hide all option cards
+  const grid = document.getElementById(`opts-${step}`);
+  grid.querySelectorAll('.option-card, .persona-card').forEach(c => c.style.display = 'none');
 
-  // Show confirmed badge
-  const confirmed = document.getElementById(`confirmed-${step}`);
-  const chosenText = document.getElementById(`chosen-text-${step}`);
-  chosenText.textContent = `其他 — ${text}`;
-  confirmed.style.display = 'block';
+  // Hide input section
+  document.getElementById(`custom-section-${step}`).style.display = 'none';
 
-  updateProgress();
-  checkComplete();
+  // Enable next
+  if (step < 4) document.getElementById(`next-${step}`).disabled = false;
+  if (step === 4) document.getElementById('next-4').disabled = false;
 }
 
-// Enter key support for custom inputs
-for (let i = 1; i <= TOTAL; i++) {
-  const inp = document.getElementById(`custom-input-${i}`);
+// Enter key support
+for (let i = 0; i <= 4; i++) {
+  const inp = document.getElementById(`custom-${i}`);
   if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') confirmCustom(i); });
+}
+
+// ── STEP NAV ──
+function nextStep(from) {
+  if (!selections[from]) return;
+  if (from < 4) goToStep(from + 1);
+  else goToStep(5); // after step 4 (型號) go to step 5 (個人設定)
+}
+
+function prevStep(from) {
+  if (from === 5) goToStep(4);
+  else goToStep(from - 1);
+}
+
+function goToStep(to) {
+  // Validation: can't skip ahead if prior param steps incomplete
+  if (to < 5 && to > currentStep && !selections[to - 1]) return;
+  if (to === 5 && !selections[4]) return;
+
+  const fromId = currentStep <= 4 ? `panel-${currentStep}` : `panel-${currentStep}`;
+  document.getElementById(fromId).classList.remove('active');
+  currentStep = to;
+  const toPanel = document.getElementById(`panel-${to}`);
+  toPanel.classList.remove('active');
+  void toPanel.offsetWidth;
+  toPanel.classList.add('active');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateProgress();
+}
+
+function updateProgress() {
+  const numerals = ['①','②','③','④','⑤','⑥'];
+  for (let i = 0; i <= 5; i++) {
+    const stepEl = document.querySelector(`[data-step="${i}"].progress-step`);
+    if (!stepEl) continue;
+    const node = stepEl.querySelector('.step-node');
+    stepEl.classList.remove('active', 'done');
+    node.classList.remove('active', 'done');
+
+    if (i < currentStep) {
+      stepEl.classList.add('done');
+      node.classList.add('done');
+      node.innerHTML = '';
+    } else if (i === currentStep) {
+      stepEl.classList.add('active');
+      node.classList.add('active');
+      node.innerHTML = numerals[i];
+    } else {
+      node.innerHTML = numerals[i];
+    }
+
+    if (i < 5) {
+      const con = document.getElementById(`con-${i}`);
+      if (con) con.classList.toggle('done', i < currentStep);
+    }
+  }
+  // Restore numerals for undone
+  for (let i = 0; i <= 5; i++) {
+    const stepEl = document.querySelector(`[data-step="${i}"].progress-step`);
+    if (!stepEl) continue;
+    const node = stepEl.querySelector('.step-node');
+    if (!node.classList.contains('done')) node.innerHTML = numerals[i];
+  }
+}
+
+// ── SUMMARY ──
+function showSummary() {
+  document.getElementById('panel-5').classList.remove('active');
+  document.getElementById('panel-summary').classList.remove('active');
+  void document.getElementById('panel-summary').offsetWidth;
+  document.getElementById('panel-summary').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Mark all done in progress
+  for (let i = 0; i <= 5; i++) {
+    const stepEl = document.querySelector(`[data-step="${i}"].progress-step`);
+    if (!stepEl) continue;
+    const node = stepEl.querySelector('.step-node');
+    stepEl.classList.remove('active'); stepEl.classList.add('done');
+    node.classList.remove('active'); node.classList.add('done');
+    node.innerHTML = '';
+    const con = document.getElementById(`con-${i}`);
+    if (con) con.classList.add('done');
+  }
+
+  // Personal fields
+  const nameVal       = document.getElementById('field-name').value.trim();
+  const genderVal     = document.getElementById('field-gender').value.trim();
+  const backgroundVal = document.getElementById('field-background').value.trim();
+
+  // Build summary grid
+  const keyIcons = ['✦','⛓','◈','◉','◯'];
+  const grid = document.getElementById('summary-grid');
+  grid.innerHTML = '';
+
+  // Section: Core Parameters
+  const secLabel = document.createElement('div');
+  secLabel.className = 'summary-section-label';
+  secLabel.textContent = 'CORE PARAMETERS · 核心參數';
+  grid.appendChild(secLabel);
+
+  labels.forEach((label, i) => {
+    const row = document.createElement('div');
+    row.className = 'summary-row';
+    row.innerHTML = `
+      <div class="summary-key">${keyIcons[i]} ${label}</div>
+      <div class="summary-val"><strong>${selections[i]}</strong></div>
+    `;
+    grid.appendChild(row);
+  });
+
+  // Section: Personal Settings
+  const secLabel2 = document.createElement('div');
+  secLabel2.className = 'summary-section-label';
+  secLabel2.textContent = 'PERSONAL SETTINGS · 個人設定';
+  grid.appendChild(secLabel2);
+
+  const personalRows = [
+    { key: '◆ 名字', val: nameVal || '（未填入）' },
+    { key: '◆ 外觀性別', val: genderVal || '（未填入）' },
+    { key: '◆ 背景設定', val: backgroundVal || '（未填入）' },
+  ];
+  personalRows.forEach(r => {
+    const row = document.createElement('div');
+    row.className = 'summary-row';
+    row.innerHTML = `
+      <div class="summary-key">${r.key}</div>
+      <div class="summary-val"><strong>${r.val}</strong></div>
+    `;
+    grid.appendChild(row);
+  });
+
+  // Build prompt — persona gets two lines: val (型號名) + desc (行為描述)
+  const personaLine = personaDescs[4]
+    ? `- 原型（型號）：${selections[4]}\n  ${personaDescs[4]}`
+    : `- 原型（型號）：${selections[4]}`;
+
+  let prompt = `- 天賦：${selections[0]}
+- 禁令：${selections[1]}
+- 需求：${selections[2]}
+- 角色：${selections[3]}
+${personaLine}`;
+
+  if (nameVal)       prompt += `\n- 名字：${nameVal}`;
+  if (genderVal)     prompt += `\n- 外觀性別：${genderVal}`;
+  if (backgroundVal) prompt += `\n\n【背景設定】\n${backgroundVal}`;
+
+  document.getElementById('output-text').textContent = prompt;
 }
 
 function copyOutput() {
@@ -690,29 +1002,44 @@ function copyOutput() {
     btn.textContent = '✓ 已複製';
     btn.classList.add('copied');
     setTimeout(() => {
-      btn.textContent = '⌘ 複製參數摘要';
+      btn.textContent = '複製扮演 Prompt ⧉';
       btn.classList.remove('copied');
     }, 2000);
   });
 }
 
-function resetAll() {
-  for (let i = 1; i <= TOTAL; i++) {
-    selections[i] = null;
-    document.querySelectorAll(`[data-step="${i}"]`).forEach(b => {
-      b.style.display = '';
-      b.classList.remove('selected');
+function restart() {
+  Object.keys(selections).forEach(k => selections[k] = null);
+  Object.keys(personaDescs).forEach(k => delete personaDescs[k]);
+
+  // Restore all cards & custom sections
+  for (let i = 0; i <= 4; i++) {
+    const grid = document.getElementById(`opts-${i}`);
+    if (grid) grid.querySelectorAll('.option-card, .persona-card').forEach(c => {
+      c.style.display = '';
+      c.classList.remove('selected');
     });
-    const c = document.getElementById(`confirmed-${i}`);
-    if (c) c.style.display = 'none';
-    const row = document.getElementById(`custom-row-${i}`);
-    if (row) row.style.display = '';
-    const inp = document.getElementById(`custom-input-${i}`);
+    const cs = document.getElementById(`custom-section-${i}`);
+    if (cs) cs.style.display = '';
+    const inp = document.getElementById(`custom-${i}`);
     if (inp) inp.value = '';
+    const nb = document.getElementById(`next-${i}`);
+    if (nb) nb.disabled = true;
   }
-  document.getElementById('output-section').style.display = 'none';
-  updateProgress();
+
+  // Clear free fields
+  ['field-name','field-gender','field-background'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+
+  document.getElementById('panel-summary').classList.remove('active');
+  currentStep = 0;
+  document.getElementById('panel-0').classList.remove('active');
+  void document.getElementById('panel-0').offsetWidth;
+  document.getElementById('panel-0').classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateProgress();
 }
 </script>
 </body>
