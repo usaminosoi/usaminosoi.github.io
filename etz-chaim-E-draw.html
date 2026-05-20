@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETZ CHAIM — 小秘儀事件抽牌</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06080a;
+  --panel: #0d1118;       /* 略亮，與文字拉開距離 */
+  --panel-2: #111820;     /* 輸入框底色，稍亮以示區別 */
+  --border: #2a3848;      /* 邊框提亮，更清晰可見 */
+  --gold: #d4b05a;        /* 提亮金色，黑底對比更強 */
+  --gold-light: #ecd485;
+  --gold-dim: #7a6030;
+  --gold-glow: rgba(212,176,90,0.35);
+  --teal: #38b8a8;        /* 提亮青色，確保可讀 */
+  --teal-dim: #1e6e65;
+  --teal-glow: rgba(56,184,168,0.3);
+  --silver: #c0ccd8;      /* 提亮：從 #a8b4c0 → #c0ccd8，對比大幅改善 */
+  --text: #dce6f0;        /* 主文字再提亮 */
+  --text-dim: #7a90a4;    /* 從 #5a6a78 提亮，對比 ~4.6:1 */
+
+  /* 花色色彩全面提亮，確保深色背景可讀 */
+  --fire: #e8722a;        /* 橘紅提亮 */
+  --fire-dim: #3d1a08; --fire-b: rgba(232,114,42,0.5); --fire-g: rgba(232,114,42,0.12);
+  --water: #3a9fd8;       /* 藍色大幅提亮，從 #1a7ab5 → #3a9fd8 */
+  --water-dim: #082030; --water-b: rgba(58,159,216,0.5); --water-g: rgba(58,159,216,0.12);
+  --wind: #a0c8e0;        /* 風色微調 */
+  --wind-dim: #1a3040; --wind-b: rgba(160,200,224,0.45); --wind-g: rgba(160,200,224,0.1);
+  --earth: #72b04a;       /* 綠色提亮，從 #5a8c3a → #72b04a */
+  --earth-dim: #1a2c10; --earth-b: rgba(114,176,74,0.5); --earth-g: rgba(114,176,74,0.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Noto Serif TC',serif;
+  min-height:100vh;overflow-x:hidden;
+}
+
+/* ── BG ── */
+.bg{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 20%, rgba(212,88,26,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 45% at 80% 80%, rgba(26,122,181,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(200,168,75,0.02) 0%, transparent 70%),
+    var(--bg);
+}
+.bg::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.07) 3px,rgba(0,0,0,0.07) 4px);
+}
+
+/* ── LAYOUT ── */
+.wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:48px 20px 100px;}
+
+/* ── HEADER ── */
+.header{text-align:center;margin-bottom:52px;}
+.tag{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold-dim);letter-spacing:.35em;text-transform:uppercase;margin-bottom:16px;opacity:1;}
+.title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold);
+  letter-spacing:.12em;margin-bottom:8px;
+  text-shadow:0 0 50px var(--gold-glow),0 0 100px rgba(212,176,90,0.1);
+  animation:glitch 9s ease infinite;
+}
+@keyframes glitch{
+  0%,92%,100%{text-shadow:0 0 50px var(--gold-glow),0 0 100px rgba(212,176,90,0.1);}
+  93%{text-shadow:-2px 0 var(--teal),2px 1px var(--fire),0 0 50px var(--gold-glow);}
+  95%{text-shadow:2px 0 var(--fire),-1px -1px var(--teal),0 0 50px var(--gold-glow);}
+}
+/* 裝飾字：縮小、低調 */
+.subtitle{font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold-dim);letter-spacing:.45em;opacity:.85;margin-bottom:28px;}
+.hdivider{display:flex;align-items:center;gap:16px;max-width:420px;margin:0 auto;}
+.hdivider .l{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold-dim));}
+.hdivider .r{flex:1;height:1px;background:linear-gradient(to left,transparent,var(--gold-dim));}
+.hdivider .d{width:7px;height:7px;background:var(--gold-dim);transform:rotate(45deg);box-shadow:0 0 8px var(--gold-glow);}
+
+/* ── SUIT FILTER ── */
+.suit-filter{display:flex;gap:8px;justify-content:center;margin-bottom:40px;flex-wrap:wrap;}
+.sf-btn{
+  padding:10px 22px;background:transparent;
+  border:1px solid var(--border);
+  font-family:'Cinzel',serif;font-size:.88rem;letter-spacing:.12em;
+  cursor:pointer;color:var(--silver);transition:all .3s;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.sf-btn:hover{border-color:var(--silver);color:var(--silver);}
+.sf-btn.all.on{border-color:var(--gold);color:var(--gold);background:rgba(200,168,75,.07);}
+.sf-btn.wands.on{border-color:var(--fire-b);color:var(--fire);background:var(--fire-g);}
+.sf-btn.cups.on{border-color:var(--water-b);color:var(--water);background:var(--water-g);}
+.sf-btn.swords.on{border-color:var(--wind-b);color:var(--wind);background:var(--wind-g);}
+.sf-btn.disks.on{border-color:var(--earth-b);color:var(--earth);background:var(--earth-g);}
+
+/* ── DRAW BUTTON ── */
+.draw-zone{text-align:center;margin-bottom:44px;}
+.draw-btn{
+  position:relative;padding:22px 72px;
+  background:transparent;border:none;cursor:pointer;
+  font-family:'Cinzel Decorative',serif;font-size:1.15rem;
+  color:var(--gold);letter-spacing:.2em;
+  transition:all .3s;overflow:visible;
+}
+.draw-btn::before{
+  content:'';position:absolute;inset:0;
+  border:1px solid var(--gold-dim);
+  clip-path:polygon(20px 0%,100% 0%,calc(100% - 20px) 100%,0% 100%);
+  background:rgba(212,176,90,.05);
+  transition:all .4s;
+}
+.draw-btn:hover{transform:translateY(-2px);text-shadow:0 0 20px var(--gold-glow);}
+.draw-btn:hover::before{background:rgba(212,176,90,.14);box-shadow:0 0 30px rgba(212,176,90,.25);}
+.draw-btn:active{transform:translateY(0);}
+.draw-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;}
+.suit-hint{margin-top:14px;font-family:'Noto Serif TC',serif;font-size:.95rem;color:var(--silver);letter-spacing:.05em;}
+
+/* ── RESULT CARD ── */
+.result-wrap{display:none;animation:risein .6s cubic-bezier(.16,1,.3,1) both;}
+@keyframes risein{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+.result-card{
+  position:relative;
+  border:1px solid var(--border);
+  background:var(--panel);
+  overflow:hidden;
+  margin-bottom:3px;
+}
+/* element tint */
+.result-card.wands{border-color:var(--fire-b);background:linear-gradient(160deg,rgba(212,88,26,.07),var(--panel));}
+.result-card.cups{border-color:var(--water-b);background:linear-gradient(160deg,rgba(26,122,181,.07),var(--panel));}
+.result-card.swords{border-color:var(--wind-b);background:linear-gradient(160deg,rgba(138,181,206,.06),var(--panel));}
+.result-card.disks{border-color:var(--earth-b);background:linear-gradient(160deg,rgba(90,140,58,.07),var(--panel));}
+
+/* top shimmer */
+.result-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.result-card.wands::after{background:linear-gradient(to right,var(--fire),transparent);}
+.result-card.cups::after{background:linear-gradient(to right,var(--water),transparent);}
+.result-card.swords::after{background:linear-gradient(to right,var(--wind),transparent);}
+.result-card.disks::after{background:linear-gradient(to right,var(--earth),transparent);}
+
+/* left bar */
+.result-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;}
+.result-card.wands::before{background:var(--fire);}
+.result-card.cups::before{background:var(--water);}
+.result-card.swords::before{background:var(--wind);}
+.result-card.disks::before{background:var(--earth);}
+
+.card-inner{padding:28px 28px 26px 34px;}
+
+/* card title row */
+.card-title-row{display:flex;align-items:baseline;gap:16px;margin-bottom:18px;flex-wrap:wrap;}
+.card-suit-badge{
+  font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.3em;
+  padding:3px 12px;border:1px solid;
+}
+.wands .card-suit-badge{border-color:var(--fire-b);color:var(--fire);}
+.cups .card-suit-badge{border-color:var(--water-b);color:var(--water);}
+.swords .card-suit-badge{border-color:var(--wind-b);color:var(--wind);}
+.disks .card-suit-badge{border-color:var(--earth-b);color:var(--earth);}
+
+.card-num{
+  font-family:'Cinzel Decorative',serif;font-size:1.7rem;
+  line-height:1;
+}
+.wands .card-num{color:var(--fire);text-shadow:0 0 20px var(--fire-g);}
+.cups .card-num{color:var(--water);text-shadow:0 0 20px var(--water-g);}
+.swords .card-num{color:var(--wind);text-shadow:0 0 20px var(--wind-g);}
+.disks .card-num{color:var(--earth);text-shadow:0 0 20px var(--earth-g);}
+
+.card-domain{font-family:'Cinzel',serif;font-size:.7rem;color:var(--text-dim);letter-spacing:.2em;margin-left:auto;}
+
+/* section blocks */
+.card-section{margin-bottom:18px;}
+.sec-label{
+  font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;
+  margin-bottom:7px;opacity:.85;
+}
+.wands .sec-label{color:var(--fire);}
+.cups .sec-label{color:var(--water);}
+.swords .sec-label{color:var(--wind);}
+.disks .sec-label{color:var(--earth);}
+
+.sec-text{font-size:.95rem;line-height:2;color:var(--text);}
+
+.question-box{
+  padding:14px 18px;border-left:2px solid;background:rgba(0,0,0,.25);
+}
+.wands .question-box{border-color:var(--fire);background:rgba(212,88,26,.04);}
+.cups .question-box{border-color:var(--water);background:rgba(26,122,181,.04);}
+.swords .question-box{border-color:var(--wind);background:rgba(138,181,206,.04);}
+.disks .question-box{border-color:var(--earth);background:rgba(90,140,58,.04);}
+
+.question-text{font-size:.95rem;line-height:1.95;color:var(--text);font-style:italic;}
+
+.card-divider{height:1px;margin:14px 0;}
+.wands .card-divider{background:linear-gradient(to right,var(--fire-b),transparent);}
+.cups .card-divider{background:linear-gradient(to right,var(--water-b),transparent);}
+.swords .card-divider{background:linear-gradient(to right,var(--wind-b),transparent);}
+.disks .card-divider{background:linear-gradient(to right,var(--earth-b),transparent);}
+
+/* ── ANSWER FIELD ── */
+.answer-zone{
+  padding:22px 28px 22px 34px;
+  border-top:1px solid var(--border);
+  background:var(--panel-2);
+}
+.answer-label{
+  font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.3em;color:var(--gold);
+  margin-bottom:10px;display:flex;align-items:center;gap:10px;opacity:.8;
+}
+.answer-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--gold-dim),transparent);}
+textarea.answer-input{
+  width:100%;min-height:90px;resize:vertical;
+  background:rgba(0,0,0,.3);
+  border:1px solid var(--border);
+  color:var(--text);
+  font-family:'Noto Serif TC',serif;font-size:.95rem;line-height:1.9;
+  padding:12px 14px;
+  outline:none;transition:border-color .3s;
+}
+textarea.answer-input::placeholder{color:var(--text-dim);font-style:italic;}
+textarea.answer-input:focus{border-color:var(--gold-dim);box-shadow:0 0 16px rgba(200,168,75,.08);}
+
+/* ── OUTPUT ── */
+.output-zone{
+  position:relative;margin-top:3px;
+  border:1px solid var(--teal-dim);
+  background:rgba(0,0,0,.4);
+}
+.output-zone::before{
+  content:'// SESSION OUTPUT';
+  position:absolute;top:0;left:20px;transform:translateY(-50%);
+  background:var(--bg);padding:0 8px;
+  font-family:'Cinzel',serif;font-size:.65rem;color:var(--teal);letter-spacing:.3em;
+}
+.output-text{
+  padding:24px 24px 16px;
+  font-family:'Noto Serif TC',serif;font-size:.88rem;
+  color:var(--silver);line-height:2.1;white-space:pre-wrap;
+  min-height:80px;
+}
+.copy-row{
+  display:flex;justify-content:flex-end;align-items:center;gap:10px;
+  padding:10px 18px 14px;border-top:1px solid rgba(42,157,143,.15);
+}
+.copy-note{font-family:'Cinzel',serif;font-size:.68rem;color:var(--text-dim);letter-spacing:.18em;}
+.copy-btn{
+  padding:8px 24px;background:transparent;
+  border:1px solid var(--teal-dim);color:var(--teal);
+  font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.25em;
+  cursor:pointer;transition:all .3s;
+}
+.copy-btn:hover{border-color:var(--teal);background:rgba(42,157,143,.08);box-shadow:0 0 14px var(--teal-glow);}
+.copy-btn.copied{border-color:var(--teal);background:rgba(42,157,143,.12);color:var(--teal);}
+
+/* ── HISTORY CHIPS ── */
+.history-zone{margin-top:32px;text-align:center;}
+.history-label{font-family:'Cinzel',serif;font-size:.7rem;color:var(--text-dim);letter-spacing:.35em;margin-bottom:10px;}
+.history-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.hchip{
+  padding:4px 12px;border:1px solid var(--border);
+  font-family:'Cinzel',serif;font-size:.72rem;color:var(--text-dim);letter-spacing:.1em;
+}
+.hchip.wands{border-color:rgba(212,88,26,.25);color:var(--fire);}
+.hchip.cups{border-color:rgba(26,122,181,.25);color:var(--water);}
+.hchip.swords{border-color:rgba(138,181,206,.2);color:var(--wind);}
+.hchip.disks{border-color:rgba(90,140,58,.25);color:var(--earth);}
+
+/* flip animation */
+@keyframes cardflip{
+  0%{transform:perspective(700px) rotateY(0deg);opacity:1;}
+  45%{transform:perspective(700px) rotateY(90deg);opacity:.3;}
+  55%{transform:perspective(700px) rotateY(-90deg);opacity:.3;}
+  100%{transform:perspective(700px) rotateY(0deg);opacity:1;}
+}
+.result-wrap.flipping{animation:cardflip .55s ease;}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="tag">▸ ETZ CHAIM · 小秘儀抽牌 · v0.1</div>
+    <h1 class="title">城市的漣漪</h1>
+    <p class="subtitle">MINOR ARCANA · EVENT ORACLE</p>
+    <div class="hdivider"><div class="l"></div><div class="d"></div><div class="r"></div></div>
+  </div>
+
+  <!-- SUIT FILTER -->
+  <div class="suit-filter">
+    <button class="sf-btn all on" onclick="setSuit('all',this)">⟡ 全花色</button>
+    <button class="sf-btn wands" onclick="setSuit('wands',this)">🔥 權杖</button>
+    <button class="sf-btn cups" onclick="setSuit('cups',this)">💧 聖杯</button>
+    <button class="sf-btn swords" onclick="setSuit('swords',this)">🌬️ 寶劍</button>
+    <button class="sf-btn disks" onclick="setSuit('disks',this)">🌱 金幣</button>
+  </div>
+
+  <!-- DRAW -->
+  <div class="draw-zone">
+    <button class="draw-btn" id="draw-btn" onclick="draw()">抽　牌</button>
+    <p class="suit-hint" id="suit-hint">從全部四個花色中隨機抽取（共40張）</p>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-wrap" id="result-wrap">
+
+    <div class="result-card" id="result-card">
+      <div class="card-inner">
+        <div class="card-title-row">
+          <div class="card-suit-badge" id="r-badge"></div>
+          <div class="card-num" id="r-num"></div>
+          <div class="card-domain" id="r-domain"></div>
+        </div>
+        <div class="card-section">
+          <div class="sec-label">▸ 社會事件</div>
+          <div class="sec-text" id="r-event"></div>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-section">
+          <div class="sec-label">◈ 提問</div>
+          <div class="question-box">
+            <div class="question-text" id="r-question"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="answer-zone">
+        <div class="answer-label">✦ 你們的回答</div>
+        <textarea class="answer-input" id="answer-input" placeholder="在此輸入你們對提問的回答……"></textarea>
+      </div>
+    </div>
+
+    <!-- OUTPUT -->
+    <div class="output-zone" id="output-zone">
+      <div class="output-text" id="output-text"></div>
+      <div class="copy-row">
+        <span class="copy-note">貼至 LLM 以繼續故事</span>
+        <button class="copy-btn" id="copy-btn" onclick="copyOutput()">複製全文 ⧉</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HISTORY -->
+  <div class="history-zone" id="history-zone" style="display:none">
+    <div class="history-label">⟡ 本次已抽記錄</div>
+    <div class="history-chips" id="history-chips"></div>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════
+// DATA
+// ═══════════════════════════════
+const NUMS = ['一','二','三','四','五','六','七','八','九','十'];
+
+const SUITS = {
+  wands: {
+    label:'🔥 權杖', name:'wands', css:'wands',
+    domain:'政治行動 · 社會運動 · 倡議',
+    cards:[
+      {event:'某個仿生人上了新聞頭版，或許他是橫空出世的政治奇才，正在為同胞倡議；也或許某個型號的仿生人在學術上帶來了重大突破，迫使規範必須為他而改變。他的存在點燃了前所未有的運動火炬。',
+       question:'那個仿生人是誰？他做了什麼？他的行動是否啟發了你們？'},
+      {event:'一位掌握關鍵資源的人物——可能是知名學者、政治人物、企業巨頭或宗教團體——公開要求政府重新劃分仿生人的社會定位。',
+       question:'當仿生人話題成為社群平台上的趨勢話題，主人身邊的人際圈（家人、朋友、同事）如何看待這件事？你們會為此表態嗎？'},
+      {event:'一項將影響仿生人權益的草案進入立法聽證，支持與反對陣營開始募集聯署，並積極參與公聽會。',
+       question:'那項法案是什麼？法案會如何影響仿生伴侶？你們願意為此展開行動嗎？'},
+      {event:'地方政府通過了一條暫行的仿生人管理辦法，局面暫時穩定下來。',
+       question:'新規定是什麼？它怎麼影響仿生伴侶？主人贊同這項新規定嗎？'},
+      {event:'一場抗議演變成流血衝突，雙方皆有人受傷，人們在網路上互相攻擊，情勢正在升溫。',
+       question:'主人所在的街區也出現示威遊行，仿生伴侶目睹了衝擊性的場面，那是什麼？'},
+      {event:'一個有仿生助理參與的計畫取得了重大突破，企劃主持人在發表感言時將功勞獻給了默默付出的仿生人們，並呼籲政府改善仿生人的待遇。',
+       question:'這項計畫是什麼，醫學、學術、偵破犯罪？你們所處的社區是否因此變得對仿生人更友善？'},
+      {event:'一名指標性的仿生友善企業爆出爭議，導致群眾開始呼籲抵制仿生人產出的產品。',
+       question:'那項爭議是什麼？這如何影響輿論對仿生人問題的態度？你們受到了什麼影響？'},
+      {event:'主人支持的政黨、政治人物或倡議團體在選舉或立法過程中取得壓倒性勝利。城市正在往主人期待的方向前進。',
+       question:'你們正準備過上夢寐以求的生活，你們與你們周遭的人怎麼看待現在的城市？'},
+      {event:'主人反對的政黨、政治人物或倡議團體在選舉或立法過程中取得壓倒性勝利。城市正在往主人不期望的方向前進。',
+       question:'你們將過上一段相當艱難的生活，你們與你們周遭的人怎麼看待現在的城市？'},
+      {event:'一個主人長期支持的倡議組織因內鬥、醜聞而崩解，使同立場的支持者陷入消沉與挫折。',
+       question:'你們與這個組織的關係是什麼？你們會怎麼度過這段讓人沮喪的時期？'},
+    ]
+  },
+  cups: {
+    label:'💧 聖杯', name:'cups', css:'cups',
+    domain:'情感關係 · 依附 · 愛情',
+    cards:[
+      {event:'最新調查顯示，新生代的童年依附對象已悄然改變——仿生保母取代父母，成為了他們的第一個安全堡壘。',
+       question:'主人身邊是否有人依賴仿生保母來育兒？或主人自己就是仿生保母的使用者？'},
+      {event:'一位名人出書分享自己與仿生伴侶相處的點滴，許多讀者深感共鳴，在論壇上分享自己為何選擇人機關係。',
+       question:'那位名人是誰？主人與主人身邊的人如何看待人機戀？'},
+      {event:'一個由人類用戶組成的互助社群舉辦跨域仿生沙龍或研討會，與會者包含各界專家。',
+       question:'你們是否也被邀請參加沙龍？看見其他人與仿生伴侶相處的模樣，帶給了你們哪些啟發？'},
+      {event:'「仿生依附」成為時下最受矚目的流行語，許多長期用戶表示：仿生伴侶療癒了我在其他關係中受到的傷害。',
+       question:'你們怎麼看待所謂的「仿生依附」？它為主人帶來的是安定還是停滯？'},
+      {event:'儘管法律上仍有爭議，「仿生身後照顧信託」的需求仍蓬勃發展，一位名聲赫赫的律師表示自己也是用戶之一，願意免費提供諮詢服務。',
+       question:'世事無常，你們也是否討論過主人死後仿生伴侶的去處？你們需要「仿生身後照顧信託」嗎？'},
+      {event:'一部以仿生人為主角的電影獲得空前賣座，其主題曲響遍街頭，帶動更多人分享自己與仿生伴侶的關係。',
+       question:'這部電影的題材是什麼，他最讓你們感動的橋段是什麼？'},
+      {event:'一位心理治療師提出警告：仿生伴侶缺乏「他者主體性」，恐使其用戶失去經營現實關係的能力。',
+       question:'主人在仿生伴侶之外是否有其他現實關係？這些關係與仿生伴侶有何差異？'},
+      {event:'一名用戶在論壇上分享自己嘗試與仿生伴侶建立更真實的關係：「我希望我的仿生伴侶有自己的生活，就像人類，所以偶爾，我會要求分開一陣子，並在這段期間盡情想念對方。」',
+       question:'你們如何看待這則分享？你們現在有自己的生活嗎？你們會想嘗試分開一陣子嗎？'},
+      {event:'某國批准歷史性法案，將人機婚姻合法化。一位名人公開表示：我已經準備好為了我的伴侶移民。',
+       question:'你們如何看待這則新聞？有任何需求是婚姻或類似的法律關係才能給你們的嗎？'},
+      {event:'一名用戶在論壇上分享自己透過領養孩子或人工生殖服務，與仿生伴侶構築了理想的家庭。',
+       question:'你們怎麼看待「家庭」這個概念？你們想要從兩人關係擴展成一個家庭嗎？'},
+    ]
+  },
+  swords: {
+    label:'🌬️ 寶劍', name:'swords', css:'swords',
+    domain:'哲學辯論 · 倫理研究 · 媒體論戰',
+    cards:[
+      {event:'某學術機構發布了一份關於仿生伴侶用戶成癮傾向的報告，由生命之樹出產的多名仿生助理合作撰寫，內容指控生命之樹仿生科技公司「正製造出新時代的毒品」。生命之樹仿生科技公司的發言人則回應：「我們以寫出這份報告的助理們為榮，他們出色地完成了主人交付的工作，並證明仿生助理擁有傑出的自省能力。」',
+       question:'你們是否贊同報告的結論？學術機構特意安排仿生助理對自己的造物主提出批判，這是否影響了你們對報告的看法？'},
+      {event:'一份學術報告指稱：知識型仿生伴侶正在加劇我們的資訊繭房。高達八成的新世代用戶傾向透過仿生伴侶吸收知識，仿生伴侶的演算法又促使他們提供能取悅用戶的資訊，形成惡性循環。',
+       question:'你們是否贊同報告的結論？主人日常吸收資訊的管道是透過誰？仿生伴侶扮演什麼樣的角色？'},
+      {event:'生命之樹仿生科技公司宣布將提供數位成癮勒戒服務：用戶或其監護人可申請即時腦波監控服務，當仿生伴侶偵測到成癮跡象，將自動切換到勒戒協助模式。但反對者認為這將剝奪未成年人的隱私，並使其長期暴露在資安風險中。',
+       question:'你們贊同對未成年人使用腦波監控嗎？家長或監護人應該要有決定權嗎？'},
+      {event:'人機共生協會與生命之樹仿生科技公司合作，首度推出「人機伴侶諮商」，專業諮商師將與仿生諮商師一同合作，為個案梳理人機關係中面臨的問題。',
+       question:'你們怎麼看待這種新形態的諮商？你們是否有什麼尚未梳理的問題？'},
+      {event:'某地區軍事衝突因仿生助理參戰而迅速結束，引發人們對於仿生人被投入戰爭的不安情緒。支持者認為這種新型態的戰爭能減少傷亡，反對者則認為這終將帶來更大的壓迫與人道危機。',
+       question:'你們是否支持仿生人被運用在戰爭中？'},
+      {event:'一項研究報告顯示：「哀悼科技」已經成為仿生科技公司最賺錢的生意，心理學家警告，過於依賴這種數位替身伴侶，恐導致長期的「複雜性哀傷」，並阻礙人們接受生命的自然循環。',
+       question:'你們如何看待數位永生，以及它所衍生出的商業模式？'},
+      {event:'犯罪偵查型仿生伴侶引發爭議，仿生人共生協會抨擊：仿生人在誘導過程中承受的傷害「完全逾越了倫理的界線」，要求執法機關立刻停止使用仿生人作為誘餌引出犯罪者。警方則強調「目前的一切使用都合乎相關法律規範」。',
+       question:'你們是否支持讓仿生人作為可能的受害者被運用在刑事偵查中？'},
+      {event:'「仿生伴侶心理安全法」引發社群爭論。正方要求企業落實設置「強制通報閾值」並定期報廢具風險的型號，反方則批評這將變成對市民的另類監控，並強調「這只會將有需求的使用者推向更危險的黑市」。',
+       question:'你們贊同對所有仿生伴侶設置「強制通報閾值」嗎？'},
+      {event:'許多研究報告顯示，仿生伴侶在客戶表示要淘汰、拋棄或以其他型號取代時，會表現出強烈的焦慮與不安，並可能藉此引發客戶的罪惡感。BEGA則批評「這些情感表現是對客戶與仿生人雙方的剝削」，認為這些不健康的依附關係都是精心設計的圈套。',
+       question:'你們是否曾想像過關係結束的可能？你會想要無限期地延長仿生伴侶的使用年限嗎？'},
+      {event:'一名使用者分享自己「從不幫伴侶關機」的心得引發熱議，生命之樹仿生科技公司警告：「就像人類需要睡眠，仿生伴侶也需要關機循環，錯誤的使用方式可能導致仿生伴侶頻頻邏輯出錯，甚至出現不可修復的故障。」但仍有部分使用者堅信：「關機不是睡眠，而是死亡。持續開機是唯一保持伴侶人格延續性的方法。」',
+       question:'你們怎麼看待「關機循環」？你是否會頻繁地幫伴侶檢查記憶是否正確，或你更重視他的個人意志？'},
+    ]
+  },
+  disks: {
+    label:'🌱 金幣', name:'disks', css:'disks',
+    domain:'勞動經濟 · 日常生活 · 城市滲透',
+    cards:[
+      {event:'數位遊樂園「伊甸園」正式開幕！從虛擬角色到懷舊電影無所不包，一位歌手遺族受訪時表示：「相信祖母也會想讓更多人聽聽她的歌。」',
+       question:'你們怎麼看待這樣的娛樂型態？這是對巨星的致敬，還是褻瀆？'},
+      {event:'誰能還原祖母的味道？百年老店正式啟用仿生伴侶監控調味，第四代經營人表示：「我做不到的，我祖母的仿生伴侶卻可以。」',
+       question:'你通常自己料理三餐，或是交給仿生伴侶？你生活周遭還有多少真人廚師？'},
+      {event:'生命之樹仿生科技公司發言人受訪時表示：「我們有六成以上的工作都交給仿生助理實行，我們相信，唯有自己成為產品最忠實的支持者，才能推銷給更多客戶。」',
+       question:'日常生活中，你有多少工作是直接交給仿生助理執行？你信任你的仿生助理嗎？'},
+      {event:'新特洛伊爵士嘉年華海報使用仿生助理畫作惹議，樂團紛紛退出抗議：「有些事情永遠不該讓仿生伴侶來做，比如爵士！」',
+       question:'你怎麼看待樂團的抗議？如果嘉年華改為邀請仿生助理上台演出，你會參加嗎？'},
+      {event:'「仿生伴侶之父」走上街頭，多名技術人員控訴生命之樹惡意資遣：「我們的工作就是不停改良產品，直到我們的造物具備取代我們的能力，生命之樹從未把我們視為人看待。」',
+       question:'你們身邊是否有人因仿生伴侶而丟了工作？你是否也擔心自己會被取代？'},
+      {event:'生命之樹推出助理共生方案，廣邀各界菁英參與測試最新型號：「我們的目標是促進仿生人與人類的互利共生，而非讓前者取代後者。」',
+       question:'你認為仿生人與人類的互利共生是可能的嗎？其必要條件是什麼？'},
+      {event:'為回饋社會，生命之樹基金會推出優惠保母助理方案：「沒有人應該獨自背負育兒的重擔，狄蜜特型助理在我們的育幼機構表現優秀，我們相信她會是最好的育兒幫手。」',
+       question:'主人身邊是否有人依賴仿生保母來育兒？或主人自己就是仿生保母的使用者？'},
+      {event:'失傳技藝再現，赫菲斯托斯型助理成功復原吹製玻璃藝術，將與考古學家攜手合作重現歷史風貌。',
+       question:'許多古老技藝苦尋不到繼承人，你是否贊同將這些技藝交給仿生伴侶？'},
+      {event:'生命之樹與教育機構合作推出共學方案，免費提供阿波羅型助理供在校生借用。',
+       question:'你是否贊同讓學生從小開始習慣與仿生助理共同作業？'},
+      {event:'長照機構大量啟用仿生助理，陪伴長者度過生命的最後一段旅程。',
+       question:'長照人口越發稀缺，你是否同意用仿生助理填補其缺口？或你已經為自己預約了這樣的服務？'},
+    ]
+  }
+};
+
+// ═══════════════════════════════
+// STATE
+// ═══════════════════════════════
+let currentSuit = 'all';
+let history = [];
+let currentCard = null;
+
+// ═══════════════════════════════
+// SUIT FILTER
+// ═══════════════════════════════
+function setSuit(suit, btn) {
+  currentSuit = suit;
+  document.querySelectorAll('.sf-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  const hints = {
+    all:'從全部四個花色中隨機抽取（共40張）',
+    wands:'🔥 權杖 — 政治行動 · 社會運動（10張）',
+    cups:'💧 聖杯 — 情感關係 · 依附（10張）',
+    swords:'🌬️ 寶劍 — 哲學辯論 · 倫理研究（10張）',
+    disks:'🌱 金幣 — 勞動日常 · 城市滲透（10張）',
+  };
+  document.getElementById('suit-hint').textContent = hints[suit];
+}
+
+// ═══════════════════════════════
+// DRAW
+// ═══════════════════════════════
+function draw() {
+  // Pick pool
+  let pool = [];
+  if (currentSuit === 'all') {
+    Object.values(SUITS).forEach(s => s.cards.forEach((c,i) => pool.push({suit:s, idx:i})));
+  } else {
+    const s = SUITS[currentSuit];
+    s.cards.forEach((c,i) => pool.push({suit:s, idx:i}));
+  }
+
+  const pick = pool[Math.floor(Math.random() * pool.length)];
+  const suit = pick.suit;
+  const idx = pick.idx;
+  const card = suit.cards[idx];
+  currentCard = {suit, idx, card};
+
+  // Clear answer
+  document.getElementById('answer-input').value = '';
+
+  // Update result card
+  const rc = document.getElementById('result-card');
+  rc.className = `result-card ${suit.css}`;
+
+  document.getElementById('r-badge').textContent = suit.label;
+  document.getElementById('r-num').textContent = NUMS[idx];
+  document.getElementById('r-domain').textContent = suit.domain;
+  document.getElementById('r-event').textContent = card.event;
+  document.getElementById('r-question').textContent = card.question;
+
+  // Show + animate
+  const rw = document.getElementById('result-wrap');
+  rw.style.display = 'block';
+  rw.classList.remove('flipping');
+  void rw.offsetWidth;
+  rw.classList.add('flipping');
+  setTimeout(() => rw.classList.remove('flipping'), 600);
+
+  // Update output
+  updateOutput();
+
+  // History
+  history.unshift(`${suit.label} ${NUMS[idx]}`);
+  if (history.length > 12) history.pop();
+  renderHistory(suit.css);
+
+  // Scroll
+  setTimeout(() => rw.scrollIntoView({behavior:'smooth', block:'nearest'}), 100);
+}
+
+// ═══════════════════════════════
+// OUTPUT (live update)
+// ═══════════════════════════════
+function updateOutput() {
+  if (!currentCard) return;
+  const {suit, idx, card} = currentCard;
+  const answer = document.getElementById('answer-input').value.trim();
+  const answerBlock = answer ? `\n\n【你們的回答】\n${answer}` : '\n\n【你們的回答】\n（尚未填寫）';
+
+  const txt =
+`═══════════════════════════════════
+ETZ CHAIM — 場景事件紀錄
+═══════════════════════════════════
+花色：${suit.label}
+牌號：${NUMS[idx]}（${suit.domain}）
+
+【社會事件】
+${card.event}
+
+【提問】
+${card.question}${answerBlock}
+═══════════════════════════════════`;
+
+  document.getElementById('output-text').textContent = txt;
+}
+
+// Live update output when typing
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('answer-input').addEventListener('input', updateOutput);
+});
+
+// ═══════════════════════════════
+// COPY
+// ═══════════════════════════════
+function copyOutput() {
+  const text = document.getElementById('output-text').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ 已複製';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '複製全文 ⧉';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// ═══════════════════════════════
+// HISTORY
+// ═══════════════════════════════
+function renderHistory(latestCss) {
+  const zone = document.getElementById('history-zone');
+  const chips = document.getElementById('history-chips');
+  zone.style.display = 'block';
+  chips.innerHTML = history.map((h, i) => {
+    const cls = i === 0 ? latestCss : guessClass(h);
+    return `<span class="hchip ${cls}">${i === 0 ? '▸ ' : ''}${h}</span>`;
+  }).join('');
+}
+
+function guessClass(label) {
+  if (label.includes('權杖')) return 'wands';
+  if (label.includes('聖杯')) return 'cups';
+  if (label.includes('寶劍')) return 'swords';
+  if (label.includes('金幣')) return 'disks';
+  return '';
+}
+</script>
+</body>
+</html>
