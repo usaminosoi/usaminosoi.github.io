@@ -1,0 +1,1970 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>文森特・莫雷蒂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f1ee;--paper:transparent;--ink:#232326;--muted:#7d7c78;--accent:#2f4a6d;--line:#d8d7d2;--userbg:#e6e8ec;--soft:#e4e5e8;--note:transparent;--rule:transparent;--panel:#ffffff;--tape:transparent;--serif:'Noto Serif TC','Source Han Serif TC','Songti TC','PMingLiU',serif;--sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei','Heiti TC',sans-serif;--fs:17px;--lh:32px;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not(:has(#c-light:checked)){--bg:#16171b;--ink:#e7e6e1;--muted:#9a9993;--accent:#9db6d8;--line:#2e3036;--userbg:#22252c;--soft:#2a2d34;--panel:#202228;color-scheme:dark}}
+:root:has(#c-dark:checked){--bg:#16171b;--ink:#e7e6e1;--muted:#9a9993;--accent:#9db6d8;--line:#2e3036;--userbg:#22252c;--soft:#2a2d34;--panel:#202228;color-scheme:dark}
+:root:has(#s-letter:checked){--bg:#ece3d2;--paper:#f7f1e3;--ink:#3e2f26;--muted:#8a7461;--accent:#a64b3c;--line:#d9ccb2;--userbg:rgba(166,75,60,.08);--soft:#ece2cd;--note:#fff8c9;--rule:#e2d6bd;--panel:#fbf6ea;--tape:rgba(200,120,110,.45);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:has(#s-letter:checked):not(:has(#c-light:checked)){--bg:#191512;--paper:#241e19;--ink:#e9dcc6;--muted:#a8937c;--accent:#e08a76;--line:#3a3029;--userbg:rgba(224,138,118,.10);--soft:#332a23;--note:#3b3420;--rule:#332a23;--panel:#2a231d;--tape:rgba(224,138,118,.35);color-scheme:dark}}
+:root:has(#s-letter:checked):has(#c-dark:checked){--bg:#191512;--paper:#241e19;--ink:#e9dcc6;--muted:#a8937c;--accent:#e08a76;--line:#3a3029;--userbg:rgba(224,138,118,.10);--soft:#332a23;--note:#3b3420;--rule:#332a23;--panel:#2a231d;--tape:rgba(224,138,118,.35);color-scheme:dark}
+:root:has(#f-s:checked){--fs:15px;--lh:28px}
+:root:has(#f-l:checked){--fs:19px;--lh:36px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:var(--fs);line-height:var(--lh);letter-spacing:.03em;line-break:strict;text-autospace:normal;overflow-wrap:anywhere;-webkit-text-size-adjust:100%}
+.sr{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.wrap{max-width:720px;margin:0 auto;padding:28px 20px 110px}
+.hd{position:relative;text-align:center;padding:14px 0 22px;margin-bottom:26px;border-bottom:1px solid var(--line)}
+.tape{display:none}
+.hd h1{font-size:1.5em;line-height:1.5;margin:0;letter-spacing:.16em;font-weight:600}
+.meta{font-family:var(--sans);font-size:12px;line-height:1.8;color:var(--muted);margin:8px 0 0}
+.m{margin:0 0 16px}
+.tno{margin:30px 0 12px;text-align:center;font-family:var(--sans);font-size:11px;line-height:1.6;letter-spacing:.24em;color:var(--muted);opacity:.75}
+.turn:first-child .tno{margin-top:0}
+.who{margin:0;font-family:var(--sans);font-size:12px;line-height:1.8;color:var(--accent);letter-spacing:.1em}
+.body p{margin:0}.body p+p{margin-top:.5em}
+.m.speech{padding-left:14px;border-left:2px solid var(--accent)}
+.m.user{background:var(--userbg);border-radius:4px;padding:12px 16px}
+.m.user .who{color:var(--muted)}
+.m.tool,.m.note{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center}
+.m.tool .who,.m.note .who,.m.tool .body,.m.note .body,.m.tool .body p,.m.note .body p{display:inline}
+.m.tool .who,.m.note .who{margin-right:8px}
+.shot{margin:16px 0}
+.shot img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:2px}
+.widget{margin:18px 0;font-family:var(--sans);font-size:16px;line-height:1.5;letter-spacing:normal;text-indent:0;line-break:auto;overflow-x:auto}
+.widget img{max-width:100%;height:auto}
+.widget summary{cursor:pointer}
+h2.sec{font-family:var(--sans);font-size:14px;letter-spacing:.12em;color:var(--muted);margin:44px 0 10px;font-weight:700}
+.gallery{list-style:none;padding:0;margin:0}
+.gallery li{display:flex;gap:12px;align-items:center;margin:10px 0}
+.thumb{width:64px;height:64px;object-fit:cover;border-radius:6px;background:var(--soft);flex:none}
+.gallery a{font-family:var(--sans);font-size:12px;line-height:1.4;word-break:break-all;color:var(--accent)}
+.empty{font-family:var(--sans);font-size:13px;color:var(--muted)}
+footer#end{margin-top:40px;text-align:center;font-family:var(--sans);font-size:12px;line-height:1.7;color:var(--muted)}
+html:has(#s-letter:checked) .wrap{margin:22px auto 0;padding:38px 22px 110px;background:var(--paper) repeating-linear-gradient(var(--paper) 0 calc(var(--lh) - 1px),var(--rule) calc(var(--lh) - 1px) var(--lh));box-shadow:0 2px 0 var(--line),0 8px 24px rgba(60,40,20,.12)}
+html:has(#s-letter:checked) .hd{border-bottom:0}
+html:has(#s-letter:checked) .tape{display:block;position:absolute;top:-46px;left:50%;width:90px;height:22px;margin-left:-45px;background:var(--tape);transform:rotate(-3deg)}
+html:has(#s-letter:checked) .m{margin:0}
+html:has(#s-letter:checked) .tno{margin:0;line-height:var(--lh)}
+html:has(#s-letter:checked) .m.speech{padding-left:0;border-left:0}
+html:has(#s-letter:checked) .who{line-height:var(--lh);letter-spacing:.15em;color:var(--muted)}
+html:has(#s-letter:checked) .who::after{content:' ／';opacity:.6}
+html:has(#s-letter:checked) .m.speech .who{color:var(--accent)}
+html:has(#s-letter:checked) .body p+p{margin-top:0}
+html:has(#s-letter:checked) .m.user{background:var(--userbg);border-left:3px solid var(--accent);border-radius:0;padding:0 12px}
+html:has(#s-letter:checked) .m.tool,html:has(#s-letter:checked) .m.note{display:block;width:fit-content;margin:8px 0;padding:0 10px;border:1.5px solid var(--accent);border-radius:6px;color:var(--accent);text-align:left;line-height:var(--lh);transform:rotate(-2deg)}
+html:has(#s-letter:checked) .m.tool .who,html:has(#s-letter:checked) .m.note .who{color:var(--accent)}
+html:has(#s-letter:checked) .m.tool .who::after,html:has(#s-letter:checked) .m.note .who::after{content:'：';opacity:1}
+html:has(#s-letter:checked) .shot{margin:18px 6px}
+html:has(#s-letter:checked) .shot img{border:6px solid #fff;border-radius:0;box-shadow:0 2px 6px rgba(0,0,0,.18);transform:rotate(1deg)}
+html:has(#s-letter:checked) footer#end{text-align:right}
+html:has(#l-novel:checked) .m{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0 0 .9em!important;border-radius:0!important;transform:none!important;text-align:left!important;display:block!important;width:auto!important}
+html:has(#l-novel:checked) .m .who{display:none!important}
+html:has(#l-novel:checked) .m .body,html:has(#l-novel:checked) .m .body p{display:block!important}
+html:has(#l-novel:checked) .m .body p{text-indent:2em}
+html:has(#l-novel:checked) .m.user .body{color:var(--accent)}
+html:has(#l-novel:checked) .m.tool .body p,html:has(#l-novel:checked) .m.note .body p{text-indent:0;font-family:var(--sans);font-size:13px;color:var(--muted)}
+html:has(#l-novel:checked) .tno{margin:1.6em 0 1em}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:20;width:50px;height:50px;border-radius:50%;background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;font:700 16px/1 var(--sans);box-shadow:0 4px 14px rgba(0,0,0,.22);cursor:pointer;-webkit-user-select:none;user-select:none}
+.fab .x{display:none}
+:root:has(#set-open:checked) .fab .x{display:inline}
+:root:has(#set-open:checked) .fab .a{display:none}
+.panel{display:none;position:fixed;right:16px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:20;width:min(300px,calc(100vw - 32px));background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:14px 14px 12px;font:13px/1.5 var(--sans);letter-spacing:0;box-shadow:0 12px 32px rgba(0,0,0,.2)}
+:root:has(#set-open:checked) .panel{display:block}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
+.row>span{color:var(--muted)}
+.seg{display:flex;background:var(--soft);border-radius:999px;padding:3px}
+.seg label{padding:5px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+:root:has(#s-ebook:checked) label[for=s-ebook],:root:has(#s-letter:checked) label[for=s-letter],:root:has(#l-card:checked) label[for=l-card],:root:has(#l-novel:checked) label[for=l-novel],:root:has(#c-auto:checked) label[for=c-auto],:root:has(#c-light:checked) label[for=c-light],:root:has(#c-dark:checked) label[for=c-dark],:root:has(#f-s:checked) label[for=f-s],:root:has(#f-m:checked) label[for=f-m],:root:has(#f-l:checked) label[for=f-l]{background:var(--accent);color:var(--panel);font-weight:700}
+.jump{display:flex;gap:8px;margin-top:4px}
+.jump a{flex:1;text-align:center;padding:7px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none}
+@media(max-width:600px){.wrap{padding:22px 16px 110px}html:has(#s-letter:checked) .wrap{margin-top:16px;padding:36px 16px 110px}h1{font-size:1.35em}}
+</style>
+</head>
+<body>
+<input class="sr" type="radio" name="st" id="s-ebook" checked>
+<input class="sr" type="radio" name="st" id="s-letter">
+<input class="sr" type="radio" name="lay" id="l-card" checked>
+<input class="sr" type="radio" name="lay" id="l-novel">
+<input class="sr" type="radio" name="col" id="c-auto" checked>
+<input class="sr" type="radio" name="col" id="c-light">
+<input class="sr" type="radio" name="col" id="c-dark">
+<input class="sr" type="radio" name="fs" id="f-s">
+<input class="sr" type="radio" name="fs" id="f-m" checked>
+<input class="sr" type="radio" name="fs" id="f-l">
+<input class="sr" type="checkbox" id="set-open">
+<label class="fab" for="set-open" aria-label="閱讀設定"><span class="a">Aa</span><span class="x">✕</span></label>
+<div class="panel">
+<div class="row"><span>風格</span><div class="seg"><label for="s-ebook">電子書</label><label for="s-letter">信紙</label></div></div>
+<div class="row"><span>排法</span><div class="seg"><label for="l-card">卡片</label><label for="l-novel">小說</label></div></div>
+<div class="row"><span>色調</span><div class="seg"><label for="c-auto">自動</label><label for="c-light">淺色</label><label for="c-dark">深色</label></div></div>
+<div class="row"><span>字級</span><div class="seg"><label for="f-s">小</label><label for="f-m">中</label><label for="f-l">大</label></div></div>
+<div class="jump"><a href="#top">回到開頭</a><a href="#end">跳到最後</a></div>
+</div>
+<div class="wrap">
+<header class="hd" id="top"><div class="tape"></div><h1>文森特・莫雷蒂</h1>
+<p class="meta"><br>PC：葛萊蒂絲‧哈靈頓</p></header>
+<main>
+<section class="turn">
+<p class="tno">第 1 回合</p>
+<article class="m narr"><div class="body"><p>十一月的雨籠罩著凡德米爾高地，哈靈頓宅邸卻燈火輝煌，維斯珀港有頭有臉的人物幾乎都到了。晚宴將盡，愛德華．哈靈頓舉杯宣布愛女與文森特．莫雷蒂訂婚，掌聲隨即響起。</p><p>文森特站在未來岳父身旁接受祝賀，黑色無尾禮服剪裁考究，神色從容。與其說是準新郎，他更像一位剛談成大生意的紳士。</p></div></article>
+<article class="m speech"><div class="body"><p>「聽說他上個月在皇冠大道訂了一條鑽石手鍊，可惜沒送到凡德米爾高地來。」「手鍊總會過時的，親愛的，結婚證書可不會。」「那位哈靈頓小姐還年輕，往後得學會什麼時候該裝作沒看見。」</p></div></article>
+<article class="m narr"><div class="body"><p>窗邊的女士們笑聲輕得恰好傳不到主人耳裡，見文森特朝這邊舉杯，便回以甜美的笑容。這樁婚約不過是今年社交季最好的餘興節目，沒有人在乎誰會幸福，只想知道明天的《晚星報》會怎麼寫。</p><p>葛萊蒂絲陪在母親伊莉諾身側，那些議論斷斷續續飄進耳裡。出門前母親的叮囑言猶在耳，彷彿婚姻裡最要緊的學問，便是懂得何時閉口。</p></div></article>
+<article class="m speech"><div class="body"><p>「親愛的，別向文森特提起那個女人，男人總有不願讓妻子過問的事。」</p></div></article>
+<article class="m narr"><div class="body"><p>樂隊奏起〈They Can't Take That Away from Me〉，文森特穿過賓客走來，先向伊莉諾致意，才將目光轉向葛萊蒂絲，微微俯身伸出手。那份從容使人幾乎忘了，今晚的一切早在兩家父親握手時便已安排妥當。</p></div></article>
+<article class="m speech"><div class="body"><p>「哈靈頓小姐，願意賞光嗎？」</p></div></article>
+<article class="m narr"><div class="body"><p>樂聲漸漸明朗，母親含笑退開半步。眾人的目光也跟著聚攏，等著這對即將聯姻的男女，跳出今晚第一支令人稱羨的舞。</p></div></article>
+</section>
+<section class="turn">
+<p class="tno">第 2 回合</p>
+<article class="m speech"><div class="body"><p>「當然，先生。」葛萊蒂絲對眼前的男人微微一笑，將裹著白蕾絲手套的纖纖玉手交託到了他手上。她可愛的朋友露琪亞，她可憐的朋友露琪亞。以為自己擁有男人的愛，卻終究只能被擺在財富與名聲之後的位置。幸而男人的未婚妻是葛萊蒂絲，而葛萊蒂絲絕不會讓任何人欺負她的朋友。</p></div></article>
+<article class="m narr"><div class="body"><p></p><p>白蕾絲手套裡的指尖落入他掌心時，文森特感覺到了那份經年累月訓練出來的優雅。輕盈，恰到好處的力道，既不顯得過分急切，也沒有一絲無禮的抗拒。他穩穩地托住她的手，引著她踏上光潔如鏡的拼花木地板。</p><p>水晶吊燈將數百支燭形燈泡的光芒傾瀉而下，照亮了她挽起的金髮與斜裁絲質晚禮服流淌的光澤。隨著薩克斯風吹出慵懶而溫存的旋律，賓客們識趣地向兩側退開，讓出中央的空地。文森特右手輕搭在葛萊蒂絲纖細的背脊上，隔著微涼的禮服面料，保持著無可挑剔的社交距離。</p><p>他的舞步沉穩熟練，轉身與滑步皆精準地踩在節拍上，全無半點上城人口中那種碼頭暴發戶的粗鄙。然而就在旋身避開廳柱、背對母親伊莉諾與主桌賓客的那一刻，文森特垂眸，看見懷中這位年輕的未婚妻唇角那抹完美的弧度悄然淡去。</p><p>那雙澄澈的藍眼睛望過他寬闊的肩頭，投向窗外被十一月冷雨打濕的夜色，長睫微垂，方才面對眾人時的溫婉笑意像是被雨水沖刷殆盡，只剩下一層安靜的疏離。</p></div></article>
+<article class="m speech"><div class="body"><p>「叫我文森特就好，葛萊蒂絲。」</p></div></article>
+<article class="m narr"><div class="body"><p>他低沉的嗓音混在銅管樂聲裡，帶著淡淡的西西里腔調，聽不出半點責備，反倒像是在談論今晚的香檳年份般從容。</p></div></article>
+<article class="m speech"><div class="body"><p>「今晚過後，全維斯珀港都會知道妳即將冠上我的姓氏。要是連我的名字都叫得這麼生分，妳母親恐怕會以為我剛才在餐桌上失了禮數。」</p></div></article>
+<article class="m narr"><div class="body"><p>他帶著她流暢地滑過舞池中央。四周盡是端著酒杯微笑注視的面孔——愛德華．哈靈頓在遠處與銀行董事低聲交談，眼角餘光卻沒離開過這樁價值連城的聯姻；她的兄長查爾斯站在廊柱旁，端著酒杯，冷峻的臉上帶著一貫挑剔的審視；而在更遠處的拱門邊，受邀前來的薩爾瓦多正倚著牆，琥珀色的眼眸含笑望著場中，朝文森特極輕地舉了舉杯。</p><p>每個人都在看這場戲，文森特再清楚不過。他也明白，一個出身凡德米爾高地的千金小姐，被父親當作填補銀行窟窿的籌碼許配給聖羅莎區出身的義大利人，心裡難免會有幾分委屈或不甘。只是葛萊蒂絲眼底那抹沉甸甸的心事，似乎又與單純的傲慢排斥不太一樣。</p><p>樂曲進入中段，小號的音色輕快起來。文森特掌心微收，引著她做了一個漂亮的旋轉，待她重新回到身前時，他稍微放緩了步調，目光落在她略顯蒼白的臉龐上。</p></div></article>
+<article class="m speech"><div class="body"><p>「哈靈頓家的晚宴向來這麼讓人喘不過氣嗎？」</p></div></article>
+<article class="m narr"><div class="body"><p>他微微俯首，將聲音壓在只有兩人能聽見的距離，溫熱的氣息拂過她耳畔的金髮，裡頭帶著一絲極淡的雪茄與古龍水氣味。</p></div></article>
+<article class="m speech"><div class="body"><p>「妳從剛才宣布訂婚起，好像就沒真正高興過。如果是累了，等這支舞結束，我可以替妳向令尊告個假，沒人敢挑剔今晚的女主角早退半小時。」</p></div></article>
+<article class="m narr"><div class="body"><p>他的眼神深邃平靜，裡頭沒有熱戀男子的癡迷，也沒有被冷落的不快，只有一種近乎寬厚的體貼——像是一位講究規矩的合夥人，正耐心地確認這樁長期契約的另一方是否安好。不遠處，銀質閃光燈忽然亮起，受邀記錄訂婚宴的《先驅報》攝影師正對準舞池中央，將這對看似登對的新人定格在底片裡。</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 21:40</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">凡德米爾高地．哈靈頓宅邸</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d">EXTRA!</div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>001</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，黑髮整齊後梳，正在舞池中央引領葛萊蒂絲共舞</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服，配戴白蕾絲及肘手套，金髮挽起，神情略帶心事</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「這雙眼睛倒是藏不住事，不過只要她守規矩，莫雷蒂家自然不會虧待她。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>愛德華．哈靈頓：與銀行董事交談並留意舞池動靜<br>伊莉諾．哈靈頓：在場邊微笑注視女兒與準女婿共舞<br>查爾斯．哈靈頓：站在廊柱旁冷眼審視舞池中的兩人<br>薩爾瓦多．里奇：倚在拱門邊端著酒杯含笑觀望</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span></span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>無</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 3 回合</p>
+<article class="m speech"><div class="body"><p>「噢，抱歉，先生，讓您擔心了。」葛萊蒂絲抬起頭，順著文森特的動作靠進他懷中，同樣用只有兩人能聽見的聲音於他耳邊悄聲說道：「是我一位非常親密的朋友，她最近碰上了一點麻煩……我很擔心她，腦海裡都是她的事。」</p></p>「如果先生允許我早退去找她，我自然是非常感謝您，但我父母兄長恐怕並不樂意。」</p></div></article>
+<article class="m narr"><div class="body"><p>溫熱的吐息混著她髮間淡雅的百合花香拂過耳廓，文森特搭在她背脊上的右手並未收緊，只是順著樂曲收尾的節拍，極為穩當地引著她滑出最後半圈。</p><p>銅管樂的尾音在挑高的石膏天花板下緩緩消散，取而代之的是滿場賓客禮貌而克制的掌聲。銀色托盤在黑衣侍者手中穿梭，香檳氣泡細碎地破裂，水晶燈光映在無數雙帶著探究與打量的眼睛裡。</p><p>文森特在掌聲中鬆開手，退開恰到好處的半步，卻在直起身時，目光落在她微揚的臉龐上，深褐色的眼底掠過一絲極淡的笑意——不是嘲諷，倒像是聽見了一個無傷大雅的小小違規。</p></div></article>
+<article class="m speech"><div class="body"><p>「我通常不重複第二遍說過的話，葛萊蒂絲。」</p></div></article>
+<article class="m narr"><div class="body"><p>他將右手收回禮服前襟旁，指節不經意地理了理領結下方的硬挺襯衫，嗓音壓得極低，低沉的西西里尾音在周遭嗡嗡的寒暄聲中顯得格外清晰。</p></div></article>
+<article class="m speech"><div class="body"><p>「再叫我一聲『先生』，我就當妳是在提醒我，我們之間連這點基本的默契都還沒建立起來。」</p></div></article>
+<article class="m narr"><div class="body"><p>話雖帶著幾分不容拒絕的壓迫感，他的神情卻依舊溫和得體，面對幾位朝這邊舉杯致意的市議員夫人，從容地頷首回禮。待那幾道視線移開，他才重新垂眸看向身側的未婚妻，將她方才那句帶著試探與無奈的耳語聽進心裡。</p><p>上城千金口中的「一點麻煩」，無非是哪家姑娘收了不該收的情書、欠了皇冠大道裁縫店的帳，又或者在社交季裡得罪了哪位長舌的伯爵夫人。文森特對此並不怎麼放在心上，更沒有打探年輕女孩私密交友圈的興致。但他向來講究公平——既然葛萊蒂絲今晚已經配合兩家演足了這場訂婚大戲，給足了莫雷蒂與哈靈頓雙方的體面，那麼在她的家族規矩裡替她開一扇小小的後門，對他而言不過是舉手之勞。</p></div></article>
+<article class="m speech"><div class="body"><p>「今晚是我們的訂婚宴，在這個屋簷下，除了令尊，還沒有人比我更有資格耽誤妳的時間。」</p></div></article>
+<article class="m narr"><div class="body"><p>他微微側過身，替她擋開不遠處《先驅報》記者試圖再次湊近的鏡頭，向她彎起手臂。</p></div></article>
+<article class="m speech"><div class="body"><p>「至於妳的朋友碰上什麼麻煩——如果是錢能解決的小事，或者需要有人出面替她打個招呼，妳隨時可以讓司機傳個話到皇冠大道。妳既然戴上了莫雷蒂家的戒指，就不必為這點瑣事皺眉頭。」</p></div></article>
+<article class="m narr"><div class="body"><p>他低頭看了一眼她無名指上那枚切割完美的鑽戒——那是兩週前薩爾瓦多替他從珠寶商那裡挑來的，克拉數足夠讓凡德米爾高地任何一位挑剔的貴婦閉嘴，卻沒有半點私人情感的溫度。</p><p>還沒等兩人邁開步子，一道修長冷峻的身影便穿過三三兩兩的賓客，停在了他們面前。</p></div></article>
+<article class="m speech"><div class="body"><p>「跳得不錯，葛萊蒂絲。雖然那首曲子的節奏對這個場合來說，未免顯得過於輕浮了些。」</p></div></article>
+<article class="m narr"><div class="body"><p>查爾斯．哈靈頓端著一隻幾乎沒怎麼動過的水晶香檳杯，淺金棕色的頭髮梳得一絲不苟，藍灰色的眼眸先是在妹妹臉上停留片刻，像是在檢查一件剛從展示櫃裡取出來的家族瓷器是否有半點磕碰，隨即才轉向文森特，唇角扯出一抹教科書般標準而冷淡的弧度。</p></div></article>
+<article class="m speech"><div class="body"><p>「莫雷蒂先生，家父在書房外頭的偏廳與幾位信託銀行的老股東談話，剛才還提起你。我想你應該不會介意過去喝杯白蘭地——至於葛萊蒂絲，哈靈頓夫人的幾位世交正等著向她道賀，她今晚恐怕還有得忙。」</p></div></article>
+<article class="m narr"><div class="body"><p>查爾斯的話說得滴水不漏，字裡行間卻像一道無形的藩籬，精準地將這位來自南岸的新貴與上城女眷的社交圈隔開，同時也順理成章地掐斷了葛萊蒂絲任何離開視線的可能。</p><p>不遠處的拱門邊，一直端著酒杯觀望的薩爾瓦多不知何時也漫步走了過來。他穿著一身剪裁極佳的奶油白晚禮服外套，與滿廳深沉的黑色燕尾服格格不入，卻偏偏襯得他那雙琥珀色的眼睛愈發風流明亮。</p></div></article>
+<article class="m speech"><div class="body"><p>「查爾斯先生說得是，今晚想跟我們準新娘說上兩句話的人，大概能從這裡一路排到凡德米爾公園的鐵門外。」</p></div></article>
+<article class="m narr"><div class="body"><p>薩爾瓦多笑吟吟地插話，目光越過查爾斯緊繃的肩線，落在葛萊蒂絲臉上，饒有興致地眨了下眼，語氣輕快得像是在聊明天天氣。</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 21:55</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">凡德米爾高地．哈靈頓宅邸</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>002</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，神情從容，站在葛萊蒂絲身側擋開記者鏡頭</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服，配戴白蕾絲及肘手套，無名指戴著巨鑽戒指，神情略顯蒼白</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「這女孩倒是誠實得有趣，看來這樁婚約對她而言確實是道沉重的枷鎖。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>查爾斯．哈靈頓：端著酒杯冷淡地審視葛萊蒂絲並試圖支開文森特<br>薩爾瓦多．里奇：穿著奶油白晚禮服，含笑插話並試圖替葛萊蒂絲解圍<br>愛德華．哈靈頓：在遠處與銀行董事交談，眼角餘光留意此處<br>伊莉諾．哈靈頓：在場邊與世交夫人們交談</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>無</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 4 回合</p>
+<article class="m speech"><div class="body"></div></article>
+<article class="m narr"><div class="body"><p>薩爾瓦多話音未落，文森特深褐色的目光已平靜地迎上查爾斯那雙帶著排斥的藍灰眼眸。訂婚宴傳統由女方父母主辦，新娘父親祝酒宣布後，已訂婚的男女理當整晚同席共進退；查爾斯試圖在眾目睽睽之下將準新郎支去偏廳、把準新娘單獨留在外場應酬，表面上是體恤長輩與賓客，實則隱含著哈靈頓家對莫雷蒂出身的輕慢。</p><p>文森特沒有動怒，甚至連搭在身側的手指都未曾緊繃半分。他只是順勢將彎起的手臂往葛萊蒂絲身前遞近寸許，示意她挽上自己，隨後才不疾不徐地開口。</p></div></article>
+<article class="m speech"><div class="body"><p>「令尊的白蘭地我自然要去敬一杯，不過按照規矩，今晚宣布訂婚後，葛萊蒂絲理當與我同進同出。」</p></div></article>
+<article class="m narr"><div class="body"><p>他低沉的嗓音平緩而清晰，帶著西西里人特有的沉穩咬字，既全了哈靈頓家的面子，也毫不退讓地踩住了自己身為未婚夫的立場。</p></div></article>
+<article class="m speech"><div class="body"><p>「正好我也得向哈靈頓先生與夫人致意。剛才跳舞時，葛萊蒂絲的手指冰得厲害，這廳裡人多悶熱，她從開席起便一直強撐著精神應付賓客——要是讓準新娘在自己的訂婚宴上累出病來，傳出去不僅哈靈頓家失禮，外頭的人恐怕還會以為我這個做未婚夫的不懂得體恤。」</p></div></article>
+<article class="m narr"><div class="body"><p>查爾斯眉心微不可察地蹙了一下，握著香檳杯的指節略微泛白。偏偏文森特搬出的是上流社交界最挑不出錯處的體面與名聲——大蕭條後哈靈頓宅邸的僕役本就減了一半，今晚為了撐起昔日排場已是傾盡全力，倘若葛萊蒂絲當真在眾目睽睽下露出倦容或失態，明日《先驅報》與《晚星報》的專欄作家絕不會放過這個大做文章的機會。</p></div></article>
+<article class="m speech"><div class="body"><p>「我倒沒聽她提起身體不適。」</p></div></article>
+<article class="m narr"><div class="body"><p>查爾斯冷淡地轉向妹妹，目光在她略顯蒼白的臉龐上停了一瞬，語氣裡帶著兄長慣有的審視與挑剔。</p></div></article>
+<article class="m speech"><div class="body"><p>「況且母親那邊還有幾位專程從波士頓趕來的世交夫人——」</p><p>「波士頓來的夫人們向來最講究排場，查爾斯先生，但我想她們應該更樂意見到一位懂得疼惜未婚妻的準女婿，而不是看著哈靈頓小姐勉強應酬。」</p></div></article>
+<article class="m narr"><div class="body"><p>薩爾瓦多適時晃了晃手中的酒杯，唇邊掛著無懈可擊的社交微笑，輕巧地接過話頭。</p></div></article>
+<article class="m speech"><div class="body"><p>「至於偏廳裡那幾位銀行的老先生，我剛才路過時瞧見他們正聊著市政債券的利率，一時半刻還散不了席。文森特帶哈靈頓小姐去向令尊說一聲，不過耽誤幾分鐘的工夫。」</p></div></article>
+<article class="m narr"><div class="body"><p>文森特不再給查爾斯繼續糾纏的餘地。他朝這位未來的內兄極輕地頷首，隨即側過身，穩穩護著葛萊蒂絲穿過衣香鬢影的宴會廳，徑直走向正與幾位世交夫人談笑的伊莉諾．哈靈頓，以及剛從偏廳門口踱步出來的愛德華．哈靈頓。</p><p>愛德華手裡還端著一隻矮腳白蘭地杯，見到兩人並肩走近，精明冷淡的臉上立刻浮現出主家應有的得體微笑；畢竟莫雷蒂家族注入哈靈頓信託銀行的那筆龐大資金，此刻正實打實地填補著帳面上的虧空。</p></div></article>
+<article class="m speech"><div class="body"><p>「哈靈頓先生，哈靈頓夫人。」</p></div></article>
+<article class="m narr"><div class="body"><p>文森特停下腳步，姿態端正地欠了欠身，禮數周全得連最挑剔的伊莉諾也找不出一絲錯處。</p></div></article>
+<article class="m speech"><div class="body"><p>「感謝兩位今晚盛情的安排。只是葛萊蒂絲為了這場晚宴忙了一整天，剛才在舞池裡便有些頭暈。我想先向兩位告個假，讓她退席休息半小時、透口氣；這段時間我正好去偏廳陪幾位銀行董事喝杯酒，替她把外頭的客套應付過去。」</p></div></article>
+<article class="m narr"><div class="body"><p>伊莉諾聞言，端莊的笑容微微一滯，目光立刻落向女兒挽起的金髮與缺乏血色的臉頰。身為上城社交圈最看重顏面的女主人，她自然不希望女兒在訂婚宴中途離場，可更不能容許女兒在賓客面前失儀；況且未婚夫親自出面替未婚妻向父母請假，在社交禮儀上非但不算失禮，反倒能替這樁外界議論紛紛的聯姻添上一筆「郎才女貌、體貼入微」的佳話。</p><p>愛德華與妻子交換了一個眼神，隨即舉起白蘭地杯，語氣溫和地拍板定案。</p></div></article>
+<article class="m speech"><div class="body"><p>「既然文森特這麼說，那便讓葛萊蒂絲回樓上歇一會兒吧。今晚賓客多，確實辛苦她了。」</p></div></article>
+<article class="m narr"><div class="body"><p>伊莉諾也順勢用蕾絲摺扇掩了掩唇，對身旁的幾位夫人柔聲笑嘆了一句年輕人懂得心疼人，轉頭叮囑葛萊蒂絲不必急著下來，樓下自有父母與未婚夫照應。</p><p>待兩位長輩應允、周遭夫人們紛紛露出善意的微笑後，文森特才陪著葛萊蒂絲退開兩步，走到通往門廳與側梯的雕花拱門廊柱下。這裡恰好避開了宴會廳中央的燈光與記者視線，只有窗外連綿的秋雨敲打著彩繪玻璃，發出低沉而細密的聲響。</p><p>他停下腳步，從禮服內袋取出一枚折疊整齊的白色亞麻手帕，卻沒有逾矩地去擦拭她的臉，只是遞到她面前，同時壓低嗓音開口。</p></div></article>
+<article class="m speech"><div class="body"><p>「哈靈頓宅邸的後門連著車道，我的司機把車停在側門外的梧桐樹下，車牌這城裡的巡警都認得，沒人會攔。」</p></div></article>
+<article class="m narr"><div class="body"><p>未婚女性在夜間獨自外出本是上流社會的大忌，一旦被八卦記者或長舌僕役撞見，足以釀成損及兩家顏面的醜聞；因此他連退路與遮掩都一併替她算準了——莫雷蒂家的黑頭轎車與貼身司機守口如瓶，既能充當合乎體面的護衛，也能確保她半小時內安全往返而不留半點把柄。</p></div></article>
+<article class="m speech"><div class="body"><p>「告訴司機妳要去哪裡，他在巷口等妳，不會多問半句，也不會跟上樓。」</p></div></article>
+<article class="m narr"><div class="body"><p>文森特深褐色的眼睛垂視著她，廊柱陰影將他深邃的五官襯得愈發沉靜。他抬手看了一眼腕錶，隨後重新望向她。</p></div></article>
+<article class="m speech"><div class="body"><p>「現在是十點整。去處理妳朋友的事吧，葛萊蒂絲——十一點前從側門回來，偏廳那群銀行家，我替妳擋著。</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 22:05</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">凡德米爾高地．哈靈頓宅邸</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>003</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，神情沉靜，站在雕花拱門廊柱下遞出手帕</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服，配戴白蕾絲及肘手套，無名指戴著巨鑽戒指，神情略顯蒼白</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「既然妳想玩這場逃跑遊戲，我就替妳把門守好，看看妳能帶回什麼樣的秘密。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>愛德華．哈靈頓：在偏廳門口與文森特交談後準備回席<br>伊莉諾．哈靈頓：與世交夫人們談論女兒的婚事<br>查爾斯．哈靈頓：在舞池邊冷臉注視著文森特與葛萊蒂絲<br>薩爾瓦多．里奇：端著酒杯在旁觀望，嘴角帶著玩味的笑</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・文森特：協助葛萊蒂絲在十一點前私下離場處理私事並提供司機掩護</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 5 回合</p>
+<article class="m speech"><div class="body"><p>「噢，謝謝你，文森特，你真是我的救星。」葛萊蒂絲燦笑如花，踮起腳尖在文森特臉上印下一個輕柔的吻。和前面那副生疏的模樣不同，此刻的她變得熱情許多。「我朋友的事恐怕沒辦法一下就處理好，但我至少可以去陪她說說話，讓她不用一個人度過這難捱的夜晚……」</p></div></article>
+<article class="m narr"><div class="body"><p>臉頰傳來一觸即分的溫熱，帶著女孩唇瓣特有的柔軟與清甜的香檳氣息。文森特的身形微頓了半秒，深褐色的眼眸裡閃過一絲極短暫的詫異，隨即被一種近乎縱容的平靜覆蓋。</p><p>他沒有伸手去撫摸那處被吻過的皮膚，也沒有像對待艾許頓廣場那位女人般順勢將她摟進懷裡調情。對於哈靈頓家的千金，他向來拿捏著紳士的尺度——這個吻更像是小女孩在得償所願後，出於感激而給予的獎賞，無關情慾，卻比方才在舞池裡那副疏離的假面生動得多。</p></div></article>
+<article class="m speech"><div class="body"><p>「去吧。外頭雨大，讓司機替妳撐傘。」</p></div></article>
+<article class="m narr"><div class="body"><p>他將手中的白色亞麻手帕輕輕放進她戴著蕾絲手套的掌心，指腹隔著薄薄的布料極輕地按了一下，語氣依舊從容不迫，彷彿只是打發她去樓上換雙舒適的鞋子。</p><p>葛萊蒂絲將手帕攥緊，提著及地長裙的裙擺，朝他再次露出一個明媚的笑容，隨即轉身沿著側梯旁的走廊快步離去。白色絲質裙襬在昏暗的廊柱陰影裡掠過一道流暢的弧線，很快便消失在通往後門的轉角。</p><p>文森特在原地站了片刻，直到聽見厚重木門開合的極輕微聲響，這才轉身整理了一下袖口，邁步朝燈火通明的偏廳走去。</p></div></article>
+<article class="m speech"><div class="body"><p>---</p></div></article>
+<article class="m narr"><div class="body"><p>哈靈頓宅邸的後門外，十一月的冷雨正斜斜地敲打著石階與梧桐樹葉。一輛黑色的凱迪拉克轎車靜靜停在樹影下，車燈未亮，唯有引擎維持著極低沉的怠速運轉。</p><p>穿著深色呢子大衣的司機早已等候在側門廊下，見葛萊蒂絲提著裙襬走出來，立刻熟練地撐開一把寬大的黑傘迎上前，替她擋住頭頂紛飛的雨絲，並拉開了後座車門。</p></div></article>
+<article class="m speech"><div class="body"><p>「小姐，請上車。莫雷蒂先生交代過，今晚由我送您過去。」</p></div></article>
+<article class="m narr"><div class="body"><p>車廂內開著暖氣，與外頭潮濕陰冷的夜色截然不同，空氣裡飄散著一絲極淡的皮革與雪茄餘味。待葛萊蒂絲坐穩、司機繞回駕駛座關上車門，隔音極佳的車窗頓時將凡德米爾高地的雨聲與遠處隱約的樂聲隔絕在外。</p><p>司機從後視鏡裡禮貌地看了她一眼，雙手穩穩扶著方向盤，沒有多問半句關於她為何穿著晚禮服獨自出門的緣由。</p></div></article>
+<article class="m speech"><div class="body"><p>「請問我們現在去哪裡，小姐？」</p></div></article>
+<article class="m narr"><div class="body"><p>轎車緩緩滑出樹影，車頭燈切開雨幕，沿著凡德米爾高地安靜的石子車道向下駛去。</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 22:05</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">凡德米爾高地．哈靈頓宅邸後門外</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>004</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，已轉身前往偏廳應酬銀行董事</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服，配戴白蕾絲及肘手套，無名指戴著巨鑽戒指，手裡攥著文森特的手帕</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「看來只要給她一點甜頭，這位哈靈頓小姐倒也不是那麼難相處。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>莫雷蒂家司機：在駕駛座上等候葛萊蒂絲指示目的地</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・文森特：協助葛萊蒂絲在十一點前私下離場處理私事並提供司機掩護</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 6 回合</p>
+<article class="m speech"><div class="body"><p>「去艾許頓廣場。」葛萊蒂絲報出的地址，正是露琪亞‧馬里諾所在的那間公寓。</p></div></article>
+<article class="m narr"><div class="body"><p>後視鏡裡那雙慣常平靜的眼睛，在聽見「艾許頓廣場」四個字時，幾不可察地停頓了半秒。</p><p>身為莫雷蒂先生的貼身司機，他每週六深夜都得把老闆載往那座位於皇冠大道東側的幽靜住宅區，再於天亮前接人離開，自然再清楚不過那裡住著誰。只是今夜坐在後座的，是剛在凡德米爾高地宣布訂婚的哈靈頓小姐——而她正穿著及地絲質晚禮服、戴著莫雷蒂家送出的巨鑽戒指，在自己的訂婚宴中途去見那位住在頂樓公寓的女人。</p><p>司機沒有發出任何驚訝的聲響，也沒有多餘的眼神。莫雷蒂家手底下的人向來懂得一條鐵律：不該問的事別問，不該看的事別看，少爺交代過今晚順著未婚妻的意思辦，他便只管把車平穩地開到目的地。</p></div></article>
+<article class="m speech"><div class="body"><p>「好的，小姐。」</p></div></article>
+<article class="m narr"><div class="body"><p>他應了一聲，嗓音平穩如常，隨即打下方向盤，讓黑色的凱迪拉克滑出凡德米爾高地濕漉漉的林蔭道，朝中城方向駛去。</p><p>雨刷在擋風玻璃上有節奏地左右擺動，將十一月的冷雨與街燈昏黃的光暈一次次刮開。車廂裡安靜得只聽見暖氣出風口極輕微的氣流聲，以及輪胎碾過濕滑柏油路面的沙沙響動。司機從後視鏡裡瞥見後座的少女微微側著臉望向窗外，指尖無意識地攥著少爺遞給她的白色亞麻手帕，神情卻不見半點將要與人攤牌的鋒利，反倒帶著幾分難以言喻的掛念。</p><p>二十分鐘後，轎車駛離了霓虹閃爍、車水馬龍的皇冠大道，轉入東側幽靜的艾許頓廣場。這裡的夜色比凡德米爾高地更深沉些，高大的鑄鐵圍欄圈起中央那座只有住戶持鑰匙才能進入的私人花園，雨水打在落葉喬木與石砌步道上，四周高級公寓的窗戶大多已經熄了燈，只有幾盞門廊燈在雨霧裡暈開柔和的暖光。</p><p>司機依照文森特先前的交代，沒有直接將車開到公寓大門正前方，而是熟練地滑進廣場邊緣一處背光的巷口，熄了車頭燈，只留著引擎極輕的怠速聲。他撐開黑傘下車，繞到右側拉開後座車門，替葛萊蒂絲遮住斜飛進來的雨絲。</p></div></article>
+<article class="m speech"><div class="body"><p>「艾許頓廣場到了，小姐。我就在這兒等您，您不必趕時間，辦完事出來便是。」</p></div></article>
+<article class="m narr"><div class="body"><p>他禮貌地欠了欠身，目光平視著前方雨幕，沒有多看那棟頂樓亮著微弱燈光的公寓大樓一眼，也沒有再多問半句。</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 22:25</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">艾許頓廣場．公寓外巷口</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>005</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，在哈靈頓宅邸偏廳內與愛德華及銀行董事們交談應酬</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服，配戴白蕾絲及肘手套，無名指戴著巨鑽戒指，手裡攥著文森特的手帕</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「這群銀行家嘴上說著體面話，心裡算盤打得比誰都響，希望她那邊能快點解決。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>莫雷蒂家司機：撐著黑傘站在車門旁，在巷口等候葛萊蒂絲</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・文森特：協助葛萊蒂絲在十一點前私下離場處理私事並提供司機掩護</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 7 回合</p>
+<article class="m speech"><div class="body"><p>不顧自己一身華服，葛萊蒂絲一如往常地按下露琪亞家門前的電鈴。</p></div></article>
+<article class="m narr"><div class="body"><p>電鈴在安靜的頂樓走廊裡響起，清脆而短促，隨即被厚實的胡桃木門隔絕成一聲沉悶的回音。葛萊蒂絲站在門前，絲質晚禮服的裙襬還帶著巷口雨水濺上的深色水漬，與這棟安靜、溫暖、鋪著酒紅色地毯的走廊顯得格格不入。</p><p>葛萊蒂絲‧哈靈頓與露琪亞‧馬里諾是在去年秋天認識的。</p><p>那天，伊莉諾‧哈靈頓夫人為了社交季的慈善晚宴，帶她去皇冠大道那家只做熟客生意的高級女裝店試禮服。母親在試衣間外與店長挑剔法國蕾絲的成色，葛萊蒂絲則被這場漫長的量身折騰得透不過氣，獨自繞到後頭的布料間透氣。就在那裡，她遇見了露琪亞‧馬里諾，她這輩子最重要的朋友。</p><p>葛萊蒂絲喜歡露琪亞的一切，喜歡她微笑時微瞇的眼角與爽朗的笑聲，口袋裡的檸檬糖與餐桌上地道的義大利肉醬麵，以及露琪亞帶她造訪過的每一個地方，彷彿認識了露琪亞後，她才真正認識了從小生活的這座城市。</p><p>葛萊蒂絲喜歡露琪亞，一個她自己交到，而非家裡為她決定的朋友。</p></div></article>
+<article class="m speech"><div class="body"><p>她沒有讓家裡知道她與露琪亞的友誼，所以，後來那件事才會發生。</p><p>家裡為她安排的未婚夫，正是露琪亞多年的戀人。社交界的耳語無孔不入，葛萊蒂絲沒花多久的時間就知道了文森特的秘密戀人是誰──那天她正想去找露琪亞抱怨家裡不顧她的意願為她安排了婚姻，然後便看見她的未婚夫走進露琪亞的公寓。她不是傻子，她一下便猜到了一切。</p><p>葛萊蒂絲不喜歡藏話，《晚星報》剛刊登哈靈頓家與莫雷蒂家要聯姻的新聞，隔天她就約了露琪亞出來。</p><p>而露琪亞的態度遠比她所想像的要平靜。</p><p>露琪亞說，她知道文森特是莫雷蒂家的繼承人，知道他遲早會娶一位像葛萊蒂絲這樣出身名門的千金，更知道自己這輩子都不可能踏進聖羅莎教堂的紅毯。她說這座公寓是文森特買的，週六的夜晚也是她的，這對她來說已經足夠。</p><p>露琪亞接受了她的命運，但葛萊蒂絲沒有。</p><p>門鎖終於發出「喀噠」一聲輕響，將葛萊蒂絲從回憶裡拉回現實。</p><p>木門向內拉開。露琪亞顯然剛洗完澡，身上只套著一件酒紅色的絲質睡袍，領口微敞，露出鎖骨與那枚貼著橄欖色肌膚的舊金十字架。她那頭深色長捲髮濕漉漉地披在肩頭，原本正拿著毛巾擦拭髮尾，在看見門外站著一身雪白絲質晚禮服、無名指上戴著那枚足以刺傷眼睛的巨鑽戒指的葛萊蒂絲時，整個人明顯愣住了。</p><p>毛巾停在半空，露琪亞那雙深褐色的眼眸裡先是閃過一絲驚愕，隨即迅速化為某種複雜的關切與無奈。她下意識地往門外走廊張望了一眼，確定沒有其他人跟著，這才側身讓開一條路，壓低嗓音開口。</p></div></article>
+<article class="m narr"><div class="body"><p>「天哪，葛萊蒂絲……妳怎麼會在這個時候跑出來？」</p></div></article>
+<article class="m speech"><div class="body"><p>她一把拉住葛萊蒂絲戴著白蕾絲手套的手腕，將她拽進溫暖的玄關裡，順手關上門並反鎖。屋內點著一盞昏黃的落地燈，空氣裡瀰漫著玫瑰沐浴露與淡淡的雪茄餘味。露琪亞的目光落在她濕透的裙襬上，眉頭微微蹙起。</p></div></article>
+<article class="m narr"><div class="body"><p>「今晚不是妳的訂婚宴嗎？妳這樣穿著禮服跑出來，要是被哈靈頓夫人發現了怎麼辦？」</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 22:30</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">艾許頓廣場．露琪亞的頂樓公寓</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>006</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，在哈靈頓宅邸偏廳內與愛德華及銀行董事們交談應酬</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕），配戴白蕾絲及肘手套，無名指戴著巨鑽戒指，手裡攥著文森特的手帕</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「偏廳的雪茄味太重了，希望那邊的事情別耽誤太久，十一點前她得回來才行。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>露琪亞：剛洗完澡穿著絲質睡袍，將葛萊蒂絲拉進玄關並反鎖房門</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・文森特：協助葛萊蒂絲在十一點前私下離場處理私事並提供司機掩護</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 8 回合</p>
+<article class="m speech"><div class="body"><p>「反正文森特・莫雷蒂看中的是我的姓氏，讓我爸爸跟哥哥陪他就夠了吧。放心，媽媽不會發現我溜出來的，尊敬的文森特先生正在替我打掩護呢。」</p><p>葛萊蒂絲話還沒說完，就給了露琪亞一個擁抱。</p><p>「我怎麼能在這樣的日子留你一個人孤單寂寞地喝悶酒呢？雖然我是沒辦法外帶文森特過來，但這個倒是可以給你。」</p><p>葛萊蒂絲拔下無名指上的鑽戒，比劃了一下露琪亞的手。</p><p>「來，熱騰騰的鑽戒，婚禮前幫我保管著吧。這鑽戒對我來說實在太重了。」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞被她抱得微微一晃，剛擦過頭髮的毛巾險些滑落。她身上的絲質睡袍還帶著剛出浴的暖意，與葛萊蒂絲晚禮服上沾染的十一月冷雨形成鮮明對比。</p><p>還沒等露琪亞回過神來，葛萊蒂絲已經利落地褪下左手蕾絲手套，將那枚在昏黃燈光下折出刺目火彩的巨鑽戒指拔了下來，甚至真的往她指間比劃了一下。</p><p>露琪亞的視線落在那枚戒指上，臉上的笑意頓時收斂了幾分。她沒有伸手去接，反而輕輕握住葛萊蒂絲冰涼的手腕，將她的手推了回去，語氣裡透著一種經歷過世事的清醒與無奈。</p></div></article>
+<article class="m speech"><div class="body"><p>「葛萊蒂絲，別鬧。」</p></div></article>
+<article class="m narr"><div class="body"><p>她低聲說著，順手替葛萊蒂絲把滑落肩頭的披肩攏好，目光卻始終沒有離開那枚戒指。</p></div></article>
+<article class="m speech"><div class="body"><p>「這東西我不能碰，更不能替妳保管。妳知道這上面綁著多少東西嗎？莫雷蒂家的面子、哈靈頓銀行的帳本，還有妳父親今晚在偏廳裡談的每一筆生意。」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞轉身走向客廳的小圓桌，那裡果然擺著半瓶開過的義大利紅酒和一隻高腳杯，顯然在她出門前，這間屋子裡並不像表面看起來那麼平靜。她替葛萊蒂絲倒了一小杯酒，遞過去時，指尖輕輕碰了碰那枚被葛萊蒂絲攥在掌心的戒指，眼神柔和卻堅定。</p></div></article>
+<article class="m speech"><div class="body"><p>「況且，」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞扯了扯嘴角，露出一個帶著幾分自嘲的笑，</p></div></article>
+<article class="m speech"><div class="body"><p>「就算我戴上了，也只會是個笑話。妳十一點前得趕回凡德米爾高地，要是讓哈靈頓夫人或文森特看見妳空著無名指回去，明天《晚星報》的頭版就該換人寫了。」</p></div></article>
+<article class="m narr"><div class="body"><p>她拍了拍葛萊蒂絲的手背，把那枚沉甸甸的鑽戒重新推回她手裡，自己則端起酒杯抿了一口，靠在沙發扶手邊看著她。</p></div></article>
+<article class="m speech"><div class="body"><p>「倒是妳，文森特竟然替妳打掩護？他知不知道妳這趟是往艾許頓廣場跑？」</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 22:35</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">艾許頓廣場．露琪亞的頂樓公寓</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>007</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，在哈靈頓宅邸偏廳內與愛德華及銀行董事們交談應酬</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕），左手脫下手套，手裡拿著拔下的巨鑽戒指與紅酒杯</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「這群銀行家嘴上說著體面話，心裡算盤打得比誰都響，希望她那邊能快點解決。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>露琪亞：穿著酒紅色絲質睡袍，將鑽戒推回給葛萊蒂絲並倒了紅酒</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・文森特：協助葛萊蒂絲在十一點前私下離場處理私事並提供司機掩護</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 9 回合</p>
+<article class="m speech"><div class="body"><p>「我便說戒指掉在了路上吧，莫雷蒂先生難道還能因此不娶我嗎？」她微微眨眨眼。「莫雷蒂先生看我今晚悶悶不樂……『哈靈頓家的晚宴向來這麼讓人喘不過氣嗎？妳從剛才宣布訂婚起，好像就沒真正高興過。如果是累了，等這支舞結束，我可以替妳向令尊告個假，沒人敢挑剔今晚的女主角早退半小時。』」</p><p>葛萊蒂絲唯妙唯肖地模仿著文森特的口氣。</p><p>「他都這麼說了，我怎麼能不給他一個機會呢？我告訴他，我有一位非常親密的朋友最近碰上了一點麻煩……我很擔心她，腦海裡都是她的事。你知道的，我當時的確滿腦子都在想你呀。」</p><p>「於是，偉大的莫雷蒂先生說：『妳的朋友碰上什麼麻煩——如果是錢能解決的小事，或者需要有人出面替她打個招呼，妳隨時可以讓司機傳個話到皇冠大道。妳既然戴上了莫雷蒂家的戒指，就不必為這點瑣事皺眉頭。』」</p><p>「雖然他無法解決我親愛的朋友遇人不淑，情人花心的問題，但放我溜出來透透氣，陪你說說話還是可以的，我便讓他為我效勞囉。」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞聽見葛萊蒂絲學著文森特說話的語氣，先是一怔，隨即忍不住低笑出聲，只是那笑意裡帶著幾分無奈與苦澀。她將酒杯擱在圓桌上，伸手輕輕點了點葛萊蒂絲的額頭。</p></div></article>
+<article class="m speech"><div class="body"><p>「妳呀，簡直把他的腔調學了個十成十。不過我得提醒妳，在莫雷蒂先生面前可別這麼俏皮，他這個人最不喜歡別人拿正經事開玩笑。」</p></div></article>
+<article class="m narr"><div class="body"><p>她走到窗邊，隔著被雨水打濕的玻璃往下望了一眼。艾許頓廣場的夜色深沉，路燈在濕漉漉的柏油路上暈開一圈圈昏黃的光影。巷口那輛黑色轎車熄了燈，安靜地停在樹蔭底下，像一頭蟄伏的獸。露琪亞拉上厚重的天鵝絨窗簾，遮住了外頭的視線，也彷彿將那個屬於凡德米爾高地與莫雷蒂家族的世界暫時隔絕在外。</p></div></article>
+<article class="m speech"><div class="body"><p>「他對妳倒還算體貼。」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞轉過身，靠在窗台邊，雙手抱胸看著葛萊蒂絲，語氣平靜得像在談論別人的事，</p></div></article>
+<article class="m speech"><div class="body"><p>「至少他知道妳今晚不好受，還肯派車送妳出來透氣。換作是聖羅莎區那些老派的男人，這會兒大概只會要妳乖乖待在客廳裡，對著每一個上門道賀的銀行家微笑。」</p></div></article>
+<article class="m narr"><div class="body"><p>她走回沙發旁坐下，順手拍了拍身側的空位，示意葛萊蒂絲也坐下來暖暖身子。屋裡的暖氣燒得很足，與外頭十一月的冷雨截然不同。露琪亞拿過一條羊毛披肩，替葛萊蒂絲蓋在微濕的裙襬上，指尖觸及絲質布料上的涼意時，眉頭又微微皺了一下。</p></div></article>
+<article class="m speech"><div class="body"><p>「說真的，葛萊蒂絲，妳不該在這種時候跑來這裡。那個司機是文森特的貼身人，他心裡也清楚這是什麼地方。今晚是你們的訂婚夜，要是讓莫雷蒂家的人知道妳偷偷跑來找我，他們不會怪妳，只會覺得是我不懂規矩、不安分。」</p></div></article>
+<article class="m narr"><div class="body"><p>她端起自己的酒杯，看著杯底晃動的深紅色液體，輕輕嘆了口氣。</p></div></article>
+<article class="m speech"><div class="body"><p>「我已經很習慣這種日子了，真的。妳不用替我抱不平，更不用為了陪我而冒險。妳現在是哈靈頓小姐，過了今夜，全維斯珀港都知道妳是文森特・莫雷蒂的未婚妻。」</p></div></article>
+<article class="m narr"><div class="body"><p>壁爐上方的座鐘發出一聲輕微的「滴答」聲，露琪亞看了一眼時間，伸手握住葛萊蒂絲微涼的手指，將那枚被她攥在掌心的鑽戒輕輕合進她手裡。</p></div></article>
+<article class="m speech"><div class="body"><p>「好了，酒也喝了，話也說了，現在把戒指戴回去吧。妳得在宴會結束前回到凡德米爾高地，別讓文森特難做，也別讓哈靈頓夫人抓到妳的把柄。」</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 22:40</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">艾許頓廣場．露琪亞的頂樓公寓</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>008</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，在哈靈頓宅邸偏廳內與愛德華及銀行董事們交談應酬</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕，蓋著羊毛披肩），左手脫下手套，手裡握著巨鑽戒指與紅酒杯</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「這群銀行家嘴上說著體面話，心裡算盤打得比誰都響，希望她那邊能快點解決，十一點前得回來才行。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>露琪亞：坐在沙發上替葛萊蒂絲蓋上羊毛披肩，勸她戴回戒指並在十一點前趕回宅邸</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・文森特：協助葛萊蒂絲在十一點前私下離場處理私事並提供司機掩護</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 10 回合</p>
+<article class="m speech"><div class="body"><p>「你是我的朋友，若是有人刁難你，我便讓莫雷蒂先生出面整治他們呀。」葛萊蒂絲挽住露琪亞的手，「是莫雷蒂先生自己答應要照顧我的朋友的，怎麼能因為我的朋友是他的情婦，他就食言呢？他是我丈夫，『妳既然戴上了莫雷蒂家的戒指，就不必為這點瑣事皺眉頭。』──他是這麼說的呀，難道他是個空口說白話的男人？」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞被她那句「怎麼能因為我的朋友是他的情婦，他就食言呢」逗得差點嗆到，手裡的酒杯晃了晃，幾滴深紅色的酒液險些灑在酒紅色的絲質睡袍上。她趕緊將杯子擱回圓桌，轉過頭來，看著葛萊蒂絲挽著自己手臂的模樣，眼底的無奈終於化作一聲真切的輕笑。</p></div></article>
+<article class="m speech"><div class="body"><p>「天哪，葛萊蒂絲，這種話妳也就只能在我這兒說說。」</p></div></article>
+<article class="m narr"><div class="body"><p>她抬起另一隻手，用指腹輕輕點了點葛萊蒂絲的鼻尖，像是在安撫一個天真又執拗的小女孩。她沒有抽回手臂，反而任由葛萊蒂絲靠著自己，屋裡的暖氣將兩人身上的氣息烘得暖融融的——一邊是高級女裝店裡常見的玫瑰與雪松香，一邊是雨水打濕後的冷冽晚香玉。</p></div></article>
+<article class="m speech"><div class="body"><p>「他當然不是空口說白話的男人。莫雷蒂先生這輩子最看重的就是承諾與規矩，只要是他點頭應下的事，哪怕天塌下來也會替妳辦妥。」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞的聲音放得很輕，目光落在葛萊蒂絲那張被壁爐火光映得微紅的臉龐上，語氣裡帶著幾分只有她們兩人才懂的默契與戲謔。</p></div></article>
+<article class="m speech"><div class="body"><p>「只是啊，要是哪天他發現，妳口中那位需要他『出面照顧』的親密朋友，就是他每個禮拜六晚上都要會面的女人……真不知道他那張永遠波瀾不驚的臉會露出什麼表情。」</p></div></article>
+<article class="m narr"><div class="body"><p>她說著，忍不住低低笑了起來，肩膀微微聳動。笑過之後，她卻又收斂了神色，伸手輕輕理了理葛萊蒂絲耳邊被雨氣沾濕的幾縷金髮。</p></div></article>
+<article class="m speech"><div class="body"><p>「不過，我不需要他替我整治誰。在維斯珀港，沒人敢隨便刁難我，這一點妳大可放心。倒是妳，我的哈靈頓小姐——」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞的視線再次落回葛萊蒂絲那隻光禿禿的左手無名指上，隨即拉起她的手，將那枚冰涼的巨鑽戒指重新套回她的指根，動作輕柔卻不容拒絕。</p></div></article>
+<article class="m speech"><div class="body"><p>「妳現在可是全維斯珀港最受矚目的未婚妻。把這東西戴好，別真弄丟了。十一點快到了，妳那位講究規矩的未婚夫要是發現妳超時未歸，就算嘴上不說，心裡也會記上一筆的。」</p></div></article>
+<article class="m narr"><div class="body"><p>她站起身，替葛萊蒂絲把披肩攏緊，順手拿起玄關架上那把黑色的長柄雨傘，陪著她往門口走去。</p></div></article>
+<article class="m speech"><div class="body"><p>「我給妳留了幾塊新到的法國蕾絲，等這陣子訂婚的風頭過了，妳再找個下午溜出來，我親自替妳量身。」</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 22:45</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">艾許頓廣場．露琪亞的頂樓公寓</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>009</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，在哈靈頓宅邸偏廳內與愛德華及銀行董事們交談應酬</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕，披著羊毛披肩），左手無名指重新戴上巨鑽戒指</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「這群銀行家嘴上說著體面話，心裡算盤打得比誰都響，希望她那邊能快點解決，十一點前得回來才行。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>露琪亞：替葛萊蒂絲戴回鑽戒，並送她到門口準備讓她趕回凡德米爾高地</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・文森特：協助葛萊蒂絲在十一點前私下離場處理私事並提供司機掩護</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 11 回合</p>
+<article class="m speech"><div class="body"><p>「不管他露出什麼表情，我都會鄭重地替我最好的朋友罵他是個負心漢。」葛萊蒂絲親了一下露琪亞的臉頰，「換作是你也一定會為我這麼做。說好囉親愛的，我要穿妳為我量身訂製的禮服。」</p></div></article>
+<article class="m narr"><div class="body"><p>露琪亞被葛萊蒂絲臉頰邊那一記溫熱的輕吻弄得一愣，隨即笑開了眼角，伸手輕輕推了她一把。</p></div></article>
+<article class="m speech"><div class="body"><p>「好，一言為定。等這陣子忙完了，我就把那幾塊法國蕾絲拿出來，替我們漂亮的哈靈頓小姐裁一件最合身的。」</p></div></article>
+<article class="m narr"><div class="body"><p>她打開厚重的雕花木門，走廊上的冷空氣立刻湧了進來。露琪亞站在門檻內，沒有再往外踏出一步，只是將手裡的黑色長柄雨傘遞給葛萊蒂絲，目光在她無名指那枚閃爍著冷光的巨鑽上停了一瞬，隨即溫柔地抬起頭。</p></div></article>
+<article class="m speech"><div class="body"><p>「路上小心，十一點前一定得趕回去。去吧。」</p></div></article>
+<article class="m narr"><div class="body"><p>葛萊蒂絲撐開傘，沿著鋪著暗紅地毯的樓梯快步下樓。推開公寓大門時，十一月的冷雨依舊細密地斜織著，艾許頓廣場的私人花園在雨幕中顯得幽暗而安靜。巷口那輛黑色轎車正安靜地等候著，司機一見到她的身影，立刻推門下車，撐著傘迎上來替她拉開後座車門。</p></div></article>
+<article class="m speech"><div class="body"><p>「小姐，時間剛剛好，我們現在回凡德米爾高地嗎？」</p></div></article>
+<article class="m narr"><div class="body"><p>車廂裡開著暖氣，與外頭的濕冷截然不同。轎車平穩地駛出巷口，沿著皇冠大道一路向北，雨刷在擋風玻璃上規律地左右擺動，將街燈的光影刷成一片模糊的昏黃。不過十幾分鐘的車程，車子便轉進了凡德米爾高地那條熟悉的林蔭道，最後在哈靈頓宅邸側門外的小徑邊停下。</p><p>宅邸二樓宴會廳的燈火依舊通明，隱約還能聽見裡頭傳來的弦樂與談笑聲。司機替她撐傘送到側門屋簷下，低聲道了句晚安便退回車旁。葛萊蒂絲收起傘，將臉上那抹在露琪亞面前才有的鬆弛笑意斂去，重新換上哈靈頓家千金應有的端莊與沉靜，這才推開側門走了進去。</p><p>走廊上空無一人，只有遠處偏廳偶爾傳來幾聲低沉的男聲。葛萊蒂絲沿著側廊往宴會廳的方向走，剛轉過雕花拱門，便看見一個高大的身影正倚在廊柱邊。</p><p>文森特手裡端著半杯白蘭地，黑色訂製無尾禮服襯得他肩寬腰窄，領結一絲不苟。他似乎剛從偏廳出來透氣，聽見腳步聲便轉過頭來，深褐色的眼眸在看見葛萊蒂絲的瞬間，目光先是落在她微濕的裙襬上，隨後才移回她的臉上。</p></div></article>
+<article class="m speech"><div class="body"><p>「十一點整。」</p></div></article>
+<article class="m narr"><div class="body"><p>文森特抬起手腕看了一眼金錶，語氣平靜從容，沒有半分催促或質問的意思，只是順手將手裡的酒杯擱在一旁的邊桌上，朝她走了過來，</p></div></article>
+<article class="m speech"><div class="body"><p>「妳比我預想的還要準時，葛萊蒂絲。外頭雨大，事情還順利嗎？」</p></div></article>
+<article class="m narr"><div class="body"><p>他停在離她兩步遠的地方，禮貌地保持著未婚夫應有的距離，卻又自然地從西裝口袋裡掏出一條乾淨的折疊手帕，遞到她面前，好讓她擦拭被雨氣沾濕的指尖與腕間。</p></div></article>
+<article class="m speech"><div class="body"><p>「令尊和幾位銀行董事還在偏廳裡談話，哈靈頓夫人剛才派人來問過一次，我替妳擋下來了，說妳在樓上休息。」</p></div></article>
+<article class="m narr"><div class="body"><p>文森特微微頷首，眼神溫和而周到，</p></div></article>
+<article class="m speech"><div class="body"><p>「如果妳準備好了，我們現在就回去露個面？」</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 11:00</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">凡德米爾高地．哈靈頓宅邸</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>010</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，站在哈靈頓宅邸側廊雕花拱門旁，剛接應回來的葛萊蒂絲</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕，披著羊毛披肩），左手無名指戴著巨鑽戒指</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「準時回來就好，只要她懂得顧全體面，這場戲就能順順利利演下去。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>無</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・露琪亞：下週找個下午去她那裡，由她親自替葛萊蒂絲量身訂製法國蕾絲禮服</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 12 回合</p>
+<article class="m speech"><div class="body"><p>「謝謝，可惜一個小時內要在艾許頓廣場與凡德米爾高地之間往返還是太倉卒了，我只有不到二十分鐘的時間能與她說說話。沒多久她就趕我回來參加訂婚宴了。」葛萊蒂絲理了理有些微濕的頭髮與禮服。「幸好她心情還不錯。是的，我已經準備好了。」</p></div></article>
+<article class="m narr"><div class="body"><p>文森特沒有追問那位朋友究竟是誰，也沒有對她口中的「二十分鐘」流露出半點好奇，彷彿這只是一場再尋常不過的社交插曲。</p></div></article>
+<article class="m speech"><div class="body"><p>「人沒事就好，有時候，女人之間說幾句貼心話，確實比什麼都管用。」</p></div></article>
+<article class="m narr"><div class="body"><p>他將那條折疊整齊的白色亞麻手帕遞到她手邊，見她接過後，才微微側過身，替她讓開通往大廳的方向，並自然地屈起左臂。</p></div></article>
+<article class="m speech"><div class="body"><p>「宴會廳裡的樂隊剛換了下一首華爾茲，令堂正和幾位太太站在壁爐旁。我們進去吧，別讓她們等太久。」</p></div></article>
+<article class="m narr"><div class="body"><p>當葛萊蒂絲將手輕輕搭上他的臂彎時，文森特能感覺到她指尖還帶著一絲外頭雨夜的微涼。他沒有刻意收緊手臂，只是維持著最標準、也最體面的社交距離，引領著她穿過雕花拱門，重新步入那片被水晶吊燈映得輝煌璀璨的宴會廳。</p><p>兩人的身影一出現，原本三三兩兩聚在一起低聲交談的賓客們，目光便不約而同地投了過來。哈靈頓夫人正與幾位上城名媛站在壁爐旁，看見女兒挽著文森特的手臂回來，緊繃的嘴角這才鬆緩下來，朝她微微頷首示意。</p><p>不遠處，薩爾瓦多正端著香檳與幾位銀行家的太太周旋，見兩人走進大廳，便舉杯朝文森特遙遙致意，琥珀色的眼底帶著幾分玩味的笑意；而站在愛德華身旁的查爾斯，則只是冷淡地掃了葛萊蒂絲一眼，目光在她微濕的裙襬上短暫停留了一秒，隨即移開視線，繼續與身旁的紳士低語。</p></div></article>
+<article class="m speech"><div class="body"><p>「看來我們這位新晉的未婚夫，比我想像中還要懂得照顧人。」</p></div></article>
+<article class="m narr"><div class="body"><p>薩爾瓦多不知何時已悄然踱步過來，笑吟吟地站在兩人側面，聲音壓得恰到好處，只有他們三人能聽見。他先是禮貌地向葛萊蒂絲欠了欠身，隨後才將目光轉向文森特。</p></div></article>
+<article class="m speech"><div class="body"><p>「不過，哈靈頓小姐的裙襬似乎沾了點露水？」</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 23:04</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">凡德米爾高地．哈靈頓宅邸</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>011</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，挽著葛萊蒂絲的手臂步入宴會廳</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕，披著羊毛披肩），左手無名指戴著巨鑽戒指</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「薩爾瓦多這張嘴總是多事，得找個機會讓他少往這邊湊。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>薩爾瓦多：端著香檳上前寒暄<br>伊莉諾：在壁爐旁與名媛交談並留意葛萊蒂絲<br>查爾斯：站在愛德華身旁冷淡旁觀</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・露琪亞：下週找個下午去她那裡，由她親自替葛萊蒂絲量身訂製法國蕾絲禮服</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 13 回合</p>
+<article class="m speech"><div class="body"><p>「噢，因為方才外頭的雨有些大，我在花台邊透氣的時候，裙襬跟頭髮有點被打濕。」她若無其事地說道。</p></div></article>
+<article class="m narr"><div class="body"><p>薩爾瓦多微微挑起眉梢，目光在葛萊蒂絲微濕的髮梢與裙襬間流轉了一瞬，隨即發出一聲低沉而愉悅的輕笑。他將手裡的香檳杯換到左手，姿態優雅得像是在歌劇院中場休息時與熟人寒暄。</p></div></article>
+<article class="m speech"><div class="body"><p>「哈靈頓小姐真是好興致，這樣冷的雨夜裡去花台邊透氣。」</p></div></article>
+<article class="m narr"><div class="body"><p>文森特神色不動，只淡淡地掃了薩爾瓦多一眼，隨即自然地接過話頭，語氣平穩得聽不出半點波瀾。</p></div></article>
+<article class="m speech"><div class="body"><p>「薩爾，愛德華先生剛才還在找你，似乎想問問皇冠大道那幾間新開的餐廳。」</p></div></article>
+<article class="m narr"><div class="body"><p>薩爾瓦多聞言，眼底的笑意更深了幾分，卻沒有再繼續追問下去。他朝葛萊蒂絲舉了舉杯，動作禮貌而克制。</p></div></article>
+<article class="m speech"><div class="body"><p>「既然如此，那我就不打擾兩位了。祝你們今晚愉快，哈靈頓小姐，文森特。」</p></div></article>
+<article class="m narr"><div class="body"><p>說罷，薩爾瓦多便轉身融入了不遠處的人群之中，背影顯得從容而隨性。直到他的身影徹底被幾位穿著燕尾服的紳士擋住，文森特這才收回視線，低頭看了一眼挽著自己手臂的葛萊蒂絲。</p></div></article>
+<article class="m speech"><div class="body"><p>「別理他，薩爾瓦多這張嘴向來管不住。」</p></div></article>
+<article class="m narr"><div class="body"><p>他的聲音壓得很低，帶著一種習慣性的沉穩與分寸感。與此同時，樂隊剛好奏響了一曲柔和的華爾茲，幾對年輕的男女已經開始往舞池中央移動。壁爐旁的哈靈頓夫人正朝這邊投來一個示意的眼神，顯然是在提醒他們該去履行今晚最後一項社交義務了。</p><p>文森特微微側首，禮貌地向葛萊蒂絲伸出另一隻手，掌心向上，姿態無可挑剔。</p></div></article>
+<article class="m speech"><div class="body"><p>「令堂在看著我們了。哈靈頓小姐，不知我是否有這個榮幸，請妳跳今晚的最後一支舞？」</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 23:08</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">凡德米爾高地．哈靈頓宅邸</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>012</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，站在宴會廳舞池邊緣，向葛萊蒂絲伸手邀舞</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕，披著羊毛披肩），左手無名指戴著巨鑽戒指</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「把這支舞跳完，今晚的戲也就差不多該落幕了。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>薩爾瓦多：寒暄後轉身離開<br>伊莉諾：在壁爐旁朝兩人投來示意的眼神<br>查爾斯：站在愛德華身旁冷淡旁觀</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・露琪亞：下週找個下午去她那裡，由她親自替葛萊蒂絲量身訂製法國蕾絲禮服</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 14 回合</p>
+<article class="m speech"><div class="body"><p>「是的，當然。」</p><p>她對文森特伸出手，心裡琢磨著等等貼在一起的時候，他聞不聞得出她身上有露琪亞家裡的薰香味──話說回來，假如他期待她會無視他日後總會帶著情婦的香水味歸家，那應該也不能怪她身上帶著同一個人的味道。</p></div></article>
+<article class="m narr"><div class="body"><p>文森特接過她戴著蕾絲手套的手，指腹隔著薄薄的絲織品輕輕一觸，隨即自然地將她引向舞池中央。他的步伐穩健而從容，右手虛扶在她的腰際，力道拿捏得恰到好處——既不會顯得生疏失禮，也沒有越過未婚夫妻之間該有的分寸。</p><p>隨著提琴與鋼琴交織出的三拍子旋律流淌開來，兩人順著人潮緩緩旋轉。水晶吊燈的光芒在葛萊蒂絲的金髮與肩頸間碎裂開來，而文森特的目光始終落在她肩頭上方一點的位置，偶爾才低頭看她一眼，維持著無可挑剔的紳士姿態。</p><p>就在一個轉身、兩人距離稍微拉近的瞬間，一縷極淡、卻異常熟悉的氣息掠過文森特的鼻尖。</p><p>那不是凡德米爾高地那些名門千金偏愛的濃郁玫瑰或鈴蘭香水，而是一種帶著暖意的薰香，混雜著一點點高級布料特有的乾爽氣味，還有雨夜裡潮濕的空氣。</p><p>文森特的腳步沒有半點遲疑，依舊精準地踩在節拍上，臉上的神情甚至沒有絲毫波動，只是垂在側畔的指尖微不可察地頓了一瞬。</p><p>那是艾許頓廣場頂樓公寓裡常點著的薰香味道——露琪亞總愛在換季整理衣櫃或燙衣服時點上一點。</p><p>但他什麼也沒有問，甚至連眉頭都沒有皺一下。</p><p>「哈靈頓小姐今晚似乎有些累了。」</p></div></article>
+<article class="m speech"><div class="body"><p>他的聲音壓得很低，伴隨著華爾茲的旋轉送到她耳邊，語氣平穩得像是在談論明天的天氣。</p></div></article>
+<article class="m narr"><div class="body"><p>「這支舞結束後，我會向令尊告辭。妳今晚應付了這麼多賓客，也該早點休息。」</p></div></article>
+<article class="m speech"><div class="body"><p>舞池邊緣，哈靈頓夫人正與幾位太太交換著滿意的眼神，而查爾斯依舊站在愛德華身旁，冷眼看著舞池中央這對在外人眼裡堪稱門當戶對的未婚夫妻。</p><p>當最後一個音符落下，文森特優雅地停下腳步，微微欠身向葛萊蒂絲致意，隨後才鬆開了扶在她腰際的手。</p></div></article>
+<article class="m narr"><div class="body"><p>「感謝妳的陪伴，葛萊蒂絲。」</p></div></article>
+<article class="m speech"><div class="body"><p>他直起身，目光平靜地迎向她的視線，眼底依舊是那副禮貌而疏離的從容。</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 23:15</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">凡德米爾高地．哈靈頓宅邸</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>013</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 45°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服，在舞池中央與葛萊蒂絲跳完最後一支舞</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕，披著羊毛披肩），左手無名指戴著巨鑽戒指</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「這味道倒是巧得很，不過既然她沒說，我也沒必要多問。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>伊莉諾：在壁爐旁與名媛交談並滿意地看著舞池<br>愛德華：與賓客寒暄<br>查爾斯：站在愛德華身旁冷淡旁觀</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・露琪亞：下週找個下午去她那裡，由她親自替葛萊蒂絲量身訂製法國蕾絲禮服</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+<section class="turn">
+<p class="tno">第 15 回合</p>
+<article class="m speech"><div class="body"></div></article>
+<article class="m narr"><div class="body"></div></article>
+<article class="m speech"><div class="body"></div></article>
+<article class="m narr"><div class="body"><p>「感謝你的陪伴，文森特。」</p><p>葛萊蒂絲對他嫣然一笑，眼底映著水晶吊燈碎裂的光芒，姿態優雅得無可挑剔。文森特微微頷首，伸手替她擋開身側一名端著香檳經過的侍者，將她禮貌地送回愛德華與伊莉諾身旁，這才轉身向主人家道別。</p><p>十一月的雨夜帶著刺骨的寒意。文森特步出哈靈頓宅邸厚重的橡木大門時，門廊下的侍從已經替他撐開了黑傘。他接過長大衣披上，戴好軟呢帽，沒有在台階上多作停留，便徑直坐進了早已等候在車道旁的黑色轎車後座。</p><p>車門關上，隔絕了凡德米爾高地濕冷的風雨與門廳裡隱約傳來的弦樂餘韻。車廂內只亮著一盞昏黃的頂燈，空氣裡還殘留著一點方才在舞池裡沾上的氣息——屬於葛萊蒂絲的淡雅香水，以及那一縷幾乎被掩蓋過去的、艾許頓廣場的薰香。</p><p>文森特靠進真皮座椅裡，抬手鬆開了領結，從西裝內袋取出純銀菸盒，敲出一支菸咬在嘴裡，卻沒有立刻點燃。</p></div></article>
+<article class="m speech"><div class="body"><p>「去皇冠大道。」</p></div></article>
+<article class="m narr"><div class="body"><p>他對前座的司機開口，聲音在安靜的車廂裡顯得低沉而平穩。</p><p>司機從後視鏡裡看了他一眼，恭敬地應了一聲「是，先生」，隨即發動引擎，車輪碾過積水的柏油路面，朝著山丘下的城市駛去。</p><p>今晚是週五。按照他一貫的規矩，週六才去艾許頓廣場，週日回珊瑚灣望彌撒與吃午飯。訂婚宴已經結束，該演的戲也演完了，他今晚只想回皇冠大道的飯店頂樓套房，倒上一杯威士忌，把腦子裡那些銀行帳目與社交禮數暫時擱在一旁。</p><p>黑色轎車平穩地駛離凡德米爾高地，沿著被雨水沖刷得發亮的街道一路向南。窗外霓虹燈的光影在玻璃上拉長、碎裂，皇冠大道的夜生活才正要開始，而他只是閉上眼，指腹無意識地摩挲著菸盒冰涼的銀面。</p></div></article>
+<div class="widget"><details style="font-family:Georgia,serif;color:#e9dfcc;background:#100d0b;border:1px solid #6b5636;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #3a2e1e;max-width:640px">
+  <summary style="display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+    <div style="flex:none;position:relative;width:46px;height:46px;border-radius:50%;background:repeating-conic-gradient(#a8864a 0 3deg,#100d0b 3deg 15deg);box-shadow:0 0 0 1px #6b5636">
+      <span style="position:absolute;top:8px;left:8px;right:8px;bottom:8px;border-radius:50%;background:#100d0b;border:1px solid #d4a259;box-shadow:0 0 0 3px #100d0b,0 0 0 4px #6b5636;color:#f0d9a8;font-size:16px;line-height:28px;text-align:center">☾</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:clamp(11px,3vw,13px);letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a8864a;font-family:Copperplate,'Copperplate Gothic Light',Didot,serif">1937年11月12日 FRI · 23:40</div>
+      <div style="font-size:clamp(14px,3.8vw,16px);letter-spacing:1px;line-height:1.45;color:#f4ecdc;margin:3px 0 0">皇冠大道途中．黑色轎車內</div>
+      <div style="font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.6;color:#d0646d"></div>
+    </div>
+    <div style="flex:none;width:40px;height:44px;border:1px solid #a8864a;box-shadow:inset 0 0 0 3px #100d0b,inset 0 0 0 4px #6b5636;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4a259;font-size:14px;letter-spacing:1px;line-height:1">
+      <small style="font-size:8px;letter-spacing:1px;margin-bottom:3px;color:#8c7f6c">No.</small>014</div>
+    </summary>
+    <div style="position:relative;height:375px;margin:0 12px 12px;border:1px solid #3a2e1e;background:#1a1410;display:flex;align-items:flex-start">
+      <details style="flex:1">
+        <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:0;font-size:13px;letter-spacing:2px;color:#a89d89">頭版<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">FRONT PAGE</small>
+      </summary>
+      <i style="position:absolute;top:0;left:0%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+      </i>
+      <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+        <div style="background:#e9e1cd;color:#2a2622;padding:14px 16px;text-align:center">
+          <div style="font:bold 26px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #2a2622;padding-bottom:4px">《晚星報》</div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #2a2622;padding:3px 0">
+            <span>VESPER PORT</span>
+            <span>1937年11月12日 FRI</span>
+            <span>5 CENTS</span>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;padding-top:3px">WEATHER — RAIN, 44°F</div>
+          <div style="font:bold 20px/1.35 Georgia,serif;margin:12px 0 4px">舊錢聯姻新貴？凡德米爾高地今夜燈火通明，神秘賓客名單引爆上城熱議！</div>
+          <div style="font-size:9px;letter-spacing:2px;color:#5a5248;border-bottom:1px solid #2a2622;padding-bottom:8px;margin-bottom:10px">— BY OUR STAFF CORRESPONDENT —</div>
+          <div style="column-count:2;column-gap:16px;column-rule:1px solid #b5ad9c;font-size:12px;line-height:1.75;text-align:justify;color:#3a352f">據可靠消息指出，哈靈頓宅邸今晚舉行的私人晚宴絕非尋常聚會，皇冠大道多家頂級花店昨日便已將數百朵白玫瑰送往山丘。有眼尖的侍者透露，受邀名單中竟出現了幾位平時只在南岸航運界與中城俱樂部走動的大人物。究竟是什麼樣的喜事，能讓向來挑剔的哈靈頓夫人敞開大門？本報將為您持續追蹤。</div>
+        </div>
+      </div>
+    </details>
+    <details style="flex:1">
+      <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">妳與他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">YOU ＆ HIM</small>
+    </summary>
+    <i style="position:absolute;top:0;left:25%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+    </i>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>此刻<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">文森特</b>
+        <span>黑色訂製無尾禮服外罩長大衣，領結微鬆，靠在轎車後座閉目養神</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">妳</b>
+        <span>及地斜裁絲質晚禮服（裙襬微濕，披著羊毛披肩），左手無名指戴著巨鑽戒指</span>
+      </div>
+      <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;">
+        <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+        <span>未婚夫妻｜禮貌周到而保持距離</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+        <span style="color:#d4a259;font-size:11px">◆</span>他的心聲<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+        </span>
+      </div>
+      <div style="border-left:2px solid #d4a259;padding:4px 0 4px 14px;font-size:15px;line-height:1.9;color:#f4ecdc">「這樁婚事總算定了下來，明天還得去碼頭看看那批貨。」</div>
+    </div>
+  </details>
+  <details style="flex:1">
+    <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">其他<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">OTHERS</small>
+  </summary>
+  <i style="position:absolute;top:0;left:50%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+  </i>
+  <div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>在場人物<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">現場</b>
+      <span>司機：平穩駕駛著黑色轎車前往皇冠大道</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+      <span style="color:#d4a259;font-size:11px">◆</span>社交<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+      </span>
+    </div>
+    <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+      <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">關係</b>
+      <span>查爾斯：冷淡審視<br>薩爾瓦多：饒有興致</span>
+    </div>
+  </div>
+</details>
+<details style="flex:1">
+  <summary style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:52px;cursor:pointer;background:#0b0907;border-bottom:1px solid #3a2e1e;border-left:1px solid #3a2e1e;font-size:13px;letter-spacing:2px;color:#a89d89">備忘<small style="font-size:9px;letter-spacing:2px;color:#8c7f6c;margin-top:2px">MEMO</small>
+</summary>
+<i style="position:absolute;top:0;left:75%;width:25%;height:52px;border-top:2px solid #d4a259;background:rgba(212,162,89,.1);border-bottom:2px solid #1a1410;pointer-events:none">
+</i>
+<div style="position:absolute;left:0;right:0;top:52px;bottom:0;overflow-y:auto;padding:18px 16px 20px;background:#1a1410">
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:0 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>迄今為止<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">大事</b>
+    <span>1937年11月12日｜文森特與葛萊蒂絲正式宣布訂婚</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:3px;color:#f4ecdc;margin:20px 0 12px">
+    <span style="color:#d4a259;font-size:11px">◆</span>重要約定<span style="flex:1;height:1px;background:linear-gradient(90deg,#6b5636,transparent)">
+    </span>
+  </div>
+  <div style="display:flex;gap:14px;padding:9px 0;border-bottom:1px dotted #3a2e1e;font-size:13px;line-height:1.8;white-space:pre-line;">
+    <b style="flex:none;width:52px;font-weight:400;font-size:11px;letter-spacing:2px;color:#d4a259;padding-top:2px">約定</b>
+    <span>・露琪亞：下週找個下午去她那裡，由她親自替葛萊蒂絲量身訂製法國蕾絲禮服</span>
+  </div>
+</div>
+</details>
+</div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+<div style="display:flex;justify-content:space-between;padding:0 16px 12px;font-size:10px;letter-spacing:3px;color:#6b5636">
+  <span>◆ ◇ ◆</span>
+  <span>VESPER PORT · MCMXXXVII</span>
+</div>
+</details></div>
+</section>
+</main>
+<h2 class="sec">圖片清單</h2>
+<p class="empty">這份對話沒有圖片。</p>
+<footer id="end">鴨答鴨答對話備份・繁體中文版<br>原作工具：@r2kaje，原始收集方式出自 H._.</footer>
+</div>
+<script>(function(){var K="cdbzh-prefs";try{var p=JSON.parse(localStorage.getItem(K)||"{}");Object.keys(p).forEach(function(n){var el=document.getElementById(p[n]);if(el)el.checked=true;});}catch(e){}document.addEventListener("change",function(e){var t=e.target;if(!t||t.type!=="radio")return;try{var p=JSON.parse(localStorage.getItem(K)||"{}");p[t.name]=t.id;localStorage.setItem(K,JSON.stringify(p));}catch(e){}});})();</script>
+</body>
+</html>
